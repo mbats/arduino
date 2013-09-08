@@ -1,0 +1,59 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.obeo.fr/arduino')]
+
+
+[template public generateSketch(sketch : Sketch)]
+[comment @main/]
+[genIno()/]
+[genMakefile()/]
+[/template]
+
+[template public genIno (sketch : Sketch) ]
+[file (sketch.name+'.ino', false, 'UTF-8')]
+[for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
+int [mod.getVariableName()/] = [mod.pin.number/];
+[/for]
+
+void setup() {
+[for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
+  pinMode([mod.getVariableName()/], OUTPUT);  
+[/for]
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+ [generateInstruction(sketch.loop._init.next)/]
+}
+[/file]
+[/template]
+
+[template public genMakefile (sketch : Sketch) ]
+[file ('Makefile', false, 'UTF-8')]
+BOARD_TAG    = uno
+ARDUINO_PORT = /dev/ttyACM0
+ARDUINO_LIBS = 
+
+include /usr/share/arduino/Arduino.mk
+[/file]
+[/template]
+
+[template public generateInstruction(instruction : Delay)post (trim())]
+delay([instruction.value/]);
+[generateInstruction(instruction.next)/]
+[/template]
+
+[template public generateInstruction(instruction : Status)post (trim())]
+digitalWrite([instruction.module.getVariableName()/], [instruction.status/]);
+[generateInstruction(instruction.next)/]
+[/template]
+
+[template public generateInstruction(instruction : End)post (trim())]
+[/template]
+
+[template public generateInstruction(instruction : Instruction)]
+Generation error for [instruction/]
+[generateInstruction(instruction.next)/]
+[/template]
+
+[query public getVariableName (mod : Module) : String = mod.name.replaceAll(' ', '')/]
+

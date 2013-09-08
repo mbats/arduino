@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="fr.obeo.dsl.arduino.presentation.ArduinoModelWizardID"
+            name="%_UI_ArduinoModelWizard_label"
+            class="fr.obeo.dsl.arduino.presentation.ArduinoModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ArduinoModelFile.gif">
+         <description>%_UI_ArduinoModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="fr.obeo.dsl.arduino.presentation.ArduinoEditorID"
+            name="%_UI_ArduinoEditor_label"
+            icon="icons/full/obj16/ArduinoModelFile.gif"
+            extensions="arduino"
+            class="fr.obeo.dsl.arduino.presentation.ArduinoEditor"
+            contributorClass="fr.obeo.dsl.arduino.presentation.ArduinoActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

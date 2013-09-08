@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-Name: fr.obeo.dsl.arduino.design
+Bundle-SymbolicName: fr.obeo.dsl.arduino.design;singleton=true
+Bundle-Version: 1.0.0
+Bundle-Activator: fr.obeo.dsl.arduino.design.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ fr.obeo.dsl.viewpoint,
+ fr.obeo.dsl.common.acceleo.mtl
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

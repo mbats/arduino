@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="fr.obeo.dsl.viewpoint.componentization">
+    <component class="fr.obeo.dsl.arduino.design.Activator"
+               id="fr.obeo.dsl.arduino.design"
+	       name="arduino">
+    </component>
+  </extension>
+</plugin>

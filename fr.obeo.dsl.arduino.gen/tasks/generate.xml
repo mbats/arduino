@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="generate" name="fr.obeo.dsl.arduino.gen">
+    <property name="ECLIPSE_HOME" value="../../../../programs/obeo-dev-studio/fr.obeo.dev.studio.branding.product-linux.gtk.x86"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../runtime-EclipseApplication"/>
+
+    <!-- The classpath with only the dependencies used by the project -->
+    <path id="fr.obeo.dsl.arduino.gen.libraryclasspath">
+        <pathelement location="${ECLIPSE_WORKSPACE}/fr.obeo.dsl.arduino.gen/bin"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime_3.8.0.v20120521-2346.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.8.2.v20130124-134944.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.common_3.6.100.v20120522-1841.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.jobs_3.5.200.v20120521-2346.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime.compatibility.registry_3.5.100.v20120521-2346/runtime_registry_compatibility.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.registry_3.5.200.v20120522-1841.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.preferences_3.5.1.v20121031-182809.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.contenttype_3.4.200.v20120523-2004.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.app_1.3.100.v20120522-1841.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.8.3.v20130125-0546.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.8.0.v20130125-0546.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.xmi_2.8.1.v20130125-0546.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.2.1.v20130128-1158.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.0.2.v20130125-1817.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.2.0.v20130125-1817.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.3.2.201302130808.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.3.2.201302130808.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.profiler_3.3.2.201302130808.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.3.2.201302130808.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.8.2.v20130125-0826.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.8.0.v20130125-0826.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/com.google.guava_11.0.2.v201303041551.jar"/>
+    </path>
+
+    <path id="fr.obeo.dsl.arduino.gen.classpath">
+        <path refid="fr.obeo.dsl.arduino.gen.libraryclasspath"/>
+    </path>
+
+    <!-- The classpath with only the jars available in the plugin folder of Eclipse -->
+    <path id="fr.obeo.dsl.arduino.gen.libraryclasspath.alljars">
+        <pathelement location="../fr.obeo.dsl.arduino.gen/bin"/>
+        <fileset dir="${ECLIPSE_HOME}/plugins/" includes="*.jar"/>
+    </path>
+
+    <path id="fr.obeo.dsl.arduino.gen.classpath.alljars">
+        <path refid="fr.obeo.dsl.arduino.gen.libraryclasspath.alljars"/>
+    </path>
+
+    <!-- The default task with the jars used by this project -->
+    <target name="generate">
+        <java classname="fr.obeo.dsl.arduino.gen.main.Generate" classpathref="fr.obeo.dsl.arduino.gen.classpath">
+            <arg value="${model}"/>
+            <arg value="${target}"/>
+        </java>
+    </target>
+
+    <!--
+        In case of problem you can also try with all the jar available in your Eclipse
+        Keep in mind that having two versions of the same jar can create problems
+    -->
+    <target name="generate.alljars">
+        <java classname="fr.obeo.dsl.arduino.gen.main.Generate" classpathref="fr.obeo.dsl.arduino.gen.classpath">
+            <arg value="${model}"/>
+            <arg value="${target}"/>
+        </java>
+    </target>
+</project>

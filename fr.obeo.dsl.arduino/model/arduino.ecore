@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="arduino" nsURI="http://www.obeo.fr/arduino" nsPrefix="arduino">
+  <eClassifiers xsi:type="ecore:EClass" name="HardwareLayout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arduino" lowerBound="1"
+        eType="#//Platform" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
+        eType="#//Module" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Platform">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pins" upperBound="-1" eType="#//Pin"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Module">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pin" eType="#//Pin" eOpposite="#//Pin/module"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DigitalPin" eSuperTypes="#//Pin"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" eType="#//Module"
+        eOpposite="#//Module/pin"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalogPin" eSuperTypes="#//Pin"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sketch">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hardware" lowerBound="1"
+        eType="#//HardwareLayout"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loop" lowerBound="1" eType="#//Loop"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arduino">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hardware" lowerBound="1"
+        eType="#//HardwareLayout" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sketches" upperBound="-1"
+        eType="#//Sketch" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VoltageLevel">
+    <eLiterals name="HIGH"/>
+    <eLiterals name="LOW"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Loop">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
+        eType="#//Instruction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//Init"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="end" eType="#//End"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//Instruction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Instruction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Status" eSuperTypes="#//ModuleInstruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Level" eSuperTypes="#//ModuleInstruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleInstruction" abstract="true" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
+        eType="#//Module"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Control" abstract="true" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Utilities" abstract="true" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IO" abstract="true" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Delay" eSuperTypes="#//Utilities">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="#//Time"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Time">
+    <eLiterals name="MilliSecond"/>
+    <eLiterals name="MicroSecond"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Init" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//Instruction"/>
+</ecore:EPackage>

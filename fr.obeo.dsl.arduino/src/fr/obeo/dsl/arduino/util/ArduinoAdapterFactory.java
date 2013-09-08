@@ -1,0 +1,444 @@
+/**
+ */
+package fr.obeo.dsl.arduino.util;
+
+import fr.obeo.dsl.arduino.*;
+
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Adapter Factory</b> for the model.
+ * It provides an adapter <code>createXXX</code> method for each class of the model.
+ * <!-- end-user-doc -->
+ * @see fr.obeo.dsl.arduino.ArduinoPackage
+ * @generated
+ */
+public class ArduinoAdapterFactory extends AdapterFactoryImpl {
+	/**
+	 * The cached model package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static ArduinoPackage modelPackage;
+
+	/**
+	 * Creates an instance of the adapter factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArduinoAdapterFactory() {
+		if (modelPackage == null) {
+			modelPackage = ArduinoPackage.eINSTANCE;
+		}
+	}
+
+	/**
+	 * Returns whether this factory is applicable for the type of the object.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+	 * <!-- end-user-doc -->
+	 * @return whether this factory is applicable for the type of the object.
+	 * @generated
+	 */
+	@Override
+	public boolean isFactoryForType(Object object) {
+		if (object == modelPackage) {
+			return true;
+		}
+		if (object instanceof EObject) {
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
+		}
+		return false;
+	}
+
+	/**
+	 * The switch that delegates to the <code>createXXX</code> methods.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArduinoSwitch<Adapter> modelSwitch =
+		new ArduinoSwitch<Adapter>() {
+			@Override
+			public Adapter caseHardwareLayout(HardwareLayout object) {
+				return createHardwareLayoutAdapter();
+			}
+			@Override
+			public Adapter casePlatform(Platform object) {
+				return createPlatformAdapter();
+			}
+			@Override
+			public Adapter caseModule(Module object) {
+				return createModuleAdapter();
+			}
+			@Override
+			public Adapter caseDigitalPin(DigitalPin object) {
+				return createDigitalPinAdapter();
+			}
+			@Override
+			public Adapter casePin(Pin object) {
+				return createPinAdapter();
+			}
+			@Override
+			public Adapter caseAnalogPin(AnalogPin object) {
+				return createAnalogPinAdapter();
+			}
+			@Override
+			public Adapter caseSketch(Sketch object) {
+				return createSketchAdapter();
+			}
+			@Override
+			public Adapter caseArduino(Arduino object) {
+				return createArduinoAdapter();
+			}
+			@Override
+			public Adapter caseLoop(Loop object) {
+				return createLoopAdapter();
+			}
+			@Override
+			public Adapter caseInstruction(Instruction object) {
+				return createInstructionAdapter();
+			}
+			@Override
+			public Adapter caseStatus(Status object) {
+				return createStatusAdapter();
+			}
+			@Override
+			public Adapter caseLevel(Level object) {
+				return createLevelAdapter();
+			}
+			@Override
+			public Adapter caseModuleInstruction(ModuleInstruction object) {
+				return createModuleInstructionAdapter();
+			}
+			@Override
+			public Adapter caseControl(Control object) {
+				return createControlAdapter();
+			}
+			@Override
+			public Adapter caseUtilities(Utilities object) {
+				return createUtilitiesAdapter();
+			}
+			@Override
+			public Adapter caseIO(IO object) {
+				return createIOAdapter();
+			}
+			@Override
+			public Adapter caseDelay(Delay object) {
+				return createDelayAdapter();
+			}
+			@Override
+			public Adapter caseInit(Init object) {
+				return createInitAdapter();
+			}
+			@Override
+			public Adapter caseEnd(End object) {
+				return createEndAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
+
+	/**
+	 * Creates an adapter for the <code>target</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param target the object to adapt.
+	 * @return the adapter for the <code>target</code>.
+	 * @generated
+	 */
+	@Override
+	public Adapter createAdapter(Notifier target) {
+		return modelSwitch.doSwitch((EObject)target);
+	}
+
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.HardwareLayout <em>Hardware Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.HardwareLayout
+	 * @generated
+	 */
+	public Adapter createHardwareLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Platform <em>Platform</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Platform
+	 * @generated
+	 */
+	public Adapter createPlatformAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Module <em>Module</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Module
+	 * @generated
+	 */
+	public Adapter createModuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.DigitalPin <em>Digital Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.DigitalPin
+	 * @generated
+	 */
+	public Adapter createDigitalPinAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Pin <em>Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Pin
+	 * @generated
+	 */
+	public Adapter createPinAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.AnalogPin <em>Analog Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.AnalogPin
+	 * @generated
+	 */
+	public Adapter createAnalogPinAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Sketch <em>Sketch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Sketch
+	 * @generated
+	 */
+	public Adapter createSketchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Arduino <em>Arduino</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Arduino
+	 * @generated
+	 */
+	public Adapter createArduinoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Loop <em>Loop</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Loop
+	 * @generated
+	 */
+	public Adapter createLoopAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Instruction <em>Instruction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Instruction
+	 * @generated
+	 */
+	public Adapter createInstructionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Status <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Status
+	 * @generated
+	 */
+	public Adapter createStatusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Level <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Level
+	 * @generated
+	 */
+	public Adapter createLevelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.ModuleInstruction <em>Module Instruction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.ModuleInstruction
+	 * @generated
+	 */
+	public Adapter createModuleInstructionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Control <em>Control</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Control
+	 * @generated
+	 */
+	public Adapter createControlAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Utilities <em>Utilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Utilities
+	 * @generated
+	 */
+	public Adapter createUtilitiesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.IO <em>IO</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.IO
+	 * @generated
+	 */
+	public Adapter createIOAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Delay <em>Delay</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Delay
+	 * @generated
+	 */
+	public Adapter createDelayAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Init <em>Init</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Init
+	 * @generated
+	 */
+	public Adapter createInitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.End <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.End
+	 * @generated
+	 */
+	public Adapter createEndAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for the default case.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @generated
+	 */
+	public Adapter createEObjectAdapter() {
+		return null;
+	}
+
+} //ArduinoAdapterFactory
