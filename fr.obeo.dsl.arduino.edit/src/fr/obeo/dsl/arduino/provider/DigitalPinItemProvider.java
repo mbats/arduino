@@ -77,7 +77,7 @@ public class DigitalPinItemProvider
 	@Override
 	public String getText(Object object) {
 		DigitalPin digitalPin = (DigitalPin)object;
-		return getString("_UI_DigitalPin_type") + " " + digitalPin.getNumber();
+		return getString("_UI_DigitalPin_type") + " " + digitalPin.getId();
 	}
 
 	/**

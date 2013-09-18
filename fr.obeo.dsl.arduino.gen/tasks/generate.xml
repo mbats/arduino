@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="fr.obeo.dsl.arduino.gen">
-    <property name="ECLIPSE_HOME" value="../../../../programs/obeo-dev-studio/fr.obeo.dev.studio.branding.product-linux.gtk.x86"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../runtime-EclipseApplication"/>
+    <property name="ECLIPSE_HOME" value="../../../../../programs/obeo-dev-studio/fr.obeo.dev.studio.branding.product-linux.gtk.x86"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.obeo.dsl.arduino.gen.libraryclasspath">

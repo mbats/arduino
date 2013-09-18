@@ -4,8 +4,8 @@ package fr.obeo.dsl.arduino.impl;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
 import fr.obeo.dsl.arduino.Module;
+import fr.obeo.dsl.arduino.ModuleKind;
 import fr.obeo.dsl.arduino.Pin;
-import fr.obeo.dsl.arduino.VoltageLevel;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,13 +24,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getPin <em>Pin</em>}</li>
- *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getKind <em>Kind</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ModuleImpl extends EObjectImpl implements Module {
+public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	/**
 	 * The cached value of the '{@link #getPin() <em>Pin</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -42,24 +42,24 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	protected Pin pin;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getKind()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final ModuleKind KIND_EDEFAULT = ModuleKind.DIGITAL;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getKind()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected ModuleKind kind = KIND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,8 +145,8 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public ModuleKind getKind() {
+		return kind;
 	}
 
 	/**
@@ -154,11 +154,11 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setKind(ModuleKind newKind) {
+		ModuleKind oldKind = kind;
+		kind = newKind == null ? KIND_EDEFAULT : newKind;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.MODULE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.MODULE__KIND, oldKind, kind));
 	}
 
 	/**
@@ -202,8 +202,8 @@ public class ModuleImpl extends EObjectImpl implements Module {
 			case ArduinoPackage.MODULE__PIN:
 				if (resolve) return getPin();
 				return basicGetPin();
-			case ArduinoPackage.MODULE__NAME:
-				return getName();
+			case ArduinoPackage.MODULE__KIND:
+				return getKind();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,8 +219,8 @@ public class ModuleImpl extends EObjectImpl implements Module {
 			case ArduinoPackage.MODULE__PIN:
 				setPin((Pin)newValue);
 				return;
-			case ArduinoPackage.MODULE__NAME:
-				setName((String)newValue);
+			case ArduinoPackage.MODULE__KIND:
+				setKind((ModuleKind)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -237,8 +237,8 @@ public class ModuleImpl extends EObjectImpl implements Module {
 			case ArduinoPackage.MODULE__PIN:
 				setPin((Pin)null);
 				return;
-			case ArduinoPackage.MODULE__NAME:
-				setName(NAME_EDEFAULT);
+			case ArduinoPackage.MODULE__KIND:
+				setKind(KIND_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -254,8 +254,8 @@ public class ModuleImpl extends EObjectImpl implements Module {
 		switch (featureID) {
 			case ArduinoPackage.MODULE__PIN:
 				return pin != null;
-			case ArduinoPackage.MODULE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ArduinoPackage.MODULE__KIND:
+				return kind != KIND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -270,8 +270,8 @@ public class ModuleImpl extends EObjectImpl implements Module {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (kind: ");
+		result.append(kind);
 		result.append(')');
 		return result.toString();
 	}

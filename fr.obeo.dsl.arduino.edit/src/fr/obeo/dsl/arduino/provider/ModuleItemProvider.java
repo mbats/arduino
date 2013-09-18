@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ModuleItemProvider
-	extends ItemProviderAdapter
+	extends NamedElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -61,7 +61,7 @@ public class ModuleItemProvider
 			super.getPropertyDescriptors(object);
 
 			addPinPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addKindPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,36 +89,25 @@ public class ModuleItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Kind feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addKindPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Module_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Module_name_feature", "_UI_Module_type"),
-				 ArduinoPackage.Literals.MODULE__NAME,
+				 getString("_UI_Module_kind_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Module_kind_feature", "_UI_Module_type"),
+				 ArduinoPackage.Literals.MODULE__KIND,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This returns Module.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Module"));
 	}
 
 	/**
@@ -147,7 +136,7 @@ public class ModuleItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Module.class)) {
-			case ArduinoPackage.MODULE__NAME:
+			case ArduinoPackage.MODULE__KIND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -164,17 +153,6 @@ public class ModuleItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ArduinoEditPlugin.INSTANCE;
 	}
 
 }

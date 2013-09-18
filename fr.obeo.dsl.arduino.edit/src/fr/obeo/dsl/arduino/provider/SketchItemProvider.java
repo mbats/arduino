@@ -6,6 +6,7 @@ package fr.obeo.dsl.arduino.provider;
 import fr.obeo.dsl.arduino.ArduinoFactory;
 import fr.obeo.dsl.arduino.ArduinoPackage;
 import fr.obeo.dsl.arduino.Sketch;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -33,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class SketchItemProvider
-	extends ItemProviderAdapter
+	extends NamedElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -62,7 +64,6 @@ public class SketchItemProvider
 			super.getPropertyDescriptors(object);
 
 			addHardwarePropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,28 +86,6 @@ public class SketchItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Sketch_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sketch_name_feature", "_UI_Sketch_type"),
-				 ArduinoPackage.Literals.SKETCH__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -178,9 +157,6 @@ public class SketchItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Sketch.class)) {
-			case ArduinoPackage.SKETCH__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case ArduinoPackage.SKETCH__LOOP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -203,17 +179,6 @@ public class SketchItemProvider
 			(createChildParameter
 				(ArduinoPackage.Literals.SKETCH__LOOP,
 				 ArduinoFactory.eINSTANCE.createLoop()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ArduinoEditPlugin.INSTANCE;
 	}
 
 }

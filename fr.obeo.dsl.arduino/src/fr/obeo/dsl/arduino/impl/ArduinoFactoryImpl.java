@@ -57,19 +57,20 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ArduinoPackage.HARDWARE_LAYOUT: return createHardwareLayout();
+			case ArduinoPackage.HARDWARE: return createHardware();
 			case ArduinoPackage.PLATFORM: return createPlatform();
-			case ArduinoPackage.MODULE: return createModule();
 			case ArduinoPackage.DIGITAL_PIN: return createDigitalPin();
 			case ArduinoPackage.ANALOG_PIN: return createAnalogPin();
 			case ArduinoPackage.SKETCH: return createSketch();
-			case ArduinoPackage.ARDUINO: return createArduino();
+			case ArduinoPackage.PROJECT: return createProject();
 			case ArduinoPackage.LOOP: return createLoop();
 			case ArduinoPackage.STATUS: return createStatus();
 			case ArduinoPackage.LEVEL: return createLevel();
 			case ArduinoPackage.DELAY: return createDelay();
 			case ArduinoPackage.INIT: return createInit();
 			case ArduinoPackage.END: return createEnd();
+			case ArduinoPackage.INPUT_MODULE: return createInputModule();
+			case ArduinoPackage.OUTPUT_MODULE: return createOutputModule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -83,10 +84,10 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case ArduinoPackage.VOLTAGE_LEVEL:
-				return createVoltageLevelFromString(eDataType, initialValue);
 			case ArduinoPackage.TIME:
 				return createTimeFromString(eDataType, initialValue);
+			case ArduinoPackage.MODULE_KIND:
+				return createModuleKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -100,10 +101,10 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case ArduinoPackage.VOLTAGE_LEVEL:
-				return convertVoltageLevelToString(eDataType, instanceValue);
 			case ArduinoPackage.TIME:
 				return convertTimeToString(eDataType, instanceValue);
+			case ArduinoPackage.MODULE_KIND:
+				return convertModuleKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -114,9 +115,9 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareLayout createHardwareLayout() {
-		HardwareLayoutImpl hardwareLayout = new HardwareLayoutImpl();
-		return hardwareLayout;
+	public Hardware createHardware() {
+		HardwareImpl hardware = new HardwareImpl();
+		return hardware;
 	}
 
 	/**
@@ -127,16 +128,6 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	public Platform createPlatform() {
 		PlatformImpl platform = new PlatformImpl();
 		return platform;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Module createModule() {
-		ModuleImpl module = new ModuleImpl();
-		return module;
 	}
 
 	/**
@@ -174,9 +165,9 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Arduino createArduino() {
-		ArduinoImpl arduino = new ArduinoImpl();
-		return arduino;
+	public Project createProject() {
+		ProjectImpl project = new ProjectImpl();
+		return project;
 	}
 
 	/**
@@ -244,10 +235,9 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VoltageLevel createVoltageLevelFromString(EDataType eDataType, String initialValue) {
-		VoltageLevel result = VoltageLevel.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
+	public InputModule createInputModule() {
+		InputModuleImpl inputModule = new InputModuleImpl();
+		return inputModule;
 	}
 
 	/**
@@ -255,8 +245,9 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertVoltageLevelToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public OutputModule createOutputModule() {
+		OutputModuleImpl outputModule = new OutputModuleImpl();
+		return outputModule;
 	}
 
 	/**
@@ -276,6 +267,26 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * @generated
 	 */
 	public String convertTimeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModuleKind createModuleKindFromString(EDataType eDataType, String initialValue) {
+		ModuleKind result = ModuleKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertModuleKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

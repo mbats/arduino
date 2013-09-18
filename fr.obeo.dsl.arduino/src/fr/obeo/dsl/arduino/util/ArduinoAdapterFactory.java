@@ -68,8 +68,8 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 	protected ArduinoSwitch<Adapter> modelSwitch =
 		new ArduinoSwitch<Adapter>() {
 			@Override
-			public Adapter caseHardwareLayout(HardwareLayout object) {
-				return createHardwareLayoutAdapter();
+			public Adapter caseHardware(Hardware object) {
+				return createHardwareAdapter();
 			}
 			@Override
 			public Adapter casePlatform(Platform object) {
@@ -96,8 +96,8 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 				return createSketchAdapter();
 			}
 			@Override
-			public Adapter caseArduino(Arduino object) {
-				return createArduinoAdapter();
+			public Adapter caseProject(Project object) {
+				return createProjectAdapter();
 			}
 			@Override
 			public Adapter caseLoop(Loop object) {
@@ -144,6 +144,18 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 				return createEndAdapter();
 			}
 			@Override
+			public Adapter caseInputModule(InputModule object) {
+				return createInputModuleAdapter();
+			}
+			@Override
+			public Adapter caseOutputModule(OutputModule object) {
+				return createOutputModuleAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -164,16 +176,16 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.HardwareLayout <em>Hardware Layout</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Hardware <em>Hardware</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.arduino.HardwareLayout
+	 * @see fr.obeo.dsl.arduino.Hardware
 	 * @generated
 	 */
-	public Adapter createHardwareLayoutAdapter() {
+	public Adapter createHardwareAdapter() {
 		return null;
 	}
 
@@ -262,16 +274,16 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Arduino <em>Arduino</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Project <em>Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.arduino.Arduino
+	 * @see fr.obeo.dsl.arduino.Project
 	 * @generated
 	 */
-	public Adapter createArduinoAdapter() {
+	public Adapter createProjectAdapter() {
 		return null;
 	}
 
@@ -426,6 +438,48 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEndAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.InputModule <em>Input Module</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.InputModule
+	 * @generated
+	 */
+	public Adapter createInputModuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.OutputModule <em>Output Module</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.OutputModule
+	 * @generated
+	 */
+	public Adapter createOutputModuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
 		return null;
 	}
 

@@ -1,0 +1,263 @@
+/**
+ */
+package fr.obeo.dsl.arduino.impl;
+
+import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.Hardware;
+import fr.obeo.dsl.arduino.Module;
+import fr.obeo.dsl.arduino.Platform;
+import fr.obeo.dsl.arduino.Project;
+import fr.obeo.dsl.arduino.Sketch;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Project</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getHardwares <em>Hardwares</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getSketches <em>Sketches</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getPlatform <em>Platform</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class ProjectImpl extends EObjectImpl implements Project {
+	/**
+	 * The cached value of the '{@link #getHardwares() <em>Hardwares</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHardwares()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Hardware> hardwares;
+
+	/**
+	 * The cached value of the '{@link #getSketches() <em>Sketches</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSketches()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Sketch> sketches;
+
+	/**
+	 * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModules()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Module> modules;
+
+	/**
+	 * The cached value of the '{@link #getPlatform() <em>Platform</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlatform()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Platform> platform;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProjectImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ArduinoPackage.Literals.PROJECT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Hardware> getHardwares() {
+		if (hardwares == null) {
+			hardwares = new EObjectContainmentEList<Hardware>(Hardware.class, this, ArduinoPackage.PROJECT__HARDWARES);
+		}
+		return hardwares;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Sketch> getSketches() {
+		if (sketches == null) {
+			sketches = new EObjectContainmentEList<Sketch>(Sketch.class, this, ArduinoPackage.PROJECT__SKETCHES);
+		}
+		return sketches;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Module> getModules() {
+		if (modules == null) {
+			modules = new EObjectContainmentEList<Module>(Module.class, this, ArduinoPackage.PROJECT__MODULES);
+		}
+		return modules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Platform> getPlatform() {
+		if (platform == null) {
+			platform = new EObjectContainmentEList<Platform>(Platform.class, this, ArduinoPackage.PROJECT__PLATFORM);
+		}
+		return platform;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ArduinoPackage.PROJECT__HARDWARES:
+				return ((InternalEList<?>)getHardwares()).basicRemove(otherEnd, msgs);
+			case ArduinoPackage.PROJECT__SKETCHES:
+				return ((InternalEList<?>)getSketches()).basicRemove(otherEnd, msgs);
+			case ArduinoPackage.PROJECT__MODULES:
+				return ((InternalEList<?>)getModules()).basicRemove(otherEnd, msgs);
+			case ArduinoPackage.PROJECT__PLATFORM:
+				return ((InternalEList<?>)getPlatform()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case ArduinoPackage.PROJECT__HARDWARES:
+				return getHardwares();
+			case ArduinoPackage.PROJECT__SKETCHES:
+				return getSketches();
+			case ArduinoPackage.PROJECT__MODULES:
+				return getModules();
+			case ArduinoPackage.PROJECT__PLATFORM:
+				return getPlatform();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case ArduinoPackage.PROJECT__HARDWARES:
+				getHardwares().clear();
+				getHardwares().addAll((Collection<? extends Hardware>)newValue);
+				return;
+			case ArduinoPackage.PROJECT__SKETCHES:
+				getSketches().clear();
+				getSketches().addAll((Collection<? extends Sketch>)newValue);
+				return;
+			case ArduinoPackage.PROJECT__MODULES:
+				getModules().clear();
+				getModules().addAll((Collection<? extends Module>)newValue);
+				return;
+			case ArduinoPackage.PROJECT__PLATFORM:
+				getPlatform().clear();
+				getPlatform().addAll((Collection<? extends Platform>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case ArduinoPackage.PROJECT__HARDWARES:
+				getHardwares().clear();
+				return;
+			case ArduinoPackage.PROJECT__SKETCHES:
+				getSketches().clear();
+				return;
+			case ArduinoPackage.PROJECT__MODULES:
+				getModules().clear();
+				return;
+			case ArduinoPackage.PROJECT__PLATFORM:
+				getPlatform().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case ArduinoPackage.PROJECT__HARDWARES:
+				return hardwares != null && !hardwares.isEmpty();
+			case ArduinoPackage.PROJECT__SKETCHES:
+				return sketches != null && !sketches.isEmpty();
+			case ArduinoPackage.PROJECT__MODULES:
+				return modules != null && !modules.isEmpty();
+			case ArduinoPackage.PROJECT__PLATFORM:
+				return platform != null && !platform.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+} //ProjectImpl

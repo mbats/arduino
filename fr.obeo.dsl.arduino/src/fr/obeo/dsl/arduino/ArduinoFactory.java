@@ -22,13 +22,13 @@ public interface ArduinoFactory extends EFactory {
 	ArduinoFactory eINSTANCE = fr.obeo.dsl.arduino.impl.ArduinoFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Hardware Layout</em>'.
+	 * Returns a new object of class '<em>Hardware</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Hardware Layout</em>'.
+	 * @return a new object of class '<em>Hardware</em>'.
 	 * @generated
 	 */
-	HardwareLayout createHardwareLayout();
+	Hardware createHardware();
 
 	/**
 	 * Returns a new object of class '<em>Platform</em>'.
@@ -38,15 +38,6 @@ public interface ArduinoFactory extends EFactory {
 	 * @generated
 	 */
 	Platform createPlatform();
-
-	/**
-	 * Returns a new object of class '<em>Module</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Module</em>'.
-	 * @generated
-	 */
-	Module createModule();
 
 	/**
 	 * Returns a new object of class '<em>Digital Pin</em>'.
@@ -76,13 +67,13 @@ public interface ArduinoFactory extends EFactory {
 	Sketch createSketch();
 
 	/**
-	 * Returns a new object of class '<em>Arduino</em>'.
+	 * Returns a new object of class '<em>Project</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Arduino</em>'.
+	 * @return a new object of class '<em>Project</em>'.
 	 * @generated
 	 */
-	Arduino createArduino();
+	Project createProject();
 
 	/**
 	 * Returns a new object of class '<em>Loop</em>'.
@@ -137,6 +128,24 @@ public interface ArduinoFactory extends EFactory {
 	 * @generated
 	 */
 	End createEnd();
+
+	/**
+	 * Returns a new object of class '<em>Input Module</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Input Module</em>'.
+	 * @generated
+	 */
+	InputModule createInputModule();
+
+	/**
+	 * Returns a new object of class '<em>Output Module</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Output Module</em>'.
+	 * @generated
+	 */
+	OutputModule createOutputModule();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -59,6 +59,7 @@ public class LoopImpl extends EObjectImpl implements Loop {
 	 * @ordered
 	 */
 	protected Init init;
+
 	/**
 	 * The cached value of the '{@link #getEnd() <em>End</em>}' reference.
 	 * <!-- begin-user-doc -->

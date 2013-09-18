@@ -3,15 +3,16 @@
 package fr.obeo.dsl.arduino.impl;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
-import fr.obeo.dsl.arduino.HardwareLayout;
+import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.Loop;
 import fr.obeo.dsl.arduino.Sketch;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -24,13 +25,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SketchImpl#getHardware <em>Hardware</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SketchImpl#getLoop <em>Loop</em>}</li>
- *   <li>{@link fr.obeo.dsl.arduino.impl.SketchImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SketchImpl extends EObjectImpl implements Sketch {
+public class SketchImpl extends NamedElementImpl implements Sketch {
 	/**
 	 * The cached value of the '{@link #getHardware() <em>Hardware</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -39,7 +39,8 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 	 * @generated
 	 * @ordered
 	 */
-	protected HardwareLayout hardware;
+	protected Hardware hardware;
+
 	/**
 	 * The cached value of the '{@link #getLoop() <em>Loop</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -49,25 +50,6 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 	 * @ordered
 	 */
 	protected Loop loop;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,10 +75,10 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareLayout getHardware() {
+	public Hardware getHardware() {
 		if (hardware != null && hardware.eIsProxy()) {
 			InternalEObject oldHardware = (InternalEObject)hardware;
-			hardware = (HardwareLayout)eResolveProxy(oldHardware);
+			hardware = (Hardware)eResolveProxy(oldHardware);
 			if (hardware != oldHardware) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.SKETCH__HARDWARE, oldHardware, hardware));
@@ -110,7 +92,7 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareLayout basicGetHardware() {
+	public Hardware basicGetHardware() {
 		return hardware;
 	}
 
@@ -119,8 +101,8 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHardware(HardwareLayout newHardware) {
-		HardwareLayout oldHardware = hardware;
+	public void setHardware(Hardware newHardware) {
+		Hardware oldHardware = hardware;
 		hardware = newHardware;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SKETCH__HARDWARE, oldHardware, hardware));
@@ -174,27 +156,6 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SKETCH__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -217,8 +178,6 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 				return basicGetHardware();
 			case ArduinoPackage.SKETCH__LOOP:
 				return getLoop();
-			case ArduinoPackage.SKETCH__NAME:
-				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -232,13 +191,10 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ArduinoPackage.SKETCH__HARDWARE:
-				setHardware((HardwareLayout)newValue);
+				setHardware((Hardware)newValue);
 				return;
 			case ArduinoPackage.SKETCH__LOOP:
 				setLoop((Loop)newValue);
-				return;
-			case ArduinoPackage.SKETCH__NAME:
-				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,13 +209,10 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ArduinoPackage.SKETCH__HARDWARE:
-				setHardware((HardwareLayout)null);
+				setHardware((Hardware)null);
 				return;
 			case ArduinoPackage.SKETCH__LOOP:
 				setLoop((Loop)null);
-				return;
-			case ArduinoPackage.SKETCH__NAME:
-				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -277,26 +230,8 @@ public class SketchImpl extends EObjectImpl implements Sketch {
 				return hardware != null;
 			case ArduinoPackage.SKETCH__LOOP:
 				return loop != null;
-			case ArduinoPackage.SKETCH__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //SketchImpl

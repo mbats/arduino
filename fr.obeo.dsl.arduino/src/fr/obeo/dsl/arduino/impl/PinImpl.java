@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.PinImpl#getModule <em>Module</em>}</li>
- *   <li>{@link fr.obeo.dsl.arduino.impl.PinImpl#getNumber <em>Number</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.PinImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,24 +41,24 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 	protected Module module;
 
 	/**
-	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumber()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NUMBER_EDEFAULT = 0;
+	protected static final int ID_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumber()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected int number = NUMBER_EDEFAULT;
+	protected int id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,8 +144,8 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getNumber() {
-		return number;
+	public int getId() {
+		return id;
 	}
 
 	/**
@@ -153,11 +153,11 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumber(int newNumber) {
-		int oldNumber = number;
-		number = newNumber;
+	public void setId(int newId) {
+		int oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.PIN__NUMBER, oldNumber, number));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.PIN__ID, oldId, id));
 	}
 
 	/**
@@ -201,8 +201,8 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 			case ArduinoPackage.PIN__MODULE:
 				if (resolve) return getModule();
 				return basicGetModule();
-			case ArduinoPackage.PIN__NUMBER:
-				return getNumber();
+			case ArduinoPackage.PIN__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,8 +218,8 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 			case ArduinoPackage.PIN__MODULE:
 				setModule((Module)newValue);
 				return;
-			case ArduinoPackage.PIN__NUMBER:
-				setNumber((Integer)newValue);
+			case ArduinoPackage.PIN__ID:
+				setId((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -236,8 +236,8 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 			case ArduinoPackage.PIN__MODULE:
 				setModule((Module)null);
 				return;
-			case ArduinoPackage.PIN__NUMBER:
-				setNumber(NUMBER_EDEFAULT);
+			case ArduinoPackage.PIN__ID:
+				setId(ID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -253,8 +253,8 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 		switch (featureID) {
 			case ArduinoPackage.PIN__MODULE:
 				return module != null;
-			case ArduinoPackage.PIN__NUMBER:
-				return number != NUMBER_EDEFAULT;
+			case ArduinoPackage.PIN__ID:
+				return id != ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -269,8 +269,8 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (number: ");
-		result.append(number);
+		result.append(" (id: ");
+		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

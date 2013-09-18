@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Sketch#getHardware <em>Hardware</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Sketch#getLoop <em>Loop</em>}</li>
- *   <li>{@link fr.obeo.dsl.arduino.Sketch#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,8 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Sketch extends EObject {
-
+public interface Sketch extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Hardware</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -33,12 +31,12 @@ public interface Sketch extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Hardware</em>' reference.
-	 * @see #setHardware(HardwareLayout)
+	 * @see #setHardware(Hardware)
 	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getSketch_Hardware()
 	 * @model required="true"
 	 * @generated
 	 */
-	HardwareLayout getHardware();
+	Hardware getHardware();
 
 	/**
 	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Sketch#getHardware <em>Hardware</em>}' reference.
@@ -48,7 +46,7 @@ public interface Sketch extends EObject {
 	 * @see #getHardware()
 	 * @generated
 	 */
-	void setHardware(HardwareLayout value);
+	void setHardware(Hardware value);
 
 	/**
 	 * Returns the value of the '<em><b>Loop</b></em>' containment reference.
@@ -76,29 +74,4 @@ public interface Sketch extends EObject {
 	 */
 	void setLoop(Loop value);
 
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getSketch_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Sketch#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 } // Sketch

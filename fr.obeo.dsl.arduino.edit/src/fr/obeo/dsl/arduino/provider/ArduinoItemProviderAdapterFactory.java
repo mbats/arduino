@@ -72,26 +72,26 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.HardwareLayout} instances.
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Hardware} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected HardwareLayoutItemProvider hardwareLayoutItemProvider;
+	protected HardwareItemProvider hardwareItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.HardwareLayout}.
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Hardware}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createHardwareLayoutAdapter() {
-		if (hardwareLayoutItemProvider == null) {
-			hardwareLayoutItemProvider = new HardwareLayoutItemProvider(this);
+	public Adapter createHardwareAdapter() {
+		if (hardwareItemProvider == null) {
+			hardwareItemProvider = new HardwareItemProvider(this);
 		}
 
-		return hardwareLayoutItemProvider;
+		return hardwareItemProvider;
 	}
 
 	/**
@@ -115,29 +115,6 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 		}
 
 		return platformItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Module} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModuleItemProvider moduleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Module}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModuleAdapter() {
-		if (moduleItemProvider == null) {
-			moduleItemProvider = new ModuleItemProvider(this);
-		}
-
-		return moduleItemProvider;
 	}
 
 	/**
@@ -210,26 +187,26 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Arduino} instances.
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Project} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ArduinoItemProvider arduinoItemProvider;
+	protected ProjectItemProvider projectItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Arduino}.
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Project}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createArduinoAdapter() {
-		if (arduinoItemProvider == null) {
-			arduinoItemProvider = new ArduinoItemProvider(this);
+	public Adapter createProjectAdapter() {
+		if (projectItemProvider == null) {
+			projectItemProvider = new ProjectItemProvider(this);
 		}
 
-		return arduinoItemProvider;
+		return projectItemProvider;
 	}
 
 	/**
@@ -371,6 +348,52 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.InputModule} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputModuleItemProvider inputModuleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.InputModule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputModuleAdapter() {
+		if (inputModuleItemProvider == null) {
+			inputModuleItemProvider = new InputModuleItemProvider(this);
+		}
+
+		return inputModuleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.OutputModule} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OutputModuleItemProvider outputModuleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.OutputModule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOutputModuleAdapter() {
+		if (outputModuleItemProvider == null) {
+			outputModuleItemProvider = new OutputModuleItemProvider(this);
+		}
+
+		return outputModuleItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -469,19 +492,20 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	 * @generated
 	 */
 	public void dispose() {
-		if (hardwareLayoutItemProvider != null) hardwareLayoutItemProvider.dispose();
+		if (hardwareItemProvider != null) hardwareItemProvider.dispose();
 		if (platformItemProvider != null) platformItemProvider.dispose();
-		if (moduleItemProvider != null) moduleItemProvider.dispose();
 		if (digitalPinItemProvider != null) digitalPinItemProvider.dispose();
 		if (analogPinItemProvider != null) analogPinItemProvider.dispose();
 		if (sketchItemProvider != null) sketchItemProvider.dispose();
-		if (arduinoItemProvider != null) arduinoItemProvider.dispose();
+		if (projectItemProvider != null) projectItemProvider.dispose();
 		if (loopItemProvider != null) loopItemProvider.dispose();
 		if (statusItemProvider != null) statusItemProvider.dispose();
 		if (levelItemProvider != null) levelItemProvider.dispose();
 		if (delayItemProvider != null) delayItemProvider.dispose();
 		if (initItemProvider != null) initItemProvider.dispose();
 		if (endItemProvider != null) endItemProvider.dispose();
+		if (inputModuleItemProvider != null) inputModuleItemProvider.dispose();
+		if (outputModuleItemProvider != null) outputModuleItemProvider.dispose();
 	}
 
 }

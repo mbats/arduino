@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class PlatformItemProvider
-	extends ItemProviderAdapter
+	extends NamedElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -63,31 +63,8 @@ public class PlatformItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Platform_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Platform_name_feature", "_UI_Platform_type"),
-				 ArduinoPackage.Literals.PLATFORM__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -102,7 +79,8 @@ public class PlatformItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ArduinoPackage.Literals.PLATFORM__PINS);
+			childrenFeatures.add(ArduinoPackage.Literals.PLATFORM__DIGITAL_PINS);
+			childrenFeatures.add(ArduinoPackage.Literals.PLATFORM__ANALOG_PINS);
 		}
 		return childrenFeatures;
 	}
@@ -157,10 +135,8 @@ public class PlatformItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Platform.class)) {
-			case ArduinoPackage.PLATFORM__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ArduinoPackage.PLATFORM__PINS:
+			case ArduinoPackage.PLATFORM__DIGITAL_PINS:
+			case ArduinoPackage.PLATFORM__ANALOG_PINS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -180,24 +156,13 @@ public class PlatformItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ArduinoPackage.Literals.PLATFORM__PINS,
+				(ArduinoPackage.Literals.PLATFORM__DIGITAL_PINS,
 				 ArduinoFactory.eINSTANCE.createDigitalPin()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ArduinoPackage.Literals.PLATFORM__PINS,
+				(ArduinoPackage.Literals.PLATFORM__ANALOG_PINS,
 				 ArduinoFactory.eINSTANCE.createAnalogPin()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ArduinoEditPlugin.INSTANCE;
 	}
 
 }

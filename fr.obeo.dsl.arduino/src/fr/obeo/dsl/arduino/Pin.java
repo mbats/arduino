@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Pin#getModule <em>Module</em>}</li>
- *   <li>{@link fr.obeo.dsl.arduino.Pin#getNumber <em>Number</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Pin#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,29 +51,29 @@ public interface Pin extends EObject {
 	void setModule(Module value);
 
 	/**
-	 * Returns the value of the '<em><b>Number</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Number</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number</em>' attribute.
-	 * @see #setNumber(int)
-	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getPin_Number()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getPin_Id()
 	 * @model
 	 * @generated
 	 */
-	int getNumber();
+	int getId();
 
 	/**
-	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Pin#getNumber <em>Number</em>}' attribute.
+	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Pin#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number</em>' attribute.
-	 * @see #getNumber()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setNumber(int value);
+	void setId(int value);
 
 } // Pin

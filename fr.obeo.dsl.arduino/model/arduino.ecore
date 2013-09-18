@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="arduino" nsURI="http://www.obeo.fr/arduino" nsPrefix="arduino">
-  <eClassifiers xsi:type="ecore:EClass" name="HardwareLayout">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arduino" lowerBound="1"
-        eType="#//Platform" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Hardware" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="platforms" lowerBound="1"
+        upperBound="-1" eType="#//Platform"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
-        eType="#//Module" containment="true"/>
+        eType="#//Module"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Platform">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pins" upperBound="-1" eType="#//Pin"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Platform" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="digitalPins" upperBound="-1"
+        eType="#//DigitalPin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analogPins" upperBound="-1"
+        eType="#//AnalogPin" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Module">
+  <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pin" eType="#//Pin" eOpposite="#//Pin/module"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//ModuleKind"
+        defaultValueLiteral="digital"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalPin" eSuperTypes="#//Pin"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="module" eType="#//Module"
         eOpposite="#//Module/pin"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalogPin" eSuperTypes="#//Pin"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Sketch">
+  <eClassifiers xsi:type="ecore:EClass" name="Sketch" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hardware" lowerBound="1"
-        eType="#//HardwareLayout"/>
+        eType="#//Hardware"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="loop" lowerBound="1" eType="#//Loop"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Arduino">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hardware" lowerBound="1"
-        eType="#//HardwareLayout" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hardwares" upperBound="-1"
+        eType="#//Hardware" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sketches" upperBound="-1"
         eType="#//Sketch" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="VoltageLevel">
-    <eLiterals name="HIGH"/>
-    <eLiterals name="LOW"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
+        eType="#//Module" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="platform" upperBound="-1"
+        eType="#//Platform" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Loop">
     <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
@@ -71,4 +72,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Init" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputModule" eSuperTypes="#//Module"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputModule" eSuperTypes="#//Module"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ModuleKind">
+    <eLiterals name="digital"/>
+    <eLiterals name="analog"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

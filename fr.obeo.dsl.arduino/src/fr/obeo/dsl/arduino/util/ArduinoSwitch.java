@@ -66,21 +66,24 @@ public class ArduinoSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ArduinoPackage.HARDWARE_LAYOUT: {
-				HardwareLayout hardwareLayout = (HardwareLayout)theEObject;
-				T result = caseHardwareLayout(hardwareLayout);
+			case ArduinoPackage.HARDWARE: {
+				Hardware hardware = (Hardware)theEObject;
+				T result = caseHardware(hardware);
+				if (result == null) result = caseNamedElement(hardware);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ArduinoPackage.PLATFORM: {
 				Platform platform = (Platform)theEObject;
 				T result = casePlatform(platform);
+				if (result == null) result = caseNamedElement(platform);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ArduinoPackage.MODULE: {
 				Module module = (Module)theEObject;
 				T result = caseModule(module);
+				if (result == null) result = caseNamedElement(module);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -107,12 +110,13 @@ public class ArduinoSwitch<T> extends Switch<T> {
 			case ArduinoPackage.SKETCH: {
 				Sketch sketch = (Sketch)theEObject;
 				T result = caseSketch(sketch);
+				if (result == null) result = caseNamedElement(sketch);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ArduinoPackage.ARDUINO: {
-				Arduino arduino = (Arduino)theEObject;
-				T result = caseArduino(arduino);
+			case ArduinoPackage.PROJECT: {
+				Project project = (Project)theEObject;
+				T result = caseProject(project);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,22 +198,44 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ArduinoPackage.INPUT_MODULE: {
+				InputModule inputModule = (InputModule)theEObject;
+				T result = caseInputModule(inputModule);
+				if (result == null) result = caseModule(inputModule);
+				if (result == null) result = caseNamedElement(inputModule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.OUTPUT_MODULE: {
+				OutputModule outputModule = (OutputModule)theEObject;
+				T result = caseOutputModule(outputModule);
+				if (result == null) result = caseModule(outputModule);
+				if (result == null) result = caseNamedElement(outputModule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.NAMED_ELEMENT: {
+				NamedElement namedElement = (NamedElement)theEObject;
+				T result = caseNamedElement(namedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Hardware Layout</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Hardware</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Hardware Layout</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Hardware</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHardwareLayout(HardwareLayout object) {
+	public T caseHardware(Hardware object) {
 		return null;
 	}
 
@@ -304,17 +330,17 @@ public class ArduinoSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Arduino</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Project</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Arduino</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Project</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseArduino(Arduino object) {
+	public T caseProject(Project object) {
 		return null;
 	}
 
@@ -480,6 +506,51 @@ public class ArduinoSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEnd(End object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Input Module</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Input Module</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInputModule(InputModule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Output Module</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Output Module</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOutputModule(OutputModule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 

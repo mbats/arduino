@@ -61,7 +61,7 @@ public class PinItemProvider
 			super.getPropertyDescriptors(object);
 
 			addModulePropertyDescriptor(object);
-			addNumberPropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,19 +89,19 @@ public class PinItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Number feature.
+	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNumberPropertyDescriptor(Object object) {
+	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pin_number_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pin_number_feature", "_UI_Pin_type"),
-				 ArduinoPackage.Literals.PIN__NUMBER,
+				 getString("_UI_Pin_id_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pin_id_feature", "_UI_Pin_type"),
+				 ArduinoPackage.Literals.PIN__ID,
 				 true,
 				 false,
 				 false,
@@ -119,7 +119,7 @@ public class PinItemProvider
 	@Override
 	public String getText(Object object) {
 		Pin pin = (Pin)object;
-		return getString("_UI_Pin_type") + " " + pin.getNumber();
+		return getString("_UI_Pin_type") + " " + pin.getId();
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class PinItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Pin.class)) {
-			case ArduinoPackage.PIN__NUMBER:
+			case ArduinoPackage.PIN__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

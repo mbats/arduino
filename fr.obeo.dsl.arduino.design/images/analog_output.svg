@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- License Agreement at http://iconmonstr.com/license/ -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 512 512"
+   enable-background="new 0 0 512 512"
+   xml:space="preserve"
+   id="svg3030"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="analog_output.svg"
+   inkscape:export-filename="/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/images/analog_output.png"
+   inkscape:export-xdpi="7.5205922"
+   inkscape:export-ydpi="7.5205922"><metadata
+   id="metadata3037"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs3035" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="640"
+   inkscape:window-height="480"
+   id="namedview3033"
+   showgrid="false"
+   inkscape:zoom="0.4609375"
+   inkscape:cx="256"
+   inkscape:cy="256"
+   inkscape:window-x="594"
+   inkscape:window-y="377"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="svg3030" />
+<path
+   d="M 50,298.021 V 213.976 H 192.859 V 172.23 L 276.776,256 192.859,339.77 V 298.022 H 50 z"
+   id="path2985" />
+<path
+   inkscape:connector-curvature="0"
+   id="stream-icon"
+   d="m 281.13784,232.25447 c 10.14632,-34.64293 42.15608,-59.94598 80.08026,-59.94598 50.85519,0 90.00382,45.15179 82.53564,95.72466 h -6.79258 c -8.62621,0 -9.72185,-1.01261 -14.34906,-13.84843 -3.67374,-10.18927 -8.59583,-22.74033 -19.96417,-22.74033 -11.36874,0 -16.03566,12.65436 -19.96417,22.74073 -3.25857,8.36698 -4.76412,13.3486 -7.59374,13.3486 -2.74417,0 -4.24891,-4.86051 -7.59456,-13.3486 -3.9674,-10.06815 -8.59584,-22.74073 -19.96418,-22.74073 -11.36834,0 -16.18875,12.58469 -19.96457,22.74033 -3.38251,9.09646 -4.66448,13.349 -7.59537,13.349 -2.81059,0 -3.92527,-4.37446 -7.59577,-13.349 -4.09337,-10.00821 -8.74124,-21.93025 -21.1797,-21.93025 h -10.05803 z m 149.06882,49.41526 c -11.36875,0 -15.95262,-11.88315 -19.96417,-21.93066 -4.11686,-10.31077 -4.95287,-13.71313 -7.59456,-13.71313 -2.65424,0 -3.73166,4.21204 -7.59455,13.71313 -4.07231,10.01835 -8.59502,22.74074 -19.96336,22.74074 -11.36875,0 -16.06644,-12.64017 -19.96458,-22.74033 -3.62757,-9.39984 -4.68676,-13.34901 -7.59457,-13.34901 -2.77777,0 -3.78107,3.76691 -7.59576,13.34901 -4.00062,10.05236 -8.59542,22.74033 -19.96377,22.74033 -11.36875,0 -16.35361,-12.5296 -19.96497,-22.74033 -4.54094,-12.83622 -5.90877,-13.91607 -14.39645,-13.91607 h -7.24095 c -5.92741,49.9969 33.12159,93.36204 82.84913,93.36204 37.03066,0 68.4223,-24.12559 79.32688,-57.51572 h -10.33832 z"
+   inkscape:export-filename="/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/images/analog_output.png"
+   inkscape:export-xdpi="3"
+   inkscape:export-ydpi="3" /></svg>

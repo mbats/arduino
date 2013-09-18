@@ -77,7 +77,7 @@ public class AnalogPinItemProvider
 	@Override
 	public String getText(Object object) {
 		AnalogPin analogPin = (AnalogPin)object;
-		return getString("_UI_AnalogPin_type") + " " + analogPin.getNumber();
+		return getString("_UI_AnalogPin_type") + " " + analogPin.getId();
 	}
 
 	/**
