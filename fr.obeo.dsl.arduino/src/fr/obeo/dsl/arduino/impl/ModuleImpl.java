@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getPin <em>Pin</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getImage <em>Image</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +60,26 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	 * @ordered
 	 */
 	protected ModuleKind kind = KIND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getImage() <em>Image</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String IMAGE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getImage() <em>Image</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String image = IMAGE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,6 +186,27 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getImage() {
+		return image;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImage(String newImage) {
+		String oldImage = image;
+		image = newImage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.MODULE__IMAGE, oldImage, image));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -204,6 +245,8 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 				return basicGetPin();
 			case ArduinoPackage.MODULE__KIND:
 				return getKind();
+			case ArduinoPackage.MODULE__IMAGE:
+				return getImage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -221,6 +264,9 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 				return;
 			case ArduinoPackage.MODULE__KIND:
 				setKind((ModuleKind)newValue);
+				return;
+			case ArduinoPackage.MODULE__IMAGE:
+				setImage((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,6 +286,9 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 			case ArduinoPackage.MODULE__KIND:
 				setKind(KIND_EDEFAULT);
 				return;
+			case ArduinoPackage.MODULE__IMAGE:
+				setImage(IMAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,6 +305,8 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 				return pin != null;
 			case ArduinoPackage.MODULE__KIND:
 				return kind != KIND_EDEFAULT;
+			case ArduinoPackage.MODULE__IMAGE:
+				return IMAGE_EDEFAULT == null ? image != null : !IMAGE_EDEFAULT.equals(image);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -272,6 +323,8 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (kind: ");
 		result.append(kind);
+		result.append(", image: ");
+		result.append(image);
 		result.append(')');
 		return result.toString();
 	}

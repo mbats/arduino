@@ -3,12 +3,17 @@ package fr.obeo.dsl.arduino.design.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import fr.obeo.dsl.arduino.AnalogPin;
 import fr.obeo.dsl.arduino.ArduinoFactory;
 import fr.obeo.dsl.arduino.DigitalPin;
+import fr.obeo.dsl.arduino.Instruction;
+import fr.obeo.dsl.arduino.Module;
+import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
+import fr.obeo.dsl.arduino.Sketch;
 
 public class ArduinoServices {
 
@@ -60,5 +65,19 @@ public class ArduinoServices {
 				platform.getAnalogPins().clear();
 			}
 		}
+	}
+
+	public boolean isValidConnector(Module module, Pin pin) {
+		switch (module.getKind()) {
+		case DIGITAL:
+			return pin instanceof DigitalPin && pin.getModule()==null;
+
+		default:
+			return pin instanceof AnalogPin && pin.getModule()==null;
+		}
+	}
+	
+	public Instruction getInstructions(Instruction instruction){
+		return instruction.getNext();
 	}
 }

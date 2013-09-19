@@ -63,12 +63,9 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 			case ArduinoPackage.ANALOG_PIN: return createAnalogPin();
 			case ArduinoPackage.SKETCH: return createSketch();
 			case ArduinoPackage.PROJECT: return createProject();
-			case ArduinoPackage.LOOP: return createLoop();
 			case ArduinoPackage.STATUS: return createStatus();
 			case ArduinoPackage.LEVEL: return createLevel();
 			case ArduinoPackage.DELAY: return createDelay();
-			case ArduinoPackage.INIT: return createInit();
-			case ArduinoPackage.END: return createEnd();
 			case ArduinoPackage.INPUT_MODULE: return createInputModule();
 			case ArduinoPackage.OUTPUT_MODULE: return createOutputModule();
 			default:
@@ -175,16 +172,6 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Loop createLoop() {
-		LoopImpl loop = new LoopImpl();
-		return loop;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Status createStatus() {
 		StatusImpl status = new StatusImpl();
 		return status;
@@ -208,26 +195,6 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	public Delay createDelay() {
 		DelayImpl delay = new DelayImpl();
 		return delay;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Init createInit() {
-		InitImpl init = new InitImpl();
-		return init;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public End createEnd() {
-		EndImpl end = new EndImpl();
-		return end;
 	}
 
 	/**

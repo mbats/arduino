@@ -17,6 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pin" eType="#//Pin" eOpposite="#//Pin/module"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//ModuleKind"
         defaultValueLiteral="digital"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalPin" eSuperTypes="#//Pin"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true">
@@ -25,11 +26,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalogPin" eSuperTypes="#//Pin"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Sketch" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Sketch" eSuperTypes="#//NamedElement #//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hardware" lowerBound="1"
         eType="#//Hardware"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="loop" lowerBound="1" eType="#//Loop"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
+        eType="#//Instruction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Project">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hardwares" upperBound="-1"
@@ -40,12 +41,6 @@
         eType="#//Module" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="platform" upperBound="-1"
         eType="#//Platform" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Loop">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
-        eType="#//Instruction" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//Init"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="end" eType="#//End"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//Instruction"/>
@@ -70,8 +65,6 @@
     <eLiterals name="MilliSecond"/>
     <eLiterals name="MicroSecond"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Init" eSuperTypes="#//Instruction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="InputModule" eSuperTypes="#//Module"/>
   <eClassifiers xsi:type="ecore:EClass" name="OutputModule" eSuperTypes="#//Module"/>
   <eClassifiers xsi:type="ecore:EEnum" name="ModuleKind">

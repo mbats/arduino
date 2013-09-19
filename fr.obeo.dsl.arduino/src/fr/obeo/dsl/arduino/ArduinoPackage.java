@@ -64,7 +64,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 21;
+	int NAMED_ELEMENT = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -214,13 +214,22 @@ public interface ArduinoPackage extends EPackage {
 	int MODULE__KIND = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Image</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__IMAGE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int MODULE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.PinImpl <em>Pin</em>}' class.
@@ -353,22 +362,40 @@ public interface ArduinoPackage extends EPackage {
 	int SKETCH__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKETCH__PREVIOUS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKETCH__NEXT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Hardware</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SKETCH__HARDWARE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SKETCH__HARDWARE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Loop</b></em>' containment reference.
+	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SKETCH__LOOP = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SKETCH__INSTRUCTIONS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Sketch</em>' class.
@@ -377,7 +404,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SKETCH_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SKETCH_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ProjectImpl <em>Project</em>}' class.
@@ -435,52 +462,6 @@ public interface ArduinoPackage extends EPackage {
 	int PROJECT_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.LoopImpl <em>Loop</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.arduino.impl.LoopImpl
-	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getLoop()
-	 * @generated
-	 */
-	int LOOP = 8;
-
-	/**
-	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOOP__INSTRUCTIONS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Init</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOOP__INIT = 1;
-
-	/**
-	 * The feature id for the '<em><b>End</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOOP__END = 2;
-
-	/**
-	 * The number of structural features of the '<em>Loop</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOOP_FEATURE_COUNT = 3;
-
-	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.InstructionImpl <em>Instruction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -488,7 +469,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getInstruction()
 	 * @generated
 	 */
-	int INSTRUCTION = 9;
+	int INSTRUCTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -525,7 +506,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getModuleInstruction()
 	 * @generated
 	 */
-	int MODULE_INSTRUCTION = 12;
+	int MODULE_INSTRUCTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -571,7 +552,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 10;
+	int STATUS = 9;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -626,7 +607,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getLevel()
 	 * @generated
 	 */
-	int LEVEL = 11;
+	int LEVEL = 10;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -672,7 +653,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getControl()
 	 * @generated
 	 */
-	int CONTROL = 13;
+	int CONTROL = 12;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -709,7 +690,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getUtilities()
 	 * @generated
 	 */
-	int UTILITIES = 14;
+	int UTILITIES = 13;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -746,7 +727,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getIO()
 	 * @generated
 	 */
-	int IO = 15;
+	int IO = 14;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -783,7 +764,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getDelay()
 	 * @generated
 	 */
-	int DELAY = 16;
+	int DELAY = 15;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -831,80 +812,6 @@ public interface ArduinoPackage extends EPackage {
 	int DELAY_FEATURE_COUNT = UTILITIES_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.InitImpl <em>Init</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.arduino.impl.InitImpl
-	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getInit()
-	 * @generated
-	 */
-	int INIT = 17;
-
-	/**
-	 * The feature id for the '<em><b>Previous</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INIT__PREVIOUS = INSTRUCTION__PREVIOUS;
-
-	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INIT__NEXT = INSTRUCTION__NEXT;
-
-	/**
-	 * The number of structural features of the '<em>Init</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INIT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.EndImpl <em>End</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.arduino.impl.EndImpl
-	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getEnd()
-	 * @generated
-	 */
-	int END = 18;
-
-	/**
-	 * The feature id for the '<em><b>Previous</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END__PREVIOUS = INSTRUCTION__PREVIOUS;
-
-	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END__NEXT = INSTRUCTION__NEXT;
-
-	/**
-	 * The number of structural features of the '<em>End</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.InputModuleImpl <em>Input Module</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -912,7 +819,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getInputModule()
 	 * @generated
 	 */
-	int INPUT_MODULE = 19;
+	int INPUT_MODULE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -942,6 +849,15 @@ public interface ArduinoPackage extends EPackage {
 	int INPUT_MODULE__KIND = MODULE__KIND;
 
 	/**
+	 * The feature id for the '<em><b>Image</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_MODULE__IMAGE = MODULE__IMAGE;
+
+	/**
 	 * The number of structural features of the '<em>Input Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -958,7 +874,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getOutputModule()
 	 * @generated
 	 */
-	int OUTPUT_MODULE = 20;
+	int OUTPUT_MODULE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -988,6 +904,15 @@ public interface ArduinoPackage extends EPackage {
 	int OUTPUT_MODULE__KIND = MODULE__KIND;
 
 	/**
+	 * The feature id for the '<em><b>Image</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_MODULE__IMAGE = MODULE__IMAGE;
+
+	/**
 	 * The number of structural features of the '<em>Output Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1004,7 +929,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 22;
+	int TIME = 19;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.ModuleKind <em>Module Kind</em>}' enum.
@@ -1014,7 +939,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getModuleKind()
 	 * @generated
 	 */
-	int MODULE_KIND = 23;
+	int MODULE_KIND = 20;
 
 
 	/**
@@ -1114,6 +1039,17 @@ public interface ArduinoPackage extends EPackage {
 	EAttribute getModule_Kind();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Module#getImage <em>Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Image</em>'.
+	 * @see fr.obeo.dsl.arduino.Module#getImage()
+	 * @see #getModule()
+	 * @generated
+	 */
+	EAttribute getModule_Image();
+
+	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.DigitalPin <em>Digital Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1187,15 +1123,15 @@ public interface ArduinoPackage extends EPackage {
 	EReference getSketch_Hardware();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.arduino.Sketch#getLoop <em>Loop</em>}'.
+	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Sketch#getInstructions <em>Instructions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Loop</em>'.
-	 * @see fr.obeo.dsl.arduino.Sketch#getLoop()
+	 * @return the meta object for the containment reference list '<em>Instructions</em>'.
+	 * @see fr.obeo.dsl.arduino.Sketch#getInstructions()
 	 * @see #getSketch()
 	 * @generated
 	 */
-	EReference getSketch_Loop();
+	EReference getSketch_Instructions();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Project <em>Project</em>}'.
@@ -1250,49 +1186,6 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProject_Platform();
-
-	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Loop <em>Loop</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Loop</em>'.
-	 * @see fr.obeo.dsl.arduino.Loop
-	 * @generated
-	 */
-	EClass getLoop();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Loop#getInstructions <em>Instructions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Instructions</em>'.
-	 * @see fr.obeo.dsl.arduino.Loop#getInstructions()
-	 * @see #getLoop()
-	 * @generated
-	 */
-	EReference getLoop_Instructions();
-
-	/**
-	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Loop#getInit <em>Init</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Init</em>'.
-	 * @see fr.obeo.dsl.arduino.Loop#getInit()
-	 * @see #getLoop()
-	 * @generated
-	 */
-	EReference getLoop_Init();
-
-	/**
-	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Loop#getEnd <em>End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>End</em>'.
-	 * @see fr.obeo.dsl.arduino.Loop#getEnd()
-	 * @see #getLoop()
-	 * @generated
-	 */
-	EReference getLoop_End();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Instruction <em>Instruction</em>}'.
@@ -1439,26 +1332,6 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDelay_Value();
-
-	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Init <em>Init</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Init</em>'.
-	 * @see fr.obeo.dsl.arduino.Init
-	 * @generated
-	 */
-	EClass getInit();
-
-	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.End <em>End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>End</em>'.
-	 * @see fr.obeo.dsl.arduino.End
-	 * @generated
-	 */
-	EClass getEnd();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.InputModule <em>Input Module</em>}'.
@@ -1622,6 +1495,14 @@ public interface ArduinoPackage extends EPackage {
 		EAttribute MODULE__KIND = eINSTANCE.getModule_Kind();
 
 		/**
+		 * The meta object literal for the '<em><b>Image</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODULE__IMAGE = eINSTANCE.getModule_Image();
+
+		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.DigitalPinImpl <em>Digital Pin</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1686,12 +1567,12 @@ public interface ArduinoPackage extends EPackage {
 		EReference SKETCH__HARDWARE = eINSTANCE.getSketch_Hardware();
 
 		/**
-		 * The meta object literal for the '<em><b>Loop</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SKETCH__LOOP = eINSTANCE.getSketch_Loop();
+		EReference SKETCH__INSTRUCTIONS = eINSTANCE.getSketch_Instructions();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ProjectImpl <em>Project</em>}' class.
@@ -1734,40 +1615,6 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROJECT__PLATFORM = eINSTANCE.getProject_Platform();
-
-		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.LoopImpl <em>Loop</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.arduino.impl.LoopImpl
-		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getLoop()
-		 * @generated
-		 */
-		EClass LOOP = eINSTANCE.getLoop();
-
-		/**
-		 * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LOOP__INSTRUCTIONS = eINSTANCE.getLoop_Instructions();
-
-		/**
-		 * The meta object literal for the '<em><b>Init</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LOOP__INIT = eINSTANCE.getLoop_Init();
-
-		/**
-		 * The meta object literal for the '<em><b>End</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LOOP__END = eINSTANCE.getLoop_End();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -1896,26 +1743,6 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DELAY__VALUE = eINSTANCE.getDelay_Value();
-
-		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.InitImpl <em>Init</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.arduino.impl.InitImpl
-		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getInit()
-		 * @generated
-		 */
-		EClass INIT = eINSTANCE.getInit();
-
-		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.EndImpl <em>End</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.arduino.impl.EndImpl
-		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getEnd()
-		 * @generated
-		 */
-		EClass END = eINSTANCE.getEnd();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.InputModuleImpl <em>Input Module</em>}' class.

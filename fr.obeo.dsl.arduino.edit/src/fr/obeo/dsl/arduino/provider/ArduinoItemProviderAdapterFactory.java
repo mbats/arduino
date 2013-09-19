@@ -210,29 +210,6 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Loop} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LoopItemProvider loopItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Loop}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLoopAdapter() {
-		if (loopItemProvider == null) {
-			loopItemProvider = new LoopItemProvider(this);
-		}
-
-		return loopItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Status} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -299,52 +276,6 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 		}
 
 		return delayItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Init} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InitItemProvider initItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Init}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInitAdapter() {
-		if (initItemProvider == null) {
-			initItemProvider = new InitItemProvider(this);
-		}
-
-		return initItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.End} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EndItemProvider endItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.End}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEndAdapter() {
-		if (endItemProvider == null) {
-			endItemProvider = new EndItemProvider(this);
-		}
-
-		return endItemProvider;
 	}
 
 	/**
@@ -498,12 +429,9 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 		if (analogPinItemProvider != null) analogPinItemProvider.dispose();
 		if (sketchItemProvider != null) sketchItemProvider.dispose();
 		if (projectItemProvider != null) projectItemProvider.dispose();
-		if (loopItemProvider != null) loopItemProvider.dispose();
 		if (statusItemProvider != null) statusItemProvider.dispose();
 		if (levelItemProvider != null) levelItemProvider.dispose();
 		if (delayItemProvider != null) delayItemProvider.dispose();
-		if (initItemProvider != null) initItemProvider.dispose();
-		if (endItemProvider != null) endItemProvider.dispose();
 		if (inputModuleItemProvider != null) inputModuleItemProvider.dispose();
 		if (outputModuleItemProvider != null) outputModuleItemProvider.dispose();
 	}

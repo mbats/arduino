@@ -2,7 +2,8 @@
  */
 package fr.obeo.dsl.arduino;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Sketch#getHardware <em>Hardware</em>}</li>
- *   <li>{@link fr.obeo.dsl.arduino.Sketch#getLoop <em>Loop</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Sketch#getInstructions <em>Instructions</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Sketch extends NamedElement {
+public interface Sketch extends NamedElement, Instruction {
 	/**
 	 * Returns the value of the '<em><b>Hardware</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -49,29 +50,19 @@ public interface Sketch extends NamedElement {
 	void setHardware(Hardware value);
 
 	/**
-	 * Returns the value of the '<em><b>Loop</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Instructions</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.obeo.dsl.arduino.Instruction}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Loop</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Instructions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Loop</em>' containment reference.
-	 * @see #setLoop(Loop)
-	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getSketch_Loop()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Instructions</em>' containment reference list.
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getSketch_Instructions()
+	 * @model containment="true"
 	 * @generated
 	 */
-	Loop getLoop();
-
-	/**
-	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Sketch#getLoop <em>Loop</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Loop</em>' containment reference.
-	 * @see #getLoop()
-	 * @generated
-	 */
-	void setLoop(Loop value);
+	EList<Instruction> getInstructions();
 
 } // Sketch

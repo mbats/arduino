@@ -4,8 +4,6 @@ package fr.obeo.dsl.arduino;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Hardware</b></em>'.

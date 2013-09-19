@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- The icon can be used freely in both personal and commercial projects with no attribution required, but always appreciated. 
+You may NOT sub-license, resell, rent, redistribute or otherwise transfer the icon without express written permission from iconmonstr.com -->
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<path id="laptop-3-icon" d="M217.552,367.375l8-23.5h60.5l8,23.5H217.552z M449.24,381.54l-34.032-67.415v-192
+	c0-11.046-8.955-20-20-20H117.54c-11.045,0-20,8.954-20,20v192l-34.893,67.663c-2.734,6.186-2.157,13.334,1.533,19.002
+	c3.691,5.667,9.996,9.085,16.76,9.085H431.06c6.812,0,13.155-3.467,16.833-9.199C451.571,394.942,452.079,387.732,449.24,381.54z
+	 M124.54,129.125h263.668v172.667H124.54V129.125z M95.295,380.875l25.606-51.916h269.667l25.906,51.916H95.295z M368.208,149.125
+	H144.54v132.667h223.668V149.125z"/>
+</svg>

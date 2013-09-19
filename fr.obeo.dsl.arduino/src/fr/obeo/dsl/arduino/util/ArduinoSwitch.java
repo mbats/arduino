@@ -111,18 +111,13 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				Sketch sketch = (Sketch)theEObject;
 				T result = caseSketch(sketch);
 				if (result == null) result = caseNamedElement(sketch);
+				if (result == null) result = caseInstruction(sketch);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ArduinoPackage.PROJECT: {
 				Project project = (Project)theEObject;
 				T result = caseProject(project);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ArduinoPackage.LOOP: {
-				Loop loop = (Loop)theEObject;
-				T result = caseLoop(loop);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -181,20 +176,6 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				T result = caseDelay(delay);
 				if (result == null) result = caseUtilities(delay);
 				if (result == null) result = caseInstruction(delay);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ArduinoPackage.INIT: {
-				Init init = (Init)theEObject;
-				T result = caseInit(init);
-				if (result == null) result = caseInstruction(init);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ArduinoPackage.END: {
-				End end = (End)theEObject;
-				T result = caseEnd(end);
-				if (result == null) result = caseInstruction(end);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -345,21 +326,6 @@ public class ArduinoSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Loop</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Loop</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLoop(Loop object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Instruction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -476,36 +442,6 @@ public class ArduinoSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDelay(Delay object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Init</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Init</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInit(Init object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>End</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>End</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEnd(End object) {
 		return null;
 	}
 

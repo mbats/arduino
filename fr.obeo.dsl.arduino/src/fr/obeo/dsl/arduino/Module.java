@@ -2,7 +2,6 @@
  */
 package fr.obeo.dsl.arduino;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Module#getPin <em>Pin</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Module#getKind <em>Kind</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Module#getImage <em>Image</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,5 +79,31 @@ public interface Module extends NamedElement {
 	 * @generated
 	 */
 	void setKind(ModuleKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Image</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Image</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Image</em>' attribute.
+	 * @see #setImage(String)
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getModule_Image()
+	 * @model
+	 * @generated
+	 */
+	String getImage();
+
+	/**
+	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Module#getImage <em>Image</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Image</em>' attribute.
+	 * @see #getImage()
+	 * @generated
+	 */
+	void setImage(String value);
 
 } // Module

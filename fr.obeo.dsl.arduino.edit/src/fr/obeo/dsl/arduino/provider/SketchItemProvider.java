@@ -13,8 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -24,8 +22,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -63,9 +59,55 @@ public class SketchItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPreviousPropertyDescriptor(object);
+			addNextPropertyDescriptor(object);
 			addHardwarePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Previous feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPreviousPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Instruction_previous_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_previous_feature", "_UI_Instruction_type"),
+				 ArduinoPackage.Literals.INSTRUCTION__PREVIOUS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Next feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Instruction_next_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_next_feature", "_UI_Instruction_type"),
+				 ArduinoPackage.Literals.INSTRUCTION__NEXT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -102,7 +144,7 @@ public class SketchItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ArduinoPackage.Literals.SKETCH__LOOP);
+			childrenFeatures.add(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -157,7 +199,7 @@ public class SketchItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Sketch.class)) {
-			case ArduinoPackage.SKETCH__LOOP:
+			case ArduinoPackage.SKETCH__INSTRUCTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -177,8 +219,23 @@ public class SketchItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ArduinoPackage.Literals.SKETCH__LOOP,
-				 ArduinoFactory.eINSTANCE.createLoop()));
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createSketch()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createStatus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createLevel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createDelay()));
 	}
 
 }

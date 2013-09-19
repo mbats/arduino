@@ -76,15 +76,6 @@ public interface ArduinoFactory extends EFactory {
 	Project createProject();
 
 	/**
-	 * Returns a new object of class '<em>Loop</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Loop</em>'.
-	 * @generated
-	 */
-	Loop createLoop();
-
-	/**
 	 * Returns a new object of class '<em>Status</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,24 +101,6 @@ public interface ArduinoFactory extends EFactory {
 	 * @generated
 	 */
 	Delay createDelay();
-
-	/**
-	 * Returns a new object of class '<em>Init</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Init</em>'.
-	 * @generated
-	 */
-	Init createInit();
-
-	/**
-	 * Returns a new object of class '<em>End</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>End</em>'.
-	 * @generated
-	 */
-	End createEnd();
 
 	/**
 	 * Returns a new object of class '<em>Input Module</em>'.
