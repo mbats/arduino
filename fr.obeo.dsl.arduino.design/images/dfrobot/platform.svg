@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- The icon can be used freely in both personal and commercial projects with no attribution required, but always appreciated. 
+You may NOT sub-license, resell, rent, redistribute or otherwise transfer the icon without express written permission from iconmonstr.com -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 512 512"
+   enable-background="new 0 0 512 512"
+   xml:space="preserve"
+   id="svg2"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="platform.svg"><metadata
+   id="metadata9"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs7" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="640"
+   inkscape:window-height="480"
+   id="namedview5"
+   showgrid="false"
+   inkscape:zoom="0.4609375"
+   inkscape:cx="256"
+   inkscape:cy="256"
+   inkscape:window-x="0"
+   inkscape:window-y="259"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="svg2" />
+
+<path
+   id="500px-icon"
+   d="M256.281,296.188c29.265,33.929,63.283,63.516,108.479,63.516c60.952,0,97.239-46.296,97.239-105.109   c0-58.674-36.992-102.297-96.677-102.297c-47.698,0-78.915,30.958-109.042,67.449c-30.922-37.078-61.614-67.449-110.167-67.449   c-58.126,0-96.114,43.7-96.114,103.422c0,59.288,38.915,103.984,98.573,103.984C199.625,359.703,226.321,327.586,256.281,296.188z    M103.397,256.843c0-23.116,15.07-48.339,42.717-48.339c28.197,0,57.264,28.146,76.442,48.902   c-18.727,21.861-46.115,45.526-74.756,45.526C119.473,302.933,103.397,283.28,103.397,256.843z M290.006,257.406   c19.971-21.62,44.767-48.902,74.193-48.902c28.719,0,44.966,22.547,44.966,47.776c0,25.41-14.839,46.652-43.28,46.652   C335.521,302.933,309.952,280.447,290.006,257.406z"
+   style="fill:#000000"
+   inkscape:export-filename="/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.edit/icons/full/obj16/Platform.png"
+   inkscape:export-xdpi="3.4714522"
+   inkscape:export-ydpi="3.4714522" />
+
+</svg>

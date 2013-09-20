@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Platform#getDigitalPins <em>Digital Pins</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Platform#getAnalogPins <em>Analog Pins</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Platform#getImage <em>Image</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,5 +54,31 @@ public interface Platform extends NamedElement {
 	 * @generated
 	 */
 	EList<AnalogPin> getAnalogPins();
+
+	/**
+	 * Returns the value of the '<em><b>Image</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Image</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Image</em>' attribute.
+	 * @see #setImage(String)
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getPlatform_Image()
+	 * @model
+	 * @generated
+	 */
+	String getImage();
+
+	/**
+	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Platform#getImage <em>Image</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Image</em>' attribute.
+	 * @see #getImage()
+	 * @generated
+	 */
+	void setImage(String value);
 
 } // Platform

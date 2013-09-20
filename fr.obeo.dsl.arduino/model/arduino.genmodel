@@ -21,6 +21,7 @@
     <genClasses ecoreClass="arduino.ecore#//Platform">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduino.ecore#//Platform/digitalPins"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduino.ecore#//Platform/analogPins"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduino.ecore#//Platform/image"/>
     </genClasses>
     <genClasses image="false" ecoreClass="arduino.ecore#//Module">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduino.ecore#//Module/pin"/>

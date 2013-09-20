@@ -168,13 +168,22 @@ public interface ArduinoPackage extends EPackage {
 	int PLATFORM__ANALOG_PINS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Image</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATFORM__IMAGE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Platform</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLATFORM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PLATFORM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ModuleImpl <em>Module</em>}' class.
@@ -1007,6 +1016,17 @@ public interface ArduinoPackage extends EPackage {
 	EReference getPlatform_AnalogPins();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Platform#getImage <em>Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Image</em>'.
+	 * @see fr.obeo.dsl.arduino.Platform#getImage()
+	 * @see #getPlatform()
+	 * @generated
+	 */
+	EAttribute getPlatform_Image();
+
+	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Module <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1467,6 +1487,14 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PLATFORM__ANALOG_PINS = eINSTANCE.getPlatform_AnalogPins();
+
+		/**
+		 * The meta object literal for the '<em><b>Image</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLATFORM__IMAGE = eINSTANCE.getPlatform_Image();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ModuleImpl <em>Module</em>}' class.

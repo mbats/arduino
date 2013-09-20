@@ -9,6 +9,7 @@ import fr.obeo.dsl.arduino.Platform;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -28,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.PlatformImpl#getDigitalPins <em>Digital Pins</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.PlatformImpl#getAnalogPins <em>Analog Pins</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.PlatformImpl#getImage <em>Image</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +56,26 @@ public class PlatformImpl extends NamedElementImpl implements Platform {
 	 * @ordered
 	 */
 	protected EList<AnalogPin> analogPins;
+
+	/**
+	 * The default value of the '{@link #getImage() <em>Image</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String IMAGE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getImage() <em>Image</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String image = IMAGE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,6 +125,27 @@ public class PlatformImpl extends NamedElementImpl implements Platform {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getImage() {
+		return image;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImage(String newImage) {
+		String oldImage = image;
+		image = newImage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.PLATFORM__IMAGE, oldImage, image));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -125,6 +169,8 @@ public class PlatformImpl extends NamedElementImpl implements Platform {
 				return getDigitalPins();
 			case ArduinoPackage.PLATFORM__ANALOG_PINS:
 				return getAnalogPins();
+			case ArduinoPackage.PLATFORM__IMAGE:
+				return getImage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +192,9 @@ public class PlatformImpl extends NamedElementImpl implements Platform {
 				getAnalogPins().clear();
 				getAnalogPins().addAll((Collection<? extends AnalogPin>)newValue);
 				return;
+			case ArduinoPackage.PLATFORM__IMAGE:
+				setImage((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -164,6 +213,9 @@ public class PlatformImpl extends NamedElementImpl implements Platform {
 			case ArduinoPackage.PLATFORM__ANALOG_PINS:
 				getAnalogPins().clear();
 				return;
+			case ArduinoPackage.PLATFORM__IMAGE:
+				setImage(IMAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,8 +232,26 @@ public class PlatformImpl extends NamedElementImpl implements Platform {
 				return digitalPins != null && !digitalPins.isEmpty();
 			case ArduinoPackage.PLATFORM__ANALOG_PINS:
 				return analogPins != null && !analogPins.isEmpty();
+			case ArduinoPackage.PLATFORM__IMAGE:
+				return IMAGE_EDEFAULT == null ? image != null : !IMAGE_EDEFAULT.equals(image);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (image: ");
+		result.append(image);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PlatformImpl

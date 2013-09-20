@@ -9,9 +9,9 @@
 [/template]
 
 [template public genIno (sketch : Sketch) ]
-[file (sketch.name+'.ino', false, 'UTF-8')]
+[file (sketch.getVariableName()+'.ino', false, 'UTF-8')]
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
-int [mod.getVariableName()/] = [mod.pin.number/];
+int [mod.getVariableName()/] = [mod.pin.id/];
 [/for]
 
 void setup() {
@@ -22,7 +22,7 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
- [generateInstruction(sketch.loop._init.next)/]
+ [generateInstruction(sketch.next)/]
 }
 [/file]
 [/template]
@@ -47,7 +47,7 @@ digitalWrite([instruction.module.getVariableName()/], [instruction.status/]);
 [generateInstruction(instruction.next)/]
 [/template]
 
-[template public generateInstruction(instruction : End)post (trim())]
+[template public generateInstruction(instruction : Sketch)]
 [/template]
 
 [template public generateInstruction(instruction : Instruction)]
@@ -55,5 +55,6 @@ Generation error for [instruction/]
 [generateInstruction(instruction.next)/]
 [/template]
 
-[query public getVariableName (mod : Module) : String = mod.name.replaceAll(' ', '')/]
+
+[query public getVariableName (element : NamedElement) : String = element.name.replaceAll(' ', '')/]
 
