@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino">
+  <modules xsi:type="arduino:OutputModule" name="White LED" image="dfrobot/led.jpg"/>
+  <modules xsi:type="arduino:InputModule" name="Push button 1" image="dfrobot/push_button.jpg"/>
+  <modules xsi:type="arduino:OutputModule" name="Red LED" image="dfrobot/led.jpg"/>
+  <modules xsi:type="arduino:OutputModule" name="Blue LED" image="dfrobot/led.jpg"/>
+  <modules xsi:type="arduino:InputModule" name="Push button 2" image="dfrobot/push_button.jpg"/>
+  <platform name="DFRduino UNO R3" image="dfrobot/dfrduino_uno.jpg">
+    <digitalPins/>
+    <digitalPins id="1"/>
+    <digitalPins id="2"/>
+    <digitalPins id="3"/>
+    <digitalPins id="4"/>
+    <digitalPins id="5"/>
+    <digitalPins id="6"/>
+    <digitalPins id="7"/>
+    <digitalPins id="8"/>
+    <digitalPins id="9"/>
+    <digitalPins id="10"/>
+    <digitalPins id="11"/>
+    <digitalPins id="12"/>
+    <digitalPins id="13"/>
+    <analogPins/>
+    <analogPins id="1"/>
+    <analogPins id="2"/>
+    <analogPins id="3"/>
+    <analogPins id="4"/>
+    <analogPins id="5"/>
+  </platform>
+</arduino:Project>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- License Agreement at http://iconmonstr.com/license/ -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 512 512"
+   enable-background="new 0 0 512 512"
+   xml:space="preserve"
+   id="svg3057"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="existing_hardwareKit.svg"
+   inkscape:export-filename="/home/melanie/Obeo/dev/arduino/workspace/fr.obeo.dsl.arduino.menus/icons/openHardwareKit.png"
+   inkscape:export-xdpi="7"
+   inkscape:export-ydpi="7"><metadata
+   id="metadata3064"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs3062" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="640"
+   inkscape:window-height="480"
+   id="namedview3060"
+   showgrid="false"
+   inkscape:zoom="0.4609375"
+   inkscape:cx="256"
+   inkscape:cy="256"
+   inkscape:window-x="254"
+   inkscape:window-y="508"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="svg3057" />
+<path
+   id="tools-12-icon"
+   d="M199.25,150.584h-30V126.75c0-16.542,13.458-30,30-30h113.5c16.542,0,30,13.458,30,30v23.834h-30  v-15.418c0-4.647-3.769-8.416-8.417-8.416h-96.666c-4.648,0-8.417,3.769-8.417,8.416V150.584z M50,170.25v96.001h412V170.25H50z   M68.5,286.251V415.25h211.698l-22.005-22.017c-4.264-4.262-10.15-6.508-16.168-6.174c-9.959,0.554-20.101-2.971-27.707-10.578  c-10.163-10.163-13.042-24.85-8.64-37.579l23.109,23.109c9.016,0.53,22.955-13.41,22.425-22.424l-23.109-23.11  c12.729-4.402,27.416-1.523,37.58,8.64c7.606,7.606,11.132,17.749,10.577,27.705c-0.334,6.024,1.91,11.903,6.174,16.168  l46.146,46.26H443.5V286.251H68.5z" />
+<path
+   inkscape:connector-curvature="0"
+   id="arrow-53-icon"
+   d="m 282.17546,195.76037 v -18.27849 l 42.97691,42.90355 -42.97691,42.90289 v -18.27816 c 0,0 -34.73605,0 -51.75984,0 -50.69127,0 -39.92049,-55.52235 -35.44899,-66.13536 4.41772,13.68377 13.792,16.88557 30.06213,16.88557 14.22164,0 57.1467,0 57.1467,0 z"
+   style="fill:#ffffff" /></svg>

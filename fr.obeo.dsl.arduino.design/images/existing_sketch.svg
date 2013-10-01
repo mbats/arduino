@@ -21,9 +21,9 @@ You may NOT sub-license, resell, rent, redistribute or otherwise transfer the ic
    id="svg2"
    inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="existing_sketch.svg"
-   inkscape:export-filename="/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/images/existing_sketch.png"
-   inkscape:export-xdpi="7.3111291"
-   inkscape:export-ydpi="7.3111291"><metadata
+   inkscape:export-filename="/home/melanie/Obeo/dev/arduino/workspace/fr.obeo.dsl.arduino.menus/icons/openSketch.png"
+   inkscape:export-xdpi="7.3823404"
+   inkscape:export-ydpi="7.3823404"><metadata
    id="metadata9"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -53,4 +53,5 @@ You may NOT sub-license, resell, rent, redistribute or otherwise transfer the ic
 <path
    inkscape:connector-curvature="0"
    id="arrow-53-icon"
-   d="m 369.73178,345.20915 v -9.71591 l 22.84431,22.80532 -22.84431,22.80497 v -9.71573 c 0,0 -18.46389,0 -27.51286,0 -26.94488,0 -21.21968,-29.51282 -18.84286,-35.15415 2.34823,7.27358 7.33112,8.9755 15.97948,8.9755 7.55949,0 30.37624,0 30.37624,0 z" /></svg>
+   d="m 288.33673,187.86335 v -19.42096 l 45.66309,45.58516 -45.66309,45.58445 v -19.4206 c 0,0 -36.90715,0 -54.99498,0 -53.85965,0 -42.41565,-58.99266 -37.66466,-70.26902 4.69383,14.53903 14.65405,17.94097 31.9411,17.94097 15.11053,0 60.71854,0 60.71854,0 z"
+   style="fill:#ffffff" /></svg>

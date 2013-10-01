@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="arduino" version="6.5.0.201210011230">
-  <ownedViewpoints name="Hardware Library" modelFileExtension="arduino">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="arduino" version="6.7.0.201302071200">
+  <ownedViewpoints name="Hardware Kit" modelFileExtension="arduino">
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Hardware Kit Definition" domainClass="arduino.Project">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="HL_InputModule" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Named%20Element']" domainClass="arduino.InputModule">
+        <nodeMappings name="HL_InputModule" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Named%20Element']" domainClass="arduino.InputModule">
           <style xsi:type="style:WorkspaceImageDescription" labelFormat="bold" showIcon="false" sizeComputationExpression="6" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.arduino.design/images/digital_input.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -16,7 +16,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="HL_OutputModule" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Named%20Element']" domainClass="arduino.OutputModule">
+        <nodeMappings name="HL_OutputModule" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Named%20Element']" domainClass="arduino.OutputModule">
           <style xsi:type="style:WorkspaceImageDescription" labelFormat="bold" showIcon="false" sizeComputationExpression="6" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.arduino.design/images/digital_output.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -28,15 +28,15 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <containerMappings name="HL_Platform" deletionDescription="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Named%20Element']" domainClass="arduino.Platform" listContainer="true">
-          <subNodeMappings name="HD_DigitalPins" deletionDescription="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Digital%20Pin']" semanticCandidatesExpression="&lt;%self%>" domainClass="arduino.Platform">
+        <containerMappings name="HL_Platform" deletionDescription="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Named%20Element']" domainClass="arduino.Platform" childrenPresentation="List">
+          <subNodeMappings name="HD_DigitalPins" deletionDescription="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Digital%20Pin']" semanticCandidatesExpression="&lt;%self%>" domainClass="arduino.Platform">
             <style xsi:type="style:SquareDescription" labelFormat="bold" labelExpression="&lt;%digitalPins.nSize()%>" iconPath="/fr.obeo.dsl.arduino.design/images/digital.png" tooltipExpression="Number of digital pins" sizeComputationExpression="1" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="HD_AnalogPins" deletionDescription="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Analog%20Pin']" semanticCandidatesExpression="&lt;%self%>" domainClass="arduino.Platform">
+          <subNodeMappings name="HD_AnalogPins" deletionDescription="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Analog%20Pin']" semanticCandidatesExpression="&lt;%self%>" domainClass="arduino.Platform">
             <style xsi:type="style:SquareDescription" labelFormat="bold" labelExpression="&lt;%analogPins.nSize()%>" iconPath="/fr.obeo.dsl.arduino.design/images/analog.png" tooltipExpression="Number of analog pins" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -51,7 +51,7 @@
           </style>
         </containerMappings>
         <toolSections name="Create">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create Platform" label="Platform" containerMappings="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']" iconPath="/fr.obeo.dsl.arduino.design/images/platform.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create Platform" label="Platform" containerMappings="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']" iconPath="/fr.obeo.dsl.arduino.design/images/platform.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -82,7 +82,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%updateDigitalPins($0)%>"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Digital Input Module" label="Digital Input" nodeMappings="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']" iconPath="/fr.obeo.dsl.arduino.design/images/digital_input.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Digital Input Module" label="Digital Input" nodeMappings="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']" iconPath="/fr.obeo.dsl.arduino.design/images/digital_input.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -94,7 +94,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Digital Output Module" label="Digital Output" nodeMappings="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']" iconPath="/fr.obeo.dsl.arduino.design/images/digital_output.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Digital Output Module" label="Digital Output" nodeMappings="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']" iconPath="/fr.obeo.dsl.arduino.design/images/digital_output.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -106,7 +106,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Analog Input Module" label="Analog Input" nodeMappings="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']" iconPath="/fr.obeo.dsl.arduino.design/images/analog_input.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Analog Input Module" label="Analog Input" nodeMappings="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']" iconPath="/fr.obeo.dsl.arduino.design/images/analog_input.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -118,7 +118,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Analog Output Module" label="Analog Output" nodeMappings="//@ownedViewpoints[name='Hardware%20Library']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']" iconPath="/fr.obeo.dsl.arduino.design/images/analog_output.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Analog Output Module" label="Analog Output" nodeMappings="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']" iconPath="/fr.obeo.dsl.arduino.design/images/analog_output.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -139,12 +139,33 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedRepresentationExtensions xsi:type="description:DiagramExtensionDescription" name="Extended Dashboard" viewpointURI="viewpoint:/fr.obeo.dsl.arduino.design/Arduino" representationName="Dashboard">
+      <layers name="Hardware kit" activeByDefault="true">
+        <nodeMappings name="Hardware kit" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentationExtensions[name='Extended%20Dashboard']/@layers[name='Hardware%20kit']/@toolSections.0/@ownedTools[name='Hardware%20kit']" domainClass="arduino.Project">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="0" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/hardwareKit.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="Tool">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Hardware kit" mappings="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentationExtensions[name='Extended%20Dashboard']/@layers[name='Hardware%20kit']/@nodeMappings[name='Hardware%20kit']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </layers>
+    </ownedRepresentationExtensions>
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.arduino.design.services.ArduinoServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Arduino" modelFileExtension="arduino">
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Hardware Sketch" domainClass="arduino.Hardware">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Hardware Sketch" titleExpression="Hardware" initialisation="true" showOnStartup="true" domainClass="arduino.Hardware">
       <defaultLayer name="Default">
-        <nodeMappings name="HS_Platform" domainClass="arduino.Platform">
+        <nodeMappings name="HS_Platform" semanticCandidatesExpression="&lt;%platforms%>" domainClass="arduino.Platform">
           <borderedNodeMappings name="HS_DigitalPin" semanticCandidatesExpression="&lt;%digitalPins%>" domainClass="arduino.DigitalPin">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="&lt;%id%>" tooltipExpression="Digital pin &lt;%id%>" sizeComputationExpression="2" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -187,25 +208,26 @@
           </conditionnalStyles>
         </edgeMappings>
         <toolSections name="Tool">
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Platform" candidatesExpression="&lt;%$container.eContainer(&quot;Project&quot;).eAllContents(&quot;Platform&quot;)%>" message="Select an hardware platform" iconPath="/fr.obeo.dsl.arduino.design/images/platform.png" windowTitle="Select Platform" windowImagePath="/fr.obeo.dsl.arduino.design/images/platform.png">
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Platform" precondition="&lt;%filter(&quot;Hardware&quot;)%>" candidatesExpression="&lt;%$element.getPlatforms()%>" message="Select an hardware platform" iconPath="/fr.obeo.dsl.arduino.design/images/platform.png" windowTitle="Select Platform" windowImagePath="/fr.obeo.dsl.arduino.design/images/platform.png">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                <subModelOperations xsi:type="tool:Unset" featureName="platforms" elementExpression="&lt;%$container.platforms%>"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="platforms" valueExpression="&lt;%$element%>"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Module" candidatesExpression="&lt;%$container.eContainer(&quot;Project&quot;).eAllContents(&quot;Module&quot;)%>" multiple="true" message="Select a hardware modules" iconPath="/fr.obeo.dsl.arduino.design/images/digital.png" windowTitle="Select Platform" windowImagePath="/fr.obeo.dsl.arduino.design/images/digital.png">
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Module" precondition="&lt;%filter(&quot;Hardware&quot;)%>" candidatesExpression="&lt;%$element.getModules()%>" multiple="true" message="Select a hardware modules" iconPath="/fr.obeo.dsl.arduino.design/images/digital.png" windowTitle="Select Platform" windowImagePath="/fr.obeo.dsl.arduino.design/images/digital.png">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
                 <subModelOperations xsi:type="tool:For" expression="&lt;%$element.trace()%>">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container.trace()%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="modules" valueExpression="&lt;%$i.trace()%>"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="modules" valueExpression="&lt;%$i%>"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -269,26 +291,50 @@
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Dashboard" initialisation="true" showOnStartup="true" domainClass="arduino.Project">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="Hardware" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20hardware']" domainClass="arduino.Project">
-          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="" tooltipExpression="Connect hardware modules" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/hardware.svg">
+        <nodeMappings name="Hardware" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Hardware']" synchronizationLock="true" domainClass="arduino.Project">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="1" tooltipExpression="Double click to see hardware" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/hardware.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
+          <conditionnalStyles predicateExpression="&lt;%hardwares.nSize==0%>">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="1" tooltipExpression="Double click to describe the hardware" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/hardware_invalid.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="Sketch" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20sketch']" domainClass="arduino.Project">
-          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="" tooltipExpression="Write new sketch" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/software.svg">
+        <nodeMappings name="Sketch" preconditionExpression="&lt;%hardwares.nSize>0%>" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Sketch']" synchronizationLock="true" domainClass="arduino.Project">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="2" tooltipExpression="Double click to see sketch" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/software.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
+          <conditionnalStyles predicateExpression="&lt;%sketches.nSize==0%>">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="2" tooltipExpression="Double click to describe the software" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/software_invalid.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="&lt;%sketches.nFirst.instructions.next.filter(&quot;Sketch&quot;).nSize==0 || sketches.nFirst.next==null%>">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="2" tooltipExpression="Double click to describe the software" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/software_invalid.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="Existing Sketch" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20sketch']" domainClass="arduino.Project">
-          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="" tooltipExpression="Open an existing sketch" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/existing_sketch.svg">
+        <nodeMappings name="Upload" preconditionExpression="&lt;%sketches.nSize>0%>" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Upload']" domainClass="arduino.Project">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="3" tooltipExpression="Upload sketch on hardware" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/upload.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
+          <conditionnalStyles predicateExpression="&lt;%sketches.nFirst.instructions.next.filter(&quot;Sketch&quot;).nSize==0 || next==null%>">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="3" tooltipExpression="The sketch is invalid, double click to open it" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/upload_invalid.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
         <toolSections>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Create hardware" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Hardware']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Hardware" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Hardware']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -304,35 +350,43 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Create sketch" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Sketch" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self.target%>">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Sketch" referenceName="sketches" variableName="sketch">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="hardware" valueExpression="&lt;%eContainer(&quot;Project&quot;).hardwares.nFirst()%>"/>
-                  <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="&lt;%self.~target.nFirst().name%>"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%sketches.nSize==0%>">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Sketch" referenceName="sketches" variableName="sketch">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="hardware" valueExpression="&lt;%eContainer(&quot;Project&quot;).hardwares.nFirst()%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Sketch"/>
                   </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%sketches.nFirst%>">
+                  <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Open sketch" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Existing%20Sketch']">
-            <element name="element">
-              <subVariables xsi:type="tool:SelectModelElementVariable" name="sketch" candidatesExpression="&lt;%sketches%>"/>
-            </element>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Upload" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Upload']">
+            <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$sketch%>">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
+                <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%sketches.nFirst.instructions.next.filter(&quot;Sketch&quot;).nSize==0 || sketches.nFirst.next==null%>">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%sketches.nFirst%>">
+                    <subModelOperations xsi:type="tool:Navigation" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%sketches.nFirst.instructions.next.filter(&quot;Sketch&quot;).nSize>=0 &amp;&amp; sketches.nFirst.next!=null%>">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%sketches.nFirst.upload()%>"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Sketch" titleExpression="Sketch &lt;%eContainer(&quot;Project&quot;).sketches.nSize()%>" domainClass="arduino.Sketch">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Sketch" titleExpression="Sketch" showOnStartup="true" domainClass="arduino.Sketch">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="Loop" semanticCandidatesExpression="&lt;%self%>" domainClass="arduino.Sketch">
@@ -371,7 +425,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <edgeMappings name="Connector" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Connector']" sourceMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Loop'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status']" targetMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Loop']" targetFinderExpression="&lt;%getInstructions()%>" reconnections="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Source'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Target']">
+        <edgeMappings name="Link" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Connector']" sourceMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Loop'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status']" targetMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Loop']" targetFinderExpression="&lt;%getInstructions()%>" reconnections="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Source'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Target']">
           <style sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -406,7 +460,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Connector" edgeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Connector']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Connector" edgeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Link']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -490,32 +544,5 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.arduino.design.services.ArduinoServices"/>
-  </ownedViewpoints>
-  <ownedViewpoints name="DFRobot" modelFileExtension="arduino">
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Sketch2" domainClass="arduino.sketch">
-      <defaultLayer name="Default">
-        <nodeMappings name="LED" domainClass="arduino.OutputModule">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.arduino.design/images/dfrobot/led.jpg">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="Loop" semanticCandidatesExpression="&lt;%self%>" domainClass="arduino.Sketch">
-          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="Loop" hideLabelByDefault="true" workspacePath="/fr.obeo.dsl.arduino.design/images/loop.svg">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <toolSections>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="LED" nodeMappings="//@ownedViewpoints[name='DFRobot']/@ownedRepresentations[name='Sketch2']/@defaultLayer/@nodeMappings[name='LED']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Status" referenceName="instructions"/>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
-      </defaultLayer>
-    </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
