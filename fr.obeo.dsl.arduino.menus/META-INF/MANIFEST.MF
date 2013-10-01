@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Menus
+Bundle-SymbolicName: fr.obeo.dsl.arduino.menus;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: fr.obeo.dsl.arduino.menus.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ fr.obeo.dsl.arduino.design;bundle-version="1.0.0",
+ fr.obeo.dsl.viewpoint.ui,
+ com.google.guava,
+ org.eclipse.core.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
