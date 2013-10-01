@@ -2,12 +2,19 @@ package fr.obeo.dsl.arduino.design.services;
 
 import java.io.IOException;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.PlatformUI;
 
 import com.google.common.collect.Maps;
 
@@ -86,7 +93,7 @@ public class ProjectServices {
 												true);
 								session.addSemanticResource(defaultKitModelURI,
 										new NullProgressMonitor());
-								
+
 								session.save(new NullProgressMonitor());
 							}
 						});
@@ -114,6 +121,19 @@ public class ProjectServices {
 									}
 								}
 							});
+		}
+	}
+
+	public void closeProjects() {
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		for (IProject project : root.getProjects()) {
+			try {
+				project.close(new NullProgressMonitor());
+				project.delete(false, false, new NullProgressMonitor());
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }

@@ -15,6 +15,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -30,6 +31,7 @@ import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.design.Activator;
+import fr.obeo.dsl.arduino.gen.main.Generate;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
 import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
 
@@ -130,13 +132,13 @@ public class ArduinoServices {
 		IFolder folder = file.getProject().getFolder("code");
 		File genFolder = folder.getRawLocation().makeAbsolute().toFile();
 
-		// try {
-		// Generate generator = new Generate(sketch.eResource().getURI(),
-		// genFolder, new ArrayList<Object>());
-		// generator.doGenerate(new BasicMonitor());
-		// } catch (IOException e) {
-		// Activator.log(Status.ERROR, "Code generation failed", e);
-		// }
+		try {
+			Generate generator = new Generate(sketch.eResource().getURI(),
+					genFolder, new ArrayList<Object>());
+			generator.doGenerate(new BasicMonitor());
+		} catch (IOException e) {
+			Activator.log(Status.ERROR, "Code generation failed", e);
+		}
 		executeCommand("make", genFolder, null);
 		executeCommand("make", genFolder, "upload");
 	}

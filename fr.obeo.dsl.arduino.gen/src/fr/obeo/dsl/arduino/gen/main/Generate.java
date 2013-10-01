@@ -340,9 +340,6 @@ public class Generate extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(fr.obeo.dsl.arduino.ArduinoPackage.class)) {
-            resourceSet.getPackageRegistry().put(fr.obeo.dsl.arduino.ArduinoPackage.eINSTANCE.getNsURI(), fr.obeo.dsl.arduino.ArduinoPackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

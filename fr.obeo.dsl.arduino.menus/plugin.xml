@@ -4,24 +4,9 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.NewSketchHandler"
-            id="fr.obeo.dsl.arduino.commands.newSketch"
-            name="New sketch">
-      </command>
-      <command
             defaultHandler="fr.obeo.dsl.arduino.commands.OpenSketchHandler"
             id="fr.obeo.dsl.arduino.commands.openSketch"
             name="Open sketch">
-      </command>
-      <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.DeleteSketchHandler"
-            id="fr.obeo.dsl.arduino.commands.deleteSketch"
-            name="Delete sketch">
-      </command>
-      <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.NewHardwareHandler"
-            id="fr.obeo.dsl.arduino.commands.newHardware"
-            name="New hardware">
       </command>
       <command
             defaultHandler="fr.obeo.dsl.arduino.commands.OpenHardwareHandler"
@@ -29,39 +14,9 @@
             name="Open hardware">
       </command>
       <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.NewHardwareKitHandler"
-            id="fr.obeo.dsl.arduino.commands.newHardwareKit"
-            name="New Hardware Kit">
-      </command>
-      <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.DeleteHardwareHandler"
-            id="fr.obeo.dsl.arduino.commands.deleteHardware"
-            name="Delete hardware">
-      </command>
-      <command
             defaultHandler="fr.obeo.dsl.arduino.commands.OpenHardwareKitHandler"
             id="fr.obeo.dsl.arduino.commands.openHardwareKit"
-            name="OpenHardware Kit">
-      </command>
-      <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.DeleteHardwareKitHandler"
-            id="fr.obeo.dsl.arduino.commands.deleteHardwareKit"
-            name="Delete Hardware Kit">
-      </command>
-      <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.NewSketchHandler"
-            id="fr.obeo.dsl.arduino.menus.commands.sketch"
-            name="Sketch">
-      </command>
-      <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.NewHardwareHandler"
-            id="fr.obeo.dsl.arduino.menus.commands.hardware"
-            name="Hardware">
-      </command>
-      <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.NewHardwareKitHandler"
-            id="fr.obeo.dsl.arduino.menus.commands.hardwareKit"
-            name="Hardware Kit">
+            name="Open hardware kit">
       </command>
       <command
             defaultHandler="fr.obeo.dsl.arduino.commands.NewProjectHandler"
@@ -77,6 +32,11 @@
             defaultHandler="fr.obeo.dsl.arduino.commands.DeleteProjectHandler"
             id="fr.obeo.dsl.arduino.commands.deleteProject"
             name="Delete project">
+      </command>
+      <command
+            defaultHandler="fr.obeo.dsl.arduino.commands.OpenProjectHandler"
+            id="fr.obeo.dsl.arduino.commands.openProject"
+            name="Open project">
       </command>
    </extension>
    <extension
@@ -96,6 +56,13 @@
                tooltip="Create a new arduino project">
          </command>
          <command
+               commandId="fr.obeo.dsl.arduino.commands.openProject"
+               icon="icons/project.png"
+               label="Open Project"
+               style="push"
+               tooltip="Open an existing arduino project">
+         </command>
+         <command
                commandId="fr.obeo.dsl.arduino.commands.deleteProject"
                icon="icons/delete.png"
                label="Delete project"
@@ -103,81 +70,6 @@
                tooltip="Delete an existing project">
          </command>
       </menuContribution>
-      <menuContribution
-            allPopups="false"
-            locationURI="menu:fr.obeo.dsl.arduino.menus.commands.sketch">
-         <command
-               commandId="fr.obeo.dsl.arduino.commands.newSketch"
-               icon="icons/newSketch.png"
-               label="New sketch"
-               style="push"
-               tooltip="Define a new sketch">
-         </command>
-         <command
-               commandId="fr.obeo.dsl.arduino.commands.openSketch"
-               icon="icons/openSketch.png"
-               label="Open sketch"
-               style="push"
-               tooltip="Open an existing sketch">
-         </command>
-         <command
-               commandId="fr.obeo.dsl.arduino.commands.deleteSketch"
-               icon="icons/delete.png"
-               label="Delete sketch"
-               style="push"
-               tooltip="Delete an existing sketch">
-         </command>
-      </menuContribution>
-            <menuContribution
-                  allPopups="false"
-                  locationURI="menu:fr.obeo.dsl.arduino.menus.commands.hardware">
-               <command
-                     commandId="fr.obeo.dsl.arduino.commands.newHardware"
-                     icon="icons/newHardware.png"
-                     label="New hardware"
-                     style="push"
-                     tooltip="Define a new hardware layout">
-               </command>
-               <command
-                     commandId="fr.obeo.dsl.arduino.commands.openHardware"
-                     icon="icons/openHardware.png"
-                     label="Open hardware"
-                     style="push"
-                     tooltip="Open an existing hardware layout">
-               </command>
-               <command
-                     commandId="fr.obeo.dsl.arduino.commands.deleteHardware"
-                     icon="icons/delete.png"
-                     label="Delete hardware"
-                     style="push"
-                     tooltip="Delete an existing hardware layout">
-               </command>
-            </menuContribution>
-            <menuContribution
-                  allPopups="false"
-                  locationURI="menu:fr.obeo.dsl.arduino.menus.commands.hardwareKit">
-               <command
-                     commandId="fr.obeo.dsl.arduino.commands.newHardwareKit"
-                     icon="icons/newHardwareKit.png"
-                     label="New hardware kit"
-                     style="push"
-                     tooltip="Define a new hardware kit">
-               </command>
-               <command
-                     commandId="fr.obeo.dsl.arduino.commands.openHardwareKit"
-                     icon="icons/openHardwareKit.png"
-                     label="Open hardware kit"
-                     style="push"
-                     tooltip="Open an existing hardware kit">
-               </command>
-               <command
-                     commandId="fr.obeo.dsl.arduino.commands.deleteHardwareKit"
-                     icon="icons/delete.png"
-                     label="Delete hardware kit"
-                     style="push"
-                     tooltip="Delete an existing hardware kit">
-               </command>
-            </menuContribution>
             <menuContribution
             allPopups="false"
             locationURI="toolbar:org.eclipse.ui.main.toolbar">
@@ -191,25 +83,25 @@
                   tooltip="Create a new arduino project">
             </command>
             <command
-                  commandId="fr.obeo.dsl.arduino.menus.commands.hardwareKit"
+                  commandId="fr.obeo.dsl.arduino.commands.openHardwareKit"
                   icon="icons/newHardwareKit.png"
-                  label="Hardware Kit"
-                  style="pulldown"
-                  tooltip="Create a new hardware kit">
+                  label="Hardware kit"
+                  style="push"
+                  tooltip="Define new hardware kit modules and platforms">
             </command>
             <command
-                  commandId="fr.obeo.dsl.arduino.menus.commands.hardware"
+                  commandId="fr.obeo.dsl.arduino.commands.openHardware"
                   icon="icons/newHardware.png"
-                  label="Hardware"
-                  style="pulldown"
-                  tooltip="Create a new hardawre">
+                  label="Open hardware"
+                  style="push"
+                  tooltip="Open the hardware view">
             </command>
             <command
-                  commandId="fr.obeo.dsl.arduino.menus.commands.sketch"
+                  commandId="fr.obeo.dsl.arduino.commands.openSketch"
                   icon="icons/newSketch.png"
-                  label="Sketch"
-                  style="pulldown"
-                  tooltip="Create a new sketch">
+                  label="Open sketch"
+                  style="push"
+                  tooltip="Open the sketch">
             </command>
          </toolbar>
       </menuContribution>
