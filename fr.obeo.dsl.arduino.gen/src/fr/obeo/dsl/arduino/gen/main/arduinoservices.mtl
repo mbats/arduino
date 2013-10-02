@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module arduinoservices('http://www.obeo.fr/arduino')/]
+
+[query public getRepeatInstructionIndex(arg0 : Repeat) : Integer
+	= invoke('fr.obeo.dsl.arduino.gen.main.ArduinoGenServices', 'getRepeatInstructionIndex(fr.obeo.dsl.arduino.Repeat)', Sequence{arg0})
+/]
+

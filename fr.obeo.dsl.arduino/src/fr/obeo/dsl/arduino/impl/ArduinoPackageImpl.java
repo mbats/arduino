@@ -28,6 +28,7 @@ import fr.obeo.dsl.arduino.OutputModule;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
 import fr.obeo.dsl.arduino.Project;
+import fr.obeo.dsl.arduino.Repeat;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.Status;
 import fr.obeo.dsl.arduino.Time;
@@ -159,6 +160,13 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * @generated
 	 */
 	private EClass connectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass repeatEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -497,6 +505,15 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControl_Instructions() {
+		return (EReference)controlEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -584,6 +601,24 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 */
 	public EReference getConnector_Module() {
 		return (EReference)connectorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRepeat() {
+		return repeatEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRepeat_Iteration() {
+		return (EAttribute)repeatEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -681,6 +716,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		createEReference(moduleInstructionEClass, MODULE_INSTRUCTION__MODULE);
 
 		controlEClass = createEClass(CONTROL);
+		createEReference(controlEClass, CONTROL__INSTRUCTIONS);
 
 		utilitiesEClass = createEClass(UTILITIES);
 
@@ -700,6 +736,9 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		connectorEClass = createEClass(CONNECTOR);
 		createEReference(connectorEClass, CONNECTOR__PIN);
 		createEReference(connectorEClass, CONNECTOR__MODULE);
+
+		repeatEClass = createEClass(REPEAT);
+		createEAttribute(repeatEClass, REPEAT__ITERATION);
 
 		// Create enums
 		timeEEnum = createEEnum(TIME);
@@ -749,6 +788,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		delayEClass.getESuperTypes().add(this.getUtilities());
 		inputModuleEClass.getESuperTypes().add(this.getModule());
 		outputModuleEClass.getESuperTypes().add(this.getModule());
+		repeatEClass.getESuperTypes().add(this.getControl());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(hardwareEClass, Hardware.class, "Hardware", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -795,6 +835,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEReference(getModuleInstruction_Module(), this.getModule(), null, "module", null, 1, 1, ModuleInstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(controlEClass, Control.class, "Control", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getControl_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Control.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(utilitiesEClass, Utilities.class, "Utilities", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -814,6 +855,9 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConnector_Pin(), this.getPin(), null, "pin", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConnector_Module(), this.getModule(), null, "module", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(repeatEClass, Repeat.class, "Repeat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRepeat_Iteration(), ecorePackage.getEInt(), "iteration", "5", 0, 1, Repeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeEEnum, Time.class, "Time");

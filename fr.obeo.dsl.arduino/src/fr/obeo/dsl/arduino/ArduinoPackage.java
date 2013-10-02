@@ -656,13 +656,22 @@ public interface ArduinoPackage extends EPackage {
 	int CONTROL__NEXT = INSTRUCTION__NEXT;
 
 	/**
+	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL__INSTRUCTIONS = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Control</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+	int CONTROL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.UtilitiesImpl <em>Utilities</em>}' class.
@@ -923,6 +932,61 @@ public interface ArduinoPackage extends EPackage {
 	int CONNECTOR_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.RepeatImpl <em>Repeat</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.RepeatImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getRepeat()
+	 * @generated
+	 */
+	int REPEAT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT__PREVIOUS = CONTROL__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT__NEXT = CONTROL__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT__INSTRUCTIONS = CONTROL__INSTRUCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Iteration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT__ITERATION = CONTROL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Repeat</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -930,7 +994,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 20;
+	int TIME = 21;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.ModuleKind <em>Module Kind</em>}' enum.
@@ -940,7 +1004,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getModuleKind()
 	 * @generated
 	 */
-	int MODULE_KIND = 21;
+	int MODULE_KIND = 22;
 
 
 	/**
@@ -1283,6 +1347,17 @@ public interface ArduinoPackage extends EPackage {
 	EClass getControl();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Control#getInstructions <em>Instructions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Instructions</em>'.
+	 * @see fr.obeo.dsl.arduino.Control#getInstructions()
+	 * @see #getControl()
+	 * @generated
+	 */
+	EReference getControl_Instructions();
+
+	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Utilities <em>Utilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1395,6 +1470,27 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConnector_Module();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Repeat <em>Repeat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Repeat</em>'.
+	 * @see fr.obeo.dsl.arduino.Repeat
+	 * @generated
+	 */
+	EClass getRepeat();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Repeat#getIteration <em>Iteration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Iteration</em>'.
+	 * @see fr.obeo.dsl.arduino.Repeat#getIteration()
+	 * @see #getRepeat()
+	 * @generated
+	 */
+	EAttribute getRepeat_Iteration();
 
 	/**
 	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getPin <em>Pin</em>}'.
@@ -1732,6 +1828,14 @@ public interface ArduinoPackage extends EPackage {
 		EClass CONTROL = eINSTANCE.getControl();
 
 		/**
+		 * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL__INSTRUCTIONS = eINSTANCE.getControl_Instructions();
+
+		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.UtilitiesImpl <em>Utilities</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1832,6 +1936,24 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONNECTOR__MODULE = eINSTANCE.getConnector_Module();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.RepeatImpl <em>Repeat</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.RepeatImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getRepeat()
+		 * @generated
+		 */
+		EClass REPEAT = eINSTANCE.getRepeat();
+
+		/**
+		 * The meta object literal for the '<em><b>Iteration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPEAT__ITERATION = eINSTANCE.getRepeat_Iteration();
 
 		/**
 		 * The meta object literal for the '<em><b>Pin</b></em>' reference feature.

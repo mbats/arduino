@@ -1,6 +1,6 @@
 [comment encoding = UTF-8 /]
 [module generate('http://www.obeo.fr/arduino')]
-
+[import fr::obeo::dsl::arduino::gen::main::arduinoservices /]
 
 [template public generateSketch(sketch : Sketch)]
 [comment @main/]
@@ -12,6 +12,9 @@
 [file (sketch.getVariableName()+'.ino', false, 'UTF-8')]
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
 int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
+[/for]
+[for (instruction : Repeat | getRepeatInstructions(sketch))]
+int iter_[getRepeatInstructionIndex(instruction)/];
 [/for]
 
 void setup() {
@@ -27,6 +30,7 @@ void loop() {
 [/file]
 [/template]
 
+
 [template public genMakefile (sketch : Sketch) ]
 [file ('Makefile', false, 'UTF-8')]
 BOARD_TAG    = uno
@@ -39,12 +43,28 @@ include /usr/share/arduino/Arduino.mk
 
 [template public generateInstruction(instruction : Delay)post (trim())]
 delay([instruction.value/]);
+[if (not instruction.next.oclIsInvalid())]
 [generateInstruction(instruction.next)/]
+[/if]
 [/template]
 
 [template public generateInstruction(instruction : Status)post (trim())]
 digitalWrite([instruction.module.getVariableName()/], [instruction.status/]);
+[if (not instruction.next.oclIsInvalid())]
 [generateInstruction(instruction.next)/]
+[/if]
+[/template]
+
+[template public generateInstruction(instruction : Repeat)]
+[let index : Integer = getRepeatInstructionIndex(instruction)]
+for (iter_[index/]=0; iter_[index/] < ( [instruction.iteration/] ); ++iter_[index/] )
+{
+[comment][generateInstruction(instruction.instructions->first())/][/comment]
+}
+[if (not instruction.next.oclIsInvalid())]
+[generateInstruction(instruction.next)/]
+[/if]
+[/let]
 [/template]
 
 [template public generateInstruction(instruction : Sketch)]
@@ -52,10 +72,13 @@ digitalWrite([instruction.module.getVariableName()/], [instruction.status/]);
 
 [template public generateInstruction(instruction : Instruction)]
 Generation error for [instruction/]
+[if (not instruction.next.oclIsInvalid())]
 [generateInstruction(instruction.next)/]
+[/if]
 [/template]
 
 [query public getPinId (sketch : Sketch, mod : Module) : Integer = sketch.hardware.connectors->select(c| c.module = mod)->first().pin.id/]
 
 [query public getVariableName (element : NamedElement) : String = element.name.replaceAll(' ', '')/]
 
+[query public getRepeatInstructions (sketch : Sketch) : OrderedSet(Repeat) = sketch.eAllContents("Repeat")->asOrderedSet()/]

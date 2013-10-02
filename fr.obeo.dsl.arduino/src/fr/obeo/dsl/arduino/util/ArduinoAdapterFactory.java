@@ -148,6 +148,10 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 				return createConnectorAdapter();
 			}
 			@Override
+			public Adapter caseRepeat(Repeat object) {
+				return createRepeatAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -444,6 +448,20 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Repeat <em>Repeat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Repeat
+	 * @generated
+	 */
+	public Adapter createRepeatAdapter() {
 		return null;
 	}
 

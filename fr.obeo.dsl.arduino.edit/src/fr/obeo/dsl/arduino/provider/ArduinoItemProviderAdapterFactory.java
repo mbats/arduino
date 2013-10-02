@@ -348,6 +348,29 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Repeat} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RepeatItemProvider repeatItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Repeat}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRepeatAdapter() {
+		if (repeatItemProvider == null) {
+			repeatItemProvider = new RepeatItemProvider(this);
+		}
+
+		return repeatItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -458,6 +481,7 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 		if (inputModuleItemProvider != null) inputModuleItemProvider.dispose();
 		if (outputModuleItemProvider != null) outputModuleItemProvider.dispose();
 		if (connectorItemProvider != null) connectorItemProvider.dispose();
+		if (repeatItemProvider != null) repeatItemProvider.dispose();
 	}
 
 }
