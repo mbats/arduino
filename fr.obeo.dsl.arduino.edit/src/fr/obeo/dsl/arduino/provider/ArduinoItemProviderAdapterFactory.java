@@ -325,6 +325,29 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Connector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConnectorItemProvider connectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Connector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConnectorAdapter() {
+		if (connectorItemProvider == null) {
+			connectorItemProvider = new ConnectorItemProvider(this);
+		}
+
+		return connectorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,6 +457,7 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 		if (delayItemProvider != null) delayItemProvider.dispose();
 		if (inputModuleItemProvider != null) inputModuleItemProvider.dispose();
 		if (outputModuleItemProvider != null) outputModuleItemProvider.dispose();
+		if (connectorItemProvider != null) connectorItemProvider.dispose();
 	}
 
 }

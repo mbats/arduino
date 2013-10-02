@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Hardware#getPlatforms <em>Platforms</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Hardware#getModules <em>Modules</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Hardware#getConnectors <em>Connectors</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,5 +54,21 @@ public interface Hardware extends NamedElement {
 	 * @generated
 	 */
 	EList<Module> getModules();
+
+	/**
+	 * Returns the value of the '<em><b>Connectors</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.obeo.dsl.arduino.Connector}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Connectors</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connectors</em>' containment reference list.
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getHardware_Connectors()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Connector> getConnectors();
 
 } // Hardware

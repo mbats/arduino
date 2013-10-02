@@ -11,6 +11,7 @@ import fr.obeo.dsl.arduino.Sketch;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -30,8 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getHardwares <em>Hardwares</em>}</li>
- *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getSketches <em>Sketches</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getHardware <em>Hardware</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getSketch <em>Sketch</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getModules <em>Modules</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.ProjectImpl#getPlatform <em>Platform</em>}</li>
  * </ul>
@@ -41,24 +43,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ProjectImpl extends EObjectImpl implements Project {
 	/**
-	 * The cached value of the '{@link #getHardwares() <em>Hardwares</em>}' containment reference list.
+	 * The cached value of the '{@link #getHardware() <em>Hardware</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHardwares()
+	 * @see #getHardware()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Hardware> hardwares;
+	protected Hardware hardware;
 
 	/**
-	 * The cached value of the '{@link #getSketches() <em>Sketches</em>}' containment reference list.
+	 * The cached value of the '{@link #getSketch() <em>Sketch</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSketches()
+	 * @see #getSketch()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Sketch> sketches;
+	protected Sketch sketch;
 
 	/**
 	 * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
@@ -104,11 +106,8 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Hardware> getHardwares() {
-		if (hardwares == null) {
-			hardwares = new EObjectContainmentEList<Hardware>(Hardware.class, this, ArduinoPackage.PROJECT__HARDWARES);
-		}
-		return hardwares;
+	public Hardware getHardware() {
+		return hardware;
 	}
 
 	/**
@@ -116,11 +115,76 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Sketch> getSketches() {
-		if (sketches == null) {
-			sketches = new EObjectContainmentEList<Sketch>(Sketch.class, this, ArduinoPackage.PROJECT__SKETCHES);
+	public NotificationChain basicSetHardware(Hardware newHardware, NotificationChain msgs) {
+		Hardware oldHardware = hardware;
+		hardware = newHardware;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ArduinoPackage.PROJECT__HARDWARE, oldHardware, newHardware);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return sketches;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHardware(Hardware newHardware) {
+		if (newHardware != hardware) {
+			NotificationChain msgs = null;
+			if (hardware != null)
+				msgs = ((InternalEObject)hardware).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ArduinoPackage.PROJECT__HARDWARE, null, msgs);
+			if (newHardware != null)
+				msgs = ((InternalEObject)newHardware).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ArduinoPackage.PROJECT__HARDWARE, null, msgs);
+			msgs = basicSetHardware(newHardware, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.PROJECT__HARDWARE, newHardware, newHardware));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sketch getSketch() {
+		return sketch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSketch(Sketch newSketch, NotificationChain msgs) {
+		Sketch oldSketch = sketch;
+		sketch = newSketch;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ArduinoPackage.PROJECT__SKETCH, oldSketch, newSketch);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSketch(Sketch newSketch) {
+		if (newSketch != sketch) {
+			NotificationChain msgs = null;
+			if (sketch != null)
+				msgs = ((InternalEObject)sketch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ArduinoPackage.PROJECT__SKETCH, null, msgs);
+			if (newSketch != null)
+				msgs = ((InternalEObject)newSketch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ArduinoPackage.PROJECT__SKETCH, null, msgs);
+			msgs = basicSetSketch(newSketch, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.PROJECT__SKETCH, newSketch, newSketch));
 	}
 
 	/**
@@ -155,10 +219,10 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ArduinoPackage.PROJECT__HARDWARES:
-				return ((InternalEList<?>)getHardwares()).basicRemove(otherEnd, msgs);
-			case ArduinoPackage.PROJECT__SKETCHES:
-				return ((InternalEList<?>)getSketches()).basicRemove(otherEnd, msgs);
+			case ArduinoPackage.PROJECT__HARDWARE:
+				return basicSetHardware(null, msgs);
+			case ArduinoPackage.PROJECT__SKETCH:
+				return basicSetSketch(null, msgs);
 			case ArduinoPackage.PROJECT__MODULES:
 				return ((InternalEList<?>)getModules()).basicRemove(otherEnd, msgs);
 			case ArduinoPackage.PROJECT__PLATFORM:
@@ -175,10 +239,10 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ArduinoPackage.PROJECT__HARDWARES:
-				return getHardwares();
-			case ArduinoPackage.PROJECT__SKETCHES:
-				return getSketches();
+			case ArduinoPackage.PROJECT__HARDWARE:
+				return getHardware();
+			case ArduinoPackage.PROJECT__SKETCH:
+				return getSketch();
 			case ArduinoPackage.PROJECT__MODULES:
 				return getModules();
 			case ArduinoPackage.PROJECT__PLATFORM:
@@ -196,13 +260,11 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ArduinoPackage.PROJECT__HARDWARES:
-				getHardwares().clear();
-				getHardwares().addAll((Collection<? extends Hardware>)newValue);
+			case ArduinoPackage.PROJECT__HARDWARE:
+				setHardware((Hardware)newValue);
 				return;
-			case ArduinoPackage.PROJECT__SKETCHES:
-				getSketches().clear();
-				getSketches().addAll((Collection<? extends Sketch>)newValue);
+			case ArduinoPackage.PROJECT__SKETCH:
+				setSketch((Sketch)newValue);
 				return;
 			case ArduinoPackage.PROJECT__MODULES:
 				getModules().clear();
@@ -224,11 +286,11 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.PROJECT__HARDWARES:
-				getHardwares().clear();
+			case ArduinoPackage.PROJECT__HARDWARE:
+				setHardware((Hardware)null);
 				return;
-			case ArduinoPackage.PROJECT__SKETCHES:
-				getSketches().clear();
+			case ArduinoPackage.PROJECT__SKETCH:
+				setSketch((Sketch)null);
 				return;
 			case ArduinoPackage.PROJECT__MODULES:
 				getModules().clear();
@@ -248,10 +310,10 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.PROJECT__HARDWARES:
-				return hardwares != null && !hardwares.isEmpty();
-			case ArduinoPackage.PROJECT__SKETCHES:
-				return sketches != null && !sketches.isEmpty();
+			case ArduinoPackage.PROJECT__HARDWARE:
+				return hardware != null;
+			case ArduinoPackage.PROJECT__SKETCH:
+				return sketch != null;
 			case ArduinoPackage.PROJECT__MODULES:
 				return modules != null && !modules.isEmpty();
 			case ArduinoPackage.PROJECT__PLATFORM:

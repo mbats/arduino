@@ -24,13 +24,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduino.ecore#//Platform/image"/>
     </genClasses>
     <genClasses image="false" ecoreClass="arduino.ecore#//Module">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduino.ecore#//Module/pin"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduino.ecore#//Module/kind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduino.ecore#//Module/image"/>
     </genClasses>
     <genClasses ecoreClass="arduino.ecore#//DigitalPin"/>
     <genClasses image="false" ecoreClass="arduino.ecore#//Pin">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduino.ecore#//Pin/module"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduino.ecore#//Pin/id"/>
     </genClasses>
     <genClasses ecoreClass="arduino.ecore#//AnalogPin"/>
@@ -39,8 +39,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduino.ecore#//Sketch/instructions"/>
     </genClasses>
     <genClasses ecoreClass="arduino.ecore#//Project">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduino.ecore#//Project/hardwares"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduino.ecore#//Project/sketches"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduino.ecore#//Project/hardware"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduino.ecore#//Project/sketch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduino.ecore#//Project/modules"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduino.ecore#//Project/platform"/>
     </genClasses>

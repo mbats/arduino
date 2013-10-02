@@ -4,7 +4,6 @@ package fr.obeo.dsl.arduino.provider;
 
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
-import fr.obeo.dsl.arduino.Pin;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,17 +20,15 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.obeo.dsl.arduino.Pin} object.
+ * This is the item provider adapter for a {@link fr.obeo.dsl.arduino.Connector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PinItemProvider
+public class ConnectorItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +42,7 @@ public class PinItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PinItemProvider(AdapterFactory adapterFactory) {
+	public ConnectorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,31 +57,65 @@ public class PinItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
+			addPinPropertyDescriptor(object);
+			addModulePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
+	 * This adds a property descriptor for the Module feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdPropertyDescriptor(Object object) {
+	protected void addModulePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pin_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pin_id_feature", "_UI_Pin_type"),
-				 ArduinoPackage.Literals.PIN__ID,
+				 getString("_UI_Connector_module_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_module_feature", "_UI_Connector_type"),
+				 ArduinoPackage.Literals.CONNECTOR__MODULE,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pin feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPinPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Connector_pin_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_pin_feature", "_UI_Connector_type"),
+				 ArduinoPackage.Literals.CONNECTOR__PIN,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns Connector.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Connector"));
 	}
 
 	/**
@@ -95,8 +126,7 @@ public class PinItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Pin pin = (Pin)object;
-		return getString("_UI_Pin_type") + " " + pin.getId();
+		return getString("_UI_Connector_type");
 	}
 
 	/**
@@ -109,12 +139,6 @@ public class PinItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Pin.class)) {
-			case ArduinoPackage.PIN__ID:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

@@ -3,17 +3,22 @@
 package fr.obeo.dsl.arduino.impl;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.Platform;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +29,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.HardwareImpl#getPlatforms <em>Platforms</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.HardwareImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.HardwareImpl#getConnectors <em>Connectors</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +55,16 @@ public class HardwareImpl extends NamedElementImpl implements Hardware {
 	 * @ordered
 	 */
 	protected EList<Module> modules;
+
+	/**
+	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectors()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Connector> connectors;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,6 +114,32 @@ public class HardwareImpl extends NamedElementImpl implements Hardware {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Connector> getConnectors() {
+		if (connectors == null) {
+			connectors = new EObjectContainmentEList<Connector>(Connector.class, this, ArduinoPackage.HARDWARE__CONNECTORS);
+		}
+		return connectors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ArduinoPackage.HARDWARE__CONNECTORS:
+				return ((InternalEList<?>)getConnectors()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -105,6 +147,8 @@ public class HardwareImpl extends NamedElementImpl implements Hardware {
 				return getPlatforms();
 			case ArduinoPackage.HARDWARE__MODULES:
 				return getModules();
+			case ArduinoPackage.HARDWARE__CONNECTORS:
+				return getConnectors();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,6 +170,10 @@ public class HardwareImpl extends NamedElementImpl implements Hardware {
 				getModules().clear();
 				getModules().addAll((Collection<? extends Module>)newValue);
 				return;
+			case ArduinoPackage.HARDWARE__CONNECTORS:
+				getConnectors().clear();
+				getConnectors().addAll((Collection<? extends Connector>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -144,6 +192,9 @@ public class HardwareImpl extends NamedElementImpl implements Hardware {
 			case ArduinoPackage.HARDWARE__MODULES:
 				getModules().clear();
 				return;
+			case ArduinoPackage.HARDWARE__CONNECTORS:
+				getConnectors().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,6 +211,8 @@ public class HardwareImpl extends NamedElementImpl implements Hardware {
 				return platforms != null && !platforms.isEmpty();
 			case ArduinoPackage.HARDWARE__MODULES:
 				return modules != null && !modules.isEmpty();
+			case ArduinoPackage.HARDWARE__CONNECTORS:
+				return connectors != null && !connectors.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

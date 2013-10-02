@@ -11,7 +11,6 @@ package fr.obeo.dsl.arduino;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.obeo.dsl.arduino.Module#getPin <em>Pin</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Module#getKind <em>Kind</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Module#getImage <em>Image</em>}</li>
  * </ul>
@@ -22,34 +21,6 @@ package fr.obeo.dsl.arduino;
  * @generated
  */
 public interface Module extends NamedElement {
-	/**
-	 * Returns the value of the '<em><b>Pin</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link fr.obeo.dsl.arduino.Pin#getModule <em>Module</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Pin</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pin</em>' reference.
-	 * @see #setPin(Pin)
-	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getModule_Pin()
-	 * @see fr.obeo.dsl.arduino.Pin#getModule
-	 * @model opposite="module"
-	 * @generated
-	 */
-	Pin getPin();
-
-	/**
-	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Module#getPin <em>Pin</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pin</em>' reference.
-	 * @see #getPin()
-	 * @generated
-	 */
-	void setPin(Pin value);
-
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
 	 * The default value is <code>"digital"</code>.

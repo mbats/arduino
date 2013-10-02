@@ -3,6 +3,7 @@
 package fr.obeo.dsl.arduino.impl;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.Pin;
 
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.obeo.dsl.arduino.impl.PinImpl#getModule <em>Module</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.PinImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
@@ -30,16 +30,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @generated
  */
 public abstract class PinImpl extends EObjectImpl implements Pin {
-	/**
-	 * The cached value of the '{@link #getModule() <em>Module</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModule()
-	 * @generated
-	 * @ordered
-	 */
-	protected Module module;
-
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,66 +74,6 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Module getModule() {
-		if (module != null && module.eIsProxy()) {
-			InternalEObject oldModule = (InternalEObject)module;
-			module = (Module)eResolveProxy(oldModule);
-			if (module != oldModule) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.PIN__MODULE, oldModule, module));
-			}
-		}
-		return module;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Module basicGetModule() {
-		return module;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetModule(Module newModule, NotificationChain msgs) {
-		Module oldModule = module;
-		module = newModule;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ArduinoPackage.PIN__MODULE, oldModule, newModule);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModule(Module newModule) {
-		if (newModule != module) {
-			NotificationChain msgs = null;
-			if (module != null)
-				msgs = ((InternalEObject)module).eInverseRemove(this, ArduinoPackage.MODULE__PIN, Module.class, msgs);
-			if (newModule != null)
-				msgs = ((InternalEObject)newModule).eInverseAdd(this, ArduinoPackage.MODULE__PIN, Module.class, msgs);
-			msgs = basicSetModule(newModule, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.PIN__MODULE, newModule, newModule));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int getId() {
 		return id;
 	}
@@ -166,41 +96,8 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ArduinoPackage.PIN__MODULE:
-				if (module != null)
-					msgs = ((InternalEObject)module).eInverseRemove(this, ArduinoPackage.MODULE__PIN, Module.class, msgs);
-				return basicSetModule((Module)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ArduinoPackage.PIN__MODULE:
-				return basicSetModule(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ArduinoPackage.PIN__MODULE:
-				if (resolve) return getModule();
-				return basicGetModule();
 			case ArduinoPackage.PIN__ID:
 				return getId();
 		}
@@ -215,9 +112,6 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ArduinoPackage.PIN__MODULE:
-				setModule((Module)newValue);
-				return;
 			case ArduinoPackage.PIN__ID:
 				setId((Integer)newValue);
 				return;
@@ -233,9 +127,6 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.PIN__MODULE:
-				setModule((Module)null);
-				return;
 			case ArduinoPackage.PIN__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -251,8 +142,6 @@ public abstract class PinImpl extends EObjectImpl implements Pin {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.PIN__MODULE:
-				return module != null;
 			case ArduinoPackage.PIN__ID:
 				return id != ID_EDEFAULT;
 		}

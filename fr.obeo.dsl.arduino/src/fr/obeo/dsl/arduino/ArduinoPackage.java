@@ -122,13 +122,22 @@ public interface ArduinoPackage extends EPackage {
 	int HARDWARE__MODULES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE__CONNECTORS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Hardware</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HARDWARE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int HARDWARE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.PlatformImpl <em>Platform</em>}' class.
@@ -205,22 +214,13 @@ public interface ArduinoPackage extends EPackage {
 	int MODULE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Pin</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULE__PIN = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE__KIND = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int MODULE__KIND = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Image</b></em>' attribute.
@@ -229,7 +229,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE__IMAGE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int MODULE__IMAGE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Module</em>' class.
@@ -238,7 +238,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MODULE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.PinImpl <em>Pin</em>}' class.
@@ -251,22 +251,13 @@ public interface ArduinoPackage extends EPackage {
 	int PIN = 4;
 
 	/**
-	 * The feature id for the '<em><b>Module</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__MODULE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN__ID = 1;
+	int PIN__ID = 0;
 
 	/**
 	 * The number of structural features of the '<em>Pin</em>' class.
@@ -275,7 +266,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_FEATURE_COUNT = 2;
+	int PIN_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.DigitalPinImpl <em>Digital Pin</em>}' class.
@@ -286,15 +277,6 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	int DIGITAL_PIN = 3;
-
-	/**
-	 * The feature id for the '<em><b>Module</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIGITAL_PIN__MODULE = PIN__MODULE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -323,15 +305,6 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	int ANALOG_PIN = 5;
-
-	/**
-	 * The feature id for the '<em><b>Module</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALOG_PIN__MODULE = PIN__MODULE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -426,22 +399,22 @@ public interface ArduinoPackage extends EPackage {
 	int PROJECT = 7;
 
 	/**
-	 * The feature id for the '<em><b>Hardwares</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Hardware</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__HARDWARES = 0;
+	int PROJECT__HARDWARE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Sketches</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Sketch</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SKETCHES = 1;
+	int PROJECT__SKETCH = 1;
 
 	/**
 	 * The feature id for the '<em><b>Modules</b></em>' containment reference list.
@@ -840,15 +813,6 @@ public interface ArduinoPackage extends EPackage {
 	int INPUT_MODULE__NAME = MODULE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Pin</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_MODULE__PIN = MODULE__PIN;
-
-	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -895,15 +859,6 @@ public interface ArduinoPackage extends EPackage {
 	int OUTPUT_MODULE__NAME = MODULE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Pin</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_MODULE__PIN = MODULE__PIN;
-
-	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -931,6 +886,43 @@ public interface ArduinoPackage extends EPackage {
 	int OUTPUT_MODULE_FEATURE_COUNT = MODULE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ConnectorImpl <em>Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.ConnectorImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getConnector()
+	 * @generated
+	 */
+	int CONNECTOR = 19;
+
+	/**
+	 * The feature id for the '<em><b>Pin</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__PIN = 0;
+
+	/**
+	 * The feature id for the '<em><b>Module</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__MODULE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -938,7 +930,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 19;
+	int TIME = 20;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.ModuleKind <em>Module Kind</em>}' enum.
@@ -948,7 +940,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getModuleKind()
 	 * @generated
 	 */
-	int MODULE_KIND = 20;
+	int MODULE_KIND = 21;
 
 
 	/**
@@ -982,6 +974,17 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getHardware_Modules();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Hardware#getConnectors <em>Connectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Connectors</em>'.
+	 * @see fr.obeo.dsl.arduino.Hardware#getConnectors()
+	 * @see #getHardware()
+	 * @generated
+	 */
+	EReference getHardware_Connectors();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Platform <em>Platform</em>}'.
@@ -1037,17 +1040,6 @@ public interface ArduinoPackage extends EPackage {
 	EClass getModule();
 
 	/**
-	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Module#getPin <em>Pin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pin</em>'.
-	 * @see fr.obeo.dsl.arduino.Module#getPin()
-	 * @see #getModule()
-	 * @generated
-	 */
-	EReference getModule_Pin();
-
-	/**
 	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Module#getKind <em>Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1088,17 +1080,6 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPin();
-
-	/**
-	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Pin#getModule <em>Module</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Module</em>'.
-	 * @see fr.obeo.dsl.arduino.Pin#getModule()
-	 * @see #getPin()
-	 * @generated
-	 */
-	EReference getPin_Module();
 
 	/**
 	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Pin#getId <em>Id</em>}'.
@@ -1164,26 +1145,26 @@ public interface ArduinoPackage extends EPackage {
 	EClass getProject();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Project#getHardwares <em>Hardwares</em>}'.
+	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.arduino.Project#getHardware <em>Hardware</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Hardwares</em>'.
-	 * @see fr.obeo.dsl.arduino.Project#getHardwares()
+	 * @return the meta object for the containment reference '<em>Hardware</em>'.
+	 * @see fr.obeo.dsl.arduino.Project#getHardware()
 	 * @see #getProject()
 	 * @generated
 	 */
-	EReference getProject_Hardwares();
+	EReference getProject_Hardware();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Project#getSketches <em>Sketches</em>}'.
+	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.arduino.Project#getSketch <em>Sketch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sketches</em>'.
-	 * @see fr.obeo.dsl.arduino.Project#getSketches()
+	 * @return the meta object for the containment reference '<em>Sketch</em>'.
+	 * @see fr.obeo.dsl.arduino.Project#getSketch()
 	 * @see #getProject()
 	 * @generated
 	 */
-	EReference getProject_Sketches();
+	EReference getProject_Sketch();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Project#getModules <em>Modules</em>}'.
@@ -1395,6 +1376,38 @@ public interface ArduinoPackage extends EPackage {
 	EAttribute getNamedElement_Name();
 
 	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Connector <em>Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Connector</em>'.
+	 * @see fr.obeo.dsl.arduino.Connector
+	 * @generated
+	 */
+	EClass getConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getModule <em>Module</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Module</em>'.
+	 * @see fr.obeo.dsl.arduino.Connector#getModule()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Module();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getPin <em>Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Pin</em>'.
+	 * @see fr.obeo.dsl.arduino.Connector#getPin()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Pin();
+
+	/**
 	 * Returns the meta object for enum '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1463,6 +1476,14 @@ public interface ArduinoPackage extends EPackage {
 		EReference HARDWARE__MODULES = eINSTANCE.getHardware_Modules();
 
 		/**
+		 * The meta object literal for the '<em><b>Connectors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HARDWARE__CONNECTORS = eINSTANCE.getHardware_Connectors();
+
+		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.PlatformImpl <em>Platform</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1507,14 +1528,6 @@ public interface ArduinoPackage extends EPackage {
 		EClass MODULE = eINSTANCE.getModule();
 
 		/**
-		 * The meta object literal for the '<em><b>Pin</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODULE__PIN = eINSTANCE.getModule_Pin();
-
-		/**
 		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1549,14 +1562,6 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PIN = eINSTANCE.getPin();
-
-		/**
-		 * The meta object literal for the '<em><b>Module</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PIN__MODULE = eINSTANCE.getPin_Module();
 
 		/**
 		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
@@ -1613,20 +1618,20 @@ public interface ArduinoPackage extends EPackage {
 		EClass PROJECT = eINSTANCE.getProject();
 
 		/**
-		 * The meta object literal for the '<em><b>Hardwares</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Hardware</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROJECT__HARDWARES = eINSTANCE.getProject_Hardwares();
+		EReference PROJECT__HARDWARE = eINSTANCE.getProject_Hardware();
 
 		/**
-		 * The meta object literal for the '<em><b>Sketches</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Sketch</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROJECT__SKETCHES = eINSTANCE.getProject_Sketches();
+		EReference PROJECT__SKETCH = eINSTANCE.getProject_Sketch();
 
 		/**
 		 * The meta object literal for the '<em><b>Modules</b></em>' containment reference list feature.
@@ -1809,6 +1814,32 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ConnectorImpl <em>Connector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.ConnectorImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getConnector()
+		 * @generated
+		 */
+		EClass CONNECTOR = eINSTANCE.getConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Module</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__MODULE = eINSTANCE.getConnector_Module();
+
+		/**
+		 * The meta object literal for the '<em><b>Pin</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__PIN = eINSTANCE.getConnector_Pin();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}' enum.

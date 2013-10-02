@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.obeo.dsl.arduino.Project#getHardwares <em>Hardwares</em>}</li>
- *   <li>{@link fr.obeo.dsl.arduino.Project#getSketches <em>Sketches</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Project#getHardware <em>Hardware</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Project#getSketch <em>Sketch</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Project#getModules <em>Modules</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Project#getPlatform <em>Platform</em>}</li>
  * </ul>
@@ -27,36 +27,56 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Project extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Hardwares</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.obeo.dsl.arduino.Hardware}.
+	 * Returns the value of the '<em><b>Hardware</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Hardwares</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Hardware</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hardwares</em>' containment reference list.
-	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getProject_Hardwares()
+	 * @return the value of the '<em>Hardware</em>' containment reference.
+	 * @see #setHardware(Hardware)
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getProject_Hardware()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Hardware> getHardwares();
+	Hardware getHardware();
 
 	/**
-	 * Returns the value of the '<em><b>Sketches</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.obeo.dsl.arduino.Sketch}.
+	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Project#getHardware <em>Hardware</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Hardware</em>' containment reference.
+	 * @see #getHardware()
+	 * @generated
+	 */
+	void setHardware(Hardware value);
+
+	/**
+	 * Returns the value of the '<em><b>Sketch</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sketches</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Sketch</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sketches</em>' containment reference list.
-	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getProject_Sketches()
+	 * @return the value of the '<em>Sketch</em>' containment reference.
+	 * @see #setSketch(Sketch)
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getProject_Sketch()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Sketch> getSketches();
+	Sketch getSketch();
+
+	/**
+	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Project#getSketch <em>Sketch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sketch</em>' containment reference.
+	 * @see #getSketch()
+	 * @generated
+	 */
+	void setSketch(Sketch value);
 
 	/**
 	 * Returns the value of the '<em><b>Modules</b></em>' containment reference list.

@@ -24,6 +24,7 @@ import com.google.common.collect.Lists;
 
 import fr.obeo.dsl.arduino.AnalogPin;
 import fr.obeo.dsl.arduino.ArduinoFactory;
+import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.DigitalPin;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.Module;
@@ -92,11 +93,21 @@ public class ArduinoServices {
 	public boolean isValidConnector(Module module, Pin pin) {
 		switch (module.getKind()) {
 		case DIGITAL:
-			return pin instanceof DigitalPin && pin.getModule() == null;
+			return pin instanceof DigitalPin && getModule(pin) == null;
 
 		default:
-			return pin instanceof AnalogPin && pin.getModule() == null;
+			return pin instanceof AnalogPin && getModule(pin) == null;
 		}
+	}
+
+	public Module getModule(Pin pin) {
+		List<Connector> connectors = getConnectors(pin);
+		for (Connector connector : connectors) {
+			if (connector.getPin().equals(pin)) {
+				return connector.getModule();
+			}
+		}
+		return null;
 	}
 
 	public Instruction getInstructions(Instruction instruction) {
@@ -209,6 +220,30 @@ public class ArduinoServices {
 				EObject content = iterator.next();
 				if (content instanceof Module) {
 					result.add((Module) content);
+				}
+			}
+		}
+		return result;
+	}
+
+	public List<Module> getConnectedModules(Sketch sketch) {
+		List<Module> result = Lists.newArrayList();
+		for (Connector connector : sketch.getHardware().getConnectors()) {
+			result.add(connector.getModule());
+		}
+		return result;
+	}
+
+	public List<Connector> getConnectors(EObject object) {
+		List<Connector> result = Lists.newArrayList();
+		Session session = SessionManager.INSTANCE.getSession(object);
+
+		for (Resource resource : session.getSemanticResources()) {
+			for (Iterator<EObject> iterator = resource.getAllContents(); iterator
+					.hasNext();) {
+				EObject content = iterator.next();
+				if (content instanceof Connector) {
+					result.add((Connector) content);
 				}
 			}
 		}

@@ -77,8 +77,8 @@ public class ProjectItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ArduinoPackage.Literals.PROJECT__HARDWARES);
-			childrenFeatures.add(ArduinoPackage.Literals.PROJECT__SKETCHES);
+			childrenFeatures.add(ArduinoPackage.Literals.PROJECT__HARDWARE);
+			childrenFeatures.add(ArduinoPackage.Literals.PROJECT__SKETCH);
 			childrenFeatures.add(ArduinoPackage.Literals.PROJECT__MODULES);
 			childrenFeatures.add(ArduinoPackage.Literals.PROJECT__PLATFORM);
 		}
@@ -132,8 +132,8 @@ public class ProjectItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Project.class)) {
-			case ArduinoPackage.PROJECT__HARDWARES:
-			case ArduinoPackage.PROJECT__SKETCHES:
+			case ArduinoPackage.PROJECT__HARDWARE:
+			case ArduinoPackage.PROJECT__SKETCH:
 			case ArduinoPackage.PROJECT__MODULES:
 			case ArduinoPackage.PROJECT__PLATFORM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -155,12 +155,12 @@ public class ProjectItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ArduinoPackage.Literals.PROJECT__HARDWARES,
+				(ArduinoPackage.Literals.PROJECT__HARDWARE,
 				 ArduinoFactory.eINSTANCE.createHardware()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ArduinoPackage.Literals.PROJECT__SKETCHES,
+				(ArduinoPackage.Literals.PROJECT__SKETCH,
 				 ArduinoFactory.eINSTANCE.createSketch()));
 
 		newChildDescriptors.add

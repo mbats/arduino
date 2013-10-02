@@ -6,6 +6,8 @@
         upperBound="-1" eType="#//Platform"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
         eType="#//Module"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
+        eType="#//Connector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Platform" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="digitalPins" upperBound="-1"
@@ -15,15 +17,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pin" eType="#//Pin" eOpposite="#//Pin/module"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//ModuleKind"
         defaultValueLiteral="digital"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalPin" eSuperTypes="#//Pin"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="module" eType="#//Module"
-        eOpposite="#//Module/pin"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalogPin" eSuperTypes="#//Pin"/>
@@ -34,10 +33,10 @@
         eType="#//Instruction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Project">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hardwares" upperBound="-1"
-        eType="#//Hardware" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sketches" upperBound="-1"
-        eType="#//Sketch" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hardware" eType="#//Hardware"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sketch" eType="#//Sketch"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
         eType="#//Module" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="platform" upperBound="-1"
@@ -74,5 +73,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pin" eType="#//Pin"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" eType="#//Module"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -11,7 +11,7 @@
 [template public genIno (sketch : Sketch) ]
 [file (sketch.getVariableName()+'.ino', false, 'UTF-8')]
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
-int [mod.getVariableName()/] = [mod.pin.id/];
+int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
 [/for]
 
 void setup() {
@@ -55,6 +55,7 @@ Generation error for [instruction/]
 [generateInstruction(instruction.next)/]
 [/template]
 
+[query public getPinId (sketch : Sketch, mod : Module) : Integer = sketch.hardware.connectors->select(c| c.module = mod)->first().pin.id/]
 
 [query public getVariableName (element : NamedElement) : String = element.name.replaceAll(' ', '')/]
 

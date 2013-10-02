@@ -28,7 +28,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 */
 	public static ArduinoFactory init() {
 		try {
-			ArduinoFactory theArduinoFactory = (ArduinoFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeo.fr/arduino"); 
+			ArduinoFactory theArduinoFactory = (ArduinoFactory)EPackage.Registry.INSTANCE.getEFactory(ArduinoPackage.eNS_URI);
 			if (theArduinoFactory != null) {
 				return theArduinoFactory;
 			}
@@ -68,6 +68,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 			case ArduinoPackage.DELAY: return createDelay();
 			case ArduinoPackage.INPUT_MODULE: return createInputModule();
 			case ArduinoPackage.OUTPUT_MODULE: return createOutputModule();
+			case ArduinoPackage.CONNECTOR: return createConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -215,6 +216,16 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	public OutputModule createOutputModule() {
 		OutputModuleImpl outputModule = new OutputModuleImpl();
 		return outputModule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Connector createConnector() {
+		ConnectorImpl connector = new ConnectorImpl();
+		return connector;
 	}
 
 	/**

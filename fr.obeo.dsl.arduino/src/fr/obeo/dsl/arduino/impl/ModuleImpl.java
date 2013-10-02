@@ -3,6 +3,7 @@
 package fr.obeo.dsl.arduino.impl;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.ModuleKind;
 import fr.obeo.dsl.arduino.Pin;
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getPin <em>Pin</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getImage <em>Image</em>}</li>
  * </ul>
@@ -31,16 +31,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public abstract class ModuleImpl extends NamedElementImpl implements Module {
-	/**
-	 * The cached value of the '{@link #getPin() <em>Pin</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPin()
-	 * @generated
-	 * @ordered
-	 */
-	protected Pin pin;
-
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -105,66 +95,6 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Pin getPin() {
-		if (pin != null && pin.eIsProxy()) {
-			InternalEObject oldPin = (InternalEObject)pin;
-			pin = (Pin)eResolveProxy(oldPin);
-			if (pin != oldPin) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.MODULE__PIN, oldPin, pin));
-			}
-		}
-		return pin;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Pin basicGetPin() {
-		return pin;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPin(Pin newPin, NotificationChain msgs) {
-		Pin oldPin = pin;
-		pin = newPin;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ArduinoPackage.MODULE__PIN, oldPin, newPin);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPin(Pin newPin) {
-		if (newPin != pin) {
-			NotificationChain msgs = null;
-			if (pin != null)
-				msgs = ((InternalEObject)pin).eInverseRemove(this, ArduinoPackage.PIN__MODULE, Pin.class, msgs);
-			if (newPin != null)
-				msgs = ((InternalEObject)newPin).eInverseAdd(this, ArduinoPackage.PIN__MODULE, Pin.class, msgs);
-			msgs = basicSetPin(newPin, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.MODULE__PIN, newPin, newPin));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ModuleKind getKind() {
 		return kind;
 	}
@@ -208,41 +138,8 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ArduinoPackage.MODULE__PIN:
-				if (pin != null)
-					msgs = ((InternalEObject)pin).eInverseRemove(this, ArduinoPackage.PIN__MODULE, Pin.class, msgs);
-				return basicSetPin((Pin)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ArduinoPackage.MODULE__PIN:
-				return basicSetPin(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ArduinoPackage.MODULE__PIN:
-				if (resolve) return getPin();
-				return basicGetPin();
 			case ArduinoPackage.MODULE__KIND:
 				return getKind();
 			case ArduinoPackage.MODULE__IMAGE:
@@ -259,9 +156,6 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ArduinoPackage.MODULE__PIN:
-				setPin((Pin)newValue);
-				return;
 			case ArduinoPackage.MODULE__KIND:
 				setKind((ModuleKind)newValue);
 				return;
@@ -280,9 +174,6 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.MODULE__PIN:
-				setPin((Pin)null);
-				return;
 			case ArduinoPackage.MODULE__KIND:
 				setKind(KIND_EDEFAULT);
 				return;
@@ -301,8 +192,6 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.MODULE__PIN:
-				return pin != null;
 			case ArduinoPackage.MODULE__KIND:
 				return kind != KIND_EDEFAULT;
 			case ArduinoPackage.MODULE__IMAGE:
