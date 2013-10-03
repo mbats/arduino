@@ -155,6 +155,11 @@ public class ControlItemProvider
 			(createChildParameter
 				(ArduinoPackage.Literals.CONTROL__INSTRUCTIONS,
 				 ArduinoFactory.eINSTANCE.createRepeat()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.CONTROL__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createSensor()));
 	}
 
 }

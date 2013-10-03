@@ -139,6 +139,15 @@ public interface ArduinoFactory extends EFactory {
 	Repeat createRepeat();
 
 	/**
+	 * Returns a new object of class '<em>Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sensor</em>'.
+	 * @generated
+	 */
+	Sensor createSensor();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

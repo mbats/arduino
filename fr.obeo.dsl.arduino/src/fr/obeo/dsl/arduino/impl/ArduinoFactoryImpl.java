@@ -70,6 +70,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 			case ArduinoPackage.OUTPUT_MODULE: return createOutputModule();
 			case ArduinoPackage.CONNECTOR: return createConnector();
 			case ArduinoPackage.REPEAT: return createRepeat();
+			case ArduinoPackage.SENSOR: return createSensor();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -237,6 +238,16 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	public Repeat createRepeat() {
 		RepeatImpl repeat = new RepeatImpl();
 		return repeat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sensor createSensor() {
+		SensorImpl sensor = new SensorImpl();
+		return sensor;
 	}
 
 	/**

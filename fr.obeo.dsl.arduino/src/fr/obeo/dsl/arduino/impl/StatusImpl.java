@@ -3,12 +3,14 @@
 package fr.obeo.dsl.arduino.impl;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.Sensor;
 import fr.obeo.dsl.arduino.Status;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.StatusImpl#isStatus <em>Status</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.StatusImpl#getSensor <em>Sensor</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +47,16 @@ public class StatusImpl extends ModuleInstructionImpl implements Status {
 	 * @ordered
 	 */
 	protected boolean status = STATUS_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSensor() <em>Sensor</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSensor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Sensor sensor;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,11 +103,52 @@ public class StatusImpl extends ModuleInstructionImpl implements Status {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Sensor getSensor() {
+		if (sensor != null && sensor.eIsProxy()) {
+			InternalEObject oldSensor = (InternalEObject)sensor;
+			sensor = (Sensor)eResolveProxy(oldSensor);
+			if (sensor != oldSensor) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.STATUS__SENSOR, oldSensor, sensor));
+			}
+		}
+		return sensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sensor basicGetSensor() {
+		return sensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSensor(Sensor newSensor) {
+		Sensor oldSensor = sensor;
+		sensor = newSensor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.STATUS__SENSOR, oldSensor, sensor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ArduinoPackage.STATUS__STATUS:
 				return isStatus();
+			case ArduinoPackage.STATUS__SENSOR:
+				if (resolve) return getSensor();
+				return basicGetSensor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,6 +163,9 @@ public class StatusImpl extends ModuleInstructionImpl implements Status {
 		switch (featureID) {
 			case ArduinoPackage.STATUS__STATUS:
 				setStatus((Boolean)newValue);
+				return;
+			case ArduinoPackage.STATUS__SENSOR:
+				setSensor((Sensor)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,6 +182,9 @@ public class StatusImpl extends ModuleInstructionImpl implements Status {
 			case ArduinoPackage.STATUS__STATUS:
 				setStatus(STATUS_EDEFAULT);
 				return;
+			case ArduinoPackage.STATUS__SENSOR:
+				setSensor((Sensor)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -139,6 +199,8 @@ public class StatusImpl extends ModuleInstructionImpl implements Status {
 		switch (featureID) {
 			case ArduinoPackage.STATUS__STATUS:
 				return status != STATUS_EDEFAULT;
+			case ArduinoPackage.STATUS__SENSOR:
+				return sensor != null;
 		}
 		return super.eIsSet(featureID);
 	}

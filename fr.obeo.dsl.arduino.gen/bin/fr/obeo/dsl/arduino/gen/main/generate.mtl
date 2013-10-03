@@ -13,6 +13,9 @@
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
 int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
 [/for]
+[for (mod : Module | sketch.eAllContents("Sensor").module->asOrderedSet())]
+int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
+[/for]
 [for (instruction : Repeat | getRepeatInstructions(sketch))]
 int iter_[getRepeatInstructionIndex(instruction)/];
 [/for]
@@ -49,10 +52,22 @@ delay([instruction.value/]);
 [/template]
 
 [template public generateInstruction(instruction : Status)post (trim())]
-digitalWrite([instruction.module.getVariableName()/], [instruction.status/]);
+digitalWrite([instruction.module.getVariableName()/], ([getStatus(instruction)/]));
 [if (not instruction.next.oclIsInvalid())]
 [generateInstruction(instruction.next)/]
 [/if]
+[/template]
+
+[template private getStatus(instruction : Status)post (trim())]
+[if (instruction.sensor = null)]
+[instruction.status/]
+[else]
+[generateInstruction(instruction.sensor)/]
+[/if]
+[/template]
+
+[template public generateInstruction(instruction : Sensor)post (trim())]
+!digitalRead([instruction.module.getVariableName()/])
 [/template]
 
 [template public generateInstruction(instruction : Repeat)]

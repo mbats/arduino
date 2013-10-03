@@ -371,6 +371,29 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Sensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SensorItemProvider sensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Sensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSensorAdapter() {
+		if (sensorItemProvider == null) {
+			sensorItemProvider = new SensorItemProvider(this);
+		}
+
+		return sensorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,6 +505,7 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 		if (outputModuleItemProvider != null) outputModuleItemProvider.dispose();
 		if (connectorItemProvider != null) connectorItemProvider.dispose();
 		if (repeatItemProvider != null) repeatItemProvider.dispose();
+		if (sensorItemProvider != null) sensorItemProvider.dispose();
 	}
 
 }

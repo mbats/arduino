@@ -184,6 +184,7 @@ public class ArduinoServices {
 
 	private static void inheritIO(final InputStream src, final PrintStream dest) {
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				Scanner sc = new Scanner(src);
 				while (sc.hasNextLine()) {
@@ -248,5 +249,21 @@ public class ArduinoServices {
 			}
 		}
 		return result;
+	}
+
+	public String computeStatusLabel(fr.obeo.dsl.arduino.Status status) {
+		String label = status.getModule().getName();
+		if (!hasSensorStatus(status)) {
+			if (status.isStatus()) {
+				label += " : off";
+			} else {
+				label += " : on";
+			}
+		}
+		return label;
+	}
+
+	private boolean hasSensorStatus(fr.obeo.dsl.arduino.Status status) {
+		return status.getSensor() != null;
 	}
 }

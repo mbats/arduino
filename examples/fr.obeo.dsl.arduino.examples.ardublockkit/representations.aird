@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint/1.1.0" xsi:schemaLocation="http://www.obeo.fr/dsl/viewpoint/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description/style" xmi:id="_HFVXECuAEeOiLrSoHMDquA" selectedViews="_OIKgoCuAEeOiLrSoHMDquA _OIZxMCuAEeOiLrSoHMDquA" version="6.8.0.201307151200">
+  <models xmi:type="arduino:Project" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#/"/>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_OIKgoCuAEeOiLrSoHMDquA" initialized="true">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_OIZxMCuAEeOiLrSoHMDquA" initialized="true">
+    <ownedRepresentations xmi:type="viewpoint:DSemanticDiagram" xmi:id="_SgzU0CuAEeOiLrSoHMDquA" name="Hardware Kit Definition">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Sg1KACuAEeOiLrSoHMDquA" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_Sg1KASuAEeOiLrSoHMDquA" type="Viewpoint" element="_SgzU0CuAEeOiLrSoHMDquA" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_Sg1xECuAEeOiLrSoHMDquA" type="2001" element="_SgzU0SuAEeOiLrSoHMDquA">
+            <children xmi:type="notation:Node" xmi:id="_Sg2YICuAEeOiLrSoHMDquA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Sg2YISuAEeOiLrSoHMDquA" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_SiKmwCuAEeOiLrSoHMDquA" type="3005" element="_SgzU0iuAEeOiLrSoHMDquA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_SiKmwSuAEeOiLrSoHMDquA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiKmwiuAEeOiLrSoHMDquA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Sg1xESuAEeOiLrSoHMDquA" fontName="Ubuntu" fontHeight="8" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Sg1xEiuAEeOiLrSoHMDquA" width="60" height="60"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ShhGgCuAEeOiLrSoHMDquA" type="2001" element="_SgzU1SuAEeOiLrSoHMDquA">
+            <children xmi:type="notation:Node" xmi:id="_ShiUoCuAEeOiLrSoHMDquA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_ShiUoSuAEeOiLrSoHMDquA" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_SiLN0CuAEeOiLrSoHMDquA" type="3005" element="_SgzU1iuAEeOiLrSoHMDquA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_SiLN0SuAEeOiLrSoHMDquA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiLN0iuAEeOiLrSoHMDquA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_ShhGgSuAEeOiLrSoHMDquA" fontName="Ubuntu" fontHeight="8" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ShhGgiuAEeOiLrSoHMDquA" x="120" width="60" height="60"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Shi7sCuAEeOiLrSoHMDquA" type="2001" element="_SgzU2SuAEeOiLrSoHMDquA">
+            <children xmi:type="notation:Node" xmi:id="_ShkJ0CuAEeOiLrSoHMDquA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_ShkJ0SuAEeOiLrSoHMDquA" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_SiLN0yuAEeOiLrSoHMDquA" type="3005" element="_SgzU2iuAEeOiLrSoHMDquA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_SiLN1CuAEeOiLrSoHMDquA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiLN1SuAEeOiLrSoHMDquA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Shi7sSuAEeOiLrSoHMDquA" fontName="Ubuntu" fontHeight="8" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Shi7siuAEeOiLrSoHMDquA" x="240" width="60" height="60"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_SiD5ECuAEeOiLrSoHMDquA" type="2001" element="_SgzU3SuAEeOiLrSoHMDquA">
+            <children xmi:type="notation:Node" xmi:id="_SiFHMCuAEeOiLrSoHMDquA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_SiFHMSuAEeOiLrSoHMDquA" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_SiL04CuAEeOiLrSoHMDquA" type="3005" element="_SgzU3iuAEeOiLrSoHMDquA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_SiL04SuAEeOiLrSoHMDquA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiL04iuAEeOiLrSoHMDquA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_SiEgICuAEeOiLrSoHMDquA" fontName="Ubuntu" fontHeight="8" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiEgISuAEeOiLrSoHMDquA" x="360" width="60" height="60"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_SiG8YCuAEeOiLrSoHMDquA" type="2001" element="_SgzU4SuAEeOiLrSoHMDquA">
+            <children xmi:type="notation:Node" xmi:id="_SiHjcCuAEeOiLrSoHMDquA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_SiHjcSuAEeOiLrSoHMDquA" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_SiMb8CuAEeOiLrSoHMDquA" type="3005" element="_SgzU4iuAEeOiLrSoHMDquA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_SiMb8SuAEeOiLrSoHMDquA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiMb8iuAEeOiLrSoHMDquA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_SiG8YSuAEeOiLrSoHMDquA" fontName="Ubuntu" fontHeight="8" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiG8YiuAEeOiLrSoHMDquA" x="480" width="60" height="60"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_SiIxkCuAEeOiLrSoHMDquA" type="2003" element="_SgzU5SuAEeOiLrSoHMDquA">
+            <children xmi:type="notation:Node" xmi:id="_SiJYoCuAEeOiLrSoHMDquA" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_SiJ_sCuAEeOiLrSoHMDquA" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_SiNqECuAEeOiLrSoHMDquA" type="3010" element="_SgzU6yuAEeOiLrSoHMDquA">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_SiNqESuAEeOiLrSoHMDquA"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_SiORICuAEeOiLrSoHMDquA" type="3010" element="_SgzU8CuAEeOiLrSoHMDquA">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_SiORISuAEeOiLrSoHMDquA"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_SiJ_sSuAEeOiLrSoHMDquA"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_SiJ_siuAEeOiLrSoHMDquA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_SiIxkSuAEeOiLrSoHMDquA" fontName="Ubuntu" fontHeight="8" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiIxkiuAEeOiLrSoHMDquA" x="600"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_Sg1KAiuAEeOiLrSoHMDquA"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_SgzU0SuAEeOiLrSoHMDquA" name="Push button 1" width="6" height="6" resizeKind="NSEW">
+        <target xmi:type="arduino:InputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.1"/>
+        <semanticElements xmi:type="arduino:InputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.1"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_SgzU0iuAEeOiLrSoHMDquA" labelFormat="bold" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/digital_input.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU0yuAEeOiLrSoHMDquA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU1CuAEeOiLrSoHMDquA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_SgzU1SuAEeOiLrSoHMDquA" name="Push button 2" width="6" height="6" resizeKind="NSEW">
+        <target xmi:type="arduino:InputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.4"/>
+        <semanticElements xmi:type="arduino:InputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.4"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_SgzU1iuAEeOiLrSoHMDquA" labelFormat="bold" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/digital_input.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU1yuAEeOiLrSoHMDquA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU2CuAEeOiLrSoHMDquA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_SgzU2SuAEeOiLrSoHMDquA" name="White LED" width="6" height="6" resizeKind="NSEW">
+        <target xmi:type="arduino:OutputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+        <semanticElements xmi:type="arduino:OutputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_SgzU2iuAEeOiLrSoHMDquA" labelFormat="bold" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/digital_output.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU2yuAEeOiLrSoHMDquA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU3CuAEeOiLrSoHMDquA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_SgzU3SuAEeOiLrSoHMDquA" name="Red LED" width="6" height="6" resizeKind="NSEW">
+        <target xmi:type="arduino:OutputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.2"/>
+        <semanticElements xmi:type="arduino:OutputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.2"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_SgzU3iuAEeOiLrSoHMDquA" labelFormat="bold" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/digital_output.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU3yuAEeOiLrSoHMDquA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU4CuAEeOiLrSoHMDquA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_SgzU4SuAEeOiLrSoHMDquA" name="Blue LED" width="6" height="6" resizeKind="NSEW">
+        <target xmi:type="arduino:OutputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
+        <semanticElements xmi:type="arduino:OutputModule" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_SgzU4iuAEeOiLrSoHMDquA" labelFormat="bold" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/digital_output.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU4yuAEeOiLrSoHMDquA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU5CuAEeOiLrSoHMDquA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_SgzU5SuAEeOiLrSoHMDquA" name="DFRduino UNO R3">
+        <target xmi:type="arduino:Platform" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
+        <semanticElements xmi:type="arduino:Platform" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
+        <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_SgzU5iuAEeOiLrSoHMDquA" labelFormat="bold" iconPath="/fr.obeo.dsl.arduino.design/images/platform.png" backgroundStyle="Liquid">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU5yuAEeOiLrSoHMDquA"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU6CuAEeOiLrSoHMDquA"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU6SuAEeOiLrSoHMDquA" red="209" green="209" blue="209"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU6iuAEeOiLrSoHMDquA" red="209" green="209" blue="209"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']"/>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_SgzU6yuAEeOiLrSoHMDquA" name="14" tooltipText="Number of digital pins">
+          <target xmi:type="arduino:Platform" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
+          <semanticElements xmi:type="arduino:Platform" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_SgzU7CuAEeOiLrSoHMDquA" labelFormat="bold" iconPath="/fr.obeo.dsl.arduino.design/images/digital.png" labelPosition="node">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU7SuAEeOiLrSoHMDquA"/>
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_DigitalPins']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU7iuAEeOiLrSoHMDquA"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_SgzU7yuAEeOiLrSoHMDquA" red="255" green="255" blue="255"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_DigitalPins']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_SgzU8CuAEeOiLrSoHMDquA" name="6" tooltipText="Number of analog pins">
+          <target xmi:type="arduino:Platform" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
+          <semanticElements xmi:type="arduino:Platform" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_SgzU8SuAEeOiLrSoHMDquA" labelFormat="bold" iconPath="/fr.obeo.dsl.arduino.design/images/analog.png" labelPosition="node">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU8iuAEeOiLrSoHMDquA"/>
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_AnalogPins']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_SgzU8yuAEeOiLrSoHMDquA"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_SgzU9CuAEeOiLrSoHMDquA" red="255" green="255" blue="255"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_AnalogPins']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <description xmi:type="description:DiagramDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']"/>
+      <filterVariableHistory xmi:type="viewpoint:FilterVariableHistory" xmi:id="_SgzU9SuAEeOiLrSoHMDquA"/>
+      <activatedLayers xmi:type="description:Layer" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer"/>
+      <target xmi:type="arduino:Project" href="file:/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#/"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Hardware%20Kit']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

@@ -29,6 +29,7 @@ import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
 import fr.obeo.dsl.arduino.Project;
 import fr.obeo.dsl.arduino.Repeat;
+import fr.obeo.dsl.arduino.Sensor;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.Status;
 import fr.obeo.dsl.arduino.Time;
@@ -167,6 +168,13 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * @generated
 	 */
 	private EClass repeatEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sensorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -473,6 +481,15 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStatus_Sensor() {
+		return (EReference)statusEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -626,6 +643,15 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSensor() {
+		return sensorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getConnector_Pin() {
 		return (EReference)connectorEClass.getEStructuralFeatures().get(0);
 	}
@@ -709,6 +735,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 
 		statusEClass = createEClass(STATUS);
 		createEAttribute(statusEClass, STATUS__STATUS);
+		createEReference(statusEClass, STATUS__SENSOR);
 
 		levelEClass = createEClass(LEVEL);
 
@@ -739,6 +766,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 
 		repeatEClass = createEClass(REPEAT);
 		createEAttribute(repeatEClass, REPEAT__ITERATION);
+
+		sensorEClass = createEClass(SENSOR);
 
 		// Create enums
 		timeEEnum = createEEnum(TIME);
@@ -789,6 +818,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		inputModuleEClass.getESuperTypes().add(this.getModule());
 		outputModuleEClass.getESuperTypes().add(this.getModule());
 		repeatEClass.getESuperTypes().add(this.getControl());
+		sensorEClass.getESuperTypes().add(this.getModuleInstruction());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(hardwareEClass, Hardware.class, "Hardware", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -828,6 +858,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 
 		initEClass(statusEClass, Status.class, "Status", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStatus_Status(), ecorePackage.getEBoolean(), "status", null, 0, 1, Status.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStatus_Sensor(), this.getSensor(), null, "sensor", null, 0, 1, Status.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(levelEClass, Level.class, "Level", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -858,6 +889,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 
 		initEClass(repeatEClass, Repeat.class, "Repeat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRepeat_Iteration(), ecorePackage.getEInt(), "iteration", "5", 0, 1, Repeat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeEEnum, Time.class, "Time");

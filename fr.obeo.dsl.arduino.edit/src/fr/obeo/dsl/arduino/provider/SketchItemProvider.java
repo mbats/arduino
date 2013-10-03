@@ -241,6 +241,11 @@ public class SketchItemProvider
 			(createChildParameter
 				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
 				 ArduinoFactory.eINSTANCE.createRepeat()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createSensor()));
 	}
 
 }

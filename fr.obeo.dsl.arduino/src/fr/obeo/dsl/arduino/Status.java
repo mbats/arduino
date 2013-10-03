@@ -12,6 +12,7 @@ package fr.obeo.dsl.arduino;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Status#isStatus <em>Status</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Status#getSensor <em>Sensor</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,5 +46,31 @@ public interface Status extends ModuleInstruction {
 	 * @generated
 	 */
 	void setStatus(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Sensor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sensor</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sensor</em>' reference.
+	 * @see #setSensor(Sensor)
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getStatus_Sensor()
+	 * @model
+	 * @generated
+	 */
+	Sensor getSensor();
+
+	/**
+	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Status#getSensor <em>Sensor</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sensor</em>' reference.
+	 * @see #getSensor()
+	 * @generated
+	 */
+	void setSensor(Sensor value);
 
 } // Status

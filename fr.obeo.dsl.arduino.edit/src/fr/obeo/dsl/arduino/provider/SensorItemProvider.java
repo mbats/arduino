@@ -3,32 +3,26 @@
 package fr.obeo.dsl.arduino.provider;
 
 
-import fr.obeo.dsl.arduino.ArduinoPackage;
-import fr.obeo.dsl.arduino.Status;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.obeo.dsl.arduino.Status} object.
+ * This is the item provider adapter for a {@link fr.obeo.dsl.arduino.Sensor} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class StatusItemProvider
+public class SensorItemProvider
 	extends ModuleInstructionItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -42,7 +36,7 @@ public class StatusItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StatusItemProvider(AdapterFactory adapterFactory) {
+	public SensorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,65 +51,19 @@ public class StatusItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addStatusPropertyDescriptor(object);
-			addSensorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Status feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStatusPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Status_status_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Status_status_feature", "_UI_Status_type"),
-				 ArduinoPackage.Literals.STATUS__STATUS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Sensor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSensorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Status_sensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Status_sensor_feature", "_UI_Status_type"),
-				 ArduinoPackage.Literals.STATUS__SENSOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Status.gif.
+	 * This returns Sensor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Status"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Sensor"));
 	}
 
 	/**
@@ -126,8 +74,7 @@ public class StatusItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Status status = (Status)object;
-		return getString("_UI_Status_type") + " " + status.isStatus();
+		return getString("_UI_Sensor_type");
 	}
 
 	/**
@@ -140,12 +87,6 @@ public class StatusItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Status.class)) {
-			case ArduinoPackage.STATUS__STATUS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
