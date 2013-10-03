@@ -48,7 +48,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Status" eSuperTypes="#//ModuleInstruction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//Sensor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//Sensor"
+        eOpposite="#//Sensor/status"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Level" eSuperTypes="#//ModuleInstruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModuleInstruction" abstract="true" eSuperTypes="#//Instruction">
@@ -86,5 +87,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//ModuleInstruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//ModuleInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="status" upperBound="-1"
+        eType="#//Status" eOpposite="#//Status/sensor"/>
+  </eClassifiers>
 </ecore:EPackage>

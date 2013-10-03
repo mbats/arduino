@@ -1033,13 +1033,22 @@ public interface ArduinoPackage extends EPackage {
 	int SENSOR__MODULE = MODULE_INSTRUCTION__MODULE;
 
 	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
+	int SENSOR_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}' enum.
@@ -1569,6 +1578,17 @@ public interface ArduinoPackage extends EPackage {
 	EClass getSensor();
 
 	/**
+	 * Returns the meta object for the reference list '{@link fr.obeo.dsl.arduino.Sensor#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Status</em>'.
+	 * @see fr.obeo.dsl.arduino.Sensor#getStatus()
+	 * @see #getSensor()
+	 * @generated
+	 */
+	EReference getSensor_Status();
+
+	/**
 	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getPin <em>Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2048,6 +2068,14 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SENSOR = eINSTANCE.getSensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENSOR__STATUS = eINSTANCE.getSensor_Status();
 
 		/**
 		 * The meta object literal for the '<em><b>Pin</b></em>' reference feature.

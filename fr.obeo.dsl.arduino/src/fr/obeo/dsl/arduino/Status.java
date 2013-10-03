@@ -49,6 +49,7 @@ public interface Status extends ModuleInstruction {
 
 	/**
 	 * Returns the value of the '<em><b>Sensor</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link fr.obeo.dsl.arduino.Sensor#getStatus <em>Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sensor</em>' reference isn't clear,
@@ -58,7 +59,8 @@ public interface Status extends ModuleInstruction {
 	 * @return the value of the '<em>Sensor</em>' reference.
 	 * @see #setSensor(Sensor)
 	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getStatus_Sensor()
-	 * @model
+	 * @see fr.obeo.dsl.arduino.Sensor#getStatus
+	 * @model opposite="status"
 	 * @generated
 	 */
 	Sensor getSensor();

@@ -5,6 +5,7 @@
   <modules xsi:type="arduino:OutputModule" name="Red LED" image="dfrobot/led.jpg"/>
   <modules xsi:type="arduino:OutputModule" name="Blue LED" image="dfrobot/led.jpg"/>
   <modules xsi:type="arduino:InputModule" name="Push button 2" image="dfrobot/push_button.jpg"/>
+  <modules xsi:type="arduino:OutputModule" name="Buzzer" image="dfrobot/buzzer.jpg"/>
   <platform name="DFRduino UNO R3" image="dfrobot/dfrduino_uno.jpg">
     <digitalPins/>
     <digitalPins id="1"/>

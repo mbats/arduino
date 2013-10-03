@@ -30,6 +30,7 @@ import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
+import fr.obeo.dsl.arduino.Sensor;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.design.Activator;
 import fr.obeo.dsl.arduino.gen.main.Generate;
@@ -110,8 +111,13 @@ public class ArduinoServices {
 		return null;
 	}
 
-	public Instruction getInstructions(Instruction instruction) {
-		return instruction.getNext();
+	public List<Instruction> getInstructions(Instruction instruction) {
+		List<Instruction> instructions = Lists.newArrayList();
+		if(instruction instanceof Sensor){
+			instructions.addAll(((Sensor) instruction).getStatus());
+		}
+		instructions.add(instruction.getNext());
+		return instructions;
 	}
 
 	public String getImage(Module module) {

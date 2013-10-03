@@ -1,6 +1,7 @@
 package fr.obeo.dsl.arduino.design.services;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -13,17 +14,19 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IEditorReference;
-import org.eclipse.ui.PlatformUI;
 
 import com.google.common.collect.Maps;
 
 import fr.obeo.dsl.arduino.ArduinoFactory;
+import fr.obeo.dsl.viewpoint.DDiagram;
+import fr.obeo.dsl.viewpoint.DRepresentation;
 import fr.obeo.dsl.viewpoint.business.api.componentization.ViewpointRegistry;
+import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
 import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
 import fr.obeo.dsl.viewpoint.business.api.session.resource.AirdResource;
 import fr.obeo.dsl.viewpoint.description.Viewpoint;
+import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
 import fr.obeo.dsl.viewpoint.ui.business.api.viewpoint.ViewpointSelectionCallback;
 
 public class ProjectServices {
@@ -41,8 +44,26 @@ public class ProjectServices {
 		openDashboard(session);
 	}
 
-	private void openDashboard(final Session session) {
-		// TODO Open dashboard
+	private IEditorPart openDashboard(final Session session) {
+		Collection<DRepresentation> representations = DialectManager.INSTANCE
+				.getAllRepresentations(session);
+		for (DRepresentation representation : representations) {
+			if ("Dashboard".equals(representation.getName())) {
+				return DialectUIManager.INSTANCE.openEditor(session,
+						representation, new NullProgressMonitor());
+
+			}
+		}
+		return null;
+	}
+
+	private DDiagram getHardwareDiagram(Session session) {
+
+		// TODO create representation if does not exist
+		// EObject seamntic = session.getSemanticResources().
+		// DialectManager.INSTANCE.createRepresentation("Hardware", semantic,
+		// description, session, new NullProgressMonitor());
+		return null;
 	}
 
 	private String getSemanticModelPath(final Session session) {

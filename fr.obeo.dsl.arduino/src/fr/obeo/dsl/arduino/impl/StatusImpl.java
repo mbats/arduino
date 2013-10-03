@@ -8,6 +8,7 @@ import fr.obeo.dsl.arduino.Status;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -129,11 +130,63 @@ public class StatusImpl extends ModuleInstructionImpl implements Status {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSensor(Sensor newSensor) {
+	public NotificationChain basicSetSensor(Sensor newSensor, NotificationChain msgs) {
 		Sensor oldSensor = sensor;
 		sensor = newSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.STATUS__SENSOR, oldSensor, sensor));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ArduinoPackage.STATUS__SENSOR, oldSensor, newSensor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSensor(Sensor newSensor) {
+		if (newSensor != sensor) {
+			NotificationChain msgs = null;
+			if (sensor != null)
+				msgs = ((InternalEObject)sensor).eInverseRemove(this, ArduinoPackage.SENSOR__STATUS, Sensor.class, msgs);
+			if (newSensor != null)
+				msgs = ((InternalEObject)newSensor).eInverseAdd(this, ArduinoPackage.SENSOR__STATUS, Sensor.class, msgs);
+			msgs = basicSetSensor(newSensor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.STATUS__SENSOR, newSensor, newSensor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ArduinoPackage.STATUS__SENSOR:
+				if (sensor != null)
+					msgs = ((InternalEObject)sensor).eInverseRemove(this, ArduinoPackage.SENSOR__STATUS, Sensor.class, msgs);
+				return basicSetSensor((Sensor)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ArduinoPackage.STATUS__SENSOR:
+				return basicSetSensor(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

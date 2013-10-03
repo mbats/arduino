@@ -9,4 +9,11 @@
 	<natures>
 		<nature>fr.obeo.dsl.viewpoint.nature.modelingproject</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>images</name>
+			<type>2</type>
+			<location>/home/melanie/Obeo/dev/arduino/git/arduino/fr.obeo.dsl.arduino.design/images</location>
+		</link>
+	</linkedResources>
 </projectDescription>
