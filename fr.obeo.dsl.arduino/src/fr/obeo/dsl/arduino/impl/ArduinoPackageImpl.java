@@ -12,7 +12,10 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import fr.obeo.dsl.arduino.AnalogPin;
 import fr.obeo.dsl.arduino.ArduinoFactory;
 import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.BooleanOperator;
+import fr.obeo.dsl.arduino.BooleanVariable;
 import fr.obeo.dsl.arduino.Connector;
+import fr.obeo.dsl.arduino.Constant;
 import fr.obeo.dsl.arduino.Control;
 import fr.obeo.dsl.arduino.Delay;
 import fr.obeo.dsl.arduino.DigitalPin;
@@ -20,20 +23,29 @@ import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.InputModule;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.Level;
+import fr.obeo.dsl.arduino.MathOperator;
 import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.ModuleInstruction;
 import fr.obeo.dsl.arduino.ModuleKind;
 import fr.obeo.dsl.arduino.NamedElement;
+import fr.obeo.dsl.arduino.NumericalOperator;
+import fr.obeo.dsl.arduino.NumericalVariable;
+import fr.obeo.dsl.arduino.Operator;
+import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.OutputModule;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
 import fr.obeo.dsl.arduino.Project;
 import fr.obeo.dsl.arduino.Repeat;
 import fr.obeo.dsl.arduino.Sensor;
+import fr.obeo.dsl.arduino.Set;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.Status;
 import fr.obeo.dsl.arduino.Time;
 import fr.obeo.dsl.arduino.Utilities;
+import fr.obeo.dsl.arduino.Value;
+import fr.obeo.dsl.arduino.Variable;
+import fr.obeo.dsl.arduino.While;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
@@ -177,6 +189,62 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	private EClass sensorEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass whileEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mathOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numericalOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constantEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -187,6 +255,13 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * @generated
 	 */
 	private EEnum moduleKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum operatorKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -661,6 +736,141 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getWhile() {
+		return whileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWhile_Condition() {
+		return (EReference)whileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMathOperator() {
+		return mathOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMathOperator_Left() {
+		return (EReference)mathOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMathOperator_Right() {
+		return (EReference)mathOperatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMathOperator_Operator() {
+		return (EAttribute)mathOperatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariable() {
+		return variableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariable_Name() {
+		return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSet() {
+		return setEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSet_Variable() {
+		return (EReference)setEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNumericalOperator() {
+		return numericalOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBooleanOperator() {
+		return booleanOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getValue() {
+		return valueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValue_Value() {
+		return (EAttribute)valueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConstant() {
+		return constantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getConnector_Pin() {
 		return (EReference)connectorEClass.getEStructuralFeatures().get(0);
 	}
@@ -679,6 +889,15 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 */
 	public EEnum getModuleKind() {
 		return moduleKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOperatorKind() {
+		return operatorKindEEnum;
 	}
 
 	/**
@@ -779,9 +998,33 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		sensorEClass = createEClass(SENSOR);
 		createEReference(sensorEClass, SENSOR__STATUS);
 
+		whileEClass = createEClass(WHILE);
+		createEReference(whileEClass, WHILE__CONDITION);
+
+		mathOperatorEClass = createEClass(MATH_OPERATOR);
+		createEReference(mathOperatorEClass, MATH_OPERATOR__LEFT);
+		createEReference(mathOperatorEClass, MATH_OPERATOR__RIGHT);
+		createEAttribute(mathOperatorEClass, MATH_OPERATOR__OPERATOR);
+
+		variableEClass = createEClass(VARIABLE);
+		createEAttribute(variableEClass, VARIABLE__NAME);
+
+		setEClass = createEClass(SET);
+		createEReference(setEClass, SET__VARIABLE);
+
+		numericalOperatorEClass = createEClass(NUMERICAL_OPERATOR);
+
+		booleanOperatorEClass = createEClass(BOOLEAN_OPERATOR);
+
+		valueEClass = createEClass(VALUE);
+		createEAttribute(valueEClass, VALUE__VALUE);
+
+		constantEClass = createEClass(CONSTANT);
+
 		// Create enums
 		timeEEnum = createEEnum(TIME);
 		moduleKindEEnum = createEEnum(MODULE_KIND);
+		operatorKindEEnum = createEEnum(OPERATOR_KIND);
 	}
 
 	/**
@@ -819,6 +1062,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		sketchEClass.getESuperTypes().add(this.getNamedElement());
 		sketchEClass.getESuperTypes().add(this.getInstruction());
 		statusEClass.getESuperTypes().add(this.getModuleInstruction());
+		statusEClass.getESuperTypes().add(this.getValue());
 		levelEClass.getESuperTypes().add(this.getModuleInstruction());
 		moduleInstructionEClass.getESuperTypes().add(this.getInstruction());
 		controlEClass.getESuperTypes().add(this.getInstruction());
@@ -829,6 +1073,17 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		outputModuleEClass.getESuperTypes().add(this.getModule());
 		repeatEClass.getESuperTypes().add(this.getControl());
 		sensorEClass.getESuperTypes().add(this.getModuleInstruction());
+		sensorEClass.getESuperTypes().add(this.getValue());
+		whileEClass.getESuperTypes().add(this.getControl());
+		mathOperatorEClass.getESuperTypes().add(this.getValue());
+		mathOperatorEClass.getESuperTypes().add(this.getInstruction());
+		variableEClass.getESuperTypes().add(this.getValue());
+		variableEClass.getESuperTypes().add(this.getInstruction());
+		setEClass.getESuperTypes().add(this.getInstruction());
+		numericalOperatorEClass.getESuperTypes().add(this.getMathOperator());
+		booleanOperatorEClass.getESuperTypes().add(this.getMathOperator());
+		valueEClass.getESuperTypes().add(this.getInstruction());
+		constantEClass.getESuperTypes().add(this.getValue());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(hardwareEClass, Hardware.class, "Hardware", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -903,6 +1158,29 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSensor_Status(), this.getStatus(), this.getStatus_Sensor(), "status", null, 0, -1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getWhile_Condition(), this.getBooleanOperator(), null, "condition", null, 1, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mathOperatorEClass, MathOperator.class, "MathOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMathOperator_Left(), this.getValue(), null, "left", null, 1, 1, MathOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMathOperator_Right(), this.getValue(), null, "right", null, 0, 1, MathOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMathOperator_Operator(), this.getOperatorKind(), "operator", null, 0, 1, MathOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(setEClass, Set.class, "Set", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSet_Variable(), this.getVariable(), null, "variable", null, 1, 1, Set.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(numericalOperatorEClass, NumericalOperator.class, "NumericalOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(timeEEnum, Time.class, "Time");
 		addEEnumLiteral(timeEEnum, Time.MILLI_SECOND);
@@ -911,6 +1189,24 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEEnum(moduleKindEEnum, ModuleKind.class, "ModuleKind");
 		addEEnumLiteral(moduleKindEEnum, ModuleKind.DIGITAL);
 		addEEnumLiteral(moduleKindEEnum, ModuleKind.ANALOG);
+
+		initEEnum(operatorKindEEnum, OperatorKind.class, "OperatorKind");
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.EQUAL);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.MINUS);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.UPPER);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.LOWER);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.PLUS);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.DIFF);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.UPPER_OR_EQUAL);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.LOWER_OR_EQUAL);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.MUL);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.DIV);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.MIN);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.MAX);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.POURCENT);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.AND);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.OR);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.NOT);
 
 		// Create resource
 		createResource(eNS_URI);

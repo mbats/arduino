@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino">
+  <hardware name="Hardware">
+    <platforms href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
+    <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+    <connectors>
+      <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.11"/>
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+    </connectors>
+  </hardware>
+  <sketch name="Sketch" hardware="//@hardware"/>
+</arduino:Project>

@@ -7,8 +7,8 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
- digitalWrite(WhiteLED, true);
+ digitalWrite(WhiteLED, (true));
  delay(500);
- digitalWrite(WhiteLED, false);
+ digitalWrite(WhiteLED, (false));
  delay(500);
 }

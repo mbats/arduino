@@ -6,6 +6,7 @@
   <modules xsi:type="arduino:OutputModule" name="Blue LED" image="dfrobot/led.jpg"/>
   <modules xsi:type="arduino:InputModule" name="Push button 2" image="dfrobot/push_button.jpg"/>
   <modules xsi:type="arduino:OutputModule" name="Buzzer" image="dfrobot/buzzer.jpg"/>
+  <modules xsi:type="arduino:InputModule" name="Rotation sensor V1" kind="analog" image="dfrobot/rotation_sensor_v1.jpg"/>
   <platform name="DFRduino UNO R3" image="dfrobot/dfrduino_uno.jpg">
     <digitalPins/>
     <digitalPins id="1"/>

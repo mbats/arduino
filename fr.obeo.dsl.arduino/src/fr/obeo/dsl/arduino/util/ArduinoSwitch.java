@@ -131,6 +131,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				Status status = (Status)theEObject;
 				T result = caseStatus(status);
 				if (result == null) result = caseModuleInstruction(status);
+				if (result == null) result = caseValue(status);
 				if (result == null) result = caseInstruction(status);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -219,7 +220,72 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				Sensor sensor = (Sensor)theEObject;
 				T result = caseSensor(sensor);
 				if (result == null) result = caseModuleInstruction(sensor);
+				if (result == null) result = caseValue(sensor);
 				if (result == null) result = caseInstruction(sensor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.WHILE: {
+				While while_ = (While)theEObject;
+				T result = caseWhile(while_);
+				if (result == null) result = caseControl(while_);
+				if (result == null) result = caseInstruction(while_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.MATH_OPERATOR: {
+				MathOperator mathOperator = (MathOperator)theEObject;
+				T result = caseMathOperator(mathOperator);
+				if (result == null) result = caseValue(mathOperator);
+				if (result == null) result = caseInstruction(mathOperator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.VARIABLE: {
+				Variable variable = (Variable)theEObject;
+				T result = caseVariable(variable);
+				if (result == null) result = caseValue(variable);
+				if (result == null) result = caseInstruction(variable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.SET: {
+				Set set = (Set)theEObject;
+				T result = caseSet(set);
+				if (result == null) result = caseInstruction(set);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.NUMERICAL_OPERATOR: {
+				NumericalOperator numericalOperator = (NumericalOperator)theEObject;
+				T result = caseNumericalOperator(numericalOperator);
+				if (result == null) result = caseMathOperator(numericalOperator);
+				if (result == null) result = caseValue(numericalOperator);
+				if (result == null) result = caseInstruction(numericalOperator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.BOOLEAN_OPERATOR: {
+				BooleanOperator booleanOperator = (BooleanOperator)theEObject;
+				T result = caseBooleanOperator(booleanOperator);
+				if (result == null) result = caseMathOperator(booleanOperator);
+				if (result == null) result = caseValue(booleanOperator);
+				if (result == null) result = caseInstruction(booleanOperator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.VALUE: {
+				Value value = (Value)theEObject;
+				T result = caseValue(value);
+				if (result == null) result = caseInstruction(value);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.CONSTANT: {
+				Constant constant = (Constant)theEObject;
+				T result = caseConstant(constant);
+				if (result == null) result = caseValue(constant);
+				if (result == null) result = caseInstruction(constant);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -554,6 +620,126 @@ public class ArduinoSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSensor(Sensor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>While</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>While</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWhile(While object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Math Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Math Operator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMathOperator(MathOperator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariable(Variable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSet(Set object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Numerical Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Numerical Operator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumericalOperator(NumericalOperator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Operator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanOperator(BooleanOperator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValue(Value object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstant(Constant object) {
 		return null;
 	}
 

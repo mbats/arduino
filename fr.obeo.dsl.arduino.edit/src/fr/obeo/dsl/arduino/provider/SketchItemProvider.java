@@ -246,6 +246,36 @@ public class SketchItemProvider
 			(createChildParameter
 				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
 				 ArduinoFactory.eINSTANCE.createSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createWhile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createSet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createNumericalOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createBooleanOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createConstant()));
 	}
 
 }

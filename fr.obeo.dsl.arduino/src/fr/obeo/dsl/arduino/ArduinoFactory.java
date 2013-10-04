@@ -148,6 +148,60 @@ public interface ArduinoFactory extends EFactory {
 	Sensor createSensor();
 
 	/**
+	 * Returns a new object of class '<em>While</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>While</em>'.
+	 * @generated
+	 */
+	While createWhile();
+
+	/**
+	 * Returns a new object of class '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable</em>'.
+	 * @generated
+	 */
+	Variable createVariable();
+
+	/**
+	 * Returns a new object of class '<em>Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set</em>'.
+	 * @generated
+	 */
+	Set createSet();
+
+	/**
+	 * Returns a new object of class '<em>Numerical Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Numerical Operator</em>'.
+	 * @generated
+	 */
+	NumericalOperator createNumericalOperator();
+
+	/**
+	 * Returns a new object of class '<em>Boolean Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Operator</em>'.
+	 * @generated
+	 */
+	BooleanOperator createBooleanOperator();
+
+	/**
+	 * Returns a new object of class '<em>Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Constant</em>'.
+	 * @generated
+	 */
+	Constant createConstant();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -564,13 +564,22 @@ public interface ArduinoPackage extends EPackage {
 	int STATUS__MODULE = MODULE_INSTRUCTION__MODULE;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATUS__VALUE = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATUS__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
+	int STATUS__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Sensor</b></em>' reference.
@@ -579,7 +588,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATUS__SENSOR = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
+	int STATUS__SENSOR = MODULE_INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Status</em>' class.
@@ -588,7 +597,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATUS_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 2;
+	int STATUS_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.LevelImpl <em>Level</em>}' class.
@@ -1033,13 +1042,22 @@ public interface ArduinoPackage extends EPackage {
 	int SENSOR__MODULE = MODULE_INSTRUCTION__MODULE;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__VALUE = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
+	int SENSOR__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
@@ -1048,7 +1066,474 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
+	int SENSOR_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.WhileImpl <em>While</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.WhileImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getWhile()
+	 * @generated
+	 */
+	int WHILE = 22;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE__PREVIOUS = CONTROL__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE__NEXT = CONTROL__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE__INSTRUCTIONS = CONTROL__INSTRUCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE__CONDITION = CONTROL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>While</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ValueImpl <em>Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.ValueImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getValue()
+	 * @generated
+	 */
+	int VALUE = 28;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__PREVIOUS = INSTRUCTION__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__NEXT = INSTRUCTION__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__VALUE = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.MathOperatorImpl <em>Math Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.MathOperatorImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getMathOperator()
+	 * @generated
+	 */
+	int MATH_OPERATOR = 23;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATH_OPERATOR__PREVIOUS = VALUE__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATH_OPERATOR__NEXT = VALUE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATH_OPERATOR__VALUE = VALUE__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATH_OPERATOR__LEFT = VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATH_OPERATOR__RIGHT = VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATH_OPERATOR__OPERATOR = VALUE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Math Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATH_OPERATOR_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.VariableImpl <em>Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.VariableImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getVariable()
+	 * @generated
+	 */
+	int VARIABLE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__PREVIOUS = VALUE__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__NEXT = VALUE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__VALUE = VALUE__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__NAME = VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.SetImpl <em>Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.SetImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getSet()
+	 * @generated
+	 */
+	int SET = 25;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET__PREVIOUS = INSTRUCTION__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET__NEXT = INSTRUCTION__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET__VARIABLE = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.NumericalOperatorImpl <em>Numerical Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.NumericalOperatorImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getNumericalOperator()
+	 * @generated
+	 */
+	int NUMERICAL_OPERATOR = 26;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERICAL_OPERATOR__PREVIOUS = MATH_OPERATOR__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERICAL_OPERATOR__NEXT = MATH_OPERATOR__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERICAL_OPERATOR__VALUE = MATH_OPERATOR__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERICAL_OPERATOR__LEFT = MATH_OPERATOR__LEFT;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERICAL_OPERATOR__RIGHT = MATH_OPERATOR__RIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERICAL_OPERATOR__OPERATOR = MATH_OPERATOR__OPERATOR;
+
+	/**
+	 * The number of structural features of the '<em>Numerical Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERICAL_OPERATOR_FEATURE_COUNT = MATH_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.BooleanOperatorImpl <em>Boolean Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.BooleanOperatorImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getBooleanOperator()
+	 * @generated
+	 */
+	int BOOLEAN_OPERATOR = 27;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__PREVIOUS = MATH_OPERATOR__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__NEXT = MATH_OPERATOR__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__VALUE = MATH_OPERATOR__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__LEFT = MATH_OPERATOR__LEFT;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__RIGHT = MATH_OPERATOR__RIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__OPERATOR = MATH_OPERATOR__OPERATOR;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR_FEATURE_COUNT = MATH_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ConstantImpl <em>Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.ConstantImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getConstant()
+	 * @generated
+	 */
+	int CONSTANT = 29;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__PREVIOUS = VALUE__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__NEXT = VALUE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__VALUE = VALUE__VALUE;
+
+	/**
+	 * The number of structural features of the '<em>Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}' enum.
@@ -1058,7 +1543,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 22;
+	int TIME = 30;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.ModuleKind <em>Module Kind</em>}' enum.
@@ -1068,7 +1553,18 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getModuleKind()
 	 * @generated
 	 */
-	int MODULE_KIND = 23;
+	int MODULE_KIND = 31;
+
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.OperatorKind <em>Operator Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.OperatorKind
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getOperatorKind()
+	 * @generated
+	 */
+	int OPERATOR_KIND = 32;
 
 
 	/**
@@ -1589,6 +2085,163 @@ public interface ArduinoPackage extends EPackage {
 	EReference getSensor_Status();
 
 	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.While <em>While</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>While</em>'.
+	 * @see fr.obeo.dsl.arduino.While
+	 * @generated
+	 */
+	EClass getWhile();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.While#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Condition</em>'.
+	 * @see fr.obeo.dsl.arduino.While#getCondition()
+	 * @see #getWhile()
+	 * @generated
+	 */
+	EReference getWhile_Condition();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.MathOperator <em>Math Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Math Operator</em>'.
+	 * @see fr.obeo.dsl.arduino.MathOperator
+	 * @generated
+	 */
+	EClass getMathOperator();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.MathOperator#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Left</em>'.
+	 * @see fr.obeo.dsl.arduino.MathOperator#getLeft()
+	 * @see #getMathOperator()
+	 * @generated
+	 */
+	EReference getMathOperator_Left();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.MathOperator#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Right</em>'.
+	 * @see fr.obeo.dsl.arduino.MathOperator#getRight()
+	 * @see #getMathOperator()
+	 * @generated
+	 */
+	EReference getMathOperator_Right();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.MathOperator#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see fr.obeo.dsl.arduino.MathOperator#getOperator()
+	 * @see #getMathOperator()
+	 * @generated
+	 */
+	EAttribute getMathOperator_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Variable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable</em>'.
+	 * @see fr.obeo.dsl.arduino.Variable
+	 * @generated
+	 */
+	EClass getVariable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Variable#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see fr.obeo.dsl.arduino.Variable#getName()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EAttribute getVariable_Name();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Set <em>Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set</em>'.
+	 * @see fr.obeo.dsl.arduino.Set
+	 * @generated
+	 */
+	EClass getSet();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Set#getVariable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Variable</em>'.
+	 * @see fr.obeo.dsl.arduino.Set#getVariable()
+	 * @see #getSet()
+	 * @generated
+	 */
+	EReference getSet_Variable();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.NumericalOperator <em>Numerical Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Numerical Operator</em>'.
+	 * @see fr.obeo.dsl.arduino.NumericalOperator
+	 * @generated
+	 */
+	EClass getNumericalOperator();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.BooleanOperator <em>Boolean Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Operator</em>'.
+	 * @see fr.obeo.dsl.arduino.BooleanOperator
+	 * @generated
+	 */
+	EClass getBooleanOperator();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value</em>'.
+	 * @see fr.obeo.dsl.arduino.Value
+	 * @generated
+	 */
+	EClass getValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Value#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see fr.obeo.dsl.arduino.Value#getValue()
+	 * @see #getValue()
+	 * @generated
+	 */
+	EAttribute getValue_Value();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Constant <em>Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Constant</em>'.
+	 * @see fr.obeo.dsl.arduino.Constant
+	 * @generated
+	 */
+	EClass getConstant();
+
+	/**
 	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getPin <em>Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1618,6 +2271,16 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getModuleKind();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.obeo.dsl.arduino.OperatorKind <em>Operator Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Operator Kind</em>'.
+	 * @see fr.obeo.dsl.arduino.OperatorKind
+	 * @generated
+	 */
+	EEnum getOperatorKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2078,6 +2741,142 @@ public interface ArduinoPackage extends EPackage {
 		EReference SENSOR__STATUS = eINSTANCE.getSensor_Status();
 
 		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.WhileImpl <em>While</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.WhileImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getWhile()
+		 * @generated
+		 */
+		EClass WHILE = eINSTANCE.getWhile();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WHILE__CONDITION = eINSTANCE.getWhile_Condition();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.MathOperatorImpl <em>Math Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.MathOperatorImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getMathOperator()
+		 * @generated
+		 */
+		EClass MATH_OPERATOR = eINSTANCE.getMathOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MATH_OPERATOR__LEFT = eINSTANCE.getMathOperator_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MATH_OPERATOR__RIGHT = eINSTANCE.getMathOperator_Right();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATH_OPERATOR__OPERATOR = eINSTANCE.getMathOperator_Operator();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.VariableImpl <em>Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.VariableImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getVariable()
+		 * @generated
+		 */
+		EClass VARIABLE = eINSTANCE.getVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.SetImpl <em>Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.SetImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getSet()
+		 * @generated
+		 */
+		EClass SET = eINSTANCE.getSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SET__VARIABLE = eINSTANCE.getSet_Variable();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.NumericalOperatorImpl <em>Numerical Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.NumericalOperatorImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getNumericalOperator()
+		 * @generated
+		 */
+		EClass NUMERICAL_OPERATOR = eINSTANCE.getNumericalOperator();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.BooleanOperatorImpl <em>Boolean Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.BooleanOperatorImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getBooleanOperator()
+		 * @generated
+		 */
+		EClass BOOLEAN_OPERATOR = eINSTANCE.getBooleanOperator();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ValueImpl <em>Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.ValueImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getValue()
+		 * @generated
+		 */
+		EClass VALUE = eINSTANCE.getValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE__VALUE = eINSTANCE.getValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ConstantImpl <em>Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.ConstantImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getConstant()
+		 * @generated
+		 */
+		EClass CONSTANT = eINSTANCE.getConstant();
+
+		/**
 		 * The meta object literal for the '<em><b>Pin</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2104,6 +2903,16 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum MODULE_KIND = eINSTANCE.getModuleKind();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.OperatorKind <em>Operator Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.OperatorKind
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getOperatorKind()
+		 * @generated
+		 */
+		EEnum OPERATOR_KIND = eINSTANCE.getOperatorKind();
 
 	}
 

@@ -71,6 +71,12 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 			case ArduinoPackage.CONNECTOR: return createConnector();
 			case ArduinoPackage.REPEAT: return createRepeat();
 			case ArduinoPackage.SENSOR: return createSensor();
+			case ArduinoPackage.WHILE: return createWhile();
+			case ArduinoPackage.VARIABLE: return createVariable();
+			case ArduinoPackage.SET: return createSet();
+			case ArduinoPackage.NUMERICAL_OPERATOR: return createNumericalOperator();
+			case ArduinoPackage.BOOLEAN_OPERATOR: return createBooleanOperator();
+			case ArduinoPackage.CONSTANT: return createConstant();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -88,6 +94,8 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 				return createTimeFromString(eDataType, initialValue);
 			case ArduinoPackage.MODULE_KIND:
 				return createModuleKindFromString(eDataType, initialValue);
+			case ArduinoPackage.OPERATOR_KIND:
+				return createOperatorKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +113,8 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 				return convertTimeToString(eDataType, instanceValue);
 			case ArduinoPackage.MODULE_KIND:
 				return convertModuleKindToString(eDataType, instanceValue);
+			case ArduinoPackage.OPERATOR_KIND:
+				return convertOperatorKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -255,6 +265,66 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public While createWhile() {
+		WhileImpl while_ = new WhileImpl();
+		return while_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable createVariable() {
+		VariableImpl variable = new VariableImpl();
+		return variable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Set createSet() {
+		SetImpl set = new SetImpl();
+		return set;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NumericalOperator createNumericalOperator() {
+		NumericalOperatorImpl numericalOperator = new NumericalOperatorImpl();
+		return numericalOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanOperator createBooleanOperator() {
+		BooleanOperatorImpl booleanOperator = new BooleanOperatorImpl();
+		return booleanOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Constant createConstant() {
+		ConstantImpl constant = new ConstantImpl();
+		return constant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Time createTimeFromString(EDataType eDataType, String initialValue) {
 		Time result = Time.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -287,6 +357,26 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * @generated
 	 */
 	public String convertModuleKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperatorKind createOperatorKindFromString(EDataType eDataType, String initialValue) {
+		OperatorKind result = OperatorKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOperatorKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

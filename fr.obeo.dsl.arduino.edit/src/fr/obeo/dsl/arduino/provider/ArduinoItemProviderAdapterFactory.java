@@ -394,6 +394,144 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.While} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WhileItemProvider whileItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.While}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWhileAdapter() {
+		if (whileItemProvider == null) {
+			whileItemProvider = new WhileItemProvider(this);
+		}
+
+		return whileItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Variable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariableItemProvider variableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Variable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVariableAdapter() {
+		if (variableItemProvider == null) {
+			variableItemProvider = new VariableItemProvider(this);
+		}
+
+		return variableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Set} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetItemProvider setItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Set}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetAdapter() {
+		if (setItemProvider == null) {
+			setItemProvider = new SetItemProvider(this);
+		}
+
+		return setItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.NumericalOperator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumericalOperatorItemProvider numericalOperatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.NumericalOperator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumericalOperatorAdapter() {
+		if (numericalOperatorItemProvider == null) {
+			numericalOperatorItemProvider = new NumericalOperatorItemProvider(this);
+		}
+
+		return numericalOperatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.BooleanOperator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanOperatorItemProvider booleanOperatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.BooleanOperator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanOperatorAdapter() {
+		if (booleanOperatorItemProvider == null) {
+			booleanOperatorItemProvider = new BooleanOperatorItemProvider(this);
+		}
+
+		return booleanOperatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Constant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstantItemProvider constantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstantAdapter() {
+		if (constantItemProvider == null) {
+			constantItemProvider = new ConstantItemProvider(this);
+		}
+
+		return constantItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -506,6 +644,12 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 		if (connectorItemProvider != null) connectorItemProvider.dispose();
 		if (repeatItemProvider != null) repeatItemProvider.dispose();
 		if (sensorItemProvider != null) sensorItemProvider.dispose();
+		if (whileItemProvider != null) whileItemProvider.dispose();
+		if (variableItemProvider != null) variableItemProvider.dispose();
+		if (setItemProvider != null) setItemProvider.dispose();
+		if (numericalOperatorItemProvider != null) numericalOperatorItemProvider.dispose();
+		if (booleanOperatorItemProvider != null) booleanOperatorItemProvider.dispose();
+		if (constantItemProvider != null) constantItemProvider.dispose();
 	}
 
 }

@@ -46,7 +46,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//Instruction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Instruction"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Status" eSuperTypes="#//ModuleInstruction">
+  <eClassifiers xsi:type="ecore:EClass" name="Status" eSuperTypes="#//ModuleInstruction #//Value">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//Sensor"
         eOpposite="#//Sensor/status"/>
@@ -87,8 +87,48 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//ModuleInstruction">
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//ModuleInstruction #//Value">
     <eStructuralFeatures xsi:type="ecore:EReference" name="status" upperBound="-1"
         eType="#//Status" eOpposite="#//Status/sensor"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="While" eSuperTypes="#//Control">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+        eType="#//BooleanOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MathOperator" abstract="true" eSuperTypes="#//Value #//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//OperatorKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperatorKind">
+    <eLiterals name="equal"/>
+    <eLiterals name="minus"/>
+    <eLiterals name="upper"/>
+    <eLiterals name="lower"/>
+    <eLiterals name="plus"/>
+    <eLiterals name="diff"/>
+    <eLiterals name="upperOrEqual"/>
+    <eLiterals name="lowerOrEqual"/>
+    <eLiterals name="mul"/>
+    <eLiterals name="div"/>
+    <eLiterals name="min"/>
+    <eLiterals name="max"/>
+    <eLiterals name="pourcent"/>
+    <eLiterals name="and"/>
+    <eLiterals name="or"/>
+    <eLiterals name="not"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Value #//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Set" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
+        eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumericalOperator" eSuperTypes="#//MathOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" eSuperTypes="#//MathOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//Value"/>
 </ecore:EPackage>

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -17,21 +18,29 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.google.common.collect.Lists;
 
 import fr.obeo.dsl.arduino.AnalogPin;
 import fr.obeo.dsl.arduino.ArduinoFactory;
+import fr.obeo.dsl.arduino.BooleanOperator;
 import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.DigitalPin;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.Module;
+import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
 import fr.obeo.dsl.arduino.Sensor;
 import fr.obeo.dsl.arduino.Sketch;
+import fr.obeo.dsl.arduino.Value;
+import fr.obeo.dsl.arduino.Variable;
+import fr.obeo.dsl.arduino.While;
 import fr.obeo.dsl.arduino.design.Activator;
 import fr.obeo.dsl.arduino.gen.main.Generate;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
@@ -113,7 +122,7 @@ public class ArduinoServices {
 
 	public List<Instruction> getInstructions(Instruction instruction) {
 		List<Instruction> instructions = Lists.newArrayList();
-		if(instruction instanceof Sensor){
+		if (instruction instanceof Sensor) {
 			instructions.addAll(((Sensor) instruction).getStatus());
 		}
 		instructions.add(instruction.getNext());
@@ -271,5 +280,182 @@ public class ArduinoServices {
 
 	private boolean hasSensorStatus(fr.obeo.dsl.arduino.Status status) {
 		return status.getSensor() != null;
+	}
+
+	public String computeLabel(While instruction) {
+		String label = "While ";
+		if (instruction.getCondition() != null
+				&& instruction.getCondition().getLeft() != null
+				&& instruction.getCondition().getRight() != null) {
+			BooleanOperator condition = instruction.getCondition();
+			label += computeLabel(condition.getLeft()) + " ";
+			label += getOperator(condition.getOperator());
+			label += " " + computeLabel(condition.getRight());
+		}
+		return label;
+	}
+
+	private String computeLabel(Value value) {
+		if (value instanceof Variable) {
+			return ((Variable) value).getName();
+		}
+		return value.getValue();
+	}
+
+	private String getOperator(OperatorKind operator) {
+		switch (operator) {
+		case AND:
+			return "&";
+		case DIFF:
+			return "!=";
+		case DIV:
+			return "/";
+		case EQUAL:
+			return "=";
+		case LOWER:
+			return "<";
+		case LOWER_OR_EQUAL:
+			return "<=";
+		case MAX:
+			return "max";
+		case MIN:
+			return "min";
+		case MINUS:
+			return "-";
+		case MUL:
+			return "*";
+		case NOT:
+			return "not";
+		case OR:
+			return "or";
+		case PLUS:
+			return "+";
+		case POURCENT:
+			return "%";
+		case UPPER:
+			return ">";
+		case UPPER_OR_EQUAL:
+			return ">=";
+		}
+		return null;
+	}
+
+	public OperatorKind getOperator(String operator) {
+		if (operator.equals("&")) {
+			return OperatorKind.AND;
+		}
+		if (operator.equals("!=")) {
+			return OperatorKind.DIFF;
+		}
+		if (operator.equals("/")) {
+			return OperatorKind.DIV;
+		}
+		if (operator.equals("=")) {
+			return OperatorKind.EQUAL;
+		}
+		if (operator.equals("<")) {
+			return OperatorKind.LOWER;
+		}
+		if (operator.equals("<=")) {
+			return OperatorKind.LOWER_OR_EQUAL;
+		}
+		if (operator.equals("max")) {
+			return OperatorKind.MAX;
+		}
+		if (operator.equals("min")) {
+			return OperatorKind.MIN;
+		}
+		if (operator.equals("-")) {
+			return OperatorKind.MINUS;
+		}
+		if (operator.equals("*")) {
+			return OperatorKind.MUL;
+		}
+		if (operator.equals("not")) {
+			return OperatorKind.NOT;
+		}
+		if (operator.equals("or")) {
+			return OperatorKind.OR;
+		}
+		if (operator.equals("+")) {
+			return OperatorKind.PLUS;
+		}
+		if (operator.equals("%")) {
+			return OperatorKind.POURCENT;
+		}
+		if (operator.equals(">")) {
+			return OperatorKind.UPPER;
+		}
+		if (operator.equals(">=")) {
+			return OperatorKind.UPPER_OR_EQUAL;
+		}
+		return null;
+	}
+
+	public Value getValue(Sketch sketch, String value) {
+		for (Instruction instruction : sketch.getInstructions()) {
+			if (instruction instanceof Value
+					&& value.equals(((Value) instruction).getValue())) {
+				return (Value) instruction;
+			}
+			if (instruction instanceof Variable
+					&& value.equals(((Variable) instruction).getName())) {
+				return (Value) instruction;
+			}
+		}
+		if (isInteger(value)) {
+			fr.obeo.dsl.arduino.Constant constant = ArduinoFactory.eINSTANCE
+					.createConstant();
+			constant.setValue(value);
+			sketch.getInstructions().add(constant);
+			return constant;
+		}
+		Variable var = ArduinoFactory.eINSTANCE.createVariable();
+		var.setName(value);
+		var.setValue("0");
+		sketch.getInstructions().add(var);
+		return var;
+	}
+
+	private boolean isInteger(String s) {
+		try {
+			Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+		return true;
+	}
+
+	public void editLabel(While instruction, Sketch sketch, String left,
+			String operator, String right) {
+		BooleanOperator condition = instruction.getCondition();
+		if (condition == null) {
+			condition = ArduinoFactory.eINSTANCE.createBooleanOperator();
+			sketch.getInstructions().add(condition);
+			instruction.setCondition(condition);
+		}
+
+		Value oldLeft = condition.getLeft();
+		Value oldRight = condition.getRight();
+
+		condition.setLeft(getValue(sketch, left));
+		condition.setOperator(getOperator(operator));
+		condition.setRight(getValue(sketch, right));
+
+		// Clean unused values
+		if (oldLeft != null && isNotUsedAnymore(sketch, oldLeft)) {
+			EcoreUtil.delete(oldLeft);
+		}
+		if (oldRight != null && isNotUsedAnymore(sketch, oldRight)) {
+			EcoreUtil.delete(oldRight);
+		}
+	}
+
+	private boolean isNotUsedAnymore(Sketch sketch, Value value) {
+		ResourceSet resourceSet = value.eResource().getResourceSet();
+		ECrossReferenceAdapter adapter = new ECrossReferenceAdapter();
+		resourceSet.eAdapters().add(adapter);
+		Collection<Setting> refs = adapter.getInverseReferences(value, true);
+		return refs.size() == 1;
 	}
 }

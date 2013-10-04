@@ -84,9 +84,9 @@
             <children xmi:type="notation:Node" xmi:id="_PAM5cCwQEeOtcJEcRioE5g" type="5002">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_PAM5cSwQEeOtcJEcRioE5g" y="-21"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_PANggCwQEeOtcJEcRioE5g" type="3005" element="_PALEQiwQEeOtcJEcRioE5g">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_PANggSwQEeOtcJEcRioE5g" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PANggiwQEeOtcJEcRioE5g"/>
+            <children xmi:type="notation:Node" xmi:id="_-OL2gCxLEeORlJGHVZ5msQ" type="3005" element="_-OJaQCxLEeORlJGHVZ5msQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_-OL2gSxLEeORlJGHVZ5msQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-OL2gixLEeORlJGHVZ5msQ"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_PAMSZCwQEeOtcJEcRioE5g" fontName="Ubuntu" fontHeight="16"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PAMSZSwQEeOtcJEcRioE5g" width="200" height="200"/>
@@ -94,13 +94,13 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_PAMSYiwQEeOtcJEcRioE5g"/>
         </data>
       </ownedAnnotationEntries>
-      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_PALEQSwQEeOtcJEcRioE5g" name="1" tooltipText="Double click to see hardware" width="20" height="20">
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_PALEQSwQEeOtcJEcRioE5g" name="1" tooltipText="Double click to describe the hardware" width="20" height="20">
         <target xmi:type="arduino:Project" href="platform:/plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#/"/>
         <semanticElements xmi:type="arduino:Project" href="platform:/plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#/"/>
-        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_PALEQiwQEeOtcJEcRioE5g" labelSize="16" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/hardware.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_PALEQywQEeOtcJEcRioE5g"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Hardware']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_PALERCwQEeOtcJEcRioE5g"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_-OJaQCxLEeORlJGHVZ5msQ" labelSize="16" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/hardware_invalid.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_-OJaQSxLEeORlJGHVZ5msQ"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Hardware']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_-OJaQixLEeORlJGHVZ5msQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Hardware']"/>
       </ownedDiagramElements>
