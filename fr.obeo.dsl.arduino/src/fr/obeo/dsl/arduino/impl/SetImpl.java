@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SetImpl#getVariable <em>Variable</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.SetImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,6 +38,16 @@ public class SetImpl extends InstructionImpl implements Set {
 	 * @ordered
 	 */
 	protected Variable variable;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Value value;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,12 +111,53 @@ public class SetImpl extends InstructionImpl implements Set {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Value getValue() {
+		if (value != null && value.eIsProxy()) {
+			InternalEObject oldValue = (InternalEObject)value;
+			value = (Value)eResolveProxy(oldValue);
+			if (value != oldValue) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.SET__VALUE, oldValue, value));
+			}
+		}
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value basicGetValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(Value newValue) {
+		Value oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SET__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ArduinoPackage.SET__VARIABLE:
 				if (resolve) return getVariable();
 				return basicGetVariable();
+			case ArduinoPackage.SET__VALUE:
+				if (resolve) return getValue();
+				return basicGetValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -120,6 +172,9 @@ public class SetImpl extends InstructionImpl implements Set {
 		switch (featureID) {
 			case ArduinoPackage.SET__VARIABLE:
 				setVariable((Variable)newValue);
+				return;
+			case ArduinoPackage.SET__VALUE:
+				setValue((Value)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,6 +191,9 @@ public class SetImpl extends InstructionImpl implements Set {
 			case ArduinoPackage.SET__VARIABLE:
 				setVariable((Variable)null);
 				return;
+			case ArduinoPackage.SET__VALUE:
+				setValue((Value)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -150,6 +208,8 @@ public class SetImpl extends InstructionImpl implements Set {
 		switch (featureID) {
 			case ArduinoPackage.SET__VARIABLE:
 				return variable != null;
+			case ArduinoPackage.SET__VALUE:
+				return value != null;
 		}
 		return super.eIsSet(featureID);
 	}

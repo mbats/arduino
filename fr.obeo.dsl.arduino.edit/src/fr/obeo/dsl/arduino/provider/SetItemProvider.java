@@ -55,6 +55,7 @@ public class SetItemProvider
 			super.getPropertyDescriptors(object);
 
 			addVariablePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,6 +74,28 @@ public class SetItemProvider
 				 getString("_UI_Set_variable_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Set_variable_feature", "_UI_Set_type"),
 				 ArduinoPackage.Literals.SET__VARIABLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Set_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Set_value_feature", "_UI_Set_type"),
+				 ArduinoPackage.Literals.SET__VALUE,
 				 true,
 				 false,
 				 true,

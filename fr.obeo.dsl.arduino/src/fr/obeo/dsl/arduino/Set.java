@@ -12,6 +12,7 @@ package fr.obeo.dsl.arduino;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Set#getVariable <em>Variable</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Set#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,5 +46,31 @@ public interface Set extends Instruction {
 	 * @generated
 	 */
 	void setVariable(Variable value);
+
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value</em>' reference.
+	 * @see #setValue(Value)
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getSet_Value()
+	 * @model required="true"
+	 * @generated
+	 */
+	Value getValue();
+
+	/**
+	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Set#getValue <em>Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' reference.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(Value value);
 
 } // Set

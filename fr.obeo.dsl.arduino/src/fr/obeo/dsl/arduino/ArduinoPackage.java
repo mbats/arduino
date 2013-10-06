@@ -637,13 +637,22 @@ public interface ArduinoPackage extends EPackage {
 	int LEVEL__MODULE = MODULE_INSTRUCTION__MODULE;
 
 	/**
+	 * The feature id for the '<em><b>Level</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEVEL__LEVEL = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Level</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
+	int LEVEL_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ControlImpl <em>Control</em>}' class.
@@ -904,13 +913,22 @@ public interface ArduinoPackage extends EPackage {
 	int OUTPUT_MODULE__IMAGE = MODULE__IMAGE;
 
 	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_MODULE__LEVEL = MODULE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Output Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_MODULE_FEATURE_COUNT = MODULE_FEATURE_COUNT + 0;
+	int OUTPUT_MODULE_FEATURE_COUNT = MODULE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -1335,13 +1353,22 @@ public interface ArduinoPackage extends EPackage {
 	int SET__VARIABLE = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET__VALUE = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+	int SET_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.NumericalOperatorImpl <em>Numerical Operator</em>}' class.
@@ -1887,6 +1914,17 @@ public interface ArduinoPackage extends EPackage {
 	EClass getLevel();
 
 	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Level#getLevel <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Level</em>'.
+	 * @see fr.obeo.dsl.arduino.Level#getLevel()
+	 * @see #getLevel()
+	 * @generated
+	 */
+	EReference getLevel_Level();
+
+	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.ModuleInstruction <em>Module Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1999,6 +2037,17 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOutputModule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.OutputModule#isLevel <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Level</em>'.
+	 * @see fr.obeo.dsl.arduino.OutputModule#isLevel()
+	 * @see #getOutputModule()
+	 * @generated
+	 */
+	EAttribute getOutputModule_Level();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.NamedElement <em>Named Element</em>}'.
@@ -2189,6 +2238,17 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSet_Variable();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Set#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value</em>'.
+	 * @see fr.obeo.dsl.arduino.Set#getValue()
+	 * @see #getSet()
+	 * @generated
+	 */
+	EReference getSet_Value();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.NumericalOperator <em>Numerical Operator</em>}'.
@@ -2567,6 +2627,14 @@ public interface ArduinoPackage extends EPackage {
 		EClass LEVEL = eINSTANCE.getLevel();
 
 		/**
+		 * The meta object literal for the '<em><b>Level</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LEVEL__LEVEL = eINSTANCE.getLevel_Level();
+
+		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ModuleInstructionImpl <em>Module Instruction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2667,6 +2735,14 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OUTPUT_MODULE = eINSTANCE.getOutputModule();
+
+		/**
+		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_MODULE__LEVEL = eINSTANCE.getOutputModule_Level();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -2827,6 +2903,14 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SET__VARIABLE = eINSTANCE.getSet_Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SET__VALUE = eINSTANCE.getSet_Value();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.NumericalOperatorImpl <em>Numerical Operator</em>}' class.

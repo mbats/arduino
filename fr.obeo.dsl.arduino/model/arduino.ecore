@@ -51,7 +51,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//Sensor"
         eOpposite="#//Sensor/status"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Level" eSuperTypes="#//ModuleInstruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Level" eSuperTypes="#//ModuleInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level" lowerBound="1" eType="#//Value"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModuleInstruction" abstract="true" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
         eType="#//Module"/>
@@ -71,7 +73,9 @@
     <eLiterals name="MicroSecond"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputModule" eSuperTypes="#//Module"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputModule" eSuperTypes="#//Module"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputModule" eSuperTypes="#//Module">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ModuleKind">
     <eLiterals name="digital"/>
     <eLiterals name="analog"/>
@@ -124,6 +128,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Set" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
         eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Value"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumericalOperator" eSuperTypes="#//MathOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" eSuperTypes="#//MathOperator"/>

@@ -4,7 +4,7 @@
     <input>
       <takesTypesFrom href="http://www.obeo.fr/arduino#/"/>
     </input>
-    <imports href="platform:/resource/fr.obeo.dsl.arduino.gen/bin/fr/obeo/dsl/arduino/gen/main/arduinoservices.emtl#/0"/>
+    <imports href="arduinoservices.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateSketch" visibility="Public" main="true">
       <body xsi:type="mtl:TemplateInvocation" definition="/0/genIno">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -121,7 +121,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="int iter_"/>
           <body xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-            <definition href="platform:/resource/fr.obeo.dsl.arduino.gen/bin/fr/obeo/dsl/arduino/gen/main/arduinoservices.emtl#/0/getRepeatInstructionIndex"/>
+            <definition href="arduinoservices.emtl#/0/getRepeatInstructionIndex"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="instruction" referredVariable="/0/genIno/%/%.2/instruction">
               <eType xsi:type="ecore:EClass" href="http://www.obeo.fr/arduino#//Repeat"/>
             </argument>
@@ -452,7 +452,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
           <initExpression xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-            <definition href="platform:/resource/fr.obeo.dsl.arduino.gen/bin/fr/obeo/dsl/arduino/gen/main/arduinoservices.emtl#/0/getRepeatInstructionIndex"/>
+            <definition href="arduinoservices.emtl#/0/getRepeatInstructionIndex"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="instruction" referredVariable="/0/generateInstruction.3/instruction">
               <eType xsi:type="ecore:EClass" href="http://www.obeo.fr/arduino#//Repeat"/>
             </argument>
@@ -780,7 +780,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/fr.obeo.dsl.arduino.gen/bin/fr/obeo/dsl/arduino/gen/main/arduinoservices.emtl#/0/getRepeatInstructionIndex"/>
+          <references href="arduinoservices.emtl#/0/getRepeatInstructionIndex"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
         <eParameters name="arg0">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino">
-  <modules xsi:type="arduino:OutputModule" name="White LED" image="dfrobot/led.jpg"/>
+  <modules xsi:type="arduino:OutputModule" name="White LED" level="true" image="dfrobot/led.jpg"/>
   <modules xsi:type="arduino:InputModule" name="Push button 1" image="dfrobot/push_button.jpg"/>
   <modules xsi:type="arduino:OutputModule" name="Red LED" image="dfrobot/led.jpg"/>
   <modules xsi:type="arduino:OutputModule" name="Blue LED" image="dfrobot/led.jpg"/>

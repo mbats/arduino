@@ -24,19 +24,24 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
 import fr.obeo.dsl.arduino.AnalogPin;
 import fr.obeo.dsl.arduino.ArduinoFactory;
 import fr.obeo.dsl.arduino.BooleanOperator;
 import fr.obeo.dsl.arduino.Connector;
+import fr.obeo.dsl.arduino.Constant;
 import fr.obeo.dsl.arduino.DigitalPin;
 import fr.obeo.dsl.arduino.Instruction;
+import fr.obeo.dsl.arduino.MathOperator;
 import fr.obeo.dsl.arduino.Module;
+import fr.obeo.dsl.arduino.NumericalOperator;
 import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
 import fr.obeo.dsl.arduino.Sensor;
+import fr.obeo.dsl.arduino.Set;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.Value;
 import fr.obeo.dsl.arduino.Variable;
@@ -278,6 +283,35 @@ public class ArduinoServices {
 		return label;
 	}
 
+	public String computeLevelLabel(fr.obeo.dsl.arduino.Level level) {
+		String label = level.getModule().getName();
+		if (level.getLevel() != null) {
+			label += "=";
+			Value value = level.getLevel();
+			if (value instanceof Variable) {
+				label += ((Variable) value).getName();
+			} else {
+				label += computeLabel(value);
+			}
+		}
+		return label;
+	}
+
+	public String computeLabel(Value value) {
+		if (value instanceof Variable) {
+			return ((Variable) value).getName();
+		}
+		if (value instanceof Constant) {
+			return value.getValue();
+		}
+		if (value instanceof MathOperator) {
+			return "(" + computeLabel(((MathOperator) value).getLeft())
+					+ getOperator(((MathOperator) value).getOperator())
+					+ computeLabel(((MathOperator) value).getRight()) + ")";
+		}
+		return null;
+	}
+
 	private boolean hasSensorStatus(fr.obeo.dsl.arduino.Status status) {
 		return status.getSensor() != null;
 	}
@@ -295,14 +329,16 @@ public class ArduinoServices {
 		return label;
 	}
 
-	private String computeLabel(Value value) {
-		if (value instanceof Variable) {
-			return ((Variable) value).getName();
+	public String computeLabel(Set set) {
+		String label = "Set ";
+		if (set.getVariable() != null && set.getValue() != null) {
+			label += set.getVariable().getName() + " = "
+					+ computeLabel(set.getValue());
 		}
-		return value.getValue();
+		return label;
 	}
 
-	private String getOperator(OperatorKind operator) {
+	public String getOperator(OperatorKind operator) {
 		switch (operator) {
 		case AND:
 			return "&";
@@ -442,12 +478,35 @@ public class ArduinoServices {
 		condition.setOperator(getOperator(operator));
 		condition.setRight(getValue(sketch, right));
 
+		deleteUnusedValue(sketch, oldLeft);
+		deleteUnusedValue(sketch, oldRight);
+	}
+
+	public void editLabel(Set instruction, Sketch sketch, String variable,
+			String value) {
+		Value oldVariable = instruction.getVariable();
+		Value oldValue = instruction.getValue();
+		instruction.setVariable((Variable) getValue(sketch, variable));
+		instruction.setValue(getValue(sketch, value));
+
 		// Clean unused values
-		if (oldLeft != null && isNotUsedAnymore(sketch, oldLeft)) {
-			EcoreUtil.delete(oldLeft);
+		deleteUnusedValue(sketch, oldVariable);
+		deleteUnusedValue(sketch, oldValue);
+	}
+
+	public void deleteUnusedValues(Sketch sketch) {
+		ImmutableList<Instruction> instructions = ImmutableList.copyOf(sketch
+				.getInstructions());
+		for (Instruction instruction : instructions) {
+			if (instruction instanceof Value) {
+				deleteUnusedValue(sketch, (Value) instruction);
+			}
 		}
-		if (oldRight != null && isNotUsedAnymore(sketch, oldRight)) {
-			EcoreUtil.delete(oldRight);
+	}
+
+	private void deleteUnusedValue(Sketch sketch, Value value) {
+		if (value != null && isNotUsedAnymore(sketch, value)) {
+			EcoreUtil.delete(value);
 		}
 	}
 
@@ -457,5 +516,62 @@ public class ArduinoServices {
 		resourceSet.eAdapters().add(adapter);
 		Collection<Setting> refs = adapter.getInverseReferences(value, true);
 		return refs.size() == 1;
+	}
+
+	public List<Variable> getVariables(EObject container) {
+		List<Variable> variables = Lists.newArrayList();
+		if (container instanceof Set) {
+			variables.add(((Set) container).getVariable());
+		} else if (container instanceof MathOperator) {
+			Value left = ((MathOperator) container).getLeft();
+			Value right = ((MathOperator) container).getRight();
+			if (left instanceof Variable) {
+				variables.add((Variable) left);
+			}
+			if (right instanceof Variable) {
+				variables.add((Variable) right);
+			}
+		}
+		return variables;
+	}
+
+	public List<NumericalOperator> getNumericalOperators(EObject container) {
+		List<NumericalOperator> operators = Lists.newArrayList();
+		if (container instanceof Set) {
+			Value value = ((Set) container).getValue();
+			if (value instanceof NumericalOperator) {
+				operators.add((NumericalOperator) value);
+			}
+		} else if (container instanceof MathOperator) {
+			Value left = ((MathOperator) container).getLeft();
+			Value right = ((MathOperator) container).getRight();
+			if (left instanceof NumericalOperator) {
+				operators.add((NumericalOperator) left);
+			}
+			if (right instanceof NumericalOperator) {
+				operators.add((NumericalOperator) right);
+			}
+		}
+		return operators;
+	}
+
+	public List<Constant> getConstants(EObject container) {
+		List<Constant> constants = Lists.newArrayList();
+		if (container instanceof Set) {
+			Value value = ((Set) container).getValue();
+			if (value instanceof Constant) {
+				constants.add((Constant) value);
+			}
+		} else if (container instanceof MathOperator) {
+			Value left = ((MathOperator) container).getLeft();
+			Value right = ((MathOperator) container).getRight();
+			if (left instanceof Constant) {
+				constants.add((Constant) left);
+			}
+			if (right instanceof Constant) {
+				constants.add((Constant) right);
+			}
+		}
+		return constants;
 	}
 }
