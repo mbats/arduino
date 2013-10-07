@@ -536,7 +536,7 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
-        <containerMappings name="Set" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Delete%20Set']" semanticCandidatesExpression="feature:instructions" domainClass="arduino.Set" reusedNodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Variable'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Constant']" reusedContainerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='NumericalOperator']">
+        <containerMappings name="Set" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Delete%20Set']" semanticCandidatesExpression="feature:instructions" domainClass="arduino.Set" reusedNodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Variable'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Constant'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Sensor']" reusedContainerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='NumericalOperator'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']">
           <subNodeMappings name="Equal" semanticCandidatesExpression="var:self" domainClass="arduino.Set">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="=" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -699,11 +699,16 @@
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container.eContainer(&quot;Sketch&quot;)%>">
                 <subModelOperations xsi:type="tool:For" expression="&lt;%$modules%>">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Sensor" referenceName="instructions">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container.eContainer(&quot;Sketch&quot;)%>">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Sensor" referenceName="instructions" variableName="sensor">
                       <subModelOperations xsi:type="tool:SetValue" featureName="module" valueExpression="&lt;%$i%>"/>
+                      <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%$container.filter(&quot;Set&quot;)%>">
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="variable" valueExpression="var:sensor"/>
+                        </subModelOperations>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
@@ -967,15 +972,6 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Other">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Set">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Set" referenceName="instructions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="Link" edgeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='LinkLevel']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
@@ -1018,6 +1014,15 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool:SetValue" featureName="level" valueExpression="var:level"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Set" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Set']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Set" referenceName="instructions"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

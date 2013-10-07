@@ -16,12 +16,11 @@
       <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.1/@instructions.1" level="//@sketch/@instructions.0">
         <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
       </instructions>
-      <instructions xsi:type="arduino:Variable" name="var1"/>
     </instructions>
     <instructions xsi:type="arduino:BooleanOperator" left="//@sketch/@instructions.0" right="//@sketch/@instructions.8" operator="lower"/>
     <instructions xsi:type="arduino:NumericalOperator" left="//@sketch/@instructions.0" right="//@sketch/@instructions.4" operator="plus"/>
     <instructions xsi:type="arduino:Constant" value="1"/>
-    <instructions xsi:type="arduino:While" next="//@sketch" condition="//@sketch/@instructions.6">
+    <instructions xsi:type="arduino:While" next="//@sketch/@instructions.11" condition="//@sketch/@instructions.6">
       <instructions xsi:type="arduino:Set" next="//@sketch/@instructions.5/@instructions.1" variable="//@sketch/@instructions.0" value="//@sketch/@instructions.7"/>
       <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.5/@instructions.2" level="//@sketch/@instructions.0">
         <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
@@ -32,10 +31,7 @@
     <instructions xsi:type="arduino:NumericalOperator" left="//@sketch/@instructions.0" right="//@sketch/@instructions.4" operator="minus"/>
     <instructions xsi:type="arduino:Constant" value="255"/>
     <instructions xsi:type="arduino:Constant" value="0"/>
-    <instructions xsi:type="arduino:While" condition="//@sketch/@instructions.11"/>
-    <instructions xsi:type="arduino:BooleanOperator" left="//@sketch/@instructions.14" right="//@sketch/@instructions.13"/>
-    <instructions xsi:type="arduino:Variable" name="var2"/>
-    <instructions xsi:type="arduino:Variable" name="var3"/>
-    <instructions xsi:type="arduino:BooleanOperator"/>
+    <instructions xsi:type="arduino:NumericalOperator" left="//@sketch/@instructions.0" right="//@sketch/@instructions.4" operator="plus"/>
+    <instructions xsi:type="arduino:Delay" next="//@sketch" value="200"/>
   </sketch>
 </arduino:Project>

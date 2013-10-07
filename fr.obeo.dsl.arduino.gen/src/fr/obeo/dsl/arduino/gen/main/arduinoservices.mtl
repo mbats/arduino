@@ -5,3 +5,6 @@
 	= invoke('fr.obeo.dsl.arduino.gen.main.ArduinoGenServices', 'getRepeatInstructionIndex(fr.obeo.dsl.arduino.Repeat)', Sequence{arg0})
 /]
 
+[query public getValue(arg0 : Value) : String
+	= invoke('fr.obeo.dsl.arduino.gen.main.ArduinoGenServices', 'getValue(fr.obeo.dsl.arduino.Value)', Sequence{arg0})
+/]

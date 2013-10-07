@@ -19,10 +19,16 @@ int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
 [for (instruction : Repeat | getRepeatInstructions(sketch))]
 int iter_[getRepeatInstructionIndex(instruction)/];
 [/for]
+[for (instruction : Variable | sketch.eAllContents("Variable"))]
+int [instruction.name/];
+[/for]
 
 void setup() {
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
   pinMode([mod.getVariableName()/], OUTPUT);  
+[/for]
+[for (instruction : Variable | sketch.eAllContents("Variable"))]
+  [instruction.name/]=0;
 [/for]
 }
 
@@ -70,7 +76,7 @@ digitalWrite([instruction.module.getVariableName()/], ([getStatus(instruction)/]
 !digitalRead([instruction.module.getVariableName()/])
 [/template]
 
-[template public generateInstruction(instruction : Repeat)]
+[template public generateInstruction(instruction : Repeat)post (trim())]
 [let index : Integer = getRepeatInstructionIndex(instruction)]
 for (iter_[index/]=0; iter_[index/] < ( [instruction.iteration/] ); ++iter_[index/] )
 {
@@ -82,7 +88,36 @@ for (iter_[index/]=0; iter_[index/] < ( [instruction.iteration/] ); ++iter_[inde
 [/let]
 [/template]
 
-[template public generateInstruction(instruction : Sketch)]
+[template public generateInstruction(instruction : While)post (trim())]
+[let while : While = instruction]
+** While1 = [while/]
+while [instruction.condition.getValue()/]
+{
+ [generateInstruction(instruction.instructions->first())/]
+}
+** While2 = [while/]
+[if (not instruction.next.oclIsInvalid())]
+[generateInstruction(instruction.next)/]
+[/if]
+** While3 = [while/]
+[/let]
+[/template]
+
+[template public generateInstruction(instruction : Set)post (trim())]
+[instruction.variable.name/]=[instruction.value.getValue()/];
+[if (not instruction.next.oclIsInvalid())]
+[generateInstruction(instruction.next)/]
+[/if]
+[/template]
+
+[template public generateInstruction(instruction : Level)post (trim())]
+analogWrite([instruction.eContainer(arduino::Sketch).getPinId(instruction.module)/],255-[instruction.level.getValue()/]);
+[if (not instruction.next.oclIsInvalid())]
+[generateInstruction(instruction.next)/]
+[/if]
+[/template]
+
+[template public generateInstruction(instruction : Sketch)post (trim())]
 [/template]
 
 [template public generateInstruction(instruction : Instruction)]
