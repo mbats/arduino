@@ -32,6 +32,7 @@ import fr.obeo.dsl.arduino.ArduinoFactory;
 import fr.obeo.dsl.arduino.BooleanOperator;
 import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Constant;
+import fr.obeo.dsl.arduino.Control;
 import fr.obeo.dsl.arduino.DigitalPin;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.MathOperator;
@@ -338,7 +339,11 @@ public class ArduinoServices {
 		return label;
 	}
 
-	public String getOperator(OperatorKind operator) {
+	public String computeLabel(String operator) {
+		return operator;
+	}
+
+	private String getOperator(OperatorKind operator) {
 		switch (operator) {
 		case AND:
 			return "&";
@@ -555,6 +560,42 @@ public class ArduinoServices {
 		return operators;
 	}
 
+	public List<BooleanOperator> getBooleanOperators(EObject container) {
+		List<BooleanOperator> operators = Lists.newArrayList();
+		if (container instanceof Sketch) {
+			List<Instruction> instructions = ((Sketch) container)
+					.getInstructions();
+			for (Instruction instruction : instructions) {
+				if (instruction instanceof While) {
+					BooleanOperator condition = ((While) instruction)
+							.getCondition();
+					if (condition != null) {
+						operators.add(condition);
+					}
+				}
+			}
+		} else if (container instanceof Control) {
+			List<Instruction> instructions = ((Control) container)
+					.getInstructions();
+			for (Instruction instruction : instructions) {
+				if (instruction instanceof BooleanOperator) {
+					operators.add((BooleanOperator) instruction);
+				}
+			}
+		} else if (container instanceof MathOperator) {
+			Instruction left = ((MathOperator) container).getLeft();
+			Instruction right = ((MathOperator) container).getRight();
+			if (left instanceof BooleanOperator) {
+				operators.add((BooleanOperator) left);
+			}
+			if (right instanceof BooleanOperator) {
+				operators.add((BooleanOperator) right);
+			}
+		}
+
+		return operators;
+	}
+
 	public List<Constant> getConstants(EObject container) {
 		List<Constant> constants = Lists.newArrayList();
 		if (container instanceof Set) {
@@ -573,5 +614,23 @@ public class ArduinoServices {
 			}
 		}
 		return constants;
+	}
+
+	public Constant createConstant(Sketch sketch, int value) {
+		for (Iterator<EObject> iterator = sketch.eAllContents(); iterator
+				.hasNext();) {
+			EObject object = iterator.next();
+			if (object instanceof Constant) {
+				if (((Constant) object).getValue().equals(value)) {
+					return (Constant) object;
+				}
+			}
+		}
+
+		Constant constant = ArduinoFactory.eINSTANCE
+					.createConstant();
+		constant.setValue(String.valueOf(value));
+			sketch.getInstructions().add(constant);
+		return constant;
 	}
 }
