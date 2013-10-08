@@ -21,9 +21,9 @@
             <children xmi:type="notation:Node" xmi:id="_616aUCwjEeORlJGHVZ5msQ" type="5002">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_616aUSwjEeORlJGHVZ5msQ" y="-21"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_62awoCwjEeORlJGHVZ5msQ" type="3005" element="_612I4CwjEeORlJGHVZ5msQ">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_62awoSwjEeORlJGHVZ5msQ" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_62awoiwjEeORlJGHVZ5msQ"/>
+            <children xmi:type="notation:Node" xmi:id="_X5Oy8C9uEeOGgf8z-4m2AA" type="3005" element="_X4yuEC9uEeOGgf8z-4m2AA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_X5Oy8S9uEeOGgf8z-4m2AA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X5Oy8i9uEeOGgf8z-4m2AA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_615zQSwjEeORlJGHVZ5msQ" fontName="Ubuntu" fontHeight="16"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_615zQiwjEeORlJGHVZ5msQ" x="230" width="200" height="200"/>
@@ -32,9 +32,9 @@
             <children xmi:type="notation:Node" xmi:id="_D9tFQCwkEeORlJGHVZ5msQ" type="5002">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_D9tFQSwkEeORlJGHVZ5msQ" y="-21"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_D9uTYCwkEeORlJGHVZ5msQ" type="3005" element="_D9K5wCwkEeORlJGHVZ5msQ">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_D9uTYSwkEeORlJGHVZ5msQ" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D9uTYiwkEeORlJGHVZ5msQ"/>
+            <children xmi:type="notation:Node" xmi:id="_X5RPMC9uEeOGgf8z-4m2AA" type="3005" element="_X42YcC9uEeOGgf8z-4m2AA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_X5RPMS9uEeOGgf8z-4m2AA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X5RPMi9uEeOGgf8z-4m2AA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_D9seMSwkEeORlJGHVZ5msQ" fontName="Ubuntu" fontHeight="16"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D9seMiwkEeORlJGHVZ5msQ" x="490" width="200" height="200"/>
@@ -52,23 +52,23 @@
         </ownedStyle>
         <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Hardware']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_61zsoCwjEeORlJGHVZ5msQ" name="2" tooltipText="Double click to describe the software" width="20" height="20">
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_61zsoCwjEeORlJGHVZ5msQ" name="2" tooltipText="Double click to see sketch" width="20" height="20">
         <target xmi:type="arduino:Project" href="model.arduino#/"/>
         <semanticElements xmi:type="arduino:Project" href="model.arduino#/"/>
-        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_612I4CwjEeORlJGHVZ5msQ" labelSize="16" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/software_invalid.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_612I4SwjEeORlJGHVZ5msQ"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']/@conditionnalStyles.1/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_612I4iwjEeORlJGHVZ5msQ"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_X4yuEC9uEeOGgf8z-4m2AA" labelSize="16" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/software.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_X4yuES9uEeOGgf8z-4m2AA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_X4yuEi9uEeOGgf8z-4m2AA"/>
         </ownedStyle>
         <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_D9JroCwkEeORlJGHVZ5msQ" name="3" tooltipText="The sketch is invalid, double click to open it" width="20" height="20">
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_D9JroCwkEeORlJGHVZ5msQ" name="3" tooltipText="Upload sketch on hardware" width="20" height="20">
         <target xmi:type="arduino:Project" href="model.arduino#/"/>
         <semanticElements xmi:type="arduino:Project" href="model.arduino#/"/>
-        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_D9K5wCwkEeORlJGHVZ5msQ" labelSize="16" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/upload_invalid.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_D9K5wSwkEeORlJGHVZ5msQ"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Upload']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_D9K5wiwkEeORlJGHVZ5msQ"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_X42YcC9uEeOGgf8z-4m2AA" labelSize="16" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/upload.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_X42YcS9uEeOGgf8z-4m2AA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Upload']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_X42Yci9uEeOGgf8z-4m2AA"/>
         </ownedStyle>
         <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Upload']"/>
       </ownedDiagramElements>
