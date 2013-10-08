@@ -7,6 +7,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -32,11 +33,11 @@ import fr.obeo.dsl.viewpoint.ui.business.api.viewpoint.ViewpointSelectionCallbac
 public class ProjectServices {
 	public static final String ARDUINO_VP = "Arduino";
 
-	public void createProject() {
+	public void createProject(IProgressMonitor monitor) {
 		final Session session = (Session) SessionManager.INSTANCE.getSessions()
 				.toArray()[0];
 		final String semanticModelPath = getSemanticModelPath(session);
-		initSemanticModel(session, semanticModelPath);
+		initSemanticModel(session, semanticModelPath, monitor);
 
 		final String[] viewpointsToActivate = { ARDUINO_VP };
 		enableViewpoints(session, viewpointsToActivate);
@@ -77,7 +78,7 @@ public class ProjectServices {
 	}
 
 	private void initSemanticModel(final Session session,
-			final String semanticModelPath) {
+			final String semanticModelPath, final IProgressMonitor monitor) {
 		session.getTransactionalEditingDomain()
 				.getCommandStack()
 				.execute(
@@ -105,7 +106,7 @@ public class ProjectServices {
 								}
 
 								session.addSemanticResource(semanticModelURI,
-										new NullProgressMonitor());
+										monitor);
 
 								// Add ardublock kit
 								final URI defaultKitModelURI = URI
@@ -113,9 +114,9 @@ public class ProjectServices {
 												"/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino",
 												true);
 								session.addSemanticResource(defaultKitModelURI,
-										new NullProgressMonitor());
+										monitor);
 
-								session.save(new NullProgressMonitor());
+								session.save(monitor);
 							}
 						});
 	}
@@ -145,12 +146,13 @@ public class ProjectServices {
 		}
 	}
 
-	public void closeProjects() {
+	public void closeProjects(IProgressMonitor monitor) {
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		for (IProject project : root.getProjects()) {
 			try {
-				project.close(new NullProgressMonitor());
-				project.delete(false, false, new NullProgressMonitor());
+				project.close(monitor);
+				project.delete(false, false, monitor);
+				monitor.worked(25);
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
