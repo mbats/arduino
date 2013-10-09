@@ -19,9 +19,9 @@
             name="Open hardware kit">
       </command>
       <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.NewProjectHandler"
+            defaultHandler="fr.obeo.dsl.arduino.commands.OpenDashboardHandler"
             id="fr.obeo.dsl.arduino.menus.commands.project"
-            name="Project">
+            name="Open dashboard">
       </command>
       <command
             defaultHandler="fr.obeo.dsl.arduino.commands.NewProjectHandler"
@@ -58,7 +58,7 @@
          <command
                commandId="fr.obeo.dsl.arduino.commands.openProject"
                icon="icons/project.png"
-               label="Open Project"
+               label="Open project"
                style="push"
                tooltip="Open an existing arduino project">
          </command>
@@ -67,7 +67,7 @@
                icon="icons/delete.png"
                label="Delete project"
                style="push"
-               tooltip="Delete an existing project">
+               tooltip="Delete the currently opened project">
          </command>
       </menuContribution>
             <menuContribution
@@ -78,9 +78,9 @@
             <command
                   commandId="fr.obeo.dsl.arduino.menus.commands.project"
                   icon="icons/project.png"
-                  label="Project"
+                  label="Open dashboard"
                   style="pulldown"
-                  tooltip="Create a new arduino project">
+                  tooltip="Open the dashboard">
             </command>
             <command
                   commandId="fr.obeo.dsl.arduino.commands.openHardwareKit"
@@ -103,6 +103,15 @@
                   style="push"
                   tooltip="Open the sketch">
             </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeWorkbenchWindow.activePerspective">
+                  <equals
+                        value="Arduino">
+                  </equals>
+               </with>
+            </visibleWhen>
          </toolbar>
       </menuContribution>
    </extension>
@@ -115,13 +124,40 @@
       <wizard
             category="fr.obeo.dsl.arduino.category"
             class="fr.obeo.dsl.arduino.wizard.ArduinoProjectWizard"
-            finalPerspective="fr.obeo.dsl.viewpoint.ui.tools.perspective.modeling"
+            finalPerspective="fr.obeo.dsl.arduino.perspective"
             icon="icons/project.png"
             id="fr.obeo.dsl.arduino.wizard"
             name="Arduino Project"
-            preferredPerspectives="fr.obeo.dsl.viewpoint.ui.tools.perspective.modeling"
+            preferredPerspectives="fr.obeo.dsl.arduino.perspective"
             project="true">
       </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="fr.obeo.dsl.arduino.perspective">
+         <view
+               closeable="false"
+               id="org.eclipse.ui.views.ContentOutline"
+               minimized="false"
+               moveable="false"
+               ratio="0.85f"
+               relationship="right"
+               relative="org.eclipse.ui.editorss"
+               showTitle="true"
+               visible="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="fr.obeo.dsl.arduino.perspective.ArduinoPerspectiveFactory"
+            fixed="true"
+            icon="icons/project.png"
+            id="fr.obeo.dsl.arduino.perspective"
+            name="Arduino">
+      </perspective>
    </extension>
 
 </plugin>
