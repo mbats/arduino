@@ -1,4 +1,4 @@
-package fr.obeo.dsl.arduino.design.services;
+package fr.obeo.dsl.arduino.utils;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -19,23 +19,21 @@ import org.eclipse.ui.IEditorPart;
 import com.google.common.collect.Maps;
 
 import fr.obeo.dsl.arduino.ArduinoFactory;
-import fr.obeo.dsl.viewpoint.DDiagram;
 import fr.obeo.dsl.viewpoint.DRepresentation;
 import fr.obeo.dsl.viewpoint.business.api.componentization.ViewpointRegistry;
 import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
 import fr.obeo.dsl.viewpoint.business.api.session.resource.AirdResource;
 import fr.obeo.dsl.viewpoint.description.Viewpoint;
 import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
 import fr.obeo.dsl.viewpoint.ui.business.api.viewpoint.ViewpointSelectionCallback;
 
 public class ProjectServices {
+	ArduinoServices service = new ArduinoServices();
 	public static final String ARDUINO_VP = "Arduino";
 
 	public void createProject(IProgressMonitor monitor) {
-		final Session session = (Session) SessionManager.INSTANCE.getSessions()
-				.toArray()[0];
+		final Session session = service.getSession();
 		final String semanticModelPath = getSemanticModelPath(session);
 		initSemanticModel(session, semanticModelPath, monitor);
 
@@ -55,15 +53,6 @@ public class ProjectServices {
 
 			}
 		}
-		return null;
-	}
-
-	private DDiagram getHardwareDiagram(Session session) {
-
-		// TODO create representation if does not exist
-		// EObject seamntic = session.getSemanticResources().
-		// DialectManager.INSTANCE.createRepresentation("Hardware", semantic,
-		// description, session, new NullProgressMonitor());
 		return null;
 	}
 

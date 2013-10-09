@@ -4,12 +4,10 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.OpenSketchHandler"
             id="fr.obeo.dsl.arduino.commands.openSketch"
             name="Open sketch">
       </command>
       <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.OpenHardwareHandler"
             id="fr.obeo.dsl.arduino.commands.openHardware"
             name="Open hardware">
       </command>
@@ -37,6 +35,10 @@
             defaultHandler="fr.obeo.dsl.arduino.commands.OpenProjectHandler"
             id="fr.obeo.dsl.arduino.commands.openProject"
             name="Open project">
+      </command>
+      <command
+            id="fr.obeo.dsl.arduino.commands.upload"
+            name="Upload sketch">
       </command>
    </extension>
    <extension
@@ -69,6 +71,13 @@
                style="push"
                tooltip="Delete the currently opened project">
          </command>
+         <command
+               commandId="fr.obeo.dsl.arduino.commands.openHardwareKit"
+               icon="icons/newHardwareKit.png"
+               label="Hardware kit"
+               style="push"
+               tooltip="Define new hardware kit modules and platforms">
+         </command>
       </menuContribution>
             <menuContribution
             allPopups="false"
@@ -81,13 +90,6 @@
                   label="Open dashboard"
                   style="pulldown"
                   tooltip="Open the dashboard">
-            </command>
-            <command
-                  commandId="fr.obeo.dsl.arduino.commands.openHardwareKit"
-                  icon="icons/newHardwareKit.png"
-                  label="Hardware kit"
-                  style="push"
-                  tooltip="Define new hardware kit modules and platforms">
             </command>
             <command
                   commandId="fr.obeo.dsl.arduino.commands.openHardware"
@@ -103,15 +105,13 @@
                   style="push"
                   tooltip="Open the sketch">
             </command>
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeWorkbenchWindow.activePerspective">
-                  <equals
-                        value="Arduino">
-                  </equals>
-               </with>
-            </visibleWhen>
+            <command
+                  commandId="fr.obeo.dsl.arduino.commands.upload"
+                  icon="icons/upload.png"
+                  label="Upload sketch"
+                  style="push"
+                  tooltip="Upload the sketch on the arduino platform">
+            </command>
          </toolbar>
       </menuContribution>
    </extension>
@@ -158,6 +158,67 @@
             id="fr.obeo.dsl.arduino.perspective"
             name="Arduino">
       </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="fr.obeo.dsl.arduino.properties.ArduinoPropertyTester"
+            id="fr.obeo.dsl.arduino.properties.arduinoPropertyTester"
+            namespace="fr.obeo.dsl.arduino.properties"
+            properties="existHardware,existSketch,validSketch"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fr.obeo.dsl.arduino.commands.OpenHardwareHandler"
+            commandId="fr.obeo.dsl.arduino.commands.openHardware">
+         <enabledWhen>
+            <with
+                  variable="activeContexts">
+               <iterate
+                     ifEmpty="true"
+                     operator="and">
+                  <test
+                        property="fr.obeo.dsl.arduino.properties.existHardware">
+                  </test>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="fr.obeo.dsl.arduino.commands.OpenSketchHandler"
+            commandId="fr.obeo.dsl.arduino.commands.openSketch">
+         <enabledWhen>
+            <with
+                  variable="activeContexts">
+               <iterate
+                     ifEmpty="true"
+                     operator="and">
+                  <test
+                        property="fr.obeo.dsl.arduino.properties.existSketch">
+                  </test>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="fr.obeo.dsl.arduino.commands.UploadSketchHandler"
+            commandId="fr.obeo.dsl.arduino.commands.upload">
+         <enabledWhen>
+            <with
+                  variable="activeContexts">
+               <iterate
+                     ifEmpty="true"
+                     operator="and">
+                  <test
+                        property="fr.obeo.dsl.arduino.properties.validSketch">
+                  </test>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
    </extension>
 
 </plugin>

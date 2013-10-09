@@ -7,7 +7,6 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -17,20 +16,25 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.PlatformUI;
 
+import fr.obeo.dsl.arduino.utils.ArduinoServices;
+
 public class DeleteProjectHandler extends AbstractHandler {
+	ArduinoServices service = new ArduinoServices();
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		System.out.println("Delete project");
-		final IProject project = ResourcesPlugin.getWorkspace().getRoot()
-				.getProjects()[0];
+
+
+		final IProject project = service.getWorkspaceProject();
+
 		boolean confirmation = MessageDialog.openConfirm(PlatformUI
 				.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				"Confirm",
 				"Do you want to delete the project " + project.getName()
 						+ " ? (cannot be undone)");
 		if (confirmation) {
-			EditorsUtils.closeOpenedEditors();
+			service.closeOpenedEditors();
 
 			try {
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow()

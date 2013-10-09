@@ -18,16 +18,16 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.PlatformUI;
 
-import fr.obeo.dsl.arduino.design.services.ProjectServices;
+import fr.obeo.dsl.arduino.utils.ArduinoServices;
+import fr.obeo.dsl.arduino.utils.ProjectServices;
 import fr.obeo.dsl.viewpoint.DDiagram;
 import fr.obeo.dsl.viewpoint.DRepresentation;
 import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
 import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
 
 public class OpenProjectHandler extends AbstractHandler {
-
+	ArduinoServices service = new ArduinoServices();
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		FileDialog dialog = new FileDialog(PlatformUI.getWorkbench()
@@ -35,7 +35,7 @@ public class OpenProjectHandler extends AbstractHandler {
 		dialog.setFilterExtensions(new String[] { ".project" });
 		final String result = dialog.open();
 
-		EditorsUtils.closeOpenedEditors();
+		service.closeOpenedEditors();
 		openProject(result);
 
 		openDashboard();
@@ -44,8 +44,7 @@ public class OpenProjectHandler extends AbstractHandler {
 	}
 
 	private void openDashboard() {
-		Session session = (Session) SessionManager.INSTANCE.getSessions()
-				.toArray()[0];
+		Session session = service.getSession();
 		DialectUIManager.INSTANCE.openEditor(session,
 				getDashboardDiagram(session), new NullProgressMonitor());
 
