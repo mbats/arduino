@@ -1,8 +1,8 @@
-int RedLED = 13;
+int RedLED = 11;
 int BlueLED = 12;
 int iter_1;
-int iter_2;
-int iter_4;
+int iter_3;
+int iter_5;
 
 void setup() {
   pinMode(RedLED, OUTPUT);  
@@ -11,15 +11,29 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
- digitalWrite(RedLED, false);
- for (iter_2=0; iter_2 < ( 1 ); ++iter_2 )
+ digitalWrite(RedLED, (false));
+ for (iter_1=0; iter_1 < ( 50 ); ++iter_1 )
  {
+  digitalWrite(BlueLED, (true));
+  delay(50);
+  digitalWrite(BlueLED, (false));
+  delay(50);
  }
- digitalWrite(BlueLED, false);
- for (iter_1=0; iter_1 < ( 2 ); ++iter_1 )
+ digitalWrite(BlueLED, (false));
+ for (iter_5=0; iter_5 < ( 50 ); ++iter_5 )
  {
+  digitalWrite(RedLED, (true));
+  delay(50);
+  digitalWrite(RedLED, (false));
+  delay(50);
  }
- for (iter_4=0; iter_4 < ( 3 ); ++iter_4 )
+ for (iter_3=0; iter_3 < ( 50 ); ++iter_3 )
  {
+  digitalWrite(BlueLED, (true));
+  digitalWrite(RedLED, (true));
+  delay(50);
+  digitalWrite(BlueLED, (false));
+  digitalWrite(RedLED, (false));
+  delay(50);
  }
 }
