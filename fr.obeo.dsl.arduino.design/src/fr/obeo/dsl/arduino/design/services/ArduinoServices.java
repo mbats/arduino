@@ -1,22 +1,10 @@
 package fr.obeo.dsl.arduino.design.services;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -47,8 +35,6 @@ import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.Value;
 import fr.obeo.dsl.arduino.Variable;
 import fr.obeo.dsl.arduino.While;
-import fr.obeo.dsl.arduino.design.Activator;
-import fr.obeo.dsl.arduino.gen.main.Generate;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
 import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
 
@@ -152,68 +138,7 @@ public class ArduinoServices {
 		return IMAGES_PATH + "default.svg";
 	}
 
-	public void upload(Sketch sketch) {
-		System.out.println("Generate code");
 
-		IFile file = ResourcesPlugin
-				.getWorkspace()
-				.getRoot()
-				.getFile(
-						new Path(sketch.eResource().getURI()
-								.toPlatformString(true)));
-		IFolder folder = file.getProject().getFolder("code");
-		File genFolder = folder.getRawLocation().makeAbsolute().toFile();
-
-		try {
-			Generate generator = new Generate(sketch.eResource().getURI(),
-					genFolder, new ArrayList<Object>());
-			generator.doGenerate(new BasicMonitor());
-		} catch (IOException e) {
-			Activator.log(Status.ERROR, "Code generation failed", e);
-		}
-		executeCommand("make", genFolder, null);
-		executeCommand("make", genFolder, "upload");
-	}
-
-	private void executeCommand(String command, File directory, String arg) {
-		ProcessBuilder builder;
-		if (arg != null) {
-			builder = new ProcessBuilder(command, arg);
-		} else {
-			builder = new ProcessBuilder(command);
-		}
-
-		builder.directory(directory);
-		Map<String, String> env = builder.environment();
-		env.put("ARDUINO_DIR", "/usr/share/arduino");
-		env.put("ARDMK_DIR", "/usr/share/arduino");
-		env.put("ARDMK_PATH", "/usr/bin");
-		env.put("AVR_TOOLS_DIR", "/usr");
-		try {
-			Process process = builder.start();
-			inheritIO(process.getInputStream(), System.out);
-			inheritIO(process.getErrorStream(), System.err);
-			process.waitFor();
-		} catch (IOException e) {
-			Activator
-					.log(Status.ERROR, "Run command " + command + " failed", e);
-		} catch (InterruptedException e) {
-			Activator
-					.log(Status.ERROR, "Run command " + command + " failed", e);
-		}
-	}
-
-	private static void inheritIO(final InputStream src, final PrintStream dest) {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Scanner sc = new Scanner(src);
-				while (sc.hasNextLine()) {
-					dest.println(sc.nextLine());
-				}
-			}
-		}).start();
-	}
 
 	public List<Platform> getPlatforms(EObject object) {
 		List<Platform> result = Lists.newArrayList();

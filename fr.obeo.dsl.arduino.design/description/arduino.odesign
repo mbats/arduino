@@ -397,7 +397,7 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%instructions.next.filter(&quot;Sketch&quot;).nSize==0 || next==null%>">
+          <conditionnalStyles predicateExpression="&lt;%!isValidSketch()%>">
             <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="Loop" hideLabelByDefault="true" workspacePath="/fr.obeo.dsl.arduino.design/images/loop_invalid.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -421,7 +421,7 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%instructions.next.filter(&quot;Sketch&quot;).nSize==0 || next==null%>">
+          <conditionnalStyles predicateExpression="&lt;%!isValidSketch()%>">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="Upload sketch to arduino platform" tooltipExpression="Impossible to upload the sketch is invalid" sizeComputationExpression="8" hideLabelByDefault="true" workspacePath="/fr.obeo.dsl.arduino.design/images/upload_invalid.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1317,5 +1317,6 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.arduino.design.services.ArduinoServices"/>
+    <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.arduino.utils.ArduinoServices"/>
   </ownedViewpoints>
 </description:Group>

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Menus
 Bundle-SymbolicName: fr.obeo.dsl.arduino.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: fr.obeo.dsl.arduino.menus.Activator
+Bundle-Activator: fr.obeo.dsl.arduino.menus.ArduinoUiActivator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  fr.obeo.dsl.viewpoint.ui,
@@ -11,7 +11,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,
  fr.obeo.dsl.arduino,
- org.eclipse.emf.transaction
+ org.eclipse.emf.transaction,
+ fr.obeo.dsl.arduino.gen,
+ org.eclipse.acceleo.engine
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.obeo.dsl.arduino.commands;x-friends:="fr.obeo.dsl.arduino.design",

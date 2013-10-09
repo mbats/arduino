@@ -3,7 +3,6 @@ package fr.obeo.dsl.arduino.design;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -33,7 +32,8 @@ public class Activator extends AbstractUIPlugin {
      * 
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
      */
-    public void start(BundleContext context) throws Exception {
+    @Override
+	public void start(BundleContext context) throws Exception {
       super.start(context);
 	  plugin = this;
 	  viewpoints = new HashSet<Viewpoint>();
@@ -45,7 +45,8 @@ public class Activator extends AbstractUIPlugin {
      * 
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
      */
-    public void stop(BundleContext context) throws Exception {
+    @Override
+	public void stop(BundleContext context) throws Exception {
 	plugin = null;
 	if (viewpoints != null) {
 	    for (final Viewpoint viewpoint: viewpoints) {
@@ -65,18 +66,4 @@ public class Activator extends AbstractUIPlugin {
     public static Activator getDefault() {
 	return plugin;
     }
-    
-	/**
-	 * A helper to log plugin errors.
-	 * 
-	 * @param severity
-	 *            the error severity.
-	 * @param message
-	 *            the error message.
-	 * @param exception
-	 *            the error exception.
-	 */
-	public static void log(int severity, String message, Throwable exception) {
-		getDefault().getLog().log(new Status(severity, PLUGIN_ID, message, exception));
-	}
 }
