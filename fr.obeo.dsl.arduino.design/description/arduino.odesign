@@ -163,7 +163,7 @@
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.arduino.design.services.ArduinoServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Arduino" modelFileExtension="arduino">
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Hardware Sketch" titleExpression="Hardware" initialisation="true" showOnStartup="true" domainClass="arduino.Hardware">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Hardware Sketch" titleExpression="Hardware" domainClass="arduino.Hardware">
       <defaultLayer name="Default">
         <nodeMappings name="HS_Platform" semanticCandidatesExpression="&lt;%platforms%>" domainClass="arduino.Platform">
           <borderedNodeMappings name="HS_DigitalPin" semanticCandidatesExpression="&lt;%digitalPins%>" domainClass="arduino.DigitalPin">
@@ -291,7 +291,7 @@
         </customization>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Dashboard" initialisation="true" showOnStartup="true" domainClass="arduino.Project">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Dashboard" initialisation="true" domainClass="arduino.Project">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="Hardware" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Hardware']" synchronizationLock="true" domainClass="arduino.Project">
@@ -389,7 +389,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Sketch" titleExpression="Sketch" showOnStartup="true" domainClass="arduino.Sketch">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Sketch" titleExpression="Sketch" domainClass="arduino.Sketch">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="Loop" semanticCandidatesExpression="&lt;%self%>" domainClass="arduino.Sketch">
@@ -440,14 +440,14 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="Variable" labelDirectEdit="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Edit%20Variable']" semanticCandidatesExpression="service:getVariables" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Edit%20Variable']" domainClass="arduino.Variable">
+        <nodeMappings name="Variable" labelDirectEdit="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Edit%20Variable']" semanticCandidatesExpression="service:getVariables" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Select%20Variable']" domainClass="arduino.Variable">
           <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="&lt;%name%>" labelPosition="node" resizeKind="EAST_WEST">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="Constant" labelDirectEdit="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Edit%20Constant']" semanticCandidatesExpression="service:getConstants" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Edit%20Constant']" domainClass="arduino.Constant">
+        <nodeMappings name="Constant" labelDirectEdit="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Edit%20Constant']" semanticCandidatesExpression="service:getConstants" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Select%20Constant']" domainClass="arduino.Constant">
           <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="feature:value" labelPosition="node">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -807,7 +807,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Edit Variable" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Variable']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Select Variable" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Variable']">
             <element name="element">
               <subVariables xsi:type="tool:SelectModelElementVariable" name="variable" candidatesExpression="&lt;%eContainer(&quot;Sketch&quot;).eAllContents(&quot;Variable&quot;)%>" message="Select an existing variable"/>
             </element>
@@ -940,7 +940,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Edit Constant" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Constant']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Select Constant" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Constant']">
             <element name="element">
               <subVariables xsi:type="tool:SelectModelElementVariable" name="variable" candidatesExpression="&lt;%eContainer(&quot;Sketch&quot;).eAllContents(&quot;Constant&quot;)%>" message="Select an existing variable"/>
             </element>
