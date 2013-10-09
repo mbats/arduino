@@ -903,17 +903,6 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_p46I4StuEeOFJPbp9EyASA" fontName="Ubuntu" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_p46I4ituEeOFJPbp9EyASA" x="90" y="585" width="606" height="155"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_XcRjkCtwEeOuAafXOOBvow" type="2001" element="_XbYLsCtwEeOuAafXOOBvow">
-            <children xmi:type="notation:Node" xmi:id="_XcV1ACtwEeOuAafXOOBvow" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_XcV1AStwEeOuAafXOOBvow" y="-21"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_w2h1IDC6EeOP45JGjVTkZw" type="3005" element="_w1xnMTC6EeOP45JGjVTkZw">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_w2h1ITC6EeOP45JGjVTkZw" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w2h1IjC6EeOP45JGjVTkZw"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_XcRjkStwEeOuAafXOOBvow" fontName="Ubuntu" fontHeight="8" bold="true" italic="true"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XcRjkitwEeOuAafXOOBvow" x="875" y="100" width="101" height="72"/>
-          </children>
           <children xmi:type="notation:Node" xmi:id="_wAlZsDC8EeOP45JGjVTkZw" type="2002" element="_v_8ggDC8EeOP45JGjVTkZw">
             <children xmi:type="notation:Node" xmi:id="_wAmn0DC8EeOP45JGjVTkZw" type="5006"/>
             <children xmi:type="notation:Node" xmi:id="_wAmn0TC8EeOP45JGjVTkZw" type="7001">
@@ -1249,10 +1238,6 @@
             <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:WorkspaceImageDescription" xmi:id="_w1xnMDC6EeOP45JGjVTkZw" labelFormat="bold_italic" showIcon="false" labelExpression="service:computeStatusLabel" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.arduino.design/images/dfrobot/led.jpg">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-          </computedStyleDescriptions>
           <computedStyleDescriptions xmi:type="style:WorkspaceImageDescription" xmi:id="_w15jADC6EeOP45JGjVTkZw" labelFormat="bold_italic" showIcon="false" labelExpression="service:computeStatusLabel" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.arduino.design/images/dfrobot/led.jpg">
             <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1372,27 +1357,19 @@
                 </value>
               </value>
             </value>
-            <value xmi:type="viewpoint:ModelElement2ViewVariable" xmi:id="_XbZZ0CtwEeOuAafXOOBvow">
-              <key xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4"/>
-              <value xmi:type="viewpoint:ViewVariable2ContainerVariable" xmi:id="_XbZZ0StwEeOuAafXOOBvow" key="_XbYLsCtwEeOuAafXOOBvow">
-                <value xmi:type="viewpoint:ContainerVariable2StyleDescription" xmi:id="_XbZZ0ytwEeOuAafXOOBvow" value="_w1xnMDC6EeOP45JGjVTkZw">
-                  <key xmi:type="arduino:Sketch" href="model.arduino#//@sketch"/>
-                </value>
-              </value>
-            </value>
             <value xmi:type="viewpoint:ModelElement2ViewVariable" xmi:id="_yZQhQTC8EeOP45JGjVTkZw">
-              <key xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.5/@instructions.0"/>
+              <key xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4/@instructions.0"/>
               <value xmi:type="viewpoint:ViewVariable2ContainerVariable" xmi:id="_yZRIUDC8EeOP45JGjVTkZw" key="_yZQhQDC8EeOP45JGjVTkZw">
                 <value xmi:type="viewpoint:ContainerVariable2StyleDescription" xmi:id="_yZRIUjC8EeOP45JGjVTkZw" value="_9CkCQDC8EeOP45JGjVTkZw">
-                  <key xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.5"/>
+                  <key xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.4"/>
                 </value>
               </value>
             </value>
             <value xmi:type="viewpoint:ModelElement2ViewVariable" xmi:id="_0puvEDC8EeOP45JGjVTkZw">
-              <key xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.5/@instructions.2"/>
+              <key xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4/@instructions.2"/>
               <value xmi:type="viewpoint:ViewVariable2ContainerVariable" xmi:id="_0puvETC8EeOP45JGjVTkZw" key="_0puIADC8EeOP45JGjVTkZw">
                 <value xmi:type="viewpoint:ContainerVariable2StyleDescription" xmi:id="_0puvEzC8EeOP45JGjVTkZw" value="_-V2PEDC8EeOP45JGjVTkZw">
-                  <key xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.5"/>
+                  <key xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.4"/>
                 </value>
               </value>
             </value>
@@ -1421,10 +1398,10 @@
               </value>
             </value>
             <value xmi:type="viewpoint:ModelElement2ViewVariable" xmi:id="_2QPZ4DC8EeOP45JGjVTkZw">
-              <key xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.5/@instructions.3"/>
+              <key xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.4/@instructions.3"/>
               <value xmi:type="viewpoint:ViewVariable2ContainerVariable" xmi:id="_2QQA8DC8EeOP45JGjVTkZw" key="_2QOy0DC8EeOP45JGjVTkZw">
                 <value xmi:type="viewpoint:ContainerVariable2StyleDescription" xmi:id="_2QQA8jC8EeOP45JGjVTkZw" value="_2QQA8TC8EeOP45JGjVTkZw">
-                  <key xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.5"/>
+                  <key xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.4"/>
                 </value>
               </value>
             </value>
@@ -1477,15 +1454,6 @@
         <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="__EMi0TC8EeOP45JGjVTkZw" labelFormat="bold_italic" showIcon="false" description="__EMi0DC8EeOP45JGjVTkZw" workspacePath="/fr.obeo.dsl.arduino.design/images/dfrobot/led.jpg">
           <labelColor xmi:type="viewpoint:RGBValues" xmi:id="__EMi0jC8EeOP45JGjVTkZw"/>
           <borderColor xmi:type="viewpoint:RGBValues" xmi:id="__EMi0zC8EeOP45JGjVTkZw"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_XbYLsCtwEeOuAafXOOBvow" name="Red LED : on" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4"/>
-        <semanticElements xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4"/>
-        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_w1xnMTC6EeOP45JGjVTkZw" labelFormat="bold_italic" showIcon="false" description="_w1xnMDC6EeOP45JGjVTkZw" workspacePath="/fr.obeo.dsl.arduino.design/images/dfrobot/led.jpg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_w1xnMjC6EeOP45JGjVTkZw" red="239" green="41" blue="41"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_w1xnMzC6EeOP45JGjVTkZw"/>
         </ownedStyle>
         <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status']"/>
       </ownedDiagramElements>
@@ -1774,8 +1742,8 @@
         <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Link']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="viewpoint:DNodeContainer" xmi:id="_v_8ggDC8EeOP45JGjVTkZw" name="Repeat 50" outgoingEdges="__ubLkDC8EeOP45JGjVTkZw" incomingEdges="__ECKwDC8EeOP45JGjVTkZw">
-        <target xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.5"/>
-        <semanticElements xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.5"/>
+        <target xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.4"/>
+        <semanticElements xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.4"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1788,8 +1756,8 @@
         </ownedStyle>
         <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Repeat']"/>
         <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_yZQhQDC8EeOP45JGjVTkZw" name="Red LED : off" outgoingEdges="_9CP5MDC8EeOP45JGjVTkZw" width="-1" height="-1" resizeKind="NSEW">
-          <target xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.5/@instructions.0"/>
-          <semanticElements xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.5/@instructions.0"/>
+          <target xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4/@instructions.0"/>
+          <semanticElements xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4/@instructions.0"/>
           <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_9CkCQTC8EeOP45JGjVTkZw" labelFormat="bold_italic" showIcon="false" description="_9CkCQDC8EeOP45JGjVTkZw" workspacePath="/fr.obeo.dsl.arduino.design/images/dfrobot/led.jpg">
             <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_9CkCQjC8EeOP45JGjVTkZw"/>
             <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_9CkCQzC8EeOP45JGjVTkZw"/>
@@ -1797,8 +1765,8 @@
           <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status']"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_0puIADC8EeOP45JGjVTkZw" name="Red LED : on" outgoingEdges="_-VjUIDC8EeOP45JGjVTkZw" incomingEdges="_9pMkcDC8EeOP45JGjVTkZw" width="-1" height="-1" resizeKind="NSEW">
-          <target xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.5/@instructions.2"/>
-          <semanticElements xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.5/@instructions.2"/>
+          <target xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4/@instructions.2"/>
+          <semanticElements xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4/@instructions.2"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1809,8 +1777,8 @@
           <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status']"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_zXcAwDC8EeOP45JGjVTkZw" name="50" tooltipText="Wait 50 MilliSecond" outgoingEdges="_9pMkcDC8EeOP45JGjVTkZw" incomingEdges="_9CP5MDC8EeOP45JGjVTkZw" width="3" height="3">
-          <target xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.5/@instructions.1"/>
-          <semanticElements xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.5/@instructions.1"/>
+          <target xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.4/@instructions.1"/>
+          <semanticElements xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.4/@instructions.1"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1822,8 +1790,8 @@
           <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay']"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_2QOy0DC8EeOP45JGjVTkZw" name="50" tooltipText="Wait 50 MilliSecond" incomingEdges="_-VjUIDC8EeOP45JGjVTkZw" width="3" height="3">
-          <target xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.5/@instructions.3"/>
-          <semanticElements xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.5/@instructions.3"/>
+          <target xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.4/@instructions.3"/>
+          <semanticElements xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.4/@instructions.3"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1835,7 +1803,7 @@
         </ownedDiagramElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_9CP5MDC8EeOP45JGjVTkZw" sourceNode="_yZQhQDC8EeOP45JGjVTkZw" targetNode="_zXcAwDC8EeOP45JGjVTkZw">
-        <target xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.5/@instructions.0"/>
+        <target xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4/@instructions.0"/>
         <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_9CP5MTC8EeOP45JGjVTkZw" size="2">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Link']/@style"/>
           <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_9CP5MjC8EeOP45JGjVTkZw" red="136" green="136" blue="136"/>
@@ -1846,7 +1814,7 @@
         <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Link']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_9pMkcDC8EeOP45JGjVTkZw" sourceNode="_zXcAwDC8EeOP45JGjVTkZw" targetNode="_0puIADC8EeOP45JGjVTkZw">
-        <target xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.5/@instructions.1"/>
+        <target xmi:type="arduino:Delay" href="model.arduino#//@sketch/@instructions.4/@instructions.1"/>
         <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_9pNLgDC8EeOP45JGjVTkZw" size="2">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Link']/@style"/>
           <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_9pNLgTC8EeOP45JGjVTkZw" red="136" green="136" blue="136"/>
@@ -1857,7 +1825,7 @@
         <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Link']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_-VjUIDC8EeOP45JGjVTkZw" sourceNode="_0puIADC8EeOP45JGjVTkZw" targetNode="_2QOy0DC8EeOP45JGjVTkZw">
-        <target xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.5/@instructions.2"/>
+        <target xmi:type="arduino:Status" href="model.arduino#//@sketch/@instructions.4/@instructions.2"/>
         <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_-VjUITC8EeOP45JGjVTkZw" size="2">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Link']/@style"/>
           <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_-VjUIjC8EeOP45JGjVTkZw" red="136" green="136" blue="136"/>
@@ -1879,7 +1847,7 @@
         <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Link']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="__ubLkDC8EeOP45JGjVTkZw" sourceNode="_v_8ggDC8EeOP45JGjVTkZw" targetNode="_p4ggQCtuEeOFJPbp9EyASA">
-        <target xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.5"/>
+        <target xmi:type="arduino:Repeat" href="model.arduino#//@sketch/@instructions.4"/>
         <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="__ubLkTC8EeOP45JGjVTkZw" size="2">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='Link']/@style"/>
           <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="__ubLkjC8EeOP45JGjVTkZw" red="136" green="136" blue="136"/>

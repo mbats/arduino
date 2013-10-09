@@ -27,7 +27,7 @@
       </instructions>
       <instructions xsi:type="arduino:Delay" value="50"/>
     </instructions>
-    <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.5">
+    <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.4">
       <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
     </instructions>
     <instructions xsi:type="arduino:Repeat" next="//@sketch" iteration="50">
@@ -46,15 +46,12 @@
         <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
       </instructions>
     </instructions>
-    <instructions xsi:type="arduino:Status">
-      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.2"/>
-    </instructions>
     <instructions xsi:type="arduino:Repeat" next="//@sketch/@instructions.3" iteration="50">
-      <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.5/@instructions.1" status="true">
+      <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.4/@instructions.1" status="true">
         <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.2"/>
       </instructions>
-      <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.5/@instructions.2" value="50"/>
-      <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.5/@instructions.3">
+      <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.4/@instructions.2" value="50"/>
+      <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.4/@instructions.3">
         <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.2"/>
       </instructions>
       <instructions xsi:type="arduino:Delay" value="50"/>
