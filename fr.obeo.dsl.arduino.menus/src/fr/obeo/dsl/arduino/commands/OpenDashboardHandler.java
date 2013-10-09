@@ -36,4 +36,5 @@ public class OpenDashboardHandler extends AbstractHandler {
 		}
 		return null;
 	}
+
 }

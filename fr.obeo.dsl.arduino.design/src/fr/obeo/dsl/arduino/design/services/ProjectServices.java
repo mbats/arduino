@@ -147,6 +147,7 @@ public class ProjectServices {
 	}
 
 	public void closeProjects(IProgressMonitor monitor) {
+		monitor.subTask("Close projects");
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		for (IProject project : root.getProjects()) {
 			try {
