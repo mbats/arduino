@@ -34,9 +34,16 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
- [generateInstruction(sketch.next)/]
+ [sketch.next.genINO()/]
 }
 [/file]
+[/template]
+
+[template public genINO(i : Instruction)post (trim())]
+[i.generateInstruction()/]
+[if (not i.next.oclIsInvalid() and not i.next.oclIsKindOf(arduino::Sketch))]
+[genINO(i.next)/] 
+[/if]  
 [/template]
 
 
@@ -52,16 +59,10 @@ include /usr/share/arduino/Arduino.mk
 
 [template public generateInstruction(instruction : Delay)post (trim())]
 delay([instruction.value/]);
-[if (not instruction.next.oclIsInvalid())]
-[generateInstruction(instruction.next)/]
-[/if]
 [/template]
 
 [template public generateInstruction(instruction : Status)post (trim())]
 digitalWrite([instruction.module.getVariableName()/], ([getStatus(instruction)/]));
-[if (not instruction.next.oclIsInvalid())]
-[generateInstruction(instruction.next)/]
-[/if]
 [/template]
 
 [template private getStatus(instruction : Status)post (trim())]
@@ -80,41 +81,24 @@ digitalWrite([instruction.module.getVariableName()/], ([getStatus(instruction)/]
 [let index : Integer = getRepeatInstructionIndex(instruction)]
 for (iter_[index/]=0; iter_[index/] < ( [instruction.iteration/] ); ++iter_[index/] )
 {
-[comment][generateInstruction(instruction.instructions->first())/][/comment]
+ [instruction.instructions->first().genINO()/]
 }
-[if (not instruction.next.oclIsInvalid())]
-[generateInstruction(instruction.next)/]
-[/if]
 [/let]
 [/template]
 
 [template public generateInstruction(instruction : While)post (trim())]
-[let while : While = instruction]
-** While1 = [while/]
 while [instruction.condition.getValue()/]
 {
- [generateInstruction(instruction.instructions->first())/]
+ [instruction.instructions->first().genINO()/]
 }
-** While2 = [while/]
-[if (not instruction.next.oclIsInvalid())]
-[generateInstruction(instruction.next)/]
-[/if]
-** While3 = [while/]
-[/let]
 [/template]
 
 [template public generateInstruction(instruction : Set)post (trim())]
 [instruction.variable.name/]=[instruction.value.getValue()/];
-[if (not instruction.next.oclIsInvalid())]
-[generateInstruction(instruction.next)/]
-[/if]
 [/template]
 
 [template public generateInstruction(instruction : Level)post (trim())]
 analogWrite([instruction.eContainer(arduino::Sketch).getPinId(instruction.module)/],255-[instruction.level.getValue()/]);
-[if (not instruction.next.oclIsInvalid())]
-[generateInstruction(instruction.next)/]
-[/if]
 [/template]
 
 [template public generateInstruction(instruction : Sketch)post (trim())]
@@ -122,9 +106,6 @@ analogWrite([instruction.eContainer(arduino::Sketch).getPinId(instruction.module
 
 [template public generateInstruction(instruction : Instruction)]
 Generation error for [instruction/]
-[if (not instruction.next.oclIsInvalid())]
-[generateInstruction(instruction.next)/]
-[/if]
 [/template]
 
 [query public getPinId (sketch : Sketch, mod : Module) : Integer = sketch.hardware.connectors->select(c| c.module = mod)->first().pin.id/]
