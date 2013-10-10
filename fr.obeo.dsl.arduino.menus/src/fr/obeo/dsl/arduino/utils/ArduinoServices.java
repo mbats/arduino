@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Scanner;
 
+import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -120,6 +121,9 @@ public class ArduinoServices {
 	}
 
 	private File generateCode(Sketch sketch) {
+		boolean oldNotificationsPref = AcceleoPreferences
+				.areNotificationsForcedDisabled();
+		AcceleoPreferences.switchForceDeactivationNotifications(true);
 		IFile file = ResourcesPlugin
 				.getWorkspace()
 				.getRoot()
@@ -136,6 +140,9 @@ public class ArduinoServices {
 		} catch (IOException e) {
 			ArduinoUiActivator.log(Status.ERROR, "Code generation failed", e);
 		}
+		AcceleoPreferences
+				.switchForceDeactivationNotifications(oldNotificationsPref);
+
 		return genFolder;
 	}
 
