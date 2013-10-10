@@ -20,7 +20,7 @@
     <instructions xsi:type="arduino:BooleanOperator" left="//@sketch/@instructions.0" right="//@sketch/@instructions.8" operator="lower"/>
     <instructions xsi:type="arduino:NumericalOperator" left="//@sketch/@instructions.0" right="//@sketch/@instructions.4" operator="plus"/>
     <instructions xsi:type="arduino:Constant" value="1"/>
-    <instructions xsi:type="arduino:While" next="//@sketch/@instructions.11" condition="//@sketch/@instructions.6">
+    <instructions xsi:type="arduino:While" next="//@sketch/@instructions.10" condition="//@sketch/@instructions.6">
       <instructions xsi:type="arduino:Set" next="//@sketch/@instructions.5/@instructions.1" variable="//@sketch/@instructions.0" value="//@sketch/@instructions.7"/>
       <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.5/@instructions.2" level="//@sketch/@instructions.0">
         <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
@@ -31,7 +31,7 @@
     <instructions xsi:type="arduino:NumericalOperator" left="//@sketch/@instructions.0" right="//@sketch/@instructions.4" operator="minus"/>
     <instructions xsi:type="arduino:Constant" value="255"/>
     <instructions xsi:type="arduino:Constant" value="0"/>
-    <instructions xsi:type="arduino:NumericalOperator" left="//@sketch/@instructions.0" right="//@sketch/@instructions.4" operator="plus"/>
     <instructions xsi:type="arduino:Delay" next="//@sketch" value="200"/>
+    <instructions xsi:type="arduino:While"/>
   </sketch>
 </arduino:Project>
