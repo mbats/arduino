@@ -3,6 +3,9 @@
 package fr.obeo.dsl.arduino.impl;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.BooleanOperator;
+import fr.obeo.dsl.arduino.MathOperator;
+import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.Sensor;
 
 import fr.obeo.dsl.arduino.Status;
@@ -25,6 +28,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SensorImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.SensorImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.SensorImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.SensorImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SensorImpl#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
@@ -50,6 +56,42 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * @ordered
 	 */
 	protected String value = VALUE_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getLeft() <em>Left</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeft()
+	 * @generated
+	 * @ordered
+	 */
+	protected Value left;
+	/**
+	 * The cached value of the '{@link #getRight() <em>Right</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRight()
+	 * @generated
+	 * @ordered
+	 */
+	protected Value right;
+	/**
+	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final OperatorKind OPERATOR_EDEFAULT = OperatorKind.EQUAL;
+	/**
+	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected OperatorKind operator = OPERATOR_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -105,6 +147,103 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Value getLeft() {
+		if (left != null && left.eIsProxy()) {
+			InternalEObject oldLeft = (InternalEObject)left;
+			left = (Value)eResolveProxy(oldLeft);
+			if (left != oldLeft) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.SENSOR__LEFT, oldLeft, left));
+			}
+		}
+		return left;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value basicGetLeft() {
+		return left;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeft(Value newLeft) {
+		Value oldLeft = left;
+		left = newLeft;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SENSOR__LEFT, oldLeft, left));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value getRight() {
+		if (right != null && right.eIsProxy()) {
+			InternalEObject oldRight = (InternalEObject)right;
+			right = (Value)eResolveProxy(oldRight);
+			if (right != oldRight) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.SENSOR__RIGHT, oldRight, right));
+			}
+		}
+		return right;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value basicGetRight() {
+		return right;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRight(Value newRight) {
+		Value oldRight = right;
+		right = newRight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SENSOR__RIGHT, oldRight, right));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperatorKind getOperator() {
+		return operator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperator(OperatorKind newOperator) {
+		OperatorKind oldOperator = operator;
+		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SENSOR__OPERATOR, oldOperator, operator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Status> getStatus() {
 		if (status == null) {
 			status = new EObjectWithInverseResolvingEList<Status>(Status.class, this, ArduinoPackage.SENSOR__STATUS, ArduinoPackage.STATUS__SENSOR);
@@ -151,6 +290,14 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 		switch (featureID) {
 			case ArduinoPackage.SENSOR__VALUE:
 				return getValue();
+			case ArduinoPackage.SENSOR__LEFT:
+				if (resolve) return getLeft();
+				return basicGetLeft();
+			case ArduinoPackage.SENSOR__RIGHT:
+				if (resolve) return getRight();
+				return basicGetRight();
+			case ArduinoPackage.SENSOR__OPERATOR:
+				return getOperator();
 			case ArduinoPackage.SENSOR__STATUS:
 				return getStatus();
 		}
@@ -168,6 +315,15 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 		switch (featureID) {
 			case ArduinoPackage.SENSOR__VALUE:
 				setValue((String)newValue);
+				return;
+			case ArduinoPackage.SENSOR__LEFT:
+				setLeft((Value)newValue);
+				return;
+			case ArduinoPackage.SENSOR__RIGHT:
+				setRight((Value)newValue);
+				return;
+			case ArduinoPackage.SENSOR__OPERATOR:
+				setOperator((OperatorKind)newValue);
 				return;
 			case ArduinoPackage.SENSOR__STATUS:
 				getStatus().clear();
@@ -188,6 +344,15 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 			case ArduinoPackage.SENSOR__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case ArduinoPackage.SENSOR__LEFT:
+				setLeft((Value)null);
+				return;
+			case ArduinoPackage.SENSOR__RIGHT:
+				setRight((Value)null);
+				return;
+			case ArduinoPackage.SENSOR__OPERATOR:
+				setOperator(OPERATOR_EDEFAULT);
+				return;
 			case ArduinoPackage.SENSOR__STATUS:
 				getStatus().clear();
 				return;
@@ -205,6 +370,12 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 		switch (featureID) {
 			case ArduinoPackage.SENSOR__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case ArduinoPackage.SENSOR__LEFT:
+				return left != null;
+			case ArduinoPackage.SENSOR__RIGHT:
+				return right != null;
+			case ArduinoPackage.SENSOR__OPERATOR:
+				return operator != OPERATOR_EDEFAULT;
 			case ArduinoPackage.SENSOR__STATUS:
 				return status != null && !status.isEmpty();
 		}
@@ -224,6 +395,19 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 				default: return -1;
 			}
 		}
+		if (baseClass == MathOperator.class) {
+			switch (derivedFeatureID) {
+				case ArduinoPackage.SENSOR__LEFT: return ArduinoPackage.MATH_OPERATOR__LEFT;
+				case ArduinoPackage.SENSOR__RIGHT: return ArduinoPackage.MATH_OPERATOR__RIGHT;
+				case ArduinoPackage.SENSOR__OPERATOR: return ArduinoPackage.MATH_OPERATOR__OPERATOR;
+				default: return -1;
+			}
+		}
+		if (baseClass == BooleanOperator.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -237,6 +421,19 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 		if (baseClass == Value.class) {
 			switch (baseFeatureID) {
 				case ArduinoPackage.VALUE__VALUE: return ArduinoPackage.SENSOR__VALUE;
+				default: return -1;
+			}
+		}
+		if (baseClass == MathOperator.class) {
+			switch (baseFeatureID) {
+				case ArduinoPackage.MATH_OPERATOR__LEFT: return ArduinoPackage.SENSOR__LEFT;
+				case ArduinoPackage.MATH_OPERATOR__RIGHT: return ArduinoPackage.SENSOR__RIGHT;
+				case ArduinoPackage.MATH_OPERATOR__OPERATOR: return ArduinoPackage.SENSOR__OPERATOR;
+				default: return -1;
+			}
+		}
+		if (baseClass == BooleanOperator.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
@@ -255,6 +452,8 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
 		result.append(value);
+		result.append(", operator: ");
+		result.append(operator);
 		result.append(')');
 		return result.toString();
 	}

@@ -232,13 +232,31 @@ public interface ArduinoPackage extends EPackage {
 	int MODULE__IMAGE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__LEVEL = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Library</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__LIBRARY = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int MODULE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.PinImpl <em>Pin</em>}' class.
@@ -867,6 +885,24 @@ public interface ArduinoPackage extends EPackage {
 	int INPUT_MODULE__IMAGE = MODULE__IMAGE;
 
 	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_MODULE__LEVEL = MODULE__LEVEL;
+
+	/**
+	 * The feature id for the '<em><b>Library</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_MODULE__LIBRARY = MODULE__LIBRARY;
+
+	/**
 	 * The number of structural features of the '<em>Input Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -919,7 +955,16 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_MODULE__LEVEL = MODULE_FEATURE_COUNT + 0;
+	int OUTPUT_MODULE__LEVEL = MODULE__LEVEL;
+
+	/**
+	 * The feature id for the '<em><b>Library</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_MODULE__LIBRARY = MODULE__LIBRARY;
 
 	/**
 	 * The number of structural features of the '<em>Output Module</em>' class.
@@ -928,7 +973,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_MODULE_FEATURE_COUNT = MODULE_FEATURE_COUNT + 1;
+	int OUTPUT_MODULE_FEATURE_COUNT = MODULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -1069,13 +1114,40 @@ public interface ArduinoPackage extends EPackage {
 	int SENSOR__VALUE = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__LEFT = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__RIGHT = MODULE_INSTRUCTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__OPERATOR = MODULE_INSTRUCTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
+	int SENSOR__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
@@ -1084,7 +1156,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 2;
+	int SENSOR_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.WhileImpl <em>While</em>}' class.
@@ -1595,6 +1667,17 @@ public interface ArduinoPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.Library <em>Library</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.Library
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getLibrary()
+	 * @generated
+	 */
+	int LIBRARY = 33;
+
+
+	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Hardware <em>Hardware</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1711,6 +1794,28 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getModule_Image();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Module#isLevel <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Level</em>'.
+	 * @see fr.obeo.dsl.arduino.Module#isLevel()
+	 * @see #getModule()
+	 * @generated
+	 */
+	EAttribute getModule_Level();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Module#getLibrary <em>Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Library</em>'.
+	 * @see fr.obeo.dsl.arduino.Module#getLibrary()
+	 * @see #getModule()
+	 * @generated
+	 */
+	EAttribute getModule_Library();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.DigitalPin <em>Digital Pin</em>}'.
@@ -2039,17 +2144,6 @@ public interface ArduinoPackage extends EPackage {
 	EClass getOutputModule();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.OutputModule#isLevel <em>Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Level</em>'.
-	 * @see fr.obeo.dsl.arduino.OutputModule#isLevel()
-	 * @see #getOutputModule()
-	 * @generated
-	 */
-	EAttribute getOutputModule_Level();
-
-	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2343,6 +2437,16 @@ public interface ArduinoPackage extends EPackage {
 	EEnum getOperatorKind();
 
 	/**
+	 * Returns the meta object for enum '{@link fr.obeo.dsl.arduino.Library <em>Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Library</em>'.
+	 * @see fr.obeo.dsl.arduino.Library
+	 * @generated
+	 */
+	EEnum getLibrary();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2457,6 +2561,22 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODULE__IMAGE = eINSTANCE.getModule_Image();
+
+		/**
+		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODULE__LEVEL = eINSTANCE.getModule_Level();
+
+		/**
+		 * The meta object literal for the '<em><b>Library</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODULE__LIBRARY = eINSTANCE.getModule_Library();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.DigitalPinImpl <em>Digital Pin</em>}' class.
@@ -2737,14 +2857,6 @@ public interface ArduinoPackage extends EPackage {
 		EClass OUTPUT_MODULE = eINSTANCE.getOutputModule();
 
 		/**
-		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OUTPUT_MODULE__LEVEL = eINSTANCE.getOutputModule_Level();
-
-		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2997,6 +3109,16 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum OPERATOR_KIND = eINSTANCE.getOperatorKind();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.Library <em>Library</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.Library
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getLibrary()
+		 * @generated
+		 */
+		EEnum LIBRARY = eINSTANCE.getLibrary();
 
 	}
 

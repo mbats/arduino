@@ -220,6 +220,8 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				Sensor sensor = (Sensor)theEObject;
 				T result = caseSensor(sensor);
 				if (result == null) result = caseModuleInstruction(sensor);
+				if (result == null) result = caseBooleanOperator(sensor);
+				if (result == null) result = caseMathOperator(sensor);
 				if (result == null) result = caseValue(sensor);
 				if (result == null) result = caseInstruction(sensor);
 				if (result == null) result = defaultCase(theEObject);

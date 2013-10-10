@@ -23,6 +23,7 @@ import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.InputModule;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.Level;
+import fr.obeo.dsl.arduino.Library;
 import fr.obeo.dsl.arduino.MathOperator;
 import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.ModuleInstruction;
@@ -264,6 +265,13 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	private EEnum operatorKindEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum libraryEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
 	 * package package URI value.
@@ -415,6 +423,24 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 */
 	public EAttribute getModule_Image() {
 		return (EAttribute)moduleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModule_Level() {
+		return (EAttribute)moduleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModule_Library() {
+		return (EAttribute)moduleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -671,15 +697,6 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOutputModule_Level() {
-		return (EAttribute)outputModuleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -928,6 +945,15 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLibrary() {
+		return libraryEEnum;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -966,6 +992,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		moduleEClass = createEClass(MODULE);
 		createEAttribute(moduleEClass, MODULE__KIND);
 		createEAttribute(moduleEClass, MODULE__IMAGE);
+		createEAttribute(moduleEClass, MODULE__LEVEL);
+		createEAttribute(moduleEClass, MODULE__LIBRARY);
 
 		digitalPinEClass = createEClass(DIGITAL_PIN);
 
@@ -1012,7 +1040,6 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		inputModuleEClass = createEClass(INPUT_MODULE);
 
 		outputModuleEClass = createEClass(OUTPUT_MODULE);
-		createEAttribute(outputModuleEClass, OUTPUT_MODULE__LEVEL);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -1055,6 +1082,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		timeEEnum = createEEnum(TIME);
 		moduleKindEEnum = createEEnum(MODULE_KIND);
 		operatorKindEEnum = createEEnum(OPERATOR_KIND);
+		libraryEEnum = createEEnum(LIBRARY);
 	}
 
 	/**
@@ -1103,7 +1131,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		outputModuleEClass.getESuperTypes().add(this.getModule());
 		repeatEClass.getESuperTypes().add(this.getControl());
 		sensorEClass.getESuperTypes().add(this.getModuleInstruction());
-		sensorEClass.getESuperTypes().add(this.getValue());
+		sensorEClass.getESuperTypes().add(this.getBooleanOperator());
 		whileEClass.getESuperTypes().add(this.getControl());
 		mathOperatorEClass.getESuperTypes().add(this.getValue());
 		mathOperatorEClass.getESuperTypes().add(this.getInstruction());
@@ -1129,6 +1157,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEClass(moduleEClass, Module.class, "Module", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModule_Kind(), this.getModuleKind(), "kind", "digital", 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModule_Image(), ecorePackage.getEString(), "image", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModule_Level(), ecorePackage.getEBoolean(), "level", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModule_Library(), this.getLibrary(), "library", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(digitalPinEClass, DigitalPin.class, "DigitalPin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1175,7 +1205,6 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEClass(inputModuleEClass, InputModule.class, "InputModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(outputModuleEClass, OutputModule.class, "OutputModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOutputModule_Level(), ecorePackage.getEBoolean(), "level", null, 0, 1, OutputModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1240,6 +1269,10 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		addEEnumLiteral(operatorKindEEnum, OperatorKind.AND);
 		addEEnumLiteral(operatorKindEEnum, OperatorKind.OR);
 		addEEnumLiteral(operatorKindEEnum, OperatorKind.NOT);
+
+		initEEnum(libraryEEnum, Library.class, "Library");
+		addEEnumLiteral(libraryEEnum, Library.NONE);
+		addEEnumLiteral(libraryEEnum, Library.SERVO);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -13,6 +13,8 @@ package fr.obeo.dsl.arduino;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Module#getKind <em>Kind</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Module#getImage <em>Image</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Module#isLevel <em>Level</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Module#getLibrary <em>Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +78,60 @@ public interface Module extends NamedElement {
 	 * @generated
 	 */
 	void setImage(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Level</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Level</em>' attribute.
+	 * @see #setLevel(boolean)
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getModule_Level()
+	 * @model
+	 * @generated
+	 */
+	boolean isLevel();
+
+	/**
+	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Module#isLevel <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Level</em>' attribute.
+	 * @see #isLevel()
+	 * @generated
+	 */
+	void setLevel(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Library</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.obeo.dsl.arduino.Library}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Library</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Library</em>' attribute.
+	 * @see fr.obeo.dsl.arduino.Library
+	 * @see #setLibrary(Library)
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getModule_Library()
+	 * @model
+	 * @generated
+	 */
+	Library getLibrary();
+
+	/**
+	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Module#getLibrary <em>Library</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Library</em>' attribute.
+	 * @see fr.obeo.dsl.arduino.Library
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	void setLibrary(Library value);
 
 } // Module

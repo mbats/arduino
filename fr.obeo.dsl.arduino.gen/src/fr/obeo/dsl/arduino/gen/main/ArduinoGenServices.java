@@ -5,6 +5,7 @@ import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.MathOperator;
 import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.Repeat;
+import fr.obeo.dsl.arduino.Sensor;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.Value;
 import fr.obeo.dsl.arduino.Variable;
@@ -34,6 +35,9 @@ public class ArduinoGenServices {
 			return "(" + getValue(((MathOperator) value).getLeft())
 					+ getOperator(((MathOperator) value).getOperator())
 					+ getValue(((MathOperator) value).getRight()) + ")";
+		}
+		if (value instanceof Sensor) {
+			return ((Sensor) value).getModule().getName().replaceAll(" ", "");
 		}
 		return null;
 	}

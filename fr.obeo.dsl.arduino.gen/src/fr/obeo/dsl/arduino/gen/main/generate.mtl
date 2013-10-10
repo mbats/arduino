@@ -10,8 +10,14 @@
 
 [template public genIno (sketch : Sketch) ]
 [file (sketch.getVariableName()+'.ino', false, 'UTF-8')]
+[for (library : Library | sketch.eAllContents("Level").module->select(library<>arduino::Library::none).library)]
+#include <[library.toString().toUpperFirst()/].h>
+[/for]
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
 int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
+[/for]
+[for (mod : Module | sketch.eAllContents("Level").module->select(library<>arduino::Library::none)->asOrderedSet())]
+[mod.library.toString().toUpperFirst()/] [mod.getVariableName()/];
 [/for]
 [for (mod : Module | sketch.eAllContents("Sensor").module->asOrderedSet())]
 int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
@@ -26,6 +32,9 @@ int [instruction.name/];
 void setup() {
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
   pinMode([mod.getVariableName()/], OUTPUT);  
+[/for]
+[for (mod : Module | sketch.eAllContents("Level").module->select(library<>arduino::Library::none)->asOrderedSet())]
+ [mod.getVariableName()/].attach([sketch.getPinId(mod)/]);
 [/for]
 [for (instruction : Variable | sketch.eAllContents("Variable"))]
   [instruction.name/]=0;
@@ -51,7 +60,7 @@ void loop() {
 [file ('Makefile', false, 'UTF-8')]
 BOARD_TAG    = uno
 ARDUINO_PORT = /dev/ttyACM0
-ARDUINO_LIBS = 
+ARDUINO_LIBS = [for (library : Library | sketch.eAllContents("Level").module->select(library<>arduino::Library::none).library->asOrderedSet())][library.toString().toUpperFirst()/][/for]
 
 include /usr/share/arduino/Arduino.mk
 [/file]
@@ -74,7 +83,12 @@ digitalWrite([instruction.module.getVariableName()/], ([getStatus(instruction)/]
 [/template]
 
 [template public generateInstruction(instruction : Sensor)post (trim())]
+[if (instruction.module.kind=ModuleKind::digital)]
 !digitalRead([instruction.module.getVariableName()/])
+[else]
+analogRead([instruction.module.getVariableName()/])
+[/if]
+
 [/template]
 
 [template public generateInstruction(instruction : Repeat)post (trim())]
@@ -87,7 +101,7 @@ for (iter_[index/]=0; iter_[index/] < ( [instruction.iteration/] ); ++iter_[inde
 [/template]
 
 [template public generateInstruction(instruction : While)post (trim())]
-while [instruction.condition.getValue()/]
+while ([instruction.condition.generateInstruction()/])
 {
  [instruction.instructions->first().genINO()/]
 }
@@ -98,7 +112,19 @@ while [instruction.condition.getValue()/]
 [/template]
 
 [template public generateInstruction(instruction : Level)post (trim())]
-analogWrite([instruction.eContainer(arduino::Sketch).getPinId(instruction.module)/],255-[instruction.level.getValue()/]);
+[if (instruction.module.library=arduino::Library::servo)]
+[instruction.module.getVariableName()/].write([instruction.level.generateInstruction()/]);
+[else]
+analogWrite([instruction.eContainer(arduino::Sketch).getPinId(instruction.module)/],255-([instruction.level.generateInstruction()/]));	
+[/if]
+[/template]
+
+[template public generateInstruction(instruction : Constant)post (trim())]
+[instruction.getValue()/]
+[/template]
+
+[template public generateInstruction(instruction : Variable)post (trim())]
+[instruction.getValue()/]
 [/template]
 
 [template public generateInstruction(instruction : Sketch)post (trim())]

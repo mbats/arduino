@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Sensor extends ModuleInstruction, Value {
+public interface Sensor extends ModuleInstruction, BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' reference list.

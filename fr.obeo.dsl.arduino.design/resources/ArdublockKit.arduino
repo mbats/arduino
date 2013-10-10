@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
 <arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino">
-  <modules xsi:type="arduino:OutputModule" name="White LED" level="true" image="dfrobot/led.jpg"/>
+  <modules xsi:type="arduino:OutputModule" name="White LED" image="dfrobot/led.jpg" level="true"/>
   <modules xsi:type="arduino:InputModule" name="Push button 1" image="dfrobot/push_button.jpg"/>
   <modules xsi:type="arduino:OutputModule" name="Red LED" image="dfrobot/led.jpg"/>
   <modules xsi:type="arduino:OutputModule" name="Blue LED" image="dfrobot/led.jpg"/>
   <modules xsi:type="arduino:InputModule" name="Push button 2" image="dfrobot/push_button.jpg"/>
   <modules xsi:type="arduino:OutputModule" name="Buzzer" image="dfrobot/buzzer.jpg"/>
   <modules xsi:type="arduino:InputModule" name="Rotation sensor V1" kind="analog" image="dfrobot/rotation_sensor_v1.jpg"/>
+  <modules xsi:type="arduino:OutputModule" name="Micro servo" image="dfrobot/servo.jpg" level="true" library="servo"/>
+  <modules xsi:type="arduino:InputModule" name="Infrared sensor" image="dfrobot/infrared.jpg"/>
   <platform name="DFRduino UNO R3" image="dfrobot/dfrduino_uno.jpg">
     <digitalPins/>
     <digitalPins id="1"/>

@@ -96,6 +96,8 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 				return createModuleKindFromString(eDataType, initialValue);
 			case ArduinoPackage.OPERATOR_KIND:
 				return createOperatorKindFromString(eDataType, initialValue);
+			case ArduinoPackage.LIBRARY:
+				return createLibraryFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -115,6 +117,8 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 				return convertModuleKindToString(eDataType, instanceValue);
 			case ArduinoPackage.OPERATOR_KIND:
 				return convertOperatorKindToString(eDataType, instanceValue);
+			case ArduinoPackage.LIBRARY:
+				return convertLibraryToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -377,6 +381,26 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * @generated
 	 */
 	public String convertOperatorKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Library createLibraryFromString(EDataType eDataType, String initialValue) {
+		Library result = Library.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLibraryToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

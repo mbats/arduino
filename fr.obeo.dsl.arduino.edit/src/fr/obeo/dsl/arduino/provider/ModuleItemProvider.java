@@ -59,6 +59,8 @@ public class ModuleItemProvider
 
 			addKindPropertyDescriptor(object);
 			addImagePropertyDescriptor(object);
+			addLevelPropertyDescriptor(object);
+			addLibraryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +110,50 @@ public class ModuleItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Level feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLevelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Module_level_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Module_level_feature", "_UI_Module_type"),
+				 ArduinoPackage.Literals.MODULE__LEVEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Library feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLibraryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Module_library_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Module_library_feature", "_UI_Module_type"),
+				 ArduinoPackage.Literals.MODULE__LIBRARY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -135,6 +181,8 @@ public class ModuleItemProvider
 		switch (notification.getFeatureID(Module.class)) {
 			case ArduinoPackage.MODULE__KIND:
 			case ArduinoPackage.MODULE__IMAGE:
+			case ArduinoPackage.MODULE__LEVEL:
+			case ArduinoPackage.MODULE__LIBRARY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

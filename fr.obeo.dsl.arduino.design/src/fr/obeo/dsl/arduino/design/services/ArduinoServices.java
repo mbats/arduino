@@ -138,8 +138,6 @@ public class ArduinoServices {
 		return IMAGES_PATH + "default.svg";
 	}
 
-
-
 	public List<Platform> getPlatforms(EObject object) {
 		List<Platform> result = Lists.newArrayList();
 		Session session = SessionManager.INSTANCE.getSession(object);
@@ -214,11 +212,7 @@ public class ArduinoServices {
 		if (level.getLevel() != null) {
 			label += "=";
 			Value value = level.getLevel();
-			if (value instanceof Variable) {
-				label += ((Variable) value).getName();
-			} else {
-				label += computeLabel(value);
-			}
+			label += computeLabel(value);
 		}
 		return label;
 	}
@@ -230,11 +224,15 @@ public class ArduinoServices {
 		if (value instanceof Constant) {
 			return value.getValue();
 		}
+		if (value instanceof Sensor) {
+			return ((Sensor) value).getModule().getName();
+		}
 		if (value instanceof MathOperator) {
 			return "(" + computeLabel(((MathOperator) value).getLeft())
 					+ getOperator(((MathOperator) value).getOperator())
 					+ computeLabel(((MathOperator) value).getRight()) + ")";
 		}
+
 		return null;
 	}
 
@@ -265,10 +263,10 @@ public class ArduinoServices {
 	}
 
 	public String computeLabel(String operator) {
-		return operator;
+		return getOperator(getOperator(operator));
 	}
 
-	private String getOperator(OperatorKind operator) {
+	public String getOperator(OperatorKind operator) {
 		switch (operator) {
 		case AND:
 			return "&";
@@ -307,22 +305,22 @@ public class ArduinoServices {
 	}
 
 	public OperatorKind getOperator(String operator) {
-		if (operator.equals("&")) {
+		if (operator.equals("&") || operator.equals("and")) {
 			return OperatorKind.AND;
 		}
-		if (operator.equals("!=")) {
+		if (operator.equals("!=") || operator.equals("diff")) {
 			return OperatorKind.DIFF;
 		}
-		if (operator.equals("/")) {
+		if (operator.equals("/") || operator.equals("div")) {
 			return OperatorKind.DIV;
 		}
-		if (operator.equals("=")) {
+		if (operator.equals("=") || operator.equals("equal")) {
 			return OperatorKind.EQUAL;
 		}
-		if (operator.equals("<")) {
+		if (operator.equals("<") || operator.equals("lower")) {
 			return OperatorKind.LOWER;
 		}
-		if (operator.equals("<=")) {
+		if (operator.equals("<=") || operator.equals("lowerOrEqual")) {
 			return OperatorKind.LOWER_OR_EQUAL;
 		}
 		if (operator.equals("max")) {
@@ -331,10 +329,10 @@ public class ArduinoServices {
 		if (operator.equals("min")) {
 			return OperatorKind.MIN;
 		}
-		if (operator.equals("-")) {
+		if (operator.equals("-") || operator.equals("minus")) {
 			return OperatorKind.MINUS;
 		}
-		if (operator.equals("*")) {
+		if (operator.equals("*") || operator.equals("mul")) {
 			return OperatorKind.MUL;
 		}
 		if (operator.equals("not")) {
@@ -343,16 +341,16 @@ public class ArduinoServices {
 		if (operator.equals("or")) {
 			return OperatorKind.OR;
 		}
-		if (operator.equals("+")) {
+		if (operator.equals("+") || operator.equals("plus")) {
 			return OperatorKind.PLUS;
 		}
-		if (operator.equals("%")) {
+		if (operator.equals("%") || operator.equals("pourcent")) {
 			return OperatorKind.POURCENT;
 		}
-		if (operator.equals(">")) {
+		if (operator.equals(">") || operator.equals("upper")) {
 			return OperatorKind.UPPER;
 		}
-		if (operator.equals(">=")) {
+		if (operator.equals(">=") || operator.equals("upperOrEqual")) {
 			return OperatorKind.UPPER_OR_EQUAL;
 		}
 		return null;
@@ -552,10 +550,39 @@ public class ArduinoServices {
 			}
 		}
 
-		Constant constant = ArduinoFactory.eINSTANCE
-					.createConstant();
+		Constant constant = ArduinoFactory.eINSTANCE.createConstant();
 		constant.setValue(String.valueOf(value));
-			sketch.getInstructions().add(constant);
+		sketch.getInstructions().add(constant);
 		return constant;
+	}
+
+	public Instruction getLastInstruction(Sketch sketch) {
+		if (sketch != null) {
+			Instruction instruction = sketch;
+			while (instruction != null && instruction.getNext() != null
+					&& !(instruction.getNext() instanceof Sketch)) {
+				instruction = instruction.getNext();
+			}
+
+			if (instruction != null && instruction.getNext() instanceof Sketch) {
+				return sketch;
+			}
+			return instruction;
+		}
+
+		return null;
+	}
+
+	public Instruction getLastInstruction(Control control) {
+		if (control != null && control.getInstructions().size() > 0) {
+			Instruction instruction = control.getInstructions().get(0);
+			while (instruction != null && instruction.getNext() != null) {
+				instruction = instruction.getNext();
+			}
+
+			return instruction;
+		}
+
+		return null;
 	}
 }

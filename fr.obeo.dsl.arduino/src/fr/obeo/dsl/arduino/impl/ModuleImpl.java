@@ -4,6 +4,7 @@ package fr.obeo.dsl.arduino.impl;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
 import fr.obeo.dsl.arduino.Connector;
+import fr.obeo.dsl.arduino.Library;
 import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.ModuleKind;
 import fr.obeo.dsl.arduino.Pin;
@@ -25,6 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getImage <em>Image</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#isLevel <em>Level</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ModuleImpl#getLibrary <em>Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +73,46 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	 * @ordered
 	 */
 	protected String image = IMAGE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isLevel() <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LEVEL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isLevel() <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean level = LEVEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLibrary() <em>Library</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLibrary()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Library LIBRARY_EDEFAULT = Library.NONE;
+
+	/**
+	 * The cached value of the '{@link #getLibrary() <em>Library</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLibrary()
+	 * @generated
+	 * @ordered
+	 */
+	protected Library library = LIBRARY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +180,48 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isLevel() {
+		return level;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLevel(boolean newLevel) {
+		boolean oldLevel = level;
+		level = newLevel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.MODULE__LEVEL, oldLevel, level));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Library getLibrary() {
+		return library;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLibrary(Library newLibrary) {
+		Library oldLibrary = library;
+		library = newLibrary == null ? LIBRARY_EDEFAULT : newLibrary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.MODULE__LIBRARY, oldLibrary, library));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -144,6 +229,10 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 				return getKind();
 			case ArduinoPackage.MODULE__IMAGE:
 				return getImage();
+			case ArduinoPackage.MODULE__LEVEL:
+				return isLevel();
+			case ArduinoPackage.MODULE__LIBRARY:
+				return getLibrary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +250,12 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 				return;
 			case ArduinoPackage.MODULE__IMAGE:
 				setImage((String)newValue);
+				return;
+			case ArduinoPackage.MODULE__LEVEL:
+				setLevel((Boolean)newValue);
+				return;
+			case ArduinoPackage.MODULE__LIBRARY:
+				setLibrary((Library)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,6 +275,12 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 			case ArduinoPackage.MODULE__IMAGE:
 				setImage(IMAGE_EDEFAULT);
 				return;
+			case ArduinoPackage.MODULE__LEVEL:
+				setLevel(LEVEL_EDEFAULT);
+				return;
+			case ArduinoPackage.MODULE__LIBRARY:
+				setLibrary(LIBRARY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,6 +297,10 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 				return kind != KIND_EDEFAULT;
 			case ArduinoPackage.MODULE__IMAGE:
 				return IMAGE_EDEFAULT == null ? image != null : !IMAGE_EDEFAULT.equals(image);
+			case ArduinoPackage.MODULE__LEVEL:
+				return level != LEVEL_EDEFAULT;
+			case ArduinoPackage.MODULE__LIBRARY:
+				return library != LIBRARY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -214,6 +319,10 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 		result.append(kind);
 		result.append(", image: ");
 		result.append(image);
+		result.append(", level: ");
+		result.append(level);
+		result.append(", library: ");
+		result.append(library);
 		result.append(')');
 		return result.toString();
 	}

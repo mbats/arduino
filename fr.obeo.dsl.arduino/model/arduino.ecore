@@ -20,6 +20,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//ModuleKind"
         defaultValueLiteral="digital"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="library" eType="#//Library"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalPin" eSuperTypes="#//Pin"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true">
@@ -73,9 +75,7 @@
     <eLiterals name="MicroSecond"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputModule" eSuperTypes="#//Module"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputModule" eSuperTypes="#//Module">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputModule" eSuperTypes="#//Module"/>
   <eClassifiers xsi:type="ecore:EEnum" name="ModuleKind">
     <eLiterals name="digital"/>
     <eLiterals name="analog"/>
@@ -91,7 +91,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//ModuleInstruction #//Value">
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//ModuleInstruction #//BooleanOperator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="status" upperBound="-1"
         eType="#//Status" eOpposite="#//Status/sensor"/>
   </eClassifiers>
@@ -136,4 +136,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//Value"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Library">
+    <eLiterals name="none"/>
+    <eLiterals name="servo"/>
+  </eClassifiers>
 </ecore:EPackage>
