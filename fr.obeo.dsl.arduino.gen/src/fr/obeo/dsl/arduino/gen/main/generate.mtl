@@ -23,7 +23,7 @@ int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
 int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
 [/for]
 [for (instruction : Repeat | getRepeatInstructions(sketch))]
-int iter_[getRepeatInstructionIndex(instruction)/];
+int iter_[eContainer(arduino::Sketch).getRepeatInstructionIndex(instruction)/];
 [/for]
 [for (instruction : Variable | sketch.eAllContents("Variable"))]
 int [instruction.name/];
@@ -50,7 +50,7 @@ void loop() {
 
 [template public genINO(i : Instruction)post (trim())]
 [i.generateInstruction()/]
-[if (not i.next.oclIsInvalid() and not i.next.oclIsKindOf(arduino::Sketch))]
+[if (not i.oclIsInvalid() and not i.next.oclIsInvalid() and not i.next.oclIsKindOf(arduino::Sketch))]
 [genINO(i.next)/] 
 [/if]  
 [/template]
@@ -92,7 +92,7 @@ analogRead([instruction.module.getVariableName()/])
 [/template]
 
 [template public generateInstruction(instruction : Repeat)post (trim())]
-[let index : Integer = getRepeatInstructionIndex(instruction)]
+[let index : Integer = eContainer(arduino::Sketch).getRepeatInstructionIndex(instruction)]
 for (iter_[index/]=0; iter_[index/] < ( [instruction.iteration/] ); ++iter_[index/] )
 {
  [instruction.instructions->first().genINO()/]

@@ -12,8 +12,7 @@ import fr.obeo.dsl.arduino.Variable;
 
 public class ArduinoGenServices {
 
-	public int getRepeatInstructionIndex(Repeat repeat) {
-		Sketch sketch = (Sketch) repeat.eContainer();
+	public int getRepeatInstructionIndex(Sketch sketch, Repeat repeat) {
 		for (int i = 0; i < sketch.getInstructions().size(); i++) {
 			Instruction instruction = sketch.getInstructions().get(i);
 			if (instruction instanceof Repeat && instruction.equals(repeat)) {
