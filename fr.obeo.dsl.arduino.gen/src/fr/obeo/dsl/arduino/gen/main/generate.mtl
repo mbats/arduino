@@ -76,7 +76,11 @@ digitalWrite([instruction.module.getVariableName()/], ([getStatus(instruction)/]
 
 [template private getStatus(instruction : Status)post (trim())]
 [if (instruction.sensor = null)]
-[instruction.status/]
+[if (instruction.status.toString()='false')]
+HIGH
+[else]
+LOW
+[/if]
 [else]
 [generateInstruction(instruction.sensor)/]
 [/if]

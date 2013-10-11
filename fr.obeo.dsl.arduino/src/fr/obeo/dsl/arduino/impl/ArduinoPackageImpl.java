@@ -20,6 +20,7 @@ import fr.obeo.dsl.arduino.Control;
 import fr.obeo.dsl.arduino.Delay;
 import fr.obeo.dsl.arduino.DigitalPin;
 import fr.obeo.dsl.arduino.Hardware;
+import fr.obeo.dsl.arduino.If;
 import fr.obeo.dsl.arduino.InputModule;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.Level;
@@ -244,6 +245,13 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * @generated
 	 */
 	private EClass constantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ifEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -915,6 +923,24 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIf() {
+		return ifEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIf_Condition() {
+		return (EReference)ifEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getConnector_Pin() {
 		return (EReference)connectorEClass.getEStructuralFeatures().get(0);
 	}
@@ -1078,6 +1104,9 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 
 		constantEClass = createEClass(CONSTANT);
 
+		ifEClass = createEClass(IF);
+		createEReference(ifEClass, IF__CONDITION);
+
 		// Create enums
 		timeEEnum = createEEnum(TIME);
 		moduleKindEEnum = createEEnum(MODULE_KIND);
@@ -1142,6 +1171,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		booleanOperatorEClass.getESuperTypes().add(this.getMathOperator());
 		valueEClass.getESuperTypes().add(this.getInstruction());
 		constantEClass.getESuperTypes().add(this.getValue());
+		ifEClass.getESuperTypes().add(this.getControl());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(hardwareEClass, Hardware.class, "Hardware", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1242,6 +1272,9 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEAttribute(getValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIf_Condition(), this.getBooleanOperator(), null, "condition", null, 1, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeEEnum, Time.class, "Time");

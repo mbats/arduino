@@ -22,6 +22,7 @@ import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Constant;
 import fr.obeo.dsl.arduino.Control;
 import fr.obeo.dsl.arduino.DigitalPin;
+import fr.obeo.dsl.arduino.If;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.MathOperator;
 import fr.obeo.dsl.arduino.Module;
@@ -253,6 +254,19 @@ public class ArduinoServices {
 		return label;
 	}
 
+	public String computeLabel(If instruction) {
+		String label = "If ";
+		if (instruction.getCondition() != null
+				&& instruction.getCondition().getLeft() != null
+				&& instruction.getCondition().getRight() != null) {
+			BooleanOperator condition = instruction.getCondition();
+			label += computeLabel(condition.getLeft()) + " ";
+			label += getOperator(condition.getOperator());
+			label += " " + computeLabel(condition.getRight());
+		}
+		return label;
+	}
+
 	public String computeLabel(Set set) {
 		String label = "Set ";
 		if (set.getVariable() != null && set.getValue() != null) {
@@ -422,6 +436,10 @@ public class ArduinoServices {
 		deleteUnusedValue(sketch, oldValue);
 	}
 
+	public void editLabel(Value value, String newValue) {
+
+	}
+
 	public void deleteUnusedValues(Sketch sketch) {
 		ImmutableList<Instruction> instructions = ImmutableList.copyOf(sketch
 				.getInstructions());
@@ -495,6 +513,12 @@ public class ArduinoServices {
 					if (condition != null) {
 						operators.add(condition);
 					}
+				} else if (instruction instanceof If) {
+					BooleanOperator condition = ((If) instruction)
+							.getCondition();
+					if (condition != null) {
+						operators.add(condition);
+					}
 				}
 			}
 		} else if (container instanceof Control) {
@@ -503,6 +527,18 @@ public class ArduinoServices {
 			for (Instruction instruction : instructions) {
 				if (instruction instanceof BooleanOperator) {
 					operators.add((BooleanOperator) instruction);
+				} else if (instruction instanceof While) {
+					BooleanOperator condition = ((While) instruction)
+							.getCondition();
+					if (condition != null) {
+						operators.add(condition);
+					}
+				} else if (instruction instanceof If) {
+					BooleanOperator condition = ((If) instruction)
+							.getCondition();
+					if (condition != null) {
+						operators.add(condition);
+					}
 				}
 			}
 		} else if (container instanceof MathOperator) {

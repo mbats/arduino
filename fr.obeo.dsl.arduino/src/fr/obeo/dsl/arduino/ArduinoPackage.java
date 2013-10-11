@@ -1635,6 +1635,61 @@ public interface ArduinoPackage extends EPackage {
 	int CONSTANT_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.IfImpl <em>If</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.IfImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getIf()
+	 * @generated
+	 */
+	int IF = 30;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__PREVIOUS = CONTROL__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__NEXT = CONTROL__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__INSTRUCTIONS = CONTROL__INSTRUCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__CONDITION = CONTROL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>If</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1642,7 +1697,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 30;
+	int TIME = 31;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.ModuleKind <em>Module Kind</em>}' enum.
@@ -1652,7 +1707,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getModuleKind()
 	 * @generated
 	 */
-	int MODULE_KIND = 31;
+	int MODULE_KIND = 32;
 
 
 	/**
@@ -1663,7 +1718,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getOperatorKind()
 	 * @generated
 	 */
-	int OPERATOR_KIND = 32;
+	int OPERATOR_KIND = 33;
 
 
 	/**
@@ -1674,7 +1729,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getLibrary()
 	 * @generated
 	 */
-	int LIBRARY = 33;
+	int LIBRARY = 34;
 
 
 	/**
@@ -2396,6 +2451,27 @@ public interface ArduinoPackage extends EPackage {
 	EClass getConstant();
 
 	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.If <em>If</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>If</em>'.
+	 * @see fr.obeo.dsl.arduino.If
+	 * @generated
+	 */
+	EClass getIf();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.If#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Condition</em>'.
+	 * @see fr.obeo.dsl.arduino.If#getCondition()
+	 * @see #getIf()
+	 * @generated
+	 */
+	EReference getIf_Condition();
+
+	/**
 	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getPin <em>Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3071,6 +3147,24 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONSTANT = eINSTANCE.getConstant();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.IfImpl <em>If</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.IfImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getIf()
+		 * @generated
+		 */
+		EClass IF = eINSTANCE.getIf();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF__CONDITION = eINSTANCE.getIf_Condition();
 
 		/**
 		 * The meta object literal for the '<em><b>Pin</b></em>' reference feature.

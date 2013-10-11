@@ -190,6 +190,11 @@ public class ControlItemProvider
 			(createChildParameter
 				(ArduinoPackage.Literals.CONTROL__INSTRUCTIONS,
 				 ArduinoFactory.eINSTANCE.createConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.CONTROL__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createIf()));
 	}
 
 }

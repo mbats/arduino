@@ -77,6 +77,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 			case ArduinoPackage.NUMERICAL_OPERATOR: return createNumericalOperator();
 			case ArduinoPackage.BOOLEAN_OPERATOR: return createBooleanOperator();
 			case ArduinoPackage.CONSTANT: return createConstant();
+			case ArduinoPackage.IF: return createIf();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -322,6 +323,16 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	public Constant createConstant() {
 		ConstantImpl constant = new ConstantImpl();
 		return constant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public If createIf() {
+		IfImpl if_ = new IfImpl();
+		return if_;
 	}
 
 	/**
