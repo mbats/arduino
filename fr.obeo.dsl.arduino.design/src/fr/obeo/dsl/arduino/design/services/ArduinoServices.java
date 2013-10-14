@@ -33,6 +33,7 @@ import fr.obeo.dsl.arduino.Platform;
 import fr.obeo.dsl.arduino.Sensor;
 import fr.obeo.dsl.arduino.Set;
 import fr.obeo.dsl.arduino.Sketch;
+import fr.obeo.dsl.arduino.Status;
 import fr.obeo.dsl.arduino.Value;
 import fr.obeo.dsl.arduino.Variable;
 import fr.obeo.dsl.arduino.While;
@@ -499,6 +500,36 @@ public class ArduinoServices {
 			}
 		}
 		return operators;
+	}
+
+	public List<Sensor> getSensors(EObject container) {
+		List<Sensor> sensors = Lists.newArrayList();
+		if (container instanceof Sketch) {
+			List<Instruction> instructions = ((Sketch) container)
+					.getInstructions();
+			for (Instruction instruction : instructions) {
+				if (instruction instanceof Status) {
+					if (((Status) instruction).getSensor() != null) {
+						sensors.add(((Status) instruction).getSensor());
+					}
+				}
+				if (instruction instanceof Sensor
+						&& isNotUsedAnymore((Sketch) container,
+								(Sensor) instruction)) {
+					sensors.add((Sensor) instruction);
+				}
+			}
+		} else if (container instanceof MathOperator) {
+			Instruction left = ((MathOperator) container).getLeft();
+			Instruction right = ((MathOperator) container).getRight();
+			if (left instanceof Sensor) {
+				sensors.add((Sensor) left);
+			}
+			if (right instanceof Sensor) {
+				sensors.add((Sensor) right);
+			}
+		}
+		return sensors;
 	}
 
 	public List<BooleanOperator> getBooleanOperators(EObject container) {
