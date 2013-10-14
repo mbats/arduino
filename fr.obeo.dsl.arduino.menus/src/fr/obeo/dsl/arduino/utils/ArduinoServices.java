@@ -85,7 +85,8 @@ public class ArduinoServices {
 				instruction = instruction.getNext();
 			}
 
-			if (instruction != null && instruction.getNext() instanceof Sketch) {
+			if (instruction != null && instruction.getNext() != null
+					&& instruction.getNext() instanceof Sketch) {
 				return true;
 			}
 		}

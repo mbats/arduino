@@ -31,6 +31,7 @@ import fr.obeo.dsl.arduino.NumericalOperator;
 import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
+import fr.obeo.dsl.arduino.Project;
 import fr.obeo.dsl.arduino.Sensor;
 import fr.obeo.dsl.arduino.Set;
 import fr.obeo.dsl.arduino.Sketch;
@@ -175,8 +176,12 @@ public class ArduinoServices {
 	}
 
 	public List<Module> getConnectedModules(Sketch sketch) {
+		return getConnectedModules(sketch.getHardware());
+	}
+
+	private List<Module> getConnectedModules(Hardware hardware) {
 		List<Module> result = Lists.newArrayList();
-		for (Connector connector : sketch.getHardware().getConnectors()) {
+		for (Connector connector : hardware.getConnectors()) {
 			result.add(connector.getModule());
 		}
 		return result;
@@ -670,5 +675,29 @@ public class ArduinoServices {
 				EcoreUtil.delete(connector);
 			}
 		}
+	}
+
+	public boolean isInvalidSketch(Project project) {
+		Sketch sketch = project.getSketch();
+		if (sketch == null) {
+			return true;
+		}
+		fr.obeo.dsl.arduino.utils.ArduinoServices service = new fr.obeo.dsl.arduino.utils.ArduinoServices();
+		return !(service.isValidSketch(sketch));
+	}
+
+	public boolean isInvalidHardware(Project project) {
+		return project.getHardware() == null
+				|| project.getHardware().getPlatforms().size() == 0
+				|| project.getHardware().getModules().size() == 0
+				|| getConnectedModules(project.getHardware()).size() == 0;
+	}
+
+	public boolean isValidHardware(Project project) {
+		return !isInvalidHardware(project);
+	}
+
+	public boolean isUploadable(Project project) {
+		return isValidHardware(project) && !isInvalidSketch(project);
 	}
 }

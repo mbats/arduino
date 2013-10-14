@@ -306,42 +306,36 @@
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Dashboard" initialisation="true" domainClass="arduino.Project">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="Hardware" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Hardware']" synchronizationLock="true" domainClass="arduino.Project">
+        <nodeMappings name="Hardware" semanticCandidatesExpression="var:self" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Hardware']" synchronizationLock="true" domainClass="arduino.Project">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="1" tooltipExpression="Double click to see hardware" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/hardware.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%hardware==null%>">
+          <conditionnalStyles predicateExpression="service:isInvalidHardware">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="1" tooltipExpression="Double click to describe the hardware" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/hardware_invalid.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="Sketch" preconditionExpression="&lt;%hardware!=null%>" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Sketch']" synchronizationLock="true" domainClass="arduino.Project">
+        <nodeMappings name="Sketch" preconditionExpression="service:isValidHardware" semanticCandidatesExpression="var:self" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Sketch']" synchronizationLock="true" domainClass="arduino.Project">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="2" tooltipExpression="Double click to see sketch" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/software.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%sketch&lt;>null%>">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="2" tooltipExpression="Double click to describe the software" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/software_invalid.svg">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="&lt;%sketch.instructions.next.filter(&quot;Sketch&quot;).nSize==0 || sketch.next==null%>">
+          <conditionnalStyles predicateExpression="service:isInvalidSketch">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="2" tooltipExpression="Double click to describe the software" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/software_invalid.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="Upload" preconditionExpression="&lt;%sketch!=null%>" semanticCandidatesExpression="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Upload']" domainClass="arduino.Project">
+        <nodeMappings name="Upload" preconditionExpression="[sketch&lt;>null/]" semanticCandidatesExpression="var:self" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='Upload']" domainClass="arduino.Project">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="3" tooltipExpression="Upload sketch on hardware" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/upload.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%sketch.instructions.next.filter(&quot;Sketch&quot;).nSize==0 || next==null%>">
+          <conditionnalStyles predicateExpression="service:isInvalidSketch">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="3" tooltipExpression="The sketch is invalid, double click to open it" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/upload_invalid.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -349,51 +343,53 @@
           </conditionnalStyles>
         </nodeMappings>
         <toolSections>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Hardware" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Hardware']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Hardware" forceRefresh="true" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Hardware']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self.target%>">
-                <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%hardware==null%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:target">
+                <subModelOperations xsi:type="tool:If" conditionExpression="[hardware=null/]">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Hardware" referenceName="hardware">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Hardware"/>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%hardware%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:hardware">
                   <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Sketch" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Sketch" forceRefresh="true" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self.target%>">
-                <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%sketch==null%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:target">
+                <subModelOperations xsi:type="tool:If" conditionExpression="[sketch=null/]">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Sketch" referenceName="sketch" variableName="sketch">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="hardware" valueExpression="&lt;%eContainer(&quot;Project&quot;).hardware%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="hardware" valueExpression="[eContainer(arduino::Project).hardware/]"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Sketch"/>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%sketch%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:sketch">
                   <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Upload" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Upload']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Upload" forceRefresh="true" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Upload']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%sketch.instructions.next.filter(&quot;Sketch&quot;).nSize==0 || sketch.next==null%>">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%sketch%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="service:isInvalidSketch">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:sketch">
                     <subModelOperations xsi:type="tool:Navigation" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']"/>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%sketch.instructions.next.filter(&quot;Sketch&quot;).nSize>=0 &amp;&amp; sketch.next!=null%>">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%sketch.upload()%>"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="service:isUploadable">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:sketch">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:upload"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -404,7 +400,7 @@
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Sketch" titleExpression="Sketch" domainClass="arduino.Sketch">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="Loop" semanticCandidatesExpression="&lt;%self%>" domainClass="arduino.Sketch">
+        <nodeMappings name="Loop" semanticCandidatesExpression="var:self" domainClass="arduino.Sketch">
           <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="Loop" hideLabelByDefault="true" workspacePath="/fr.obeo.dsl.arduino.design/images/loop.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
