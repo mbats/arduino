@@ -165,14 +165,14 @@
   <ownedViewpoints name="Arduino" modelFileExtension="arduino">
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Hardware Sketch" titleExpression="Hardware" domainClass="arduino.Hardware">
       <defaultLayer name="Default">
-        <nodeMappings name="HS_Platform" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Module%20and%20Platform']" semanticCandidatesExpression="&lt;%platforms%>" domainClass="arduino.Platform">
-          <borderedNodeMappings name="HS_DigitalPin" semanticCandidatesExpression="&lt;%digitalPins%>" domainClass="arduino.DigitalPin">
-            <style xsi:type="style:SquareDescription" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" showIcon="false" labelExpression="&lt;%id%>" tooltipExpression="Digital pin &lt;%id%>" sizeComputationExpression="2" labelPosition="node" color="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20light%20green']">
+        <nodeMappings name="HS_Platform" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Platform']" semanticCandidatesExpression="feature:platforms" domainClass="arduino.Platform">
+          <borderedNodeMappings name="HS_DigitalPin" semanticCandidatesExpression="feature:digitalPins" domainClass="arduino.DigitalPin">
+            <style xsi:type="style:SquareDescription" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" showIcon="false" labelExpression="feature:id" tooltipExpression="Digital pin &lt;%id%>" sizeComputationExpression="2" labelPosition="node" color="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20light%20green']">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="HS_AnalogPin" semanticCandidatesExpression="&lt;%analogPins%>" domainClass="arduino.AnalogPin">
-            <style xsi:type="style:SquareDescription" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" showIcon="false" labelExpression="&lt;%id%>" tooltipExpression="Analog pin &lt;%id%>" sizeComputationExpression="2" labelPosition="node">
+          <borderedNodeMappings name="HS_AnalogPin" semanticCandidatesExpression="feature:analogPins" domainClass="arduino.AnalogPin">
+            <style xsi:type="style:SquareDescription" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" showIcon="false" labelExpression="feature:id" tooltipExpression="Analog pin &lt;%id%>" sizeComputationExpression="2" labelPosition="node">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             </style>
@@ -181,54 +181,54 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="HS_Module" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Module%20and%20Platform']" semanticCandidatesExpression="&lt;%modules%>" domainClass="arduino.Module">
+        <nodeMappings name="HS_Module" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Module']" semanticCandidatesExpression="feature:modules" domainClass="arduino.Module">
           <style xsi:type="style:WorkspaceImageDescription" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold" showIcon="false" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" sizeComputationExpression="8" workspacePath="imageFromModel"/>
         </nodeMappings>
-        <edgeMappings name="Wire" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Connector']" semanticCandidatesExpression="&lt;%connectors%>" sourceMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Module']" targetMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Platform']/@borderedNodeMappings[name='HS_AnalogPin'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Platform']/@borderedNodeMappings[name='HS_DigitalPin']" targetFinderExpression="&lt;%pin%>" sourceFinderExpression="&lt;%module%>" domainClass="arduino.Connector" useDomainElement="true" reconnections="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Target'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Source']">
+        <edgeMappings name="Wire" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Wire']" semanticCandidatesExpression="&lt;%connectors%>" sourceMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Module']" targetMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Platform']/@borderedNodeMappings[name='HS_AnalogPin'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Platform']/@borderedNodeMappings[name='HS_DigitalPin']" targetFinderExpression="&lt;%pin%>" sourceFinderExpression="feature:module" domainClass="arduino.Connector" useDomainElement="true" reconnections="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Target'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Source']">
           <style strokeColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" sourceArrow="OutputArrow" sizeComputationExpression="2">
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']"/>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%self.module.filter(&quot;OutputModule&quot;)%>">
+          <conditionnalStyles predicateExpression="[self.module.oclIsKindOf(arduino::OutputModule)/]">
             <style strokeColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" lineStyle="dash" sourceArrow="InputClosedArrow" targetArrow="OutputArrow" sizeComputationExpression="2">
-              <centerLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
             </style>
           </conditionnalStyles>
         </edgeMappings>
         <toolSections name="Tool">
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Platform" precondition="&lt;%filter(&quot;Hardware&quot;)%>" candidatesExpression="&lt;%getPlatforms()%>" message="Select an hardware platform" iconPath="/fr.obeo.dsl.arduino.design/images/platform.png" windowTitle="Select Platform" windowImagePath="/fr.obeo.dsl.arduino.design/images/platform.png">
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Platform" precondition="&lt;%filter(&quot;Hardware&quot;)%>" candidatesExpression="service:getPlatforms" message="Select an hardware platform" iconPath="/fr.obeo.dsl.arduino.design/images/platform.png" windowTitle="Select Platform" windowImagePath="/fr.obeo.dsl.arduino.design/images/platform.png">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                <subModelOperations xsi:type="tool:Unset" featureName="platforms" elementExpression="&lt;%$container.platforms%>"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="platforms" valueExpression="&lt;%$element%>"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:Unset" featureName="platforms" elementExpression="[container.platforms/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="platforms" valueExpression="var:element"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Module" precondition="&lt;%filter(&quot;Hardware&quot;)%>" candidatesExpression="&lt;%getModules()%>" multiple="true" message="Select a hardware modules" iconPath="/fr.obeo.dsl.arduino.design/images/digital.png" windowTitle="Select Platform" windowImagePath="/fr.obeo.dsl.arduino.design/images/digital.png">
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Module" precondition="&lt;%filter(&quot;Hardware&quot;)%>" candidatesExpression="service:getModules" multiple="true" message="Select a hardware modules" iconPath="/fr.obeo.dsl.arduino.design/images/digital.png" windowTitle="Select Platform" windowImagePath="/fr.obeo.dsl.arduino.design/images/digital.png">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                <subModelOperations xsi:type="tool:For" expression="&lt;%$element.trace()%>">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="modules" valueExpression="&lt;%$i%>"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:For" expression="var:element">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="modules" valueExpression="var:i"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Connector">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Wire">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                <subModelOperations xsi:type="tool:Unset" featureName="pin" elementExpression="&lt;%$elementView.targetNode.target%>"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -239,8 +239,8 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                <subModelOperations xsi:type="tool:SetValue" featureName="pin" valueExpression="&lt;%$target%>"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="pin" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
@@ -252,34 +252,45 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                <subModelOperations xsi:type="tool:SetValue" featureName="module" valueExpression="&lt;%$target%>"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="module" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Wire" label="Wire" precondition="&lt;%isValidConnector($preTarget)%>" edgeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@edgeMappings[name='Wire']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Wire" label="Wire" precondition="[isValidConnector(preTarget)/]" edgeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@edgeMappings[name='Wire']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$sourceView.eContainer.target%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[sourceView.eContainer().oclAsType(viewpoint::DSemanticDiagram).target/]">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Connector" referenceName="connectors" variableName="connector">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="pin" valueExpression="&lt;%$target%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="module" valueExpression="&lt;%$source%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="pin" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="module" valueExpression="var:source"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Module and Platform">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Module">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:hardware">
-                  <subModelOperations xsi:type="tool:Unset" featureName="modules" elementExpression="var:element"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[containerView.oclAsType(DSemanticDiagram).target.oclAsType(arduino::Hardware)/]">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[removeWire(element)/]"/>
+                <subModelOperations xsi:type="tool:Unset" featureName="modules" elementExpression="var:element"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Platform">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[containerView.oclAsType(DSemanticDiagram).target.oclAsType(arduino::Hardware)/]">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[removeWire(element)/]">
+                  <subModelOperations xsi:type="tool:Unset" featureName="platforms" elementExpression="var:element"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -287,7 +298,7 @@
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Platform']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Module']/@style" attributeName="workspacePath" value="&lt;%getImage()%>"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Platform']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Module']/@style" attributeName="workspacePath" value="service:getImage"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>

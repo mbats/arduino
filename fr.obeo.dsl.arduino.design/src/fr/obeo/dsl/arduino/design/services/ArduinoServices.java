@@ -22,6 +22,7 @@ import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Constant;
 import fr.obeo.dsl.arduino.Control;
 import fr.obeo.dsl.arduino.DigitalPin;
+import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.If;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.MathOperator;
@@ -651,5 +652,23 @@ public class ArduinoServices {
 		}
 
 		return null;
+	}
+
+	public void removeWire(Hardware hardware, Module module) {
+		List<Connector> connectors = getConnectors(hardware);
+		for (Connector connector : connectors) {
+			if (connector.getModule().equals(module)) {
+				EcoreUtil.delete(connector);
+			}
+		}
+	}
+
+	public void removeWire(Hardware hardware, Platform platform) {
+		List<Connector> connectors = getConnectors(hardware);
+		for (Connector connector : connectors) {
+			if (connector.getPin().eContainer().equals(platform)) {
+				EcoreUtil.delete(connector);
+			}
+		}
 	}
 }
