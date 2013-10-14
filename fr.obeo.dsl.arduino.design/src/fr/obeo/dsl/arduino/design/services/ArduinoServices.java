@@ -27,8 +27,10 @@ import fr.obeo.dsl.arduino.If;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.MathOperator;
 import fr.obeo.dsl.arduino.Module;
+import fr.obeo.dsl.arduino.ModuleInstruction;
 import fr.obeo.dsl.arduino.NumericalOperator;
 import fr.obeo.dsl.arduino.OperatorKind;
+import fr.obeo.dsl.arduino.OutputModule;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
 import fr.obeo.dsl.arduino.Project;
@@ -175,6 +177,43 @@ public class ArduinoServices {
 		return result;
 	}
 
+	public List<Module> getStatusModules(Sketch sketch) {
+		List<Module> result = new ArrayList<Module>();
+		List<Module> modules = ImmutableList
+				.copyOf(getConnectedModules(sketch));
+
+		for (Module module : modules) {
+			if (module instanceof OutputModule) {
+				result.add(module);
+			}
+		}
+		return result;
+	}
+
+	public List<Module> getLevelModules(Sketch sketch) {
+		List<Module> result = new ArrayList<Module>();
+		List<Module> modules = ImmutableList.copyOf(getStatusModules(sketch));
+
+		for (Module module : modules) {
+			if (module.isLevel()) {
+				result.add(module);
+			}
+		}
+		return result;
+	}
+
+	public Sketch getSketch(EObject eObject) {
+		if (eObject instanceof Sketch) {
+			return (Sketch) eObject;
+		}
+
+		while (eObject != null && eObject instanceof Sketch) {
+			eObject = eObject.eContainer();
+		}
+
+		return (Sketch) eObject;
+	}
+
 	public List<Module> getConnectedModules(Sketch sketch) {
 		return getConnectedModules(sketch.getHardware());
 	}
@@ -259,6 +298,18 @@ public class ArduinoServices {
 			label += " " + computeLabel(condition.getRight());
 		}
 		return label;
+	}
+
+	public String computeLabelOperator(OperatorKind operator) {
+		return getOperator(operator);
+	}
+
+	public String computeLabelOperator(BooleanOperator operator) {
+		return getOperator(operator.getOperator());
+	}
+
+	public String computeLabel(Sensor instruction) {
+		return instruction.getModule().getName();
 	}
 
 	public String computeLabel(If instruction) {
@@ -519,10 +570,12 @@ public class ArduinoServices {
 						sensors.add(((Status) instruction).getSensor());
 					}
 				}
-				if (instruction instanceof Sensor
-						&& isNotUsedAnymore((Sketch) container,
-								(Sensor) instruction)) {
-					sensors.add((Sensor) instruction);
+				if (instruction instanceof Sensor) {
+					if (instruction.getNext() == null
+							|| isNotUsedAnymore((Sketch) container,
+									(Sensor) instruction)) {
+						sensors.add((Sensor) instruction);
+					}
 				}
 			}
 		} else if (container instanceof MathOperator) {
@@ -699,5 +752,10 @@ public class ArduinoServices {
 
 	public boolean isUploadable(Project project) {
 		return isValidHardware(project) && !isInvalidSketch(project);
+	}
+
+	public String getImage(ModuleInstruction instruction) {
+		return "/fr.obeo.dsl.arduino.design/images/"
+				+ instruction.getModule().getImage();
 	}
 }

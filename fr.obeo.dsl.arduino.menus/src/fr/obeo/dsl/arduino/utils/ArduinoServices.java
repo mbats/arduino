@@ -76,6 +76,10 @@ public class ArduinoServices {
 		return (Project) resource.getContents().get(0);
 	}
 
+	public boolean isInvalidSketch(Sketch sketch) {
+		return !isValidSketch(sketch);
+	}
+
 	public boolean isValidSketch(Sketch sketch) {
 
 		if (sketch != null) {
