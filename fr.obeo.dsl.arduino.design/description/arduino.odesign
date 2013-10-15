@@ -499,7 +499,7 @@
         </containerMappings>
         <containerMappings name="NumericalOperator" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Delete%20MathOperator']" semanticCandidatesExpression="service:getNumericalOperators" domainClass="arduino.NumericalOperator" reusedNodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Variable'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Constant']" reusedContainerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='NumericalOperator']">
           <subNodeMappings name="Operator" semanticCandidatesExpression="var:self" domainClass="arduino.NumericalOperator">
-            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold" showIcon="false" labelExpression="[operator.computeLabel()/]" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelPosition="node" color="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20light%20green']"/>
+            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold" showIcon="false" labelExpression="[operator.computeLabelOperator()/]" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelPosition="node" color="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20light%20green']"/>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="10" arcHeight="10" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold_italic" showIcon="false" labelExpression="service:computeLabel" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" roundedCorner="true" backgroundStyle="Liquid" backgroundColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20light%20green']" foregroundColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20light%20green']">
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
@@ -627,6 +627,11 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="condition" valueExpression="var:source"/>
                   </subModelOperations>
                 </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[source.oclIsKindOf(arduino::Sensor) and target.oclIsKindOf(arduino::If)/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="condition" valueExpression="var:source"/>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -637,7 +642,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool:Unset" featureName="next" elementExpression="&lt;%$elementView.targetNode.target%>"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$elementView.targetNode.target%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.targetNode.oclAsType(viewpoint::DDiagramElement).target/]">
                   <subModelOperations xsi:type="tool:Unset" featureName="sensor" elementExpression="&lt;%$elementView.sourceNode.target%>"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -652,7 +657,14 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:target"/>
-                <subModelOperations xsi:type="tool:Unset" featureName="next" elementExpression="[source.next/]"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[element.oclIsKindOf(arduino::Sensor)/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool:Unset" featureName="sensor" elementExpression="var:element"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="sensor" valueExpression="var:element"/>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
@@ -664,8 +676,16 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="[source.next/]"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="[target.oclIsKindOf(arduino::Sensor)/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.status/]">
+                    <subModelOperations xsi:type="tool:Unset" featureName="sensor" elementExpression="var:source"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="sensor" valueExpression="var:target"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="[source.next/]"/>
+                </subModelOperations>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
                   <subModelOperations xsi:type="tool:Unset" featureName="next" elementExpression="[source.next/]"/>
                 </subModelOperations>
@@ -963,7 +983,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="MathOperator">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Equal" label="=" precondition="&lt;%$container.filter(&quot;While&quot;)||$container.filter(&quot;BooleanOperator&quot;)%>" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Equal" label="=" precondition="[container.oclIsKindOf(arduino::While) or container.oclIsKindOf(arduino::If)or container.oclIsKindOf(arduino::BooleanOperator)/]" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -971,28 +991,33 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.BooleanOperator" referenceName="instructions" variableName="operator">
                   <subModelOperations xsi:type="tool:SetValue" featureName="operator" valueExpression="equal"/>
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;MathOperator&quot;)%>">
+                    <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(arduino::MathOperator)/]">
                       <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                        <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%left!=null &amp;&amp; right==null%>">
+                        <subModelOperations xsi:type="tool:If" conditionExpression="[left&lt;>null and right=null/]">
                           <subModelOperations xsi:type="tool:SetValue" featureName="right" valueExpression="var:operator"/>
                         </subModelOperations>
-                        <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%left==null &amp;&amp; right==null%>">
+                        <subModelOperations xsi:type="tool:If" conditionExpression="[left=null and right=null/]">
                           <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="var:operator"/>
                         </subModelOperations>
-                        <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%left==null &amp;&amp; right!=null%>">
+                        <subModelOperations xsi:type="tool:If" conditionExpression="[left=null and right&lt;>null/]">
                           <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="var:operator"/>
                         </subModelOperations>
-                        <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%left!=null &amp;&amp; right!=null%>">
+                        <subModelOperations xsi:type="tool:If" conditionExpression="[left&lt;>null and right&lt;>null/]">
                           <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="var:operator"/>
                         </subModelOperations>
                       </subModelOperations>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;Set&quot;)%>">
+                    <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(arduino::Set)/]">
                       <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                         <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="var:operator"/>
                       </subModelOperations>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;While&quot;)%>">
+                    <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(arduino::While)/]">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="condition" valueExpression="var:operator"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(arduino::If)/]">
                       <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                         <subModelOperations xsi:type="tool:SetValue" featureName="condition" valueExpression="var:operator"/>
                       </subModelOperations>

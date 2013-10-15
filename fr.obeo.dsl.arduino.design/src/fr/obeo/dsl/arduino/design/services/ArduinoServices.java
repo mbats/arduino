@@ -304,7 +304,7 @@ public class ArduinoServices {
 		return getOperator(operator);
 	}
 
-	public String computeLabelOperator(BooleanOperator operator) {
+	public String computeLabelOperator(MathOperator operator) {
 		return getOperator(operator.getOperator());
 	}
 
