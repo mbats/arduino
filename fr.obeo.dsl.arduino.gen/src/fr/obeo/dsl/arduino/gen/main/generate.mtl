@@ -111,6 +111,13 @@ while ([instruction.condition.generateInstruction()/])
 }
 [/template]
 
+[template public generateInstruction(instruction : If)post (trim())]
+if ([instruction.condition.generateInstruction()/])
+{
+ [instruction.instructions->first().genINO()/]
+}
+[/template]
+
 [template public generateInstruction(instruction : BooleanOperator)post (trim())]
 [instruction.getValue()/]
 [/template]
