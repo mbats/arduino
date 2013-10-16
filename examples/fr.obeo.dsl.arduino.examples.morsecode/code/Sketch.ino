@@ -1,14 +1,14 @@
-int Buzzer = 12;
-int RedLED = 13;
-int Pushbutton1 = 8;
+int BlueLED = 13;
+int Buzzer = 1;
+int Pushbutton1 = 0;
 
 void setup() {
+  pinMode(BlueLED, OUTPUT);  
   pinMode(Buzzer, OUTPUT);  
-  pinMode(RedLED, OUTPUT);  
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
- digitalWrite(RedLED, (!digitalRead(Pushbutton1)));
- digitalWrite(Buzzer, (!digitalRead(Pushbutton1)));
+ digitalWrite(BlueLED, (digitalRead(Pushbutton1)));
+ digitalWrite(Buzzer, (digitalRead(Pushbutton1)));
 }
