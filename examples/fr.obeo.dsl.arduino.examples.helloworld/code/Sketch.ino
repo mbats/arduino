@@ -1,13 +1,13 @@
-int WhiteLED = 13;
+int BlueLED = 13;
 
 void setup() {
-  pinMode(WhiteLED, OUTPUT);  
+  pinMode(BlueLED, OUTPUT);  
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
- digitalWrite(WhiteLED, (true));
- delay(500);
- digitalWrite(WhiteLED, (false));
- delay(500);
+ delay(300);
+ digitalWrite(BlueLED, (HIGH));
+ delay(300);
+ digitalWrite(BlueLED, (LOW));
 }

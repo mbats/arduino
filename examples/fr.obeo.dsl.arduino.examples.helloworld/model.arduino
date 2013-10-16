@@ -2,20 +2,20 @@
 <arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino">
   <hardware name="Hardware">
     <platforms href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
-    <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+    <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
     <connectors>
       <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.13"/>
-      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
     </connectors>
   </hardware>
-  <sketch name="Sketch" next="//@sketch/@instructions.3" hardware="//@hardware">
+  <sketch name="Sketch" next="//@sketch/@instructions.0" hardware="//@hardware">
+    <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.1" value="300"/>
     <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.2">
-      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
     </instructions>
-    <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.0" value="500"/>
-    <instructions xsi:type="arduino:Delay" next="//@sketch" value="500"/>
-    <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.1" status="true">
-      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+    <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.3" value="300"/>
+    <instructions xsi:type="arduino:Status" next="//@sketch" status="true">
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
     </instructions>
   </sketch>
 </arduino:Project>
