@@ -25,6 +25,7 @@ import fr.obeo.dsl.arduino.DigitalPin;
 import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.If;
 import fr.obeo.dsl.arduino.Instruction;
+import fr.obeo.dsl.arduino.Level;
 import fr.obeo.dsl.arduino.MathOperator;
 import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.ModuleInstruction;
@@ -207,7 +208,7 @@ public class ArduinoServices {
 			return (Sketch) eObject;
 		}
 
-		while (eObject != null && eObject instanceof Sketch) {
+		while (eObject != null && !(eObject instanceof Sketch)) {
 			eObject = eObject.eContainer();
 		}
 
@@ -757,5 +758,68 @@ public class ArduinoServices {
 	public String getImage(ModuleInstruction instruction) {
 		return "/fr.obeo.dsl.arduino.design/images/"
 				+ instruction.getModule().getImage();
+	}
+
+	public void updateValue(Level level, String newValue) {
+		newValue = newValue.trim();
+		Sketch sketch = getSketch(level);
+		Value value = getValue(sketch, newValue);
+		level.setLevel(value);
+		deleteUnusedValues(sketch);
+	}
+
+	public void addVariable(Instruction container, Variable variable) {
+		if (container instanceof MathOperator) {
+			addMathOperatorValue((MathOperator) container, variable);
+		} else if (container instanceof Set) {
+			((Set) container).setVariable(variable);
+		}
+		deleteUnusedValues(getSketch(variable));
+	}
+
+	public void addValue(Instruction container, Constant value) {
+		if (container instanceof MathOperator) {
+			addMathOperatorValue((MathOperator) container, value);
+		} else if (container instanceof Set) {
+			((Set) container).setValue(value);
+		}
+		deleteUnusedValues(getSketch(value));
+	}
+
+	private void addMathOperatorValue(MathOperator container, Value value) {
+		Value left = container.getLeft();
+		Value right = container.getRight();
+
+		if (left == null && right == null) {
+			container.setLeft(value);
+		} else if (left != null && right == null) {
+			container.setRight(value);
+		} else if (left == null && right != null) {
+			container.setLeft(value);
+		} else if (left != null && right != null) {
+			container.setLeft(value);
+		}
+		deleteUnusedValues(getSketch(value));
+	}
+
+	public void updateValue(Instruction container, Value newValue,
+			Value oldValue) {
+		if (container instanceof Set) {
+			if (newValue instanceof Variable) {
+				((Set) container).setVariable((Variable) newValue);
+			} else {
+				((Set) container).setValue(newValue);
+			}
+		} else if (container instanceof MathOperator) {
+			Value left = ((MathOperator) container).getLeft();
+			Value right = ((MathOperator) container).getRight();
+			if (oldValue.equals(left)) {
+				((MathOperator) container).setLeft(newValue);
+			} else if (oldValue.equals(right)) {
+				((MathOperator) container).setRight(newValue);
+			}
+
+		}
+		deleteUnusedValues(getSketch(container));
 	}
 }

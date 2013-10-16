@@ -484,7 +484,7 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
-        <containerMappings name="While" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20While']" semanticCandidatesExpression="feature:instructions" domainClass="arduino.While" reusedNodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Sensor'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Level']" reusedContainerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Repeat'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='While'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Set'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='If']">
+        <containerMappings name="While" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20While%20and%20If']" semanticCandidatesExpression="feature:instructions" domainClass="arduino.While" reusedNodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Sensor'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Level']" reusedContainerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Repeat'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='While'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Set'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='If']">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="10" arcHeight="10" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold_italic" showIcon="false" labelExpression="service:computeLabel" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" roundedCorner="true" backgroundStyle="Liquid" backgroundColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20white']" foregroundColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20white']">
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
@@ -513,7 +513,7 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
-        <containerMappings name="If" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20While']" semanticCandidatesExpression="feature:instructions" domainClass="arduino.If" reusedNodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Sensor'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Level']" reusedContainerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Repeat'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='If'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Set'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='While']">
+        <containerMappings name="If" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20While%20and%20If']" semanticCandidatesExpression="feature:instructions" domainClass="arduino.If" reusedNodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Sensor'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Level']" reusedContainerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Repeat'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='If'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Set'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='While']">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="10" arcHeight="10" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold_italic" showIcon="false" labelExpression="service:computeLabel" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" roundedCorner="true" backgroundStyle="Liquid" backgroundColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20white']" foregroundColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20white']">
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
@@ -715,7 +715,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:level">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[updateValue(arg0)/]"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[updateValue(arg1)/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -754,7 +754,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete While">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete While and If">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -807,28 +807,7 @@
             </element>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:If" conditionExpression="[elementView.eContainer().target.oclIsKindOf(arduino::Set)/]">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%~variable.filter(&quot;Set&quot;)%>">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%~variable[self==$elementView.eContainer().target]%>">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="variable" valueExpression="var:variable"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="[elementView.eContainer().target.oclIsKindOf(arduino::MathOperator)/]">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%~left.filter(&quot;MathOperator&quot;)%>">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%~left[self==$elementView.eContainer().target]%>">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="var:variable"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%~right.filter(&quot;MathOperator&quot;)%>">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%~right[self==$elementView.eContainer().target]%>">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="right" valueExpression="var:variable"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(arduino::Sketch).deleteUnusedValues()/]"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.eContainer().oclAsType(DDiagramElement).target.oclAsType(arduino::Instruction).updateValue(variable, element)/]"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Variable" nodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Variable']">
@@ -838,26 +817,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(arduino::Sketch)/]">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Variable" referenceName="instructions" variableName="variable">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['var'+eContainer(arduino::Sketch).instructions->select(oclIsKindOf(arduino::Variable))->size()/]"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(arduino::MathOperator)/]">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                      <subModelOperations xsi:type="tool:If" conditionExpression="[left&lt;>null and right=null/]">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="right" valueExpression="var:variable"/>
-                      </subModelOperations>
-                      <subModelOperations xsi:type="tool:If" conditionExpression="[left=null and right=null/]">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="var:variable"/>
-                      </subModelOperations>
-                      <subModelOperations xsi:type="tool:If" conditionExpression="[left=null and right&lt;>null/]">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="[eContainer(arduino::Sketch).eAllContents(arduino::Constant)->select(value=&quot;0&quot;)->first()/]"/>
-                      </subModelOperations>
-                    </subModelOperations>
-                  </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(arduino::Set)/]">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="variable" valueExpression="var:variable"/>
-                    </subModelOperations>
-                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.addVariable(variable)/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -872,33 +832,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="['0'/]"/>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[eAllContents(arduino::Constant)->select(value='0')/]">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(arduino::MathOperator)/]">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                        <subModelOperations xsi:type="tool:If" conditionExpression="[left&lt;>null and right=null/]">
-                          <subModelOperations xsi:type="tool:SetValue" featureName="right" valueExpression="[eContainer(arduino::Sketch).eAllContents(arduino::Constant)->select(value='0')->first()/]"/>
-                        </subModelOperations>
-                        <subModelOperations xsi:type="tool:If" conditionExpression="[left=null and right=null/]">
-                          <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="[eContainer(arduino::Sketch).eAllContents(arduino::Constant)->select(value='0')->first()/]"/>
-                        </subModelOperations>
-                        <subModelOperations xsi:type="tool:If" conditionExpression="[left=null and right&lt;>null/]">
-                          <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="[eContainer(arduino::Sketch).eAllContents(arduino::Constant)->select(value='0')->first()/]"/>
-                        </subModelOperations>
-                      </subModelOperations>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(arduino::Set)/]">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="[eContainer(arduino::Sketch).eAllContents(arduino::Constant)->select(value='0')->first()/]"/>
-                      </subModelOperations>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(arduino::Level)/]">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="level" valueExpression="[eContainer(arduino::Sketch).eAllContents(arduino::Constant)->select(value='0')->first()/]"/>
-                      </subModelOperations>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.addValue(eAllContents(arduino::Constant)->select(value='0')->first())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -912,15 +846,7 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:For" expression="&lt;%~right%>" iteratorName="operator">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="right" valueExpression="[eContainer(arduino::Sketch).createConstant(arg0)/]"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:For" expression="&lt;%~left%>" iteratorName="operator">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="[eContainer(arduino::Sketch).createConstant(arg0)/]"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:For" expression="&lt;%~variable%>" iteratorName="set">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="[eContainer(arduino::Sketch).createConstant(arg0)/]"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="var:0"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -945,28 +871,7 @@
             </element>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:If" conditionExpression="[elementView.eContainer().target.oclIsKindOf(arduino::Set)/]">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%~value.filter(&quot;Set&quot;)%>">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%~value[self==$elementView.eContainer().target]%>">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="var:variable"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="[elementView.eContainer().target.oclIsKindOf(arduino::MathOperator)/]">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%~left.filter(&quot;MathOperator&quot;)%>">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%~left[self==$elementView.eContainer().target]%>">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="left" valueExpression="var:variable"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%~right.filter(&quot;MathOperator&quot;)%>">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%~right[self==$elementView.eContainer().target]%>">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="right" valueExpression="var:variable"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(arduino::Sketch).deleteUnusedValues()/]"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.eContainer().oclAsType(DDiagramElement).target.oclAsType(arduino::Instruction).updateValue(variable, element)/]"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Set" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Set']">
