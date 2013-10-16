@@ -3,11 +3,13 @@ package fr.obeo.dsl.arduino.wizard;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.sirius.ui.tools.internal.wizards.ModelingProjectWizard;
 import org.eclipse.ui.PlatformUI;
 
+import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 import fr.obeo.dsl.arduino.utils.ProjectServices;
-import fr.obeo.dsl.viewpoint.ui.tools.internal.wizards.ModelingProjectWizard;
 
 public class ArduinoProjectWizard extends ModelingProjectWizard {
 	@Override
@@ -41,11 +43,9 @@ public class ArduinoProjectWizard extends ModelingProjectWizard {
 						}
 					});
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ArduinoUiActivator.log(Status.ERROR, "Create project failed", e);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ArduinoUiActivator.log(Status.ERROR, "Create project failed", e);
 		}
 		return true;
 	}

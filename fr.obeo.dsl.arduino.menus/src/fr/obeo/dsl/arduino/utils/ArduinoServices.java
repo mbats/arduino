@@ -22,6 +22,9 @@ import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PlatformUI;
@@ -31,9 +34,6 @@ import fr.obeo.dsl.arduino.Project;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.gen.main.Generate;
 import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
 
 public class ArduinoServices {
 	public void closeOpenedEditors() {

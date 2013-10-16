@@ -13,21 +13,24 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.viewpoint.DDiagram;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.PlatformUI;
 
+import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 import fr.obeo.dsl.arduino.utils.ArduinoServices;
 import fr.obeo.dsl.arduino.utils.ProjectServices;
-import fr.obeo.dsl.viewpoint.DDiagram;
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
 
 public class OpenProjectHandler extends AbstractHandler {
 	ArduinoServices service = new ArduinoServices();
+
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		FileDialog dialog = new FileDialog(PlatformUI.getWorkbench()
@@ -76,18 +79,15 @@ public class OpenProjectHandler extends AbstractHandler {
 								project.open(null);
 								monitor.worked(25);
 							} catch (CoreException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
+								ArduinoUiActivator.log(Status.ERROR, "Open project failed", e);
 							}
 							monitor.done();
 						}
 					});
 		} catch (InvocationTargetException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			ArduinoUiActivator.log(Status.ERROR, "Open project failed", e1);
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			ArduinoUiActivator.log(Status.ERROR, "Open project failed", e1);
 		}
 	}
 

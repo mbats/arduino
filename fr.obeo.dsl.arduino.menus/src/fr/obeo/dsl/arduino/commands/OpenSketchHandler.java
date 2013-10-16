@@ -6,13 +6,13 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.viewpoint.DDiagram;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 
 import fr.obeo.dsl.arduino.utils.ArduinoServices;
-import fr.obeo.dsl.viewpoint.DDiagram;
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
 
 public class OpenSketchHandler extends AbstractHandler {
 	ArduinoServices service = new ArduinoServices();

@@ -11,6 +11,7 @@
 package fr.obeo.dsl.arduino.gen;
 
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.core.runtime.Status;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -62,5 +63,20 @@ public class Activator extends Plugin {
     public static Activator getDefault() {
         return plugin;
     }
+    
+	/**
+	 * A helper to log plugin errors.
+	 * 
+	 * @param severity
+	 *            the error severity.
+	 * @param message
+	 *            the error message.
+	 * @param exception
+	 *            the error exception.
+	 */
+	public static void log(int severity, String message, Throwable exception) {
+		getDefault().getLog().log(
+				new Status(severity, PLUGIN_ID, message, exception));
+	}
 
 }

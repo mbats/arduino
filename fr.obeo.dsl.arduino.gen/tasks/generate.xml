@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="fr.obeo.dsl.arduino.gen">
-    <property name="ECLIPSE_HOME" value="../../../../../programs/obeo-dev-studio/kepler/fr.obeo.dev.studio.branding.product-linux.gtk.x86"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../workspace"/>
+    <property name="ECLIPSE_HOME" value="../../../../../programs/eclipse/4.3.1/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../workspace_sirius"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.obeo.dsl.arduino.gen.libraryclasspath">
@@ -18,10 +18,10 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.9.1.v20130827-0309.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.9.1.v20130827-0309.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.xmi_2.9.1.v20130827-0309.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.3.100.v20130819-1305.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.3.0.v20130909-1552.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.1.100.v20130628-1141.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.3.100.v20130628-1141.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.1.0.v20130531-0544.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.3.0.v20130520-1222.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.4.1.201309031307.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.4.1.201309031307.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.profiler_3.4.1.201309031307.jar"/>

@@ -9,6 +9,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
@@ -16,6 +17,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.PlatformUI;
 
+import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 import fr.obeo.dsl.arduino.utils.ArduinoServices;
 
 public class DeleteProjectHandler extends AbstractHandler {
@@ -47,17 +49,14 @@ public class DeleteProjectHandler extends AbstractHandler {
 								try {
 									project.delete(true, true, monitor);
 								} catch (CoreException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+									ArduinoUiActivator.log(Status.ERROR, "Delete project failed", e);
 								}
 							}
 						});
 			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				ArduinoUiActivator.log(Status.ERROR, "Delete project failed", e);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				ArduinoUiActivator.log(Status.ERROR, "Delete project failed", e);
 			}
 
 		}

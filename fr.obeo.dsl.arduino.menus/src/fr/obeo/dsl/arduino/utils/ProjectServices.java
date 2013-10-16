@@ -9,24 +9,26 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.resource.AirdResource;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.IEditorPart;
 
 import com.google.common.collect.Maps;
 
 import fr.obeo.dsl.arduino.ArduinoFactory;
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.business.api.componentization.ViewpointRegistry;
-import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.resource.AirdResource;
-import fr.obeo.dsl.viewpoint.description.Viewpoint;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
-import fr.obeo.dsl.viewpoint.ui.business.api.viewpoint.ViewpointSelectionCallback;
+import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 
 public class ProjectServices {
 	ArduinoServices service = new ArduinoServices();
@@ -91,7 +93,7 @@ public class ProjectServices {
 								try {
 									res.save(Maps.newHashMap());
 								} catch (IOException e) {
-									e.printStackTrace();
+									ArduinoUiActivator.log(Status.ERROR, "Init semantic model failed", e);
 								}
 
 								session.addSemanticResource(semanticModelURI,
@@ -144,8 +146,7 @@ public class ProjectServices {
 				project.delete(false, false, monitor);
 				monitor.worked(25);
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				ArduinoUiActivator.log(Status.ERROR, "Close project failed", e);
 			}
 		}
 	}

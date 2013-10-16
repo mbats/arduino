@@ -6,14 +6,14 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: fr.obeo.dsl.arduino.menus.ArduinoUiActivator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- fr.obeo.dsl.viewpoint.ui,
  com.google.guava,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,
  fr.obeo.dsl.arduino,
  org.eclipse.emf.transaction,
  fr.obeo.dsl.arduino.gen,
- org.eclipse.acceleo.engine
+ org.eclipse.acceleo.engine,
+ org.eclipse.sirius.ui;bundle-version="0.9.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.obeo.dsl.arduino.commands;x-friends:="fr.obeo.dsl.arduino.design",
