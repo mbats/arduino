@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -42,8 +44,6 @@ import fr.obeo.dsl.arduino.Status;
 import fr.obeo.dsl.arduino.Value;
 import fr.obeo.dsl.arduino.Variable;
 import fr.obeo.dsl.arduino.While;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 
 public class ArduinoServices {
 
@@ -819,6 +819,8 @@ public class ArduinoServices {
 				((MathOperator) container).setRight(newValue);
 			}
 
+		} else if (container instanceof Level) {
+			((Level) container).setLevel(newValue);
 		}
 		deleteUnusedValues(getSketch(container));
 	}

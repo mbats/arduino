@@ -421,7 +421,7 @@
         <nodeMappings name="Sensor" semanticCandidatesExpression="service:getSensors" domainClass="arduino.Sensor">
           <style xsi:type="style:WorkspaceImageDescription" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold_italic" showIcon="false" labelExpression="service:computeLabel" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="imageFromModel"/>
         </nodeMappings>
-        <nodeMappings name="Level" labelDirectEdit="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Level']" semanticCandidatesExpression="feature:instructions" domainClass="arduino.Level">
+        <nodeMappings name="Level" labelDirectEdit="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Level']" semanticCandidatesExpression="feature:instructions" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Select%20Level']" domainClass="arduino.Level">
           <style xsi:type="style:WorkspaceImageDescription" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold_italic" showIcon="false" labelExpression="service:computeLevelLabel" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="imageFromModel"/>
         </nodeMappings>
         <nodeMappings name="Variable" labelDirectEdit="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Edit%20Variable']" semanticCandidatesExpression="service:getVariables" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Select%20Variable']" domainClass="arduino.Variable">
@@ -718,6 +718,15 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[updateValue(arg1)/]"/>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Select Level" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Level']">
+            <element name="element">
+              <subVariables xsi:type="tool:SelectModelElementVariable" name="level" candidatesExpression="[eContainer(arduino::Sketch).eAllContents(arduino::Value)->select(oclIsKindOf(arduino::Variable) or oclIsKindOf(arduino::Constant))/]" message="Select an existing variable"/>
+            </element>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.oclAsType(arduino::Instruction).updateValue(level, element.level)/]"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

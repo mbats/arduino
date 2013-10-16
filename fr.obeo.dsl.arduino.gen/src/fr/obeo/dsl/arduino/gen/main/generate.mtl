@@ -111,6 +111,10 @@ while ([instruction.condition.generateInstruction()/])
 }
 [/template]
 
+[template public generateInstruction(instruction : BooleanOperator)post (trim())]
+[instruction.getValue()/]
+[/template]
+
 [template public generateInstruction(instruction : Set)post (trim())]
 [instruction.variable.name/]=[instruction.value.getValue()/];
 [/template]
