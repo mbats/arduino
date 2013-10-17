@@ -122,7 +122,21 @@ public class ArduinoServices {
 	public List<Instruction> getInstructions(Instruction instruction) {
 		List<Instruction> instructions = Lists.newArrayList();
 		if (instruction instanceof Sensor) {
-			instructions.addAll(((Sensor) instruction).getStatus());
+			if (((Sensor) instruction).getStatus().size() > 0) {
+				instructions.addAll(((Sensor) instruction).getStatus());
+			} else {
+				ResourceSet resourceSet = instruction.eResource()
+						.getResourceSet();
+				ECrossReferenceAdapter adapter = new ECrossReferenceAdapter();
+				resourceSet.eAdapters().add(adapter);
+				Collection<Setting> refs = adapter.getInverseReferences(
+						instruction, true);
+				for (Setting setting : refs) {
+					if (setting.getEObject() instanceof Level) {
+						instructions.add((Instruction) setting.getEObject());
+					}
+				}
+			}
 		}
 		instructions.add(instruction.getNext());
 		return instructions;

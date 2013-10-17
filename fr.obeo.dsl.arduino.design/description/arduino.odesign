@@ -632,6 +632,11 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="condition" valueExpression="var:source"/>
                   </subModelOperations>
                 </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[source.oclIsKindOf(arduino::Sensor) and target.oclIsKindOf(arduino::Level)/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="level" valueExpression="var:source"/>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -644,6 +649,7 @@
                 <subModelOperations xsi:type="tool:Unset" featureName="next" elementExpression="[elementView.targetNode.oclAsType(viewpoint::DDiagramElement).target/]"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.targetNode.oclAsType(viewpoint::DDiagramElement).target/]">
                   <subModelOperations xsi:type="tool:Unset" featureName="sensor" elementExpression="[elementView.sourceNode.oclAsType(viewpoint::DDiagramElement).target/]"/>
+                  <subModelOperations xsi:type="tool:Unset" featureName="level" elementExpression="[elementView.sourceNode.oclAsType(viewpoint::DDiagramElement).target/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
