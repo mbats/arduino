@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino">
+  <hardware name="Hardware">
+    <platforms href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
+    <modules xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.10"/>
+    <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.13"/>
+    <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.11"/>
+    <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
+    <connectors>
+      <pin xsi:type="arduino:AnalogPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@analogPins.1"/>
+      <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.10"/>
+    </connectors>
+    <connectors>
+      <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.8"/>
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.11"/>
+    </connectors>
+    <connectors>
+      <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.7"/>
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.13"/>
+    </connectors>
+    <connectors>
+      <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.13"/>
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
+    </connectors>
+  </hardware>
+  <sketch name="Sketch" next="//@sketch/@instructions.0" hardware="//@hardware">
+    <instructions xsi:type="arduino:If" next="//@sketch/@instructions.1" condition="//@sketch/@instructions.2">
+      <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.0/@instructions.1">
+        <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
+      </instructions>
+      <instructions xsi:type="arduino:Repeat" iteration="3">
+        <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.0/@instructions.1/@instructions.1" level="//@sketch/@instructions.5">
+          <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.11"/>
+        </instructions>
+        <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.0/@instructions.1/@instructions.2" value="50"/>
+        <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.0/@instructions.1/@instructions.3">
+          <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.13"/>
+        </instructions>
+        <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.0/@instructions.1/@instructions.4" value="1500"/>
+        <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.0/@instructions.1/@instructions.5" status="true">
+          <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.13"/>
+        </instructions>
+        <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.0/@instructions.1/@instructions.6" level="//@sketch/@instructions.6">
+          <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.11"/>
+        </instructions>
+        <instructions xsi:type="arduino:Delay" value="1500"/>
+      </instructions>
+    </instructions>
+    <instructions xsi:type="arduino:Status" next="//@sketch" status="true">
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
+    </instructions>
+    <instructions xsi:type="arduino:BooleanOperator" left="//@sketch/@instructions.3" right="//@sketch/@instructions.4" operator="upper"/>
+    <instructions xsi:type="arduino:Sensor">
+      <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.10"/>
+    </instructions>
+    <instructions xsi:type="arduino:Constant" value="128"/>
+    <instructions xsi:type="arduino:Constant" value="0"/>
+    <instructions xsi:type="arduino:Constant" value="60"/>
+  </sketch>
+</arduino:Project>
