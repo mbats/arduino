@@ -10,7 +10,7 @@
 
 [template public genIno (sketch : Sketch) ]
 [file (sketch.getVariableName()+'.ino', false, 'UTF-8')]
-[for (library : Library | sketch.eAllContents("Level").module->select(library<>arduino::Library::none).library)]
+[for (library : Library | sketch.eAllContents("Level").module->select(library<>arduino::Library::none).library->asOrderedSet())]
 #include <[library.toString().toUpperFirst()/].h>
 [/for]
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]

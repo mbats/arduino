@@ -1,5 +1,7 @@
 package fr.obeo.dsl.arduino.gen.main;
 
+import java.util.Iterator;
+
 import fr.obeo.dsl.arduino.Constant;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.MathOperator;
@@ -13,8 +15,10 @@ import fr.obeo.dsl.arduino.Variable;
 public class ArduinoGenServices {
 
 	public int getRepeatInstructionIndex(Sketch sketch, Repeat repeat) {
-		for (int i = 0; i < sketch.getInstructions().size(); i++) {
-			Instruction instruction = sketch.getInstructions().get(i);
+		int i = 0;
+		for (Iterator iterator = sketch.eAllContents(); iterator.hasNext();) {
+			Instruction instruction = (Instruction) iterator.next();
+			i++;
 			if (instruction instanceof Repeat && instruction.equals(repeat)) {
 				return i;
 			}
