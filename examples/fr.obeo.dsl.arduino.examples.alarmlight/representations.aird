@@ -21,12 +21,23 @@
             <children xmi:type="notation:Node" xmi:id="_mKSr8zZMEeOWsKej3B1eyA" type="5002">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_mKSr9DZMEeOWsKej3B1eyA" y="-21"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_mKWWUDZMEeOWsKej3B1eyA" type="3005" element="_mJ2AATZMEeOWsKej3B1eyA">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_mKWWUTZMEeOWsKej3B1eyA" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mKWWUjZMEeOWsKej3B1eyA"/>
+            <children xmi:type="notation:Node" xmi:id="_HWzKsDcqEeOfnNZYkjOtEA" type="3005" element="_HV2vgDcqEeOfnNZYkjOtEA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_HWzKsTcqEeOfnNZYkjOtEA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HWzKsjcqEeOfnNZYkjOtEA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_mKSr8TZMEeOWsKej3B1eyA" fontName="Ubuntu" fontHeight="16"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mKSr8jZMEeOWsKej3B1eyA" x="230" width="200" height="200"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HV39oDcqEeOfnNZYkjOtEA" type="2001" element="_HV3WkDcqEeOfnNZYkjOtEA">
+            <children xmi:type="notation:Node" xmi:id="_HV4ksjcqEeOfnNZYkjOtEA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_HV4kszcqEeOfnNZYkjOtEA" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_HWzxwDcqEeOfnNZYkjOtEA" type="3005" element="_HV3WkTcqEeOfnNZYkjOtEA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_HWzxwTcqEeOfnNZYkjOtEA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HWzxwjcqEeOfnNZYkjOtEA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HV4ksDcqEeOfnNZYkjOtEA" fontName="Ubuntu" fontHeight="16"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HV4ksTcqEeOfnNZYkjOtEA" x="460" width="200" height="200"/>
           </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_h9CoYjZMEeOWsKej3B1eyA"/>
         </data>
@@ -41,15 +52,25 @@
         </ownedStyle>
         <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Hardware']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_mJ2AADZMEeOWsKej3B1eyA" name="2" tooltipText="Double click to describe the software" width="20" height="20">
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_mJ2AADZMEeOWsKej3B1eyA" name="2" tooltipText="Double click to see sketch" width="20" height="20">
         <target xmi:type="arduino:Project" href="model.arduino#/"/>
         <semanticElements xmi:type="arduino:Project" href="model.arduino#/"/>
-        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_mJ2AATZMEeOWsKej3B1eyA" labelSize="16" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/software_invalid.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_mJ2AAjZMEeOWsKej3B1eyA"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_mJ2AAzZMEeOWsKej3B1eyA"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_HV2vgDcqEeOfnNZYkjOtEA" labelSize="16" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/software.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_HV2vgTcqEeOfnNZYkjOtEA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_HV2vgjcqEeOfnNZYkjOtEA"/>
         </ownedStyle>
         <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Sketch']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_HV3WkDcqEeOfnNZYkjOtEA" name="3" tooltipText="Upload sketch on hardware" width="20" height="20">
+        <target xmi:type="arduino:Project" href="model.arduino#/"/>
+        <semanticElements xmi:type="arduino:Project" href="model.arduino#/"/>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_HV3WkTcqEeOfnNZYkjOtEA" labelSize="16" showIcon="false" workspacePath="/fr.obeo.dsl.arduino.design/images/upload.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_HV3WkjcqEeOfnNZYkjOtEA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Upload']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_HV3WkzcqEeOfnNZYkjOtEA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='Upload']"/>
       </ownedDiagramElements>
       <description xmi:type="description:DiagramDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']"/>
       <filterVariableHistory xmi:type="viewpoint:FilterVariableHistory" xmi:id="_h9CBVTZMEeOWsKej3B1eyA"/>
