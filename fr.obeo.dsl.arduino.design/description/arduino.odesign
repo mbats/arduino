@@ -527,8 +527,10 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Delay" referenceName="instructions" variableName="delay">
                   <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="100"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:delay"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[container.getLastInstruction() &lt;> null/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:delay"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -543,8 +545,10 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Status" referenceName="instructions" variableName="status">
                   <subModelOperations xsi:type="tool:SetValue" featureName="module" valueExpression="var:module"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:getLastInstruction">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:status"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[getLastInstruction() &lt;> null/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:getLastInstruction">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:status"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -559,8 +563,10 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Level" referenceName="instructions" variableName="level">
                   <subModelOperations xsi:type="tool:SetValue" featureName="module" valueExpression="var:modules"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:level"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[container.getLastInstruction() &lt;> null/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:level"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -743,8 +749,10 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Repeat" referenceName="instructions"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:instance"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[container.getLastInstruction() &lt;> null/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:instance"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -763,8 +771,10 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.While" referenceName="instructions"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:instance"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[container.getLastInstruction() &lt;> null/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:instance"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -793,8 +803,10 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.If" referenceName="instructions"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:instance"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[container.getLastInstruction() &lt;> null/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:instance"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -895,8 +907,10 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Set" referenceName="instructions"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:instance"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[container.getLastInstruction() &lt;> null/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.getLastInstruction()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:instance"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1223,7 +1237,7 @@
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Sensor']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Level']/@style" attributeName="workspacePath" value="service:getImage"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[next=null/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[next=null and eContainer().oclIsTypeOf(arduino::Sketch)/]">
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Repeat']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Sensor']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='While']/@style" referenceName="labelColor">
               <value href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             </featureCustomizations>

@@ -721,7 +721,9 @@ public class ArduinoServices {
 				instruction = instruction.getNext();
 			}
 
-			return instruction;
+			if (control.getInstructions().size() > 1) {
+				return instruction;
+			}
 		}
 
 		return null;
