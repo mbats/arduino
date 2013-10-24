@@ -7,13 +7,13 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
- while ((brightness<255))
+ while (brightness<255)
  {
   brightness=(brightness+1);
   analogWrite(11,255-(brightness));
   delay(8);
  }
- while ((brightness>1))
+ while (brightness>1)
  {
   brightness=(brightness-1);
   analogWrite(11,255-(brightness));
