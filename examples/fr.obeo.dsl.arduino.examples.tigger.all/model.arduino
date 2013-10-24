@@ -90,20 +90,51 @@
     <instructions xsi:type="arduino:Sensor">
       <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.1"/>
     </instructions>
-    <instructions xsi:type="arduino:If" next="//@sketch" condition="//@sketch/@instructions.5">
+    <instructions xsi:type="arduino:If" next="//@sketch/@instructions.6" condition="//@sketch/@instructions.5">
       <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.2/@instructions.1" level="//@sketch/@instructions.3">
         <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.7"/>
       </instructions>
       <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.2/@instructions.2" value="400"/>
-      <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.2/@instructions.3" level="//@sketch/@instructions.4">
+      <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.2/@instructions.3" level="//@sketch/@instructions.10">
         <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.7"/>
       </instructions>
       <instructions xsi:type="arduino:Delay" value="400"/>
     </instructions>
     <instructions xsi:type="arduino:Constant" value="90"/>
-    <instructions xsi:type="arduino:Constant" value="0"/>
+    <instructions xsi:type="arduino:Constant" value="128"/>
     <instructions xsi:type="arduino:Sensor">
       <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.8"/>
     </instructions>
+    <instructions xsi:type="arduino:If" next="//@sketch/@instructions.7" condition="//@sketch/@instructions.8">
+      <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.6/@instructions.1">
+        <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
+      </instructions>
+      <instructions xsi:type="arduino:Repeat" iteration="3">
+        <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.6/@instructions.1/@instructions.1" level="//@sketch/@instructions.10">
+          <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.11"/>
+        </instructions>
+        <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.6/@instructions.1/@instructions.2" value="50"/>
+        <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.6/@instructions.1/@instructions.3">
+          <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.13"/>
+        </instructions>
+        <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.6/@instructions.1/@instructions.4" value="1500"/>
+        <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.6/@instructions.1/@instructions.5" status="true">
+          <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.13"/>
+        </instructions>
+        <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.6/@instructions.1/@instructions.6" level="//@sketch/@instructions.11">
+          <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.11"/>
+        </instructions>
+        <instructions xsi:type="arduino:Delay" value="1500"/>
+      </instructions>
+    </instructions>
+    <instructions xsi:type="arduino:Status" next="//@sketch" status="true">
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
+    </instructions>
+    <instructions xsi:type="arduino:BooleanOperator" left="//@sketch/@instructions.9" right="//@sketch/@instructions.4" operator="upper"/>
+    <instructions xsi:type="arduino:Sensor">
+      <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.10"/>
+    </instructions>
+    <instructions xsi:type="arduino:Constant" value="0"/>
+    <instructions xsi:type="arduino:Constant" value="60"/>
   </sketch>
 </arduino:Project>
