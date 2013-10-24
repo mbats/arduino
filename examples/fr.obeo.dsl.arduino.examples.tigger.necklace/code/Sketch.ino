@@ -16,19 +16,19 @@ void loop() {
  {
   for (iter_0=0; iter_0 < ( 5 ); ++iter_0 )
   {
-   digitalWrite(BlueLED, (HIGH));
-   digitalWrite(WhiteLED, (LOW));
-   digitalWrite(RedLED, (LOW));
+   digitalWrite(BlueLED, (!HIGH));
+   digitalWrite(WhiteLED, (!LOW));
+   digitalWrite(RedLED, (!LOW));
    delay(200);
-   digitalWrite(BlueLED, (LOW));
-   digitalWrite(WhiteLED, (HIGH));
+   digitalWrite(BlueLED, (!LOW));
+   digitalWrite(WhiteLED, (!HIGH));
    delay(200);
-   digitalWrite(WhiteLED, (LOW));
-   digitalWrite(RedLED, (HIGH));
+   digitalWrite(WhiteLED, (!LOW));
+   digitalWrite(RedLED, (!HIGH));
    delay(200);
-   digitalWrite(BlueLED, (LOW));
-   digitalWrite(WhiteLED, (LOW));
-   digitalWrite(RedLED, (LOW));
+   digitalWrite(BlueLED, (!LOW));
+   digitalWrite(WhiteLED, (!LOW));
+   digitalWrite(RedLED, (!LOW));
    delay(200);
   }
  }
