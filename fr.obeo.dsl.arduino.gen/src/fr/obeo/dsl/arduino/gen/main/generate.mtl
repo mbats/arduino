@@ -71,7 +71,7 @@ delay([instruction.value/]);
 [/template]
 
 [template public generateInstruction(instruction : Status)post (trim())]
-digitalWrite([instruction.module.getVariableName()/], ([getStatus(instruction)/]));
+digitalWrite([instruction.module.getVariableName()/], (![getStatus(instruction)/]));
 [/template]
 
 [template private getStatus(instruction : Status)post (trim())]
@@ -88,7 +88,7 @@ LOW
 
 [template public generateInstruction(instruction : Sensor)post (trim())]
 [if (instruction.module.kind=ModuleKind::digital)]
-digitalRead([instruction.module.getVariableName()/])
+!digitalRead([instruction.module.getVariableName()/])
 [else]
 analogRead([instruction.module.getVariableName()/])
 [/if]
