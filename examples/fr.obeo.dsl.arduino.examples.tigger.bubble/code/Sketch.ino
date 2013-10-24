@@ -17,7 +17,7 @@ void loop() {
  if (analogRead(Soundsensor)>128)
  {
   digitalWrite(BlueLED, (!HIGH));
-  for (iter_0=0; iter_0 < ( 5 ); ++iter_0 )
+  for (iter_0=0; iter_0 < ( 3 ); ++iter_0 )
   {
    Microservo2.write(0);
    delay(50);

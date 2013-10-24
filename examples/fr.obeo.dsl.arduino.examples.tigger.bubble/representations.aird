@@ -858,7 +858,7 @@
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_elj6ojysEeO6Es_Lsulrpw"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_DS7P5DysEeO6Es_Lsulrpw" fontName="Ubuntu" fontHeight="8" italic="true"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DS7P5TysEeO6Es_Lsulrpw" width="30" height="30"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DS7P5TysEeO6Es_Lsulrpw" y="-200" width="30" height="30"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_cOMaoDysEeO6Es_Lsulrpw" type="2002" element="_cNkIgDysEeO6Es_Lsulrpw">
             <children xmi:type="notation:Node" xmi:id="_cONBsDysEeO6Es_Lsulrpw" type="5006"/>
@@ -964,7 +964,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_cONBszysEeO6Es_Lsulrpw"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_cOMaoTysEeO6Es_Lsulrpw" fontColor="7434616" fontName="Ubuntu" fontHeight="8" bold="true" italic="true"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cOMaojysEeO6Es_Lsulrpw" x="213" y="63"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cOMaojysEeO6Es_Lsulrpw" x="40" y="-135"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_dokt8DysEeO6Es_Lsulrpw" type="2001" element="_dncskDysEeO6Es_Lsulrpw">
             <children xmi:type="notation:Node" xmi:id="_dokt8zysEeO6Es_Lsulrpw" type="5002">
@@ -975,7 +975,7 @@
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ellIwjysEeO6Es_Lsulrpw"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_dokt8TysEeO6Es_Lsulrpw" fontColor="7434616" fontName="Ubuntu" fontHeight="8" bold="true" italic="true"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dokt8jysEeO6Es_Lsulrpw" x="330" y="460" width="101" height="72"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dokt8jysEeO6Es_Lsulrpw" x="205" y="280" width="101" height="72"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_hvv-sDysEeO6Es_Lsulrpw" type="2001" element="_hvAX0DysEeO6Es_Lsulrpw">
             <children xmi:type="notation:Node" xmi:id="_hvv-szysEeO6Es_Lsulrpw" type="5002">
@@ -1000,7 +1000,7 @@
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuVqITyuEeO6Es_Lsulrpw"/>
                 </children>
                 <styles xmi:type="notation:ShapeStyle" xmi:id="_uuTN4TyuEeO6Es_Lsulrpw" fontColor="7434616" fontName="Ubuntu" fontHeight="8" bold="true"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuTN4jyuEeO6Es_Lsulrpw" x="65" y="149" width="30" height="30"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuTN4jyuEeO6Es_Lsulrpw" x="85" y="29" width="30" height="30"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_uuT08DyuEeO6Es_Lsulrpw" type="3007" element="_utjnADyuEeO6Es_Lsulrpw">
                 <children xmi:type="notation:Node" xmi:id="_uuUcADyuEeO6Es_Lsulrpw" type="5003">
@@ -1011,7 +1011,7 @@
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuVqJDyuEeO6Es_Lsulrpw"/>
                 </children>
                 <styles xmi:type="notation:ShapeStyle" xmi:id="_uuT08TyuEeO6Es_Lsulrpw" fontColor="7434616" fontName="Ubuntu" fontHeight="8" bold="true"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuT08jyuEeO6Es_Lsulrpw" x="30" y="29" width="30" height="30"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuT08jyuEeO6Es_Lsulrpw" x="125" y="59" width="30" height="30"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_uuUcAjyuEeO6Es_Lsulrpw" type="3007" element="_utkOEDyuEeO6Es_Lsulrpw">
                 <children xmi:type="notation:Node" xmi:id="_uuVDEDyuEeO6Es_Lsulrpw" type="5003">
@@ -1022,13 +1022,13 @@
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuWRMjyuEeO6Es_Lsulrpw"/>
                 </children>
                 <styles xmi:type="notation:ShapeStyle" xmi:id="_uuUcAzyuEeO6Es_Lsulrpw" fontColor="2697711" fontName="Ubuntu" fontHeight="8" bold="true" italic="true"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuUcBDyuEeO6Es_Lsulrpw" x="90" y="29" width="104" height="87"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuUcBDyuEeO6Es_Lsulrpw" x="5" y="54" width="71" height="59"/>
               </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_uuQxojyuEeO6Es_Lsulrpw"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_uuQxozyuEeO6Es_Lsulrpw"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_uuQKkTyuEeO6Es_Lsulrpw" fontColor="7434616" fontName="Ubuntu" fontHeight="8" bold="true" italic="true"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuQKkjyuEeO6Es_Lsulrpw" x="380" y="-180"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uuQKkjyuEeO6Es_Lsulrpw" x="530" y="-170"/>
           </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_DS7P4jysEeO6Es_Lsulrpw"/>
           <edges xmi:type="notation:Edge" xmi:id="_cONBtDysEeO6Es_Lsulrpw" type="4001" element="_cOGUADysEeO6Es_Lsulrpw" source="_DS7P4zysEeO6Es_Lsulrpw" target="_cOMaoDysEeO6Es_Lsulrpw">
@@ -1043,9 +1043,9 @@
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_cONBtTysEeO6Es_Lsulrpw"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_cONBtjysEeO6Es_Lsulrpw" fontName="Ubuntu" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cONBtzysEeO6Es_Lsulrpw" points="[0, 0, 0, 0]$[213, 63, 213, 63]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cONBtzysEeO6Es_Lsulrpw" points="[15, 0, -138, -67]$[153, 0, 0, -67]$[153, 50, 0, -17]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cONowjysEeO6Es_Lsulrpw" id="(0.5,0.5)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cONowzysEeO6Es_Lsulrpw" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cONowzysEeO6Es_Lsulrpw" id="(0.2727272727272727,0.05027932960893855)"/>
           </edges>
           <edges xmi:type="notation:Edge" xmi:id="_dol8EDysEeO6Es_Lsulrpw" type="4001" element="_doenUDysEeO6Es_Lsulrpw" source="_cOMaoDysEeO6Es_Lsulrpw" target="_dokt8DysEeO6Es_Lsulrpw">
             <children xmi:type="notation:Node" xmi:id="_dol8FDysEeO6Es_Lsulrpw" type="6001">
@@ -1060,7 +1060,7 @@
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_dol8ETysEeO6Es_Lsulrpw"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_dol8EjysEeO6Es_Lsulrpw" fontName="Ubuntu" fontHeight="8"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dol8EzysEeO6Es_Lsulrpw" points="[213, 63, 213, 63]$[318, 192, 318, 192]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_domjIDysEeO6Es_Lsulrpw" id="(0.5,0.5)"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_domjIDysEeO6Es_Lsulrpw" id="(0.45454545454545453,0.9776536312849162)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_domjITysEeO6Es_Lsulrpw" id="(0.49504950495049505,0.5)"/>
           </edges>
           <edges xmi:type="notation:Edge" xmi:id="_ellv0DysEeO6Es_Lsulrpw" type="4001" element="_ekpUoDysEeO6Es_Lsulrpw" source="_dokt8DysEeO6Es_Lsulrpw" target="_DS7P4zysEeO6Es_Lsulrpw">
@@ -1075,7 +1075,7 @@
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_ellv0TysEeO6Es_Lsulrpw"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_ellv0jysEeO6Es_Lsulrpw" fontName="Ubuntu" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ellv0zysEeO6Es_Lsulrpw" points="[-50, -6, 315, 475]$[-365, -6, 0, 475]$[-365, -466, 0, 15]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ellv0zysEeO6Es_Lsulrpw" points="[-50, 0, 190, 501]$[-240, 0, 0, 501]$[-240, -486, 0, 15]"/>
           </edges>
           <edges xmi:type="notation:Edge" xmi:id="_gxETczytEeO6Es_Lsulrpw" type="4001" element="_gw1C4DytEeO6Es_Lsulrpw" source="_mpbqcDysEeO6Es_Lsulrpw" target="_gxDFUDytEeO6Es_Lsulrpw">
             <children xmi:type="notation:Node" xmi:id="_gxE6gDytEeO6Es_Lsulrpw" type="6001">
@@ -1201,7 +1201,7 @@
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_uuZUhTyuEeO6Es_Lsulrpw" routing="Tree"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_uuZUhjyuEeO6Es_Lsulrpw" fontName="Ubuntu" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uuZUhzyuEeO6Es_Lsulrpw" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uuZUhzyuEeO6Es_Lsulrpw" points="[0, 0, -338, -90]$[0, -55, -338, -145]$[339, -55, 1, -145]$[339, -35, 1, -125]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uuaiojyuEeO6Es_Lsulrpw" id="(0.4989733059548255,0.0)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uuaiozyuEeO6Es_Lsulrpw" id="(0.5,1.0)"/>
           </edges>
@@ -1409,6 +1409,9 @@
         <target xmi:type="arduino:Sketch" href="model.arduino#//@sketch"/>
         <semanticElements xmi:type="arduino:Sketch" href="model.arduino#//@sketch"/>
         <graphicalFilters xmi:type="viewpoint:HideLabelFilter" xmi:id="_DS5asjysEeO6Es_Lsulrpw"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
         <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_elN8YDysEeO6Es_Lsulrpw" labelFormat="italic" showIcon="false" hideLabelByDefault="true" workspacePath="/fr.obeo.dsl.arduino.design/images/loop.svg">
           <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_elN8YTysEeO6Es_Lsulrpw"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Loop']/@style"/>
@@ -1419,6 +1422,9 @@
       <ownedDiagramElements xmi:type="viewpoint:DNodeContainer" xmi:id="_cNkIgDysEeO6Es_Lsulrpw" name="If Sound sensor > 128" outgoingEdges="_doenUDysEeO6Es_Lsulrpw _uuKrADyuEeO6Es_Lsulrpw" incomingEdges="_cOGUADysEeO6Es_Lsulrpw">
         <target xmi:type="arduino:If" href="model.arduino#//@sketch/@instructions.0"/>
         <semanticElements xmi:type="arduino:If" href="model.arduino#//@sketch/@instructions.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
         <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_cNkvkDysEeO6Es_Lsulrpw" labelFormat="bold_italic" showIcon="false" backgroundStyle="Liquid">
           <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cNkvkTysEeO6Es_Lsulrpw" red="120" green="113" blue="113"/>
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='If']/@style"/>
@@ -1669,6 +1675,9 @@
         <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_utiY4DyuEeO6Es_Lsulrpw" name=">" outgoingEdges="_uuJc4DyuEeO6Es_Lsulrpw _uuKD8DyuEeO6Es_Lsulrpw" width="3" height="3">
           <target xmi:type="arduino:BooleanOperator" href="model.arduino#//@sketch/@instructions.2"/>
           <semanticElements xmi:type="arduino:BooleanOperator" href="model.arduino#//@sketch/@instructions.2"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="viewpoint:Ellipse" xmi:id="_uti_8DyuEeO6Es_Lsulrpw" labelFormat="bold" showIcon="false" borderSize="1" borderSizeComputationExpression="1" labelPosition="node">
             <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_uti_8TyuEeO6Es_Lsulrpw" red="120" green="113" blue="113"/>
             <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']/@subNodeMappings[name='Operator']/@style"/>
@@ -1680,6 +1689,9 @@
         <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_utjnADyuEeO6Es_Lsulrpw" name="128" incomingEdges="_uuKD8DyuEeO6Es_Lsulrpw" width="3" height="3">
           <target xmi:type="arduino:Constant" href="model.arduino#//@sketch/@instructions.4"/>
           <semanticElements xmi:type="arduino:Constant" href="model.arduino#//@sketch/@instructions.4"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="viewpoint:Lozenge" xmi:id="_utjnATyuEeO6Es_Lsulrpw" labelFormat="bold" showIcon="false" labelPosition="node">
             <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_utjnAjyuEeO6Es_Lsulrpw" red="120" green="113" blue="113"/>
             <description xmi:type="style:LozengeNodeDescription" href="platform:/plugin/fr.obeo.dsl.arduino.design/description/arduino.odesign#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Constant']/@style"/>
@@ -1691,6 +1703,9 @@
         <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_utkOEDyuEeO6Es_Lsulrpw" name="Sound sensor" incomingEdges="_uuJc4DyuEeO6Es_Lsulrpw" width="-1" height="-1" resizeKind="NSEW">
           <target xmi:type="arduino:Sensor" href="model.arduino#//@sketch/@instructions.3"/>
           <semanticElements xmi:type="arduino:Sensor" href="model.arduino#//@sketch/@instructions.3"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_utk1IDyuEeO6Es_Lsulrpw" labelFormat="bold_italic" showIcon="false" description="_utkOEjyuEeO6Es_Lsulrpw" workspacePath="/fr.obeo.dsl.arduino.design/images/dfrobot/sound_sensor.jpg">
             <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_utk1ITyuEeO6Es_Lsulrpw" red="239" green="41" blue="41"/>
             <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_utk1IjyuEeO6Es_Lsulrpw" red="120" green="113" blue="113"/>
