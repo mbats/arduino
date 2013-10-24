@@ -41,7 +41,7 @@ public class ArduinoGenServices {
 		return null;
 	}
 
-	private String getOperator(OperatorKind operator) {
+	public String getOperator(OperatorKind operator) {
 		switch (operator) {
 		case AND:
 			return "&";

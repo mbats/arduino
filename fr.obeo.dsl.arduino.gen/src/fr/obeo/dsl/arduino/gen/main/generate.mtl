@@ -119,7 +119,7 @@ if ([instruction.condition.generateInstruction()/])
 [/template]
 
 [template public generateInstruction(instruction : BooleanOperator)post (trim())]
-[instruction.getValue()/]
+[instruction.left.generateInstruction()/][instruction.operator.getOperator()/][instruction.right.generateInstruction()/]
 [/template]
 
 [template public generateInstruction(instruction : Set)post (trim())]
