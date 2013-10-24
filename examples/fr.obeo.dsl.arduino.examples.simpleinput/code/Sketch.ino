@@ -1,11 +1,11 @@
-int WhiteLED = 12;
-int Pushbutton1 = 8;
+int BlueLED = 13;
+int Pushbutton1 = 0;
 
 void setup() {
-  pinMode(WhiteLED, OUTPUT);  
+  pinMode(BlueLED, OUTPUT);  
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
- digitalWrite(WhiteLED, (!digitalRead(Pushbutton1)));
+ digitalWrite(BlueLED, (digitalRead(Pushbutton1)));
 }

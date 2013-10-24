@@ -3,19 +3,19 @@
   <hardware name="Hardware">
     <platforms href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
     <modules xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.1"/>
-    <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+    <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
     <connectors>
-      <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.12"/>
-      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+      <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.0"/>
+      <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.1"/>
     </connectors>
     <connectors>
-      <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.8"/>
-      <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.1"/>
+      <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.13"/>
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
     </connectors>
   </hardware>
   <sketch name="Sketch" next="//@sketch/@instructions.0" hardware="//@hardware">
-    <instructions xsi:type="arduino:Status" next="//@sketch" status="true" sensor="//@sketch/@instructions.1">
-      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
+    <instructions xsi:type="arduino:Status" next="//@sketch" sensor="//@sketch/@instructions.1">
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.3"/>
     </instructions>
     <instructions xsi:type="arduino:Sensor" status="//@sketch/@instructions.0">
       <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.1"/>
