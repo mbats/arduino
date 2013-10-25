@@ -21,6 +21,7 @@
                name="appName"
                value="Arduino Designer">
          </property>
+          <property name="preferenceCustomization" value="plugin_customization.ini"/>
       </product>
    </extension>
 

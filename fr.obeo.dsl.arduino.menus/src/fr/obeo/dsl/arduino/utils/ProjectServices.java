@@ -1,20 +1,24 @@
 package fr.obeo.dsl.arduino.utils;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
@@ -23,6 +27,8 @@ import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.PlatformUI;
 
 import com.google.common.collect.Maps;
 
@@ -44,22 +50,67 @@ public class ProjectServices {
 		openDashboard(session);
 	}
 
-	private IEditorPart openDashboard(final Session session) {
+	public void openProject(final String projectPath) {
+		try {
+			ProjectServices service = new ProjectServices();
+			service.closeOpenedEditors();
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+					.run(true, true, new IRunnableWithProgress() {
+						@Override
+						public void run(IProgressMonitor monitor) {
+							monitor.beginTask("Open project" + projectPath, 100);
+							ProjectServices service = new ProjectServices();
+							service.closeProjects(monitor);
+
+							monitor.worked(25);
+
+							IProjectDescription description;
+							try {
+								description = ResourcesPlugin.getWorkspace()
+										.loadProjectDescription(
+												new Path(projectPath));
+								IProject project = ResourcesPlugin
+										.getWorkspace().getRoot()
+										.getProject(description.getName());
+								monitor.subTask("Open project : "
+										+ description.getName());
+								project.create(description, null);
+								monitor.worked(25);
+								project.open(null);
+								monitor.worked(25);
+							} catch (CoreException e) {
+								ArduinoUiActivator.log(Status.ERROR,
+										"Open project failed", e);
+							}
+							monitor.done();
+						}
+					});
+		} catch (InvocationTargetException e1) {
+			ArduinoUiActivator.log(Status.ERROR, "Open project failed", e1);
+		} catch (InterruptedException e1) {
+			ArduinoUiActivator.log(Status.ERROR, "Open project failed", e1);
+		}
+		Session session = service.getSession();
+		while (session == null) {
+			session = service.getSession();
+		}
+		openDashboard(session);
+	}
+
+	public void openDashboard(final Session session) {
 		Collection<DRepresentation> representations = DialectManager.INSTANCE
 				.getAllRepresentations(session);
 		for (DRepresentation representation : representations) {
 			if ("Dashboard".equals(representation.getName())) {
-				return DialectUIManager.INSTANCE.openEditor(session,
-						representation, new NullProgressMonitor());
-
+				DialectUIManager.INSTANCE.openEditor(session, representation,
+						new NullProgressMonitor());
+				return;
 			}
 		}
-		return null;
 	}
 
 	private String getSemanticModelPath(final Session session) {
-		Resource aird = (Resource) session.getAllSessionResources()
-				.toArray()[0];
+		Resource aird = (Resource) session.getAllSessionResources().toArray()[0];
 		String airdUri = aird.getURI().toPlatformString(true);
 		final String semanticModelPath = airdUri.substring(0,
 				airdUri.lastIndexOf("/") + 1)
@@ -92,7 +143,8 @@ public class ProjectServices {
 								try {
 									res.save(Maps.newHashMap());
 								} catch (IOException e) {
-									ArduinoUiActivator.log(Status.ERROR, "Init semantic model failed", e);
+									ArduinoUiActivator.log(Status.ERROR,
+											"Init semantic model failed", e);
 								}
 
 								session.addSemanticResource(semanticModelURI,
@@ -138,6 +190,7 @@ public class ProjectServices {
 
 	public void closeProjects(IProgressMonitor monitor) {
 		monitor.subTask("Close projects");
+
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		for (IProject project : root.getProjects()) {
 			try {
@@ -147,6 +200,16 @@ public class ProjectServices {
 			} catch (CoreException e) {
 				ArduinoUiActivator.log(Status.ERROR, "Close project failed", e);
 			}
+		}
+	}
+
+	public void closeOpenedEditors() {
+		for (IEditorReference editorRef : PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage()
+				.getEditorReferences()) {
+			IEditorPart editor = editorRef.getEditor(false);
+			editor.doSave(new NullProgressMonitor());
+			DialectUIManager.INSTANCE.closeEditor(editor, false);
 		}
 	}
 }

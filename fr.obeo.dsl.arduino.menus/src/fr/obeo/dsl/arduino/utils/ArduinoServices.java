@@ -24,9 +24,6 @@ import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PlatformUI;
 
 import fr.obeo.dsl.arduino.Instruction;
@@ -36,14 +33,7 @@ import fr.obeo.dsl.arduino.gen.main.Generate;
 import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 
 public class ArduinoServices {
-	public void closeOpenedEditors() {
-		for (IEditorReference editorRef : PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage()
-				.getEditorReferences()) {
-			IEditorPart editor = editorRef.getEditor(false);
-			DialectUIManager.INSTANCE.closeEditor(editor, true);
-		}
-	}
+
 
 	public IProject getWorkspaceProject() {
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot()

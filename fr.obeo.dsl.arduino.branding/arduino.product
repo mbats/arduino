@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Arduino Designer" uid="fr.obeo.dsl.arduino.product" id="fr.obeo.dsl.arduino.branding.product" application="fr.obeo.dsl.arduino.branding.application" useFeatures="true" includeLaunchers="true">
+<product name="Arduino Designer" uid="fr.obeo.dsl.arduino.branding.product" id="fr.obeo.dsl.arduino.branding.product" application="org.eclipse.ui.ide.workbench" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>

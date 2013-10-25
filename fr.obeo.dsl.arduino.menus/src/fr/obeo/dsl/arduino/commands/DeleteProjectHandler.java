@@ -19,15 +19,14 @@ import org.eclipse.ui.PlatformUI;
 
 import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 import fr.obeo.dsl.arduino.utils.ArduinoServices;
+import fr.obeo.dsl.arduino.utils.ProjectServices;
 
 public class DeleteProjectHandler extends AbstractHandler {
 	ArduinoServices service = new ArduinoServices();
+	ProjectServices projectService = new ProjectServices();
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		System.out.println("Delete project");
-
-
 		final IProject project = service.getWorkspaceProject();
 
 		boolean confirmation = MessageDialog.openConfirm(PlatformUI
@@ -36,7 +35,7 @@ public class DeleteProjectHandler extends AbstractHandler {
 				"Do you want to delete the project " + project.getName()
 						+ " ? (cannot be undone)");
 		if (confirmation) {
-			service.closeOpenedEditors();
+			projectService.closeOpenedEditors();
 
 			try {
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow()
@@ -49,14 +48,17 @@ public class DeleteProjectHandler extends AbstractHandler {
 								try {
 									project.delete(true, true, monitor);
 								} catch (CoreException e) {
-									ArduinoUiActivator.log(Status.ERROR, "Delete project failed", e);
+									ArduinoUiActivator.log(Status.ERROR,
+											"Delete project failed", e);
 								}
 							}
 						});
 			} catch (InvocationTargetException e) {
-				ArduinoUiActivator.log(Status.ERROR, "Delete project failed", e);
+				ArduinoUiActivator
+						.log(Status.ERROR, "Delete project failed", e);
 			} catch (InterruptedException e) {
-				ArduinoUiActivator.log(Status.ERROR, "Delete project failed", e);
+				ArduinoUiActivator
+						.log(Status.ERROR, "Delete project failed", e);
 			}
 
 		}
