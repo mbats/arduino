@@ -729,6 +729,20 @@ public class ArduinoServices {
 		return null;
 	}
 
+	public boolean isLastInstructionValid(Sketch container) {
+		if (getLastInstruction(container) != null) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isLastInstructionValid(Control container) {
+		if (getLastInstruction(container) != null) {
+			return true;
+		}
+		return false;
+	}
+
 	public void removeWire(Hardware hardware, Module module) {
 		List<Connector> connectors = getConnectors(hardware);
 		for (Connector connector : connectors) {

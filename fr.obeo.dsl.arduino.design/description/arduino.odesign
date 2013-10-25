@@ -647,8 +647,8 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="arduino.Status" referenceName="instructions" variableName="status">
                   <subModelOperations xsi:type="tool:SetValue" featureName="module" valueExpression="var:module"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="[getLastInstruction() &lt;> null/]">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:getLastInstruction">
+                <subModelOperations xsi:type="tool:If" conditionExpression="service:container.isLastInstructionValid">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:container.getLastInstruction">
                     <subModelOperations xsi:type="tool:SetValue" featureName="next" valueExpression="var:status"/>
                   </subModelOperations>
                 </subModelOperations>
