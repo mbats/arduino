@@ -479,7 +479,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="Repeat" labelDirectEdit="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Edit%20Repeat']" semanticCandidatesExpression="feature:instructions" domainClass="arduino.Repeat" reusedNodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Loop'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Sensor'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Level']" reusedContainerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Repeat'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='While']">
+        <containerMappings name="Repeat" labelDirectEdit="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Edit%20Repeat']" semanticCandidatesExpression="feature:instructions" domainClass="arduino.Repeat" reusedNodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Delay'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Loop'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Status'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Sensor'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Level']" reusedContainerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Repeat'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='While'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='Set'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='If']">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="10" arcHeight="10" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold_italic" showIcon="false" labelExpression="['Repeat '+self.iteration/]" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" roundedCorner="true" backgroundStyle="Liquid" backgroundColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20white']" foregroundColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20white']">
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
@@ -839,7 +839,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.eContainer().oclAsType(DDiagramElement).target.oclAsType(arduino::Instruction).updateValue(variable, element)/]"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Variable" nodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Variable']" iconPath="/fr.obeo.dsl.arduino.design/icons/Variable.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Variable" precondition="[container.oclIsKindOf(arduino::Set) or container.oclIsKindOf(arduino::MathOperator)/]" nodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Variable']" iconPath="/fr.obeo.dsl.arduino.design/icons/Variable.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -851,7 +851,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Constant" nodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Constant']" iconPath="/fr.obeo.dsl.arduino.design/icons/Constant.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Constant" precondition="[container.oclIsKindOf(arduino::Set) or container.oclIsKindOf(arduino::MathOperator)/]" nodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='Constant']" iconPath="/fr.obeo.dsl.arduino.design/icons/Constant.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -964,7 +964,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Upper" label=">" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/Upper.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Upper" label=">" precondition="[container.oclIsKindOf(arduino::While) or container.oclIsKindOf(arduino::If)or container.oclIsKindOf(arduino::BooleanOperator)/]" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/Upper.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1009,7 +1009,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="UpperOrEqual" label=">=" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/UpperOrEqual.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="UpperOrEqual" label=">=" precondition="[container.oclIsKindOf(arduino::While) or container.oclIsKindOf(arduino::If)or container.oclIsKindOf(arduino::BooleanOperator)/]" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/UpperOrEqual.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1054,7 +1054,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Lower" label="&lt;" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/Lower.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Lower" label="&lt;" precondition="[container.oclIsKindOf(arduino::While) or container.oclIsKindOf(arduino::If)or container.oclIsKindOf(arduino::BooleanOperator)/]" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/Lower.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1099,7 +1099,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="LowerOrEqual" label="&lt;=" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/LowerOrEqual.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="LowerOrEqual" label="&lt;=" precondition="[container.oclIsKindOf(arduino::While) or container.oclIsKindOf(arduino::If)or container.oclIsKindOf(arduino::BooleanOperator)/]" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='BooleanOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/LowerOrEqual.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1144,7 +1144,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Plus" label="+" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='NumericalOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/Plus.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Plus" label="+" precondition="[container.oclIsKindOf(arduino::While) or container.oclIsKindOf(arduino::If)or container.oclIsKindOf(arduino::BooleanOperator)/]" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='NumericalOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/Plus.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1189,7 +1189,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Minus" label="-" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='NumericalOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/Minus.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Minus" label="-" precondition="[container.oclIsKindOf(arduino::While) or container.oclIsKindOf(arduino::If)or container.oclIsKindOf(arduino::BooleanOperator)/]" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='NumericalOperator']" iconPath="/fr.obeo.dsl.arduino.design/icons/Minus.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
