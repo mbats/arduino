@@ -18,7 +18,6 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.resource.AirdResource;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -59,7 +58,7 @@ public class ProjectServices {
 	}
 
 	private String getSemanticModelPath(final Session session) {
-		AirdResource aird = (AirdResource) session.getAllSessionResources()
+		Resource aird = (Resource) session.getAllSessionResources()
 				.toArray()[0];
 		String airdUri = aird.getURI().toPlatformString(true);
 		final String semanticModelPath = airdUri.substring(0,
