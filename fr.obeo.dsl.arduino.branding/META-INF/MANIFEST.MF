@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Branding
+Bundle-SymbolicName: fr.obeo.dsl.arduino.branding;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: fr.obeo.dsl.arduino.branding.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ fr.obeo.dsl.arduino;bundle-version="1.0.0",
+ fr.obeo.dsl.arduino.design;bundle-version="1.0.0",
+ fr.obeo.dsl.arduino.edit;bundle-version="1.0.0",
+ fr.obeo.dsl.arduino.editor;bundle-version="1.0.0",
+ fr.obeo.dsl.arduino.gen;bundle-version="1.0.0",
+ fr.obeo.dsl.arduino.ui;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
