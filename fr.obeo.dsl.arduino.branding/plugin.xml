@@ -11,5 +11,17 @@
          </run>
       </application>
    </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="fr.obeo.dsl.arduino.branding.application"
+            name="Arduino Designer">
+         <property
+               name="appName"
+               value="Arduino Designer">
+         </property>
+      </product>
+   </extension>
 
 </plugin>
