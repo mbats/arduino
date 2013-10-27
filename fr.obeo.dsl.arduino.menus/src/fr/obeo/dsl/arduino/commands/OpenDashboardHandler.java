@@ -19,7 +19,9 @@ public class OpenDashboardHandler extends AbstractHandler {
 		}
 
 		Session session = service.getSession();
-		projectServices.openDashboard(session);
+		if (session != null) {
+			projectServices.openDashboard(session);
+		}
 		return null;
 	}
 }
