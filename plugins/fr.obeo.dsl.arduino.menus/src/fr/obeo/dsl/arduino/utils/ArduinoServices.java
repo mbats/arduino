@@ -24,16 +24,20 @@ import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.Project;
 import fr.obeo.dsl.arduino.Sketch;
+import fr.obeo.dsl.arduino.build.ArduinoBuilder;
 import fr.obeo.dsl.arduino.gen.main.Generate;
 import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
+import fr.obeo.dsl.arduino.preferences.ArduinoPreferences;
+import fr.obeo.dsl.arduino.preferences.ArduinoSdkDialog;
 
 public class ArduinoServices {
-
+	private ArduinoPreferences preferences = new ArduinoPreferences();
 
 	public IProject getWorkspaceProject() {
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot()
@@ -88,6 +92,11 @@ public class ArduinoServices {
 	}
 
 	public void upload(final Sketch sketch) {
+		if (preferences.getArduinoSdk() == null
+				|| preferences.getArduinoSdk().length() == 0) {
+			askUser();
+			return;
+		}
 		ProgressMonitorDialog dialog = new ProgressMonitorDialog(PlatformUI
 				.getWorkbench().getActiveWorkbenchWindow().getShell());
 		try {
@@ -100,10 +109,17 @@ public class ArduinoServices {
 					File genFolder = generateCode(sketch);
 					monitor.worked(33);
 					monitor.subTask("Compile code");
-					executeCommand("make", genFolder, null);
+
+					String arduinoSdk = preferences.getArduinoSdk();
+					String boardTag = sketch.getHardware().getPlatforms().get(0).getName();
+					String workingDirectory = genFolder.toString();
+					ArduinoBuilder builder = new ArduinoBuilder(arduinoSdk,
+							boardTag, workingDirectory);
+					builder.compile("Sketch", null);
+
 					monitor.worked(33);
 					monitor.subTask("Upload code");
-					executeCommand("make", genFolder, "upload");
+					builder.upload();
 					monitor.done();
 				}
 			});
@@ -113,6 +129,14 @@ public class ArduinoServices {
 			ArduinoUiActivator.log(Status.ERROR, "Upload failed", e);
 		}
 
+	}
+	
+	private void askUser() {
+		Shell shell = PlatformUI.getWorkbench().getModalDialogShellProvider()
+				.getShell();
+
+		ArduinoSdkDialog dialog = new ArduinoSdkDialog(shell);
+		dialog.open();
 	}
 
 	private File generateCode(Sketch sketch) {
@@ -139,45 +163,5 @@ public class ArduinoServices {
 				.switchForceDeactivationNotifications(oldNotificationsPref);
 
 		return genFolder;
-	}
-
-	private void executeCommand(String command, File directory, String arg) {
-		ProcessBuilder builder;
-		if (arg != null) {
-			builder = new ProcessBuilder(command, arg);
-		} else {
-			builder = new ProcessBuilder(command);
-		}
-
-		builder.directory(directory);
-		Map<String, String> env = builder.environment();
-		env.put("ARDUINO_DIR", "/usr/share/arduino");
-		env.put("ARDMK_DIR", "/usr/share/arduino");
-		env.put("ARDMK_PATH", "/usr/bin");
-		env.put("AVR_TOOLS_DIR", "/usr");
-		try {
-			Process process = builder.start();
-			inheritIO(process.getInputStream(), System.out);
-			inheritIO(process.getErrorStream(), System.err);
-			process.waitFor();
-		} catch (IOException e) {
-			ArduinoUiActivator.log(Status.ERROR, "Run command " + command
-					+ " failed", e);
-		} catch (InterruptedException e) {
-			ArduinoUiActivator.log(Status.ERROR, "Run command " + command
-					+ " failed", e);
-		}
-	}
-
-	private static void inheritIO(final InputStream src, final PrintStream dest) {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Scanner sc = new Scanner(src);
-				while (sc.hasNextLine()) {
-					dest.println(sc.nextLine());
-				}
-			}
-		}).start();
 	}
 }

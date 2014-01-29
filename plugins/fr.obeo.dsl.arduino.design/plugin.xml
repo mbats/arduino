@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 <plugin>
   <extension point="org.eclipse.sirius.componentization">
-    <component class="fr.obeo.dsl.arduino.design.Activator"
+    <component class="fr.obeo.dsl.arduino.design.ArduinoDesignerPlugin"
                id="fr.obeo.dsl.arduino.design"
 	       name="arduino">
     </component>

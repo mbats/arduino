@@ -11,19 +11,19 @@ import org.eclipse.sirius.viewpoint.description.Viewpoint;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class ArduinoDesignerPlugin extends AbstractUIPlugin {
     // The plug-in ID
     public static final String PLUGIN_ID = "fr.obeo.dsl.arduino.design";
 
     // The shared instance
-    private static Activator plugin;
+    private static ArduinoDesignerPlugin plugin;
 
     private static Set<Viewpoint> viewpoints; 
 
     /**
      * The constructor
      */
-    public Activator() {
+    public ArduinoDesignerPlugin() {
     }
 
     /*
@@ -62,7 +62,7 @@ public class Activator extends AbstractUIPlugin {
      * 
      * @return the shared instance
      */
-    public static Activator getDefault() {
+    public static ArduinoDesignerPlugin getDefault() {
 	return plugin;
     }
 }

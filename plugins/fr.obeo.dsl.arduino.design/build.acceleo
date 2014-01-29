@@ -18,7 +18,7 @@
         <acceleoCompiler 
             sourceFolder="${target.folder}"
             outputFolder="${target.folder}"
-            dependencies="${target.folder}/../../fr.obeo.dsl.arduino;${target.folder}/../../fr.obeo.dsl.arduino.gen;${target.folder}/../../fr.obeo.dsl.arduino.ui;"
+            dependencies="${target.folder}/../../fr.obeo.dsl.arduino;${target.folder}/../../fr.obeo.dsl.arduino.gen;${target.folder}/../../fr.obeo.dsl.arduino.ui;${target.folder}/../../fr.obeo.dsl.arduino.build;${target.folder}/../../fr.obeo.dsl.arduino.preferences;"
             binaryResource="false"
             packagesToRegister="">
         </acceleoCompiler>

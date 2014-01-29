@@ -34,6 +34,8 @@ Contributors:
     <module>${root-path}/plugins/fr.obeo.dsl.arduino.branding</module>
     <module>${root-path}/plugins/fr.obeo.dsl.arduino.gen</module>
     <module>${root-path}/plugins/fr.obeo.dsl.arduino.menus</module>
+    <module>${root-path}/plugins/fr.obeo.dsl.arduino.build</module>
+
     <!-- Build test plugins -->
 
     <!-- Build features -->
