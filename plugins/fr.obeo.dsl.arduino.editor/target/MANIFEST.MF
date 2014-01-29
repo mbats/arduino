@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Export-Package: fr.obeo.dsl.arduino.presentation
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Bundle-Name: %pluginName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;vi
+ sibility:=reexport,fr.obeo.dsl.arduino.edit;visibility:=reexport,org.
+ eclipse.emf.ecore.xmi;visibility:=reexport,org.eclipse.emf.edit.ui;vi
+ sibility:=reexport,org.eclipse.ui.ide;visibility:=reexport
+Bundle-Vendor: %providerName
+Bundle-Version: 1.0.0.201401291103
+Bundle-ManifestVersion: 2
+Bundle-Activator: fr.obeo.dsl.arduino.presentation.ArduinoEditorPlugin
+ $Implementation
+Bundle-SymbolicName: fr.obeo.dsl.arduino.editor;singleton:=true
+

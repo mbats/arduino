@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Export-Package: fr.obeo.dsl.arduino.gen.main
+Require-Bundle: org.eclipse.core.runtime, fr.obeo.dsl.arduino, org.ecl
+ ipse.emf.ecore,org.eclipse.emf.ecore.xmi,org.eclipse.ocl,org.eclipse.
+ ocl.ecore,org.eclipse.acceleo.common;bundle-version="3.3.0",org.eclip
+ se.acceleo.model;bundle-version="3.3.0",org.eclipse.acceleo.profiler;
+ bundle-version="3.3.0",org.eclipse.acceleo.engine;bundle-version="3.3
+ .0",com.google.guava
+Bundle-Vendor: Eclipse Modeling Project
+Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201401291103
+Bundle-Name: Acceleo Gen Module Runtime Plug-in
+Bundle-Activator: fr.obeo.dsl.arduino.gen.Activator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: fr.obeo.dsl.arduino.gen
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

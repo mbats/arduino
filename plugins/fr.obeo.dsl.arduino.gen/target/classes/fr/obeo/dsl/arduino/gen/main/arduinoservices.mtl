@@ -1,0 +1,14 @@
+[comment encoding = UTF-8 /]
+[module arduinoservices('http://www.obeo.fr/arduino')/]
+
+[query public getRepeatInstructionIndex(arg0 : Sketch, arg1 : Repeat) : Integer
+	= invoke('fr.obeo.dsl.arduino.gen.main.ArduinoGenServices', 'getRepeatInstructionIndex(fr.obeo.dsl.arduino.Sketch, fr.obeo.dsl.arduino.Repeat)', Sequence{arg0,arg1})
+/]
+
+[query public getOperator(arg0 : OperatorKind) : String
+	= invoke('fr.obeo.dsl.arduino.gen.main.ArduinoGenServices', 'getOperator(fr.obeo.dsl.arduino.OperatorKind)', Sequence{arg0})
+/]
+
+[query public getValue(arg0 : Value) : String
+	= invoke('fr.obeo.dsl.arduino.gen.main.ArduinoGenServices', 'getValue(fr.obeo.dsl.arduino.Value)', Sequence{arg0})
+/]

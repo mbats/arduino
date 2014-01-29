@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='201401291103.Obeo Network' version='1.0.0.4--cDD4eV7E7AM7AEgAA7I'>
+    <properties size='3'>
+      <property name='org.eclipse.equinox.p2.name' value='Obeo Network'/>
+      <property name='org.eclipse.equinox.p2.description' value='The Obeo Network.'/>
+      <property name='org.eclipse.equinox.p2.type.category' value='true'/>
+    </properties>
+    <provides size='1'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='201401291103.Obeo Network' version='1.0.0.4--cDD4eV7E7AM7AEgAA7I'/>
+    </provides>
+    <requires size='2'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='fr.obeo.dsl.arduino.runtime.sdk.feature.feature.group' range='[1.0.0.201401291103,1.0.0.201401291103]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='fr.obeo.dsl.arduino.runtime.feature.feature.group' range='[1.0.0.201401291103,1.0.0.201401291103]'/>
+    </requires>
+    <touchpoint id='null' version='0.0.0'/>
+  </unit>
+</units>

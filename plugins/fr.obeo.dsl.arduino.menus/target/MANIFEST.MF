@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Export-Package: fr.obeo.dsl.arduino.commands;x-friends:="fr.obeo.dsl.a
+ rduino.design",fr.obeo.dsl.arduino.utils;x-friends:="fr.obeo.dsl.ardu
+ ino.design"
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,com.google.gua
+ va,org.eclipse.core.resources,org.eclipse.core.expressions,fr.obeo.ds
+ l.arduino,org.eclipse.emf.transaction,fr.obeo.dsl.arduino.gen,org.ecl
+ ipse.acceleo.engine,org.eclipse.sirius.ui;bundle-version="0.9.0"
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201401291103
+Bundle-Name: Menus
+Bundle-Activator: fr.obeo.dsl.arduino.menus.ArduinoUiActivator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: fr.obeo.dsl.arduino.ui;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
