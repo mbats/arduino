@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Arduino Designer" uid="fr.oebo.dsl.arduino.branding.product" id="fr.obeo.dsl.arduino.branding.product" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Arduino Designer" uid="fr.obeo.dsl.arduino.branding.product" id="fr.obeo.dsl.arduino.branding.product" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="icons/about.gif"/>
@@ -119,11 +119,9 @@ The user is not authorized to install or make a technical means to hide within t
    </plugins>
 
    <features>
-      <feature id="org.obeonetwork.dsl.sysml.runtime.feature"/>
-      <feature id="org.obeonetwork.dsl.uml2.runtime.feature"/>
+      <feature id="fr.obeo.dsl.arduino.runtime.feature"/>
       <feature id="org.eclipse.platform"/>
       <feature id="org.eclipse.epp.mpc"/>
-      <feature id="org.eclipse.uml2"/>
    </features>
 
    <configurations>
