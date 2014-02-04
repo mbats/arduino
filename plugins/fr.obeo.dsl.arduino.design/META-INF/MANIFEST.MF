@@ -1,22 +1,22 @@
 Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
 Bundle-Name: fr.obeo.dsl.arduino.design
-Bundle-SymbolicName: fr.obeo.dsl.arduino.design;singleton=true
+Bundle-SymbolicName: fr.obeo.dsl.arduino.design;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: fr.obeo.dsl.arduino.design.ArduinoDesignerPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- fr.obeo.dsl.arduino;bundle-version="1.0.0",
+ fr.obeo.dsl.arduino,
+ fr.obeo.dsl.arduino.ui;bundle-version="1.0.0",
+ fr.obeo.dsl.arduino.gen,
  org.eclipse.acceleo.engine;bundle-version="3.3.2",
  org.eclipse.core.resources;bundle-version="3.8.1",
  org.eclipse.emf.transaction,
- fr.obeo.dsl.arduino.gen;bundle-version="1.0.0",
- fr.obeo.dsl.arduino.ui,
  org.eclipse.sirius;bundle-version="0.9.0",
  org.eclipse.sirius.common.acceleo.mtl;bundle-version="0.9.0",
  org.eclipse.sirius.ui;bundle-version="0.9.0",
  org.eclipse.sirius.common;bundle-version="0.9.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Provide-Package: fr.obeo.dsl.arduino.design.services;x-friends:="fr.obeo.dsl.arduino.menus"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.google.common.collect
 Export-Package: fr.obeo.dsl.arduino.design
