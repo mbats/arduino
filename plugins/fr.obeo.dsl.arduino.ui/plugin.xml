@@ -75,7 +75,7 @@
                commandId="fr.obeo.dsl.arduino.commands.openHardwareKit"
                icon="icons/newHardwareKit.png"
                label="Hardware kit"
-               style="push"
+               style="toggle"
                tooltip="Define new hardware kit modules and platforms">
          </command>
       </menuContribution>

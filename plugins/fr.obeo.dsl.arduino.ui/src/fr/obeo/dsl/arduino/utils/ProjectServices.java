@@ -38,6 +38,7 @@ import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 public class ProjectServices {
 	ArduinoServices service = new ArduinoServices();
 	public static final String ARDUINO_VP = "Arduino";
+	public static final String HARDWARE_KIT_VP = "Hardware Kit";
 
 	public void createProject(IProgressMonitor monitor) {
 		final Session session = service.getSession();
@@ -179,13 +180,53 @@ public class ProjectServices {
 											.getInstance().getViewpoints()) {
 										for (String viewpoint : viewpointsToActivate) {
 											if (viewpoint.equals(vp.getName()))
-												callback.selectViewpoint(vp,
-														session, new NullProgressMonitor());
+												callback.selectViewpoint(
+														vp,
+														session,
+														new NullProgressMonitor());
 										}
 									}
 								}
 							});
 		}
+	}
+
+	public static void disableViewpoints(final Session session,
+			final String... viewpointsToActivate) {
+		if (session != null) {
+			session.getTransactionalEditingDomain()
+					.getCommandStack()
+					.execute(
+							new RecordingCommand(session
+									.getTransactionalEditingDomain()) {
+								@Override
+								protected void doExecute() {
+									ViewpointSelectionCallback callback = new ViewpointSelectionCallback();
+
+									for (Viewpoint vp : ViewpointRegistry
+											.getInstance().getViewpoints()) {
+										for (String viewpoint : viewpointsToActivate) {
+											if (viewpoint.equals(vp.getName()))
+												callback.deselectViewpoint(
+														vp,
+														session,
+														new NullProgressMonitor());
+										}
+									}
+								}
+							});
+		}
+	}
+
+	public static boolean isViewpointEnabled(final Session session,
+			final String viewpointToCheck) {
+		if (session != null) {
+			for (Viewpoint vp : session.getSelectedViewpoints(false)) {
+				if (viewpointToCheck.equals(vp.getName()))
+					return true;
+			}
+		}
+		return false;
 	}
 
 	public void closeProjects(IProgressMonitor monitor) {
@@ -211,5 +252,21 @@ public class ProjectServices {
 			editor.doSave(new NullProgressMonitor());
 			DialectUIManager.INSTANCE.closeEditor(editor, false);
 		}
+	}
+
+	public void activateHardwareKitDefinition(IProgressMonitor monitor) {
+		final Session session = service.getSession();
+		final String[] viewpointsToActivate = { HARDWARE_KIT_VP };
+		enableViewpoints(session, viewpointsToActivate);
+
+		openDashboard(session);
+	}
+
+	public void unActivateHardwareKitDefinition(IProgressMonitor monitor) {
+		final Session session = service.getSession();
+		final String[] viewpointsToActivate = { HARDWARE_KIT_VP };
+		disableViewpoints(session, viewpointsToActivate);
+
+		openDashboard(session);
 	}
 }
