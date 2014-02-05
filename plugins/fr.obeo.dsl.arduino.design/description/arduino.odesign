@@ -163,9 +163,11 @@
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.arduino.design.services.ArduinoServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Arduino" modelFileExtension="arduino">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Hardware Sketch" titleExpression="Hardware" domainClass="arduino.Hardware" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Hardware" titleExpression="Hardware" domainClass="arduino.Hardware" enablePopupBars="true">
+      <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
+      <metamodel href="http://www.eclipse.org/sirius/1.1.0#//diagram"/>
       <defaultLayer name="Default">
-        <nodeMappings name="HS_Platform" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Platform']" semanticCandidatesExpression="feature:platforms" domainClass="arduino.Platform">
+        <nodeMappings name="HS_Platform" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Platform']" semanticCandidatesExpression="feature:platforms" domainClass="arduino.Platform">
           <borderedNodeMappings name="HS_DigitalPin" semanticCandidatesExpression="feature:digitalPins" domainClass="arduino.DigitalPin">
             <style xsi:type="style:SquareDescription" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" showIcon="false" labelExpression="feature:id" tooltipExpression="['Digital pin '+id/]" sizeComputationExpression="2" labelPosition="node" color="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20light%20green']">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -181,10 +183,10 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="HS_Module" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Module']" semanticCandidatesExpression="feature:modules" domainClass="arduino.Module">
+        <nodeMappings name="HS_Module" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Module']" semanticCandidatesExpression="feature:modules" domainClass="arduino.Module">
           <style xsi:type="style:WorkspaceImageDescription" borderColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" labelFormat="bold" showIcon="false" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" sizeComputationExpression="8" workspacePath="imageFromModel"/>
         </nodeMappings>
-        <edgeMappings name="Wire" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Wire']" semanticCandidatesExpression="feature:connectors" sourceMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Module']" targetMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Platform']/@borderedNodeMappings[name='HS_AnalogPin'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Platform']/@borderedNodeMappings[name='HS_DigitalPin']" targetFinderExpression="feature:pin" sourceFinderExpression="feature:module" domainClass="arduino.Connector" useDomainElement="true" reconnections="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Target'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Source']">
+        <edgeMappings name="Wire" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Wire']" semanticCandidatesExpression="feature:connectors" sourceMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HS_Module']" targetMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HS_Platform']/@borderedNodeMappings[name='HS_AnalogPin'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HS_Platform']/@borderedNodeMappings[name='HS_DigitalPin']" targetFinderExpression="feature:pin" sourceFinderExpression="feature:module" domainClass="arduino.Connector" useDomainElement="true" reconnections="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Target'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@toolSections.0/@ownedTools[name='Reconnect%20Connector%20Source']">
           <style strokeColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']" sourceArrow="OutputArrow" sizeComputationExpression="2">
             <centerLabelStyleDescription showIcon="false" labelColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20dark%20gray']"/>
           </style>
@@ -258,13 +260,13 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Wire" precondition="[isValidConnector(preTarget)/]" edgeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@edgeMappings[name='Wire']" iconPath="/fr.obeo.dsl.arduino.design/icons/Wire.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Wire" precondition="[isValidConnector(preTarget)/]" edgeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@edgeMappings[name='Wire']" iconPath="/fr.obeo.dsl.arduino.design/icons/Wire.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[sourceView.eContainer().oclAsType(viewpoint::DSemanticDiagram).target/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[sourceView.eContainer().oclAsType(diagram::DSemanticDiagram).target/]">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arduino.Connector" referenceName="connectors" variableName="connector">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="pin" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="module" valueExpression="var:source"/>
@@ -298,7 +300,7 @@
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Platform']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']/@defaultLayer/@nodeMappings[name='HS_Module']/@style" attributeName="workspacePath" value="service:getImage"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HS_Platform']/@style //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HS_Module']/@style" attributeName="workspacePath" value="service:getImage"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
@@ -371,7 +373,7 @@
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:sketch">
-                  <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:openSketchDiagram"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -574,10 +576,10 @@
             <containerView name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="next" elementExpression="[elementView.targetNode.oclAsType(viewpoint::DDiagramElement).target/]"/>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[elementView.targetNode.oclAsType(viewpoint::DDiagramElement).target/]">
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="sensor" elementExpression="[elementView.sourceNode.oclAsType(viewpoint::DDiagramElement).target/]"/>
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="level" elementExpression="[elementView.sourceNode.oclAsType(viewpoint::DDiagramElement).target/]"/>
+                <subModelOperations xsi:type="tool_1:Unset" featureName="next" elementExpression="[elementView.targetNode.oclAsType(diagram::DDiagramElement).target/]"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[elementView.targetNode.oclAsType(diagram::DDiagramElement).target/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="sensor" elementExpression="[elementView.sourceNode.oclAsType(diagram::DDiagramElement).target/]"/>
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="level" elementExpression="[elementView.sourceNode.oclAsType(diagram::DDiagramElement).target/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>

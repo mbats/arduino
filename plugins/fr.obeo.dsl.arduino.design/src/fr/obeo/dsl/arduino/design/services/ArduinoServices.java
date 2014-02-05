@@ -868,14 +868,21 @@ public class ArduinoServices {
 		DialectUIManager.INSTANCE.openEditor(session, hardwareDiagram,
 				new NullProgressMonitor());
 	}
+	
+	public void openSketchDiagram(Sketch sketch) {
+		Session session = SessionManager.INSTANCE.getSession(sketch);
+		DRepresentation sketchDiagram = getSketchDiagram(sketch);
+		DialectUIManager.INSTANCE.openEditor(session, sketchDiagram,
+				new NullProgressMonitor());
+	}
 
-	private RepresentationDescription getHardwareDiagramDescription(
-			Session session) {
+	private RepresentationDescription getDiagramDescription(
+			Session session, String diagramDescriptionName) {
 		for (Viewpoint vp : session.getSelectedViewpoints(false)) {
 			for (RepresentationDescription representationDescription : vp
 					.getOwnedRepresentations()) {
 				if (representationDescription.getName().equals(
-						"Hardware Sketch")) {
+						diagramDescriptionName)) {
 					return representationDescription;
 				}
 			}
@@ -884,18 +891,26 @@ public class ArduinoServices {
 	}
 
 	private DRepresentation getHardwareDiagram(Hardware hardware) {
+		return getDiagram(hardware, "Hardware");
+	}
+
+	private DRepresentation getSketchDiagram(Sketch sketch) {
+		return getDiagram(sketch, "Sketch");
+	}
+
+	private DRepresentation getDiagram(EObject semantic, String diagramName) {
 		fr.obeo.dsl.arduino.utils.ArduinoServices service = new fr.obeo.dsl.arduino.utils.ArduinoServices();
-		Session session = SessionManager.INSTANCE.getSession(hardware);
-		DRepresentation hardwareDiagram = service.getHardwareDiagram(session);
+		Session session = SessionManager.INSTANCE.getSession(semantic);
+		DRepresentation diagram = service.getDiagram(session, diagramName);
 		// Create representation if does not exist
-		if (hardwareDiagram == null) {
-			hardwareDiagram = (DDiagram) DialectManager.INSTANCE
-					.createRepresentation("Hardware", hardware,
-							getHardwareDiagramDescription(session), session,
-							new NullProgressMonitor());
+		if (diagram == null) {
+			diagram = (DDiagram) DialectManager.INSTANCE.createRepresentation(
+					diagramName, semantic,
+					getDiagramDescription(session, diagramName), session,
+					new NullProgressMonitor());
 		}
 
-		return hardwareDiagram;
+		return diagram;
 	}
 
 }

@@ -17,7 +17,7 @@ public class OpenHardwareHandler extends AbstractHandler {
 		System.out.println("Open hardware");
 		Session session = service.getSession();
 		DialectUIManager.INSTANCE.openEditor(session,
-				service.getHardwareDiagram(session), new NullProgressMonitor());
+				service.getDiagram(session, "Hardware"), new NullProgressMonitor());
 		return null;
 	}
 }

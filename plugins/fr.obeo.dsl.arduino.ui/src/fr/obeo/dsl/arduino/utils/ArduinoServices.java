@@ -168,15 +168,15 @@ public class ArduinoServices {
 	}
 	
 
-	public DRepresentation getHardwareDiagram(Session session) {
+	public DRepresentation getDiagram(Session session, String diagramName) {
 		Collection<DRepresentation> representations = DialectManager.INSTANCE
 				.getAllRepresentations(session);
-		DRepresentation hardwareDiagram = null;
+		DRepresentation diagram = null;
 		for (DRepresentation representation : representations) {
-			if ("Hardware".equals(representation.getName())) {
-				hardwareDiagram = representation;
+			if (diagramName.equals(representation.getName())) {
+				diagram = representation;
 			}
 		}
-		return hardwareDiagram;
+		return diagram;
 	}
 }
