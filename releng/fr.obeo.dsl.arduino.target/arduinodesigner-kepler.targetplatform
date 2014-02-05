@@ -35,7 +35,7 @@ location "http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.4/
 }
 
 // Sirius
-location "http://download.eclipse.org/sirius/updates/milestones/1.0.0M4/kepler" {
+location "http://download.eclipse.org/sirius/updates/milestones/1.0.0M5/kepler" {
 	with source, requirements
 	//runtime
 	org.eclipse.sirius.runtime.feature.group
