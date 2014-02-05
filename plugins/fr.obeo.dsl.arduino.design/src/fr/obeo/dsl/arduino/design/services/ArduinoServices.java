@@ -5,14 +5,21 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -854,4 +861,41 @@ public class ArduinoServices {
 		}
 		deleteUnusedValues(getSketch(container));
 	}
+
+	public void openHardwareDiagram(Hardware hardware) {
+		Session session = SessionManager.INSTANCE.getSession(hardware);
+		DRepresentation hardwareDiagram = getHardwareDiagram(hardware);
+		DialectUIManager.INSTANCE.openEditor(session, hardwareDiagram,
+				new NullProgressMonitor());
+	}
+
+	private RepresentationDescription getHardwareDiagramDescription(
+			Session session) {
+		for (Viewpoint vp : session.getSelectedViewpoints(false)) {
+			for (RepresentationDescription representationDescription : vp
+					.getOwnedRepresentations()) {
+				if (representationDescription.getName().equals(
+						"Hardware Sketch")) {
+					return representationDescription;
+				}
+			}
+		}
+		return null;
+	}
+
+	private DRepresentation getHardwareDiagram(Hardware hardware) {
+		fr.obeo.dsl.arduino.utils.ArduinoServices service = new fr.obeo.dsl.arduino.utils.ArduinoServices();
+		Session session = SessionManager.INSTANCE.getSession(hardware);
+		DRepresentation hardwareDiagram = service.getHardwareDiagram(session);
+		// Create representation if does not exist
+		if (hardwareDiagram == null) {
+			hardwareDiagram = (DDiagram) DialectManager.INSTANCE
+					.createRepresentation("Hardware", hardware,
+							getHardwareDiagramDescription(session), session,
+							new NullProgressMonitor());
+		}
+
+		return hardwareDiagram;
+	}
+
 }

@@ -354,7 +354,7 @@
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:hardware">
-                  <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware%20Sketch']"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:openHardwareDiagram"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>

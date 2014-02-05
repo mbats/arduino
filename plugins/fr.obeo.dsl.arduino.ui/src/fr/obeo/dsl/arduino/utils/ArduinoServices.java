@@ -22,8 +22,10 @@ import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
@@ -163,5 +165,18 @@ public class ArduinoServices {
 				.switchForceDeactivationNotifications(oldNotificationsPref);
 
 		return genFolder;
+	}
+	
+
+	public DRepresentation getHardwareDiagram(Session session) {
+		Collection<DRepresentation> representations = DialectManager.INSTANCE
+				.getAllRepresentations(session);
+		DRepresentation hardwareDiagram = null;
+		for (DRepresentation representation : representations) {
+			if ("Hardware".equals(representation.getName())) {
+				hardwareDiagram = representation;
+			}
+		}
+		return hardwareDiagram;
 	}
 }
