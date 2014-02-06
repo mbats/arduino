@@ -730,9 +730,7 @@
             <mask mask="{0}={1}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:level">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[updateValue(arg1)/]"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[updateValue(arg1)/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
