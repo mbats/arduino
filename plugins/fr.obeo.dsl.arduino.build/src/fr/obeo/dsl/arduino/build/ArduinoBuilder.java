@@ -92,14 +92,14 @@ public class ArduinoBuilder {
 		// Generate arduino.hex
 		generateArduinoHex();
 	}
-	
-	public void upload(){
+
+	public void upload() {
 		System.out.println("Upload arduino.hex");
 		String command = arduinoSdk + "hardware/tools/avrdude";
-		ProcessBuilder builder = new ProcessBuilder(command, "-q", "-V",
-				"-p",
-				getMMCU(), "-C", "/etc/avrdude.conf", "-c",
-				"arduino", "-b", "115200" , "-P" , "-U", "flash:w:arduino.hex:i");
+		ProcessBuilder builder = new ProcessBuilder(command, "-q", "-V", "-p",
+				getMMCU(), "-C", arduinoSdk + "hardware/tools/avrdude.conf",
+				"-c", "arduino", "-b", "115200", "-P", "/dev/ttyACM0", "-U",
+				"flash:w:arduino.hex:i");
 		executeCommand(directory, builder);
 	}
 
@@ -145,7 +145,7 @@ public class ArduinoBuilder {
 	 *            Library name
 	 */
 	private void compileSpecificLibrary(String libraryName) {
-		compileCPPFile(libraryName,libraryName);
+		compileCPPFile(libraryName, libraryName);
 	}
 
 	/**
