@@ -192,6 +192,26 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 				return createIfAdapter();
 			}
 			@Override
+			public Adapter caseFunction(Function object) {
+				return createFunctionAdapter();
+			}
+			@Override
+			public Adapter caseParameterDefinition(ParameterDefinition object) {
+				return createParameterDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
+			}
+			@Override
+			public Adapter caseFunctionCall(FunctionCall object) {
+				return createFunctionCallAdapter();
+			}
+			@Override
+			public Adapter caseParameterCall(ParameterCall object) {
+				return createParameterCallAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -642,6 +662,76 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIfAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Function <em>Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Function
+	 * @generated
+	 */
+	public Adapter createFunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.ParameterDefinition <em>Parameter Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.ParameterDefinition
+	 * @generated
+	 */
+	public Adapter createParameterDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.FunctionCall <em>Function Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.FunctionCall
+	 * @generated
+	 */
+	public Adapter createFunctionCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.ParameterCall <em>Parameter Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.arduino.ParameterCall
+	 * @generated
+	 */
+	public Adapter createParameterCallAdapter() {
 		return null;
 	}
 

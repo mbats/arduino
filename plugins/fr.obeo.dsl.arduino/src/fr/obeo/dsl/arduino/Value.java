@@ -19,7 +19,7 @@ package fr.obeo.dsl.arduino;
  * @model abstract="true"
  * @generated
  */
-public interface Value extends Instruction {
+public interface Value extends Instruction, Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

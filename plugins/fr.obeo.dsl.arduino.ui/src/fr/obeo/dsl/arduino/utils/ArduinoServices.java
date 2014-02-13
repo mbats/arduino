@@ -2,13 +2,10 @@ package fr.obeo.dsl.arduino.utils;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.List;
 
 import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.resources.IFile;
@@ -19,6 +16,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -69,7 +67,12 @@ public class ArduinoServices {
 			return null;
 		}
 		Resource resource = (Resource) resources.toArray()[0];
-		return (Project) resource.getContents().get(0);
+
+		List<EObject> contents = resource.getContents();
+		if (contents == null || contents.size() == 0) {
+			return null;
+		}
+		return (Project) contents.get(0);
 	}
 
 	public boolean isInvalidSketch(Sketch sketch) {
@@ -113,7 +116,8 @@ public class ArduinoServices {
 					monitor.subTask("Compile code");
 
 					String arduinoSdk = preferences.getArduinoSdk();
-					String boardTag = sketch.getHardware().getPlatforms().get(0).getName();
+					String boardTag = sketch.getHardware().getPlatforms()
+							.get(0).getName();
 					String workingDirectory = genFolder.toString();
 					ArduinoBuilder builder = new ArduinoBuilder(arduinoSdk,
 							boardTag, workingDirectory);
@@ -132,7 +136,7 @@ public class ArduinoServices {
 		}
 
 	}
-	
+
 	private void askUser() {
 		Shell shell = PlatformUI.getWorkbench().getModalDialogShellProvider()
 				.getShell();
@@ -166,7 +170,6 @@ public class ArduinoServices {
 
 		return genFolder;
 	}
-	
 
 	public DRepresentation getDiagram(Session session, String diagramName) {
 		Collection<DRepresentation> representations = DialectManager.INSTANCE

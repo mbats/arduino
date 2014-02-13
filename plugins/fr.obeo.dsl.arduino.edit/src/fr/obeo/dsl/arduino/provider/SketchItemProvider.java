@@ -145,6 +145,7 @@ public class SketchItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS);
+			childrenFeatures.add(ArduinoPackage.Literals.SKETCH__FUNCTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -200,6 +201,7 @@ public class SketchItemProvider
 
 		switch (notification.getFeatureID(Sketch.class)) {
 			case ArduinoPackage.SKETCH__INSTRUCTIONS:
+			case ArduinoPackage.SKETCH__FUNCTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -281,6 +283,21 @@ public class SketchItemProvider
 			(createChildParameter
 				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
 				 ArduinoFactory.eINSTANCE.createIf()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__INSTRUCTIONS,
+				 ArduinoFactory.eINSTANCE.createParameterCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArduinoPackage.Literals.SKETCH__FUNCTIONS,
+				 ArduinoFactory.eINSTANCE.createFunction()));
 	}
 
 }

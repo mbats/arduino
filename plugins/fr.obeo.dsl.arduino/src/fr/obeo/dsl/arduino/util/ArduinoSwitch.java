@@ -133,6 +133,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				if (result == null) result = caseModuleInstruction(status);
 				if (result == null) result = caseValue(status);
 				if (result == null) result = caseInstruction(status);
+				if (result == null) result = caseParameter(status);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,6 +142,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				T result = caseLevel(level);
 				if (result == null) result = caseModuleInstruction(level);
 				if (result == null) result = caseInstruction(level);
+				if (result == null) result = caseParameter(level);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,6 +150,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				ModuleInstruction moduleInstruction = (ModuleInstruction)theEObject;
 				T result = caseModuleInstruction(moduleInstruction);
 				if (result == null) result = caseInstruction(moduleInstruction);
+				if (result == null) result = caseParameter(moduleInstruction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -162,6 +165,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				Utilities utilities = (Utilities)theEObject;
 				T result = caseUtilities(utilities);
 				if (result == null) result = caseInstruction(utilities);
+				if (result == null) result = caseParameter(utilities);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -177,6 +181,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				T result = caseDelay(delay);
 				if (result == null) result = caseUtilities(delay);
 				if (result == null) result = caseInstruction(delay);
+				if (result == null) result = caseParameter(delay);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -224,6 +229,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMathOperator(sensor);
 				if (result == null) result = caseValue(sensor);
 				if (result == null) result = caseInstruction(sensor);
+				if (result == null) result = caseParameter(sensor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -240,6 +246,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				T result = caseMathOperator(mathOperator);
 				if (result == null) result = caseValue(mathOperator);
 				if (result == null) result = caseInstruction(mathOperator);
+				if (result == null) result = caseParameter(mathOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -248,6 +255,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				T result = caseVariable(variable);
 				if (result == null) result = caseValue(variable);
 				if (result == null) result = caseInstruction(variable);
+				if (result == null) result = caseParameter(variable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -264,6 +272,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMathOperator(numericalOperator);
 				if (result == null) result = caseValue(numericalOperator);
 				if (result == null) result = caseInstruction(numericalOperator);
+				if (result == null) result = caseParameter(numericalOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -273,6 +282,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMathOperator(booleanOperator);
 				if (result == null) result = caseValue(booleanOperator);
 				if (result == null) result = caseInstruction(booleanOperator);
+				if (result == null) result = caseParameter(booleanOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -280,6 +290,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				Value value = (Value)theEObject;
 				T result = caseValue(value);
 				if (result == null) result = caseInstruction(value);
+				if (result == null) result = caseParameter(value);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -288,6 +299,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				T result = caseConstant(constant);
 				if (result == null) result = caseValue(constant);
 				if (result == null) result = caseInstruction(constant);
+				if (result == null) result = caseParameter(constant);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -296,6 +308,38 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				T result = caseIf(if_);
 				if (result == null) result = caseControl(if_);
 				if (result == null) result = caseInstruction(if_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.FUNCTION: {
+				Function function = (Function)theEObject;
+				T result = caseFunction(function);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.PARAMETER_DEFINITION: {
+				ParameterDefinition parameterDefinition = (ParameterDefinition)theEObject;
+				T result = caseParameterDefinition(parameterDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.PARAMETER: {
+				Parameter parameter = (Parameter)theEObject;
+				T result = caseParameter(parameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.FUNCTION_CALL: {
+				FunctionCall functionCall = (FunctionCall)theEObject;
+				T result = caseFunctionCall(functionCall);
+				if (result == null) result = caseInstruction(functionCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoPackage.PARAMETER_CALL: {
+				ParameterCall parameterCall = (ParameterCall)theEObject;
+				T result = caseParameterCall(parameterCall);
+				if (result == null) result = caseInstruction(parameterCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -765,6 +809,81 @@ public class ArduinoSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIf(If object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFunction(Function object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterDefinition(ParameterDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFunctionCall(FunctionCall object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterCall(ParameterCall object) {
 		return null;
 	}
 

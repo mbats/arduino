@@ -19,6 +19,8 @@ import fr.obeo.dsl.arduino.Constant;
 import fr.obeo.dsl.arduino.Control;
 import fr.obeo.dsl.arduino.Delay;
 import fr.obeo.dsl.arduino.DigitalPin;
+import fr.obeo.dsl.arduino.Function;
+import fr.obeo.dsl.arduino.FunctionCall;
 import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.If;
 import fr.obeo.dsl.arduino.InputModule;
@@ -35,6 +37,10 @@ import fr.obeo.dsl.arduino.NumericalVariable;
 import fr.obeo.dsl.arduino.Operator;
 import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.OutputModule;
+import fr.obeo.dsl.arduino.Parameter;
+import fr.obeo.dsl.arduino.ParameterCall;
+import fr.obeo.dsl.arduino.ParameterDefinition;
+import fr.obeo.dsl.arduino.ParameterType;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
 import fr.obeo.dsl.arduino.Project;
@@ -254,6 +260,41 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	private EClass ifEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterDefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterCallEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -278,6 +319,13 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * @generated
 	 */
 	private EEnum libraryEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum parameterTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -505,6 +553,15 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 */
 	public EReference getSketch_Instructions() {
 		return (EReference)sketchEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSketch_Functions() {
+		return (EReference)sketchEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -941,6 +998,141 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFunction() {
+		return functionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFunction_Name() {
+		return (EAttribute)functionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunction_ParamDefs() {
+		return (EReference)functionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunction_Instructions() {
+		return (EReference)functionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterDefinition() {
+		return parameterDefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameterDefinition_Type() {
+		return (EAttribute)parameterDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameterDefinition_Name() {
+		return (EAttribute)parameterDefinitionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParameterType() {
+		return parameterTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameter() {
+		return parameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameter_Definition() {
+		return (EReference)parameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFunctionCall() {
+		return functionCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunctionCall_Definition() {
+		return (EReference)functionCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunctionCall_Parameters() {
+		return (EReference)functionCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterCall() {
+		return parameterCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameterCall_Definition() {
+		return (EReference)parameterCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getConnector_Pin() {
 		return (EReference)connectorEClass.getEStructuralFeatures().get(0);
 	}
@@ -1031,6 +1223,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		sketchEClass = createEClass(SKETCH);
 		createEReference(sketchEClass, SKETCH__HARDWARE);
 		createEReference(sketchEClass, SKETCH__INSTRUCTIONS);
+		createEReference(sketchEClass, SKETCH__FUNCTIONS);
 
 		projectEClass = createEClass(PROJECT);
 		createEReference(projectEClass, PROJECT__HARDWARE);
@@ -1107,11 +1300,31 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		ifEClass = createEClass(IF);
 		createEReference(ifEClass, IF__CONDITION);
 
+		functionEClass = createEClass(FUNCTION);
+		createEAttribute(functionEClass, FUNCTION__NAME);
+		createEReference(functionEClass, FUNCTION__PARAM_DEFS);
+		createEReference(functionEClass, FUNCTION__INSTRUCTIONS);
+
+		parameterDefinitionEClass = createEClass(PARAMETER_DEFINITION);
+		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__TYPE);
+		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__NAME);
+
+		parameterEClass = createEClass(PARAMETER);
+		createEReference(parameterEClass, PARAMETER__DEFINITION);
+
+		functionCallEClass = createEClass(FUNCTION_CALL);
+		createEReference(functionCallEClass, FUNCTION_CALL__DEFINITION);
+		createEReference(functionCallEClass, FUNCTION_CALL__PARAMETERS);
+
+		parameterCallEClass = createEClass(PARAMETER_CALL);
+		createEReference(parameterCallEClass, PARAMETER_CALL__DEFINITION);
+
 		// Create enums
 		timeEEnum = createEEnum(TIME);
 		moduleKindEEnum = createEEnum(MODULE_KIND);
 		operatorKindEEnum = createEEnum(OPERATOR_KIND);
 		libraryEEnum = createEEnum(LIBRARY);
+		parameterTypeEEnum = createEEnum(PARAMETER_TYPE);
 	}
 
 	/**
@@ -1152,8 +1365,10 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		statusEClass.getESuperTypes().add(this.getValue());
 		levelEClass.getESuperTypes().add(this.getModuleInstruction());
 		moduleInstructionEClass.getESuperTypes().add(this.getInstruction());
+		moduleInstructionEClass.getESuperTypes().add(this.getParameter());
 		controlEClass.getESuperTypes().add(this.getInstruction());
 		utilitiesEClass.getESuperTypes().add(this.getInstruction());
+		utilitiesEClass.getESuperTypes().add(this.getParameter());
 		ioEClass.getESuperTypes().add(this.getInstruction());
 		delayEClass.getESuperTypes().add(this.getUtilities());
 		inputModuleEClass.getESuperTypes().add(this.getModule());
@@ -1170,8 +1385,11 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		numericalOperatorEClass.getESuperTypes().add(this.getMathOperator());
 		booleanOperatorEClass.getESuperTypes().add(this.getMathOperator());
 		valueEClass.getESuperTypes().add(this.getInstruction());
+		valueEClass.getESuperTypes().add(this.getParameter());
 		constantEClass.getESuperTypes().add(this.getValue());
 		ifEClass.getESuperTypes().add(this.getControl());
+		functionCallEClass.getESuperTypes().add(this.getInstruction());
+		parameterCallEClass.getESuperTypes().add(this.getInstruction());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(hardwareEClass, Hardware.class, "Hardware", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1200,6 +1418,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEClass(sketchEClass, Sketch.class, "Sketch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSketch_Hardware(), this.getHardware(), null, "hardware", null, 1, 1, Sketch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSketch_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Sketch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSketch_Functions(), this.getFunction(), null, "functions", null, 0, -1, Sketch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProject_Hardware(), this.getHardware(), null, "hardware", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1276,6 +1495,25 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIf_Condition(), this.getBooleanOperator(), null, "condition", null, 1, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFunction_ParamDefs(), this.getParameterDefinition(), null, "paramDefs", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFunction_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterDefinitionEClass, ParameterDefinition.class, "ParameterDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameterDefinition_Type(), this.getParameterType(), "type", null, 0, 1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameterDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameter_Definition(), this.getParameterDefinition(), null, "definition", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(functionCallEClass, FunctionCall.class, "FunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFunctionCall_Definition(), this.getFunction(), null, "definition", null, 1, 1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFunctionCall_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterCallEClass, ParameterCall.class, "ParameterCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterCall_Definition(), this.getParameterDefinition(), null, "definition", null, 0, 1, ParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(timeEEnum, Time.class, "Time");
 		addEEnumLiteral(timeEEnum, Time.MILLI_SECOND);
@@ -1306,6 +1544,13 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEEnum(libraryEEnum, Library.class, "Library");
 		addEEnumLiteral(libraryEEnum, Library.NONE);
 		addEEnumLiteral(libraryEEnum, Library.SERVO);
+
+		initEEnum(parameterTypeEEnum, ParameterType.class, "ParameterType");
+		addEEnumLiteral(parameterTypeEEnum, ParameterType.DELAY);
+		addEEnumLiteral(parameterTypeEEnum, ParameterType.LEVEL);
+		addEEnumLiteral(parameterTypeEEnum, ParameterType.STATUS);
+		addEEnumLiteral(parameterTypeEEnum, ParameterType.CONSTANT);
+		addEEnumLiteral(parameterTypeEEnum, ParameterType.SENSOR);
 
 		// Create resource
 		createResource(eNS_URI);

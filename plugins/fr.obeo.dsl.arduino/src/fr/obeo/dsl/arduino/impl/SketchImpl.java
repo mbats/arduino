@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.Function;
 import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.Sketch;
@@ -28,6 +29,7 @@ import fr.obeo.dsl.arduino.Sketch;
  *   <li>{@link fr.obeo.dsl.arduino.impl.SketchImpl#getNext <em>Next</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SketchImpl#getHardware <em>Hardware</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SketchImpl#getInstructions <em>Instructions</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.SketchImpl#getFunctions <em>Functions</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +75,16 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	 * @ordered
 	 */
 	protected EList<Instruction> instructions;
+
+	/**
+	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFunctions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Function> functions;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -214,6 +226,18 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Function> getFunctions() {
+		if (functions == null) {
+			functions = new EObjectContainmentEList<Function>(Function.class, this, ArduinoPackage.SKETCH__FUNCTIONS);
+		}
+		return functions;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -223,6 +247,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 		switch (featureID) {
 			case ArduinoPackage.SKETCH__INSTRUCTIONS:
 				return ((InternalEList<?>)getInstructions()).basicRemove(otherEnd, msgs);
+			case ArduinoPackage.SKETCH__FUNCTIONS:
+				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -245,6 +271,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 				return basicGetHardware();
 			case ArduinoPackage.SKETCH__INSTRUCTIONS:
 				return getInstructions();
+			case ArduinoPackage.SKETCH__FUNCTIONS:
+				return getFunctions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,6 +298,10 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 				getInstructions().clear();
 				getInstructions().addAll((Collection<? extends Instruction>)newValue);
 				return;
+			case ArduinoPackage.SKETCH__FUNCTIONS:
+				getFunctions().clear();
+				getFunctions().addAll((Collection<? extends Function>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -293,6 +325,9 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 			case ArduinoPackage.SKETCH__INSTRUCTIONS:
 				getInstructions().clear();
 				return;
+			case ArduinoPackage.SKETCH__FUNCTIONS:
+				getFunctions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -312,6 +347,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 				return hardware != null;
 			case ArduinoPackage.SKETCH__INSTRUCTIONS:
 				return instructions != null && !instructions.isEmpty();
+			case ArduinoPackage.SKETCH__FUNCTIONS:
+				return functions != null && !functions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

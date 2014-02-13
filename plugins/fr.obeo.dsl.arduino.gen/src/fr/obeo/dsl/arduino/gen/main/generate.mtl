@@ -145,9 +145,33 @@ analogWrite([instruction.eContainer(arduino::Sketch).getPinId(instruction.module
 [template public generateInstruction(instruction : Sketch)post (trim())]
 [/template]
 
+[template public generateInstruction(instruction : FunctionCall)post (trim())]
+// [instruction.definition.name/]([for (param : Parameter | instruction.parameters)separator (',')]{[param.definition.name/]:[param.generateInstruction()/]}[/for])
+[for (funcInstr : Instruction | instruction.definition.instructions)]
+[if (funcInstr.oclIsTypeOf(arduino::ParameterCall))]
+[funcInstr.oclAsType(arduino::ParameterCall).generateInstruction(instruction)/]
+[else]
+[funcInstr.generateInstruction()/]
+[/if]
+[/for]
+[/template]
+
+[template public generateInstruction(funcInstruction : ParameterCall, funcCall: FunctionCall)post (trim())]
+[for (param: Parameter | funcCall.parameters)]
+	[if (param.definition=funcInstruction.definition)]
+		[generateInstruction(param)/]
+	[/if]
+[/for]
+[/template]
+
+[template public generateInstruction(instruction : Parameter)]
+Generation error for [instruction/]
+[/template]
+
 [template public generateInstruction(instruction : Instruction)]
 Generation error for [instruction/]
 [/template]
+
 
 [query public getPinId (sketch : Sketch, mod : Module) : Integer = sketch.hardware.connectors->select(c| c.module = mod)->first().pin.id/]
 

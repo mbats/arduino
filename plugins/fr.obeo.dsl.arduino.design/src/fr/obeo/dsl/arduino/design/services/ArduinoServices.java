@@ -31,6 +31,8 @@ import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Constant;
 import fr.obeo.dsl.arduino.Control;
 import fr.obeo.dsl.arduino.DigitalPin;
+import fr.obeo.dsl.arduino.Function;
+import fr.obeo.dsl.arduino.FunctionCall;
 import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.If;
 import fr.obeo.dsl.arduino.Instruction;
@@ -736,6 +738,21 @@ public class ArduinoServices {
 		return null;
 	}
 
+	public Instruction getLastInstruction(Function function) {
+		if (function != null && function.getInstructions().size() > 0) {
+			Instruction instruction = function.getInstructions().get(0);
+			while (instruction != null && instruction.getNext() != null) {
+				instruction = instruction.getNext();
+			}
+
+			if (function.getInstructions().size() > 1) {
+				return instruction;
+			}
+		}
+
+		return null;
+	}
+
 	public boolean isLastInstructionValid(Sketch container) {
 		if (getLastInstruction(container) != null) {
 			return true;
@@ -750,6 +767,13 @@ public class ArduinoServices {
 		return false;
 	}
 
+	
+	public boolean isLastInstructionValid(Function container) {
+		if (getLastInstruction(container) != null) {
+			return true;
+		}
+		return false;
+	}
 	public void removeWire(Hardware hardware, Module module) {
 		List<Connector> connectors = getConnectors(hardware);
 		for (Connector connector : connectors) {
@@ -868,7 +892,7 @@ public class ArduinoServices {
 		DialectUIManager.INSTANCE.openEditor(session, hardwareDiagram,
 				new NullProgressMonitor());
 	}
-	
+
 	public void openSketchDiagram(Sketch sketch) {
 		Session session = SessionManager.INSTANCE.getSession(sketch);
 		DRepresentation sketchDiagram = getSketchDiagram(sketch);
@@ -876,8 +900,16 @@ public class ArduinoServices {
 				new NullProgressMonitor());
 	}
 
-	private RepresentationDescription getDiagramDescription(
-			Session session, String diagramDescriptionName) {
+	public void openFunctionDiagram(FunctionCall function) {
+		Session session = SessionManager.INSTANCE.getSession(function);
+		DRepresentation functionDiagram = getDiagram(function.getDefinition(),
+				function.getDefinition().getName(), "Function");
+		DialectUIManager.INSTANCE.openEditor(session, functionDiagram,
+				new NullProgressMonitor());
+	}
+
+	private RepresentationDescription getDiagramDescription(Session session,
+			String diagramDescriptionName) {
 		for (Viewpoint vp : session.getSelectedViewpoints(false)) {
 			for (RepresentationDescription representationDescription : vp
 					.getOwnedRepresentations()) {
@@ -891,14 +923,15 @@ public class ArduinoServices {
 	}
 
 	private DRepresentation getHardwareDiagram(Hardware hardware) {
-		return getDiagram(hardware, "Hardware");
+		return getDiagram(hardware, "Hardware", "Hardware");
 	}
 
 	private DRepresentation getSketchDiagram(Sketch sketch) {
-		return getDiagram(sketch, "Sketch");
+		return getDiagram(sketch, "Sketch", "Sketch");
 	}
 
-	private DRepresentation getDiagram(EObject semantic, String diagramName) {
+	private DRepresentation getDiagram(EObject semantic, String diagramName,
+			String diagramDescriptionName) {
 		fr.obeo.dsl.arduino.utils.ArduinoServices service = new fr.obeo.dsl.arduino.utils.ArduinoServices();
 		Session session = SessionManager.INSTANCE.getSession(semantic);
 		DRepresentation diagram = service.getDiagram(session, diagramName);
@@ -906,11 +939,10 @@ public class ArduinoServices {
 		if (diagram == null) {
 			diagram = (DDiagram) DialectManager.INSTANCE.createRepresentation(
 					diagramName, semantic,
-					getDiagramDescription(session, diagramName), session,
+					getDiagramDescription(session, diagramDescriptionName), session,
 					new NullProgressMonitor());
 		}
 
 		return diagram;
 	}
-
 }

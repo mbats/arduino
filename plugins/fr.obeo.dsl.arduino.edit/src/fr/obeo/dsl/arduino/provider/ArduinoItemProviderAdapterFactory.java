@@ -555,6 +555,98 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.Function} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FunctionItemProvider functionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.Function}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFunctionAdapter() {
+		if (functionItemProvider == null) {
+			functionItemProvider = new FunctionItemProvider(this);
+		}
+
+		return functionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.ParameterDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterDefinitionItemProvider parameterDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.ParameterDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterDefinitionAdapter() {
+		if (parameterDefinitionItemProvider == null) {
+			parameterDefinitionItemProvider = new ParameterDefinitionItemProvider(this);
+		}
+
+		return parameterDefinitionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.FunctionCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FunctionCallItemProvider functionCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.FunctionCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFunctionCallAdapter() {
+		if (functionCallItemProvider == null) {
+			functionCallItemProvider = new FunctionCallItemProvider(this);
+		}
+
+		return functionCallItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.arduino.ParameterCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterCallItemProvider parameterCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.arduino.ParameterCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterCallAdapter() {
+		if (parameterCallItemProvider == null) {
+			parameterCallItemProvider = new ParameterCallItemProvider(this);
+		}
+
+		return parameterCallItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -674,6 +766,10 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
 		if (booleanOperatorItemProvider != null) booleanOperatorItemProvider.dispose();
 		if (constantItemProvider != null) constantItemProvider.dispose();
 		if (ifItemProvider != null) ifItemProvider.dispose();
+		if (functionItemProvider != null) functionItemProvider.dispose();
+		if (parameterDefinitionItemProvider != null) parameterDefinitionItemProvider.dispose();
+		if (functionCallItemProvider != null) functionCallItemProvider.dispose();
+		if (parameterCallItemProvider != null) parameterCallItemProvider.dispose();
 	}
 
 }

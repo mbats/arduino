@@ -78,6 +78,10 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 			case ArduinoPackage.BOOLEAN_OPERATOR: return createBooleanOperator();
 			case ArduinoPackage.CONSTANT: return createConstant();
 			case ArduinoPackage.IF: return createIf();
+			case ArduinoPackage.FUNCTION: return createFunction();
+			case ArduinoPackage.PARAMETER_DEFINITION: return createParameterDefinition();
+			case ArduinoPackage.FUNCTION_CALL: return createFunctionCall();
+			case ArduinoPackage.PARAMETER_CALL: return createParameterCall();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -99,6 +103,8 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 				return createOperatorKindFromString(eDataType, initialValue);
 			case ArduinoPackage.LIBRARY:
 				return createLibraryFromString(eDataType, initialValue);
+			case ArduinoPackage.PARAMETER_TYPE:
+				return createParameterTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -120,6 +126,8 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 				return convertOperatorKindToString(eDataType, instanceValue);
 			case ArduinoPackage.LIBRARY:
 				return convertLibraryToString(eDataType, instanceValue);
+			case ArduinoPackage.PARAMETER_TYPE:
+				return convertParameterTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -340,6 +348,46 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Function createFunction() {
+		FunctionImpl function = new FunctionImpl();
+		return function;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterDefinition createParameterDefinition() {
+		ParameterDefinitionImpl parameterDefinition = new ParameterDefinitionImpl();
+		return parameterDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FunctionCall createFunctionCall() {
+		FunctionCallImpl functionCall = new FunctionCallImpl();
+		return functionCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterCall createParameterCall() {
+		ParameterCallImpl parameterCall = new ParameterCallImpl();
+		return parameterCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Time createTimeFromString(EDataType eDataType, String initialValue) {
 		Time result = Time.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -412,6 +460,26 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 * @generated
 	 */
 	public String convertLibraryToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterType createParameterTypeFromString(EDataType eDataType, String initialValue) {
+		ParameterType result = ParameterType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertParameterTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

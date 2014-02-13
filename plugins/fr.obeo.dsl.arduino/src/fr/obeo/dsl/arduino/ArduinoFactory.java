@@ -211,6 +211,42 @@ public interface ArduinoFactory extends EFactory {
 	If createIf();
 
 	/**
+	 * Returns a new object of class '<em>Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function</em>'.
+	 * @generated
+	 */
+	Function createFunction();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Definition</em>'.
+	 * @generated
+	 */
+	ParameterDefinition createParameterDefinition();
+
+	/**
+	 * Returns a new object of class '<em>Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Call</em>'.
+	 * @generated
+	 */
+	FunctionCall createFunctionCall();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Call</em>'.
+	 * @generated
+	 */
+	ParameterCall createParameterCall();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

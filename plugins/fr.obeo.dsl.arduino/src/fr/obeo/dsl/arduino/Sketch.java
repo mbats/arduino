@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.obeo.dsl.arduino.Sketch#getHardware <em>Hardware</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.Sketch#getInstructions <em>Instructions</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.Sketch#getFunctions <em>Functions</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,5 +65,21 @@ public interface Sketch extends NamedElement, Instruction {
 	 * @generated
 	 */
 	EList<Instruction> getInstructions();
+
+	/**
+	 * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.obeo.dsl.arduino.Function}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Functions</em>' containment reference list.
+	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getSketch_Functions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Function> getFunctions();
 
 } // Sketch

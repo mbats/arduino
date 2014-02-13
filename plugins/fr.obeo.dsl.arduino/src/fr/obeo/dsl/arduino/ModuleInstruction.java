@@ -19,7 +19,7 @@ package fr.obeo.dsl.arduino;
  * @model abstract="true"
  * @generated
  */
-public interface ModuleInstruction extends Instruction {
+public interface ModuleInstruction extends Instruction, Parameter {
 	/**
 	 * Returns the value of the '<em><b>Module</b></em>' reference.
 	 * <!-- begin-user-doc -->

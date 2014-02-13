@@ -13,5 +13,5 @@ package fr.obeo.dsl.arduino;
  * @model abstract="true"
  * @generated
  */
-public interface Utilities extends Instruction {
+public interface Utilities extends Instruction, Parameter {
 } // Utilities

@@ -398,13 +398,22 @@ public interface ArduinoPackage extends EPackage {
 	int SKETCH__INSTRUCTIONS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKETCH__FUNCTIONS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Sketch</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SKETCH_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int SKETCH_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ProjectImpl <em>Project</em>}' class.
@@ -527,13 +536,22 @@ public interface ArduinoPackage extends EPackage {
 	int MODULE_INSTRUCTION__NEXT = INSTRUCTION__NEXT;
 
 	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_INSTRUCTION__DEFINITION = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Module</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_INSTRUCTION__MODULE = INSTRUCTION_FEATURE_COUNT + 0;
+	int MODULE_INSTRUCTION__MODULE = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Module Instruction</em>' class.
@@ -542,7 +560,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_INSTRUCTION_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+	int MODULE_INSTRUCTION_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.StatusImpl <em>Status</em>}' class.
@@ -571,6 +589,15 @@ public interface ArduinoPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATUS__NEXT = MODULE_INSTRUCTION__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATUS__DEFINITION = MODULE_INSTRUCTION__DEFINITION;
 
 	/**
 	 * The feature id for the '<em><b>Module</b></em>' reference.
@@ -644,6 +671,15 @@ public interface ArduinoPackage extends EPackage {
 	 * @ordered
 	 */
 	int LEVEL__NEXT = MODULE_INSTRUCTION__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEVEL__DEFINITION = MODULE_INSTRUCTION__DEFINITION;
 
 	/**
 	 * The feature id for the '<em><b>Module</b></em>' reference.
@@ -747,13 +783,22 @@ public interface ArduinoPackage extends EPackage {
 	int UTILITIES__NEXT = INSTRUCTION__NEXT;
 
 	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UTILITIES__DEFINITION = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Utilities</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UTILITIES_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+	int UTILITIES_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.IOImpl <em>IO</em>}' class.
@@ -819,6 +864,15 @@ public interface ArduinoPackage extends EPackage {
 	 * @ordered
 	 */
 	int DELAY__NEXT = UTILITIES__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY__DEFINITION = UTILITIES__DEFINITION;
 
 	/**
 	 * The feature id for the '<em><b>Unit</b></em>' attribute.
@@ -1096,6 +1150,15 @@ public interface ArduinoPackage extends EPackage {
 	int SENSOR__NEXT = MODULE_INSTRUCTION__NEXT;
 
 	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__DEFINITION = MODULE_INSTRUCTION__DEFINITION;
+
+	/**
 	 * The feature id for the '<em><b>Module</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1242,13 +1305,22 @@ public interface ArduinoPackage extends EPackage {
 	int VALUE__NEXT = INSTRUCTION__NEXT;
 
 	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__DEFINITION = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__VALUE = INSTRUCTION_FEATURE_COUNT + 0;
+	int VALUE__VALUE = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Value</em>' class.
@@ -1257,7 +1329,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+	int VALUE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.MathOperatorImpl <em>Math Operator</em>}' class.
@@ -1286,6 +1358,15 @@ public interface ArduinoPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATH_OPERATOR__NEXT = VALUE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATH_OPERATOR__DEFINITION = VALUE__DEFINITION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1359,6 +1440,15 @@ public interface ArduinoPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE__NEXT = VALUE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__DEFINITION = VALUE__DEFINITION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1471,6 +1561,15 @@ public interface ArduinoPackage extends EPackage {
 	int NUMERICAL_OPERATOR__NEXT = MATH_OPERATOR__NEXT;
 
 	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERICAL_OPERATOR__DEFINITION = MATH_OPERATOR__DEFINITION;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1542,6 +1641,15 @@ public interface ArduinoPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR__NEXT = MATH_OPERATOR__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__DEFINITION = MATH_OPERATOR__DEFINITION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1617,6 +1725,15 @@ public interface ArduinoPackage extends EPackage {
 	int CONSTANT__NEXT = VALUE__NEXT;
 
 	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__DEFINITION = VALUE__DEFINITION;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1690,6 +1807,228 @@ public interface ArduinoPackage extends EPackage {
 	int IF_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.FunctionImpl <em>Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.FunctionImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getFunction()
+	 * @generated
+	 */
+	int FUNCTION = 31;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Param Defs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__PARAM_DEFS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__INSTRUCTIONS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.ParameterDefinitionImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterDefinition()
+	 * @generated
+	 */
+	int PARAMETER_DEFINITION = 32;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.ParameterType <em>Parameter Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.ParameterType
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterType()
+	 * @generated
+	 */
+	int PARAMETER_TYPE = 40;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.ParameterImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 33;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DEFINITION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.FunctionCallImpl <em>Function Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.FunctionCallImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getFunctionCall()
+	 * @generated
+	 */
+	int FUNCTION_CALL = 34;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CALL__PREVIOUS = INSTRUCTION__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CALL__NEXT = INSTRUCTION__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CALL__DEFINITION = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CALL__PARAMETERS = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Function Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CALL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ParameterCallImpl <em>Parameter Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.impl.ParameterCallImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterCall()
+	 * @generated
+	 */
+	int PARAMETER_CALL = 35;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CALL__PREVIOUS = INSTRUCTION__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CALL__NEXT = INSTRUCTION__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CALL__DEFINITION = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CALL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1697,7 +2036,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 31;
+	int TIME = 36;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.ModuleKind <em>Module Kind</em>}' enum.
@@ -1707,7 +2046,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getModuleKind()
 	 * @generated
 	 */
-	int MODULE_KIND = 32;
+	int MODULE_KIND = 37;
 
 
 	/**
@@ -1718,7 +2057,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getOperatorKind()
 	 * @generated
 	 */
-	int OPERATOR_KIND = 33;
+	int OPERATOR_KIND = 38;
 
 
 	/**
@@ -1729,7 +2068,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getLibrary()
 	 * @generated
 	 */
-	int LIBRARY = 34;
+	int LIBRARY = 39;
 
 
 	/**
@@ -1944,6 +2283,17 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSketch_Instructions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Sketch#getFunctions <em>Functions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Functions</em>'.
+	 * @see fr.obeo.dsl.arduino.Sketch#getFunctions()
+	 * @see #getSketch()
+	 * @generated
+	 */
+	EReference getSketch_Functions();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Project <em>Project</em>}'.
@@ -2472,6 +2822,165 @@ public interface ArduinoPackage extends EPackage {
 	EReference getIf_Condition();
 
 	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Function <em>Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function</em>'.
+	 * @see fr.obeo.dsl.arduino.Function
+	 * @generated
+	 */
+	EClass getFunction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Function#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see fr.obeo.dsl.arduino.Function#getName()
+	 * @see #getFunction()
+	 * @generated
+	 */
+	EAttribute getFunction_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Function#getParamDefs <em>Param Defs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Param Defs</em>'.
+	 * @see fr.obeo.dsl.arduino.Function#getParamDefs()
+	 * @see #getFunction()
+	 * @generated
+	 */
+	EReference getFunction_ParamDefs();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.arduino.Function#getInstructions <em>Instructions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Instructions</em>'.
+	 * @see fr.obeo.dsl.arduino.Function#getInstructions()
+	 * @see #getFunction()
+	 * @generated
+	 */
+	EReference getFunction_Instructions();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.ParameterDefinition <em>Parameter Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Definition</em>'.
+	 * @see fr.obeo.dsl.arduino.ParameterDefinition
+	 * @generated
+	 */
+	EClass getParameterDefinition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.ParameterDefinition#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see fr.obeo.dsl.arduino.ParameterDefinition#getType()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EAttribute getParameterDefinition_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.ParameterDefinition#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see fr.obeo.dsl.arduino.ParameterDefinition#getName()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EAttribute getParameterDefinition_Name();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.obeo.dsl.arduino.ParameterType <em>Parameter Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Parameter Type</em>'.
+	 * @see fr.obeo.dsl.arduino.ParameterType
+	 * @generated
+	 */
+	EEnum getParameterType();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see fr.obeo.dsl.arduino.Parameter
+	 * @generated
+	 */
+	EClass getParameter();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Parameter#getDefinition <em>Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Definition</em>'.
+	 * @see fr.obeo.dsl.arduino.Parameter#getDefinition()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_Definition();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.FunctionCall <em>Function Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function Call</em>'.
+	 * @see fr.obeo.dsl.arduino.FunctionCall
+	 * @generated
+	 */
+	EClass getFunctionCall();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.FunctionCall#getDefinition <em>Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Definition</em>'.
+	 * @see fr.obeo.dsl.arduino.FunctionCall#getDefinition()
+	 * @see #getFunctionCall()
+	 * @generated
+	 */
+	EReference getFunctionCall_Definition();
+
+	/**
+	 * Returns the meta object for the reference list '{@link fr.obeo.dsl.arduino.FunctionCall#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Parameters</em>'.
+	 * @see fr.obeo.dsl.arduino.FunctionCall#getParameters()
+	 * @see #getFunctionCall()
+	 * @generated
+	 */
+	EReference getFunctionCall_Parameters();
+
+	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.ParameterCall <em>Parameter Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Call</em>'.
+	 * @see fr.obeo.dsl.arduino.ParameterCall
+	 * @generated
+	 */
+	EClass getParameterCall();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.ParameterCall#getDefinition <em>Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Definition</em>'.
+	 * @see fr.obeo.dsl.arduino.ParameterCall#getDefinition()
+	 * @see #getParameterCall()
+	 * @generated
+	 */
+	EReference getParameterCall_Definition();
+
+	/**
 	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getPin <em>Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2717,6 +3226,14 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SKETCH__INSTRUCTIONS = eINSTANCE.getSketch_Instructions();
+
+		/**
+		 * The meta object literal for the '<em><b>Functions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SKETCH__FUNCTIONS = eINSTANCE.getSketch_Functions();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ProjectImpl <em>Project</em>}' class.
@@ -3165,6 +3682,138 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IF__CONDITION = eINSTANCE.getIf_Condition();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.FunctionImpl <em>Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.FunctionImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getFunction()
+		 * @generated
+		 */
+		EClass FUNCTION = eINSTANCE.getFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FUNCTION__NAME = eINSTANCE.getFunction_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Param Defs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION__PARAM_DEFS = eINSTANCE.getFunction_ParamDefs();
+
+		/**
+		 * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION__INSTRUCTIONS = eINSTANCE.getFunction_Instructions();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.ParameterDefinitionImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterDefinition()
+		 * @generated
+		 */
+		EClass PARAMETER_DEFINITION = eINSTANCE.getParameterDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_DEFINITION__TYPE = eINSTANCE.getParameterDefinition_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_DEFINITION__NAME = eINSTANCE.getParameterDefinition_Name();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.ParameterType <em>Parameter Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.ParameterType
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterType()
+		 * @generated
+		 */
+		EEnum PARAMETER_TYPE = eINSTANCE.getParameterType();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.ParameterImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameter()
+		 * @generated
+		 */
+		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Definition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__DEFINITION = eINSTANCE.getParameter_Definition();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.FunctionCallImpl <em>Function Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.FunctionCallImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getFunctionCall()
+		 * @generated
+		 */
+		EClass FUNCTION_CALL = eINSTANCE.getFunctionCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Definition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION_CALL__DEFINITION = eINSTANCE.getFunctionCall_Definition();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION_CALL__PARAMETERS = eINSTANCE.getFunctionCall_Parameters();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ParameterCallImpl <em>Parameter Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.impl.ParameterCallImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterCall()
+		 * @generated
+		 */
+		EClass PARAMETER_CALL = eINSTANCE.getParameterCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Definition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_CALL__DEFINITION = eINSTANCE.getParameterCall_Definition();
 
 		/**
 		 * The meta object literal for the '<em><b>Pin</b></em>' reference feature.
