@@ -13,17 +13,20 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
@@ -102,8 +105,8 @@ public class ArduinoServices {
 			askUser();
 			return;
 		}
-		ProgressMonitorDialog dialog = new ProgressMonitorDialog(PlatformUI
-				.getWorkbench().getActiveWorkbenchWindow().getShell());
+		final ProgressMonitorDialog dialog = new ProgressMonitorDialog(
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 		try {
 			dialog.run(true, true, new IRunnableWithProgress() {
 				@Override
@@ -121,11 +124,30 @@ public class ArduinoServices {
 					String workingDirectory = genFolder.toString();
 					ArduinoBuilder builder = new ArduinoBuilder(arduinoSdk,
 							boardTag, workingDirectory);
-					builder.compile("Sketch", null);
+					final IStatus compileStatus = builder.compile("Sketch",
+							null);
+					if (compileStatus.getSeverity() != IStatus.OK) {
+						Display.getDefault().syncExec(new Runnable() {
+							public void run() {
+								MessageDialog.openError(dialog.getShell(),
+										"Compilation Fail", "Compilation fail : "
+												+ compileStatus.getMessage());
+							}
+						});
+					}
 
 					monitor.worked(33);
 					monitor.subTask("Upload code");
-					builder.upload();
+					final IStatus uploadStatus = builder.upload();
+					if (uploadStatus.getSeverity() != IStatus.OK) {
+						Display.getDefault().syncExec(new Runnable() {
+							public void run() {
+								MessageDialog.openError(dialog.getShell(),
+										"Upload Fail", "Upload fail : "
+												+ uploadStatus.getMessage());
+							}
+						});
+					}
 					monitor.done();
 				}
 			});
@@ -134,7 +156,6 @@ public class ArduinoServices {
 		} catch (InterruptedException e) {
 			ArduinoUiActivator.log(Status.ERROR, "Upload failed", e);
 		}
-
 	}
 
 	private void askUser() {

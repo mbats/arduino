@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+
 /**
  * Arduino builder is used to cross-compile ino files in order to be able to
  * execute the code on an Arduino board.
@@ -71,42 +74,54 @@ public class ArduinoBuilder {
 	 * @param libraries
 	 *            Specific libraries names.
 	 */
-	public void compile(String sketchName, List<String> libraries) {
+	public IStatus compile(String sketchName, List<String> libraries) {
 		// Compile sketch
-		compileSketch(sketchName);
+		IStatus sketchStatus = compileSketch(sketchName);
+		if(sketchStatus.getSeverity()!= IStatus.OK){
+			return sketchStatus;
+		}
 
 		// Compile main libraries
-		compileMainLibraries();
+		IStatus mainLibrariesStatus = compileMainLibraries();
+		if(mainLibrariesStatus.getSeverity()!= IStatus.OK){
+			return mainLibrariesStatus;
+		}
 
 		// Compile specific libraries
 		if (libraries != null) {
 			for (String libraryName : libraries) {
-				compileSpecificLibrary(arduinoSdk + "libraries/" + libraryName
+				IStatus specificLibraryStatus = compileSpecificLibrary(arduinoSdk + "libraries/" + libraryName
 						+ "/" + libraryName);
+				if(specificLibraryStatus.getSeverity()!= IStatus.OK){
+					return specificLibraryStatus;
+				}
 			}
 		}
 
 		// Link all
-		link(sketchName);
+		IStatus linkStatus = link(sketchName);
+		if(linkStatus.getSeverity()!= IStatus.OK){
+			return linkStatus;
+		}
 
 		// Generate arduino.hex
-		generateArduinoHex();
+		return generateArduinoHex(); 
 	}
 
-	public void upload() {
+	public IStatus upload() {
 		System.out.println("Upload arduino.hex");
 		String command = arduinoSdk + "hardware/tools/avrdude";
 		ProcessBuilder builder = new ProcessBuilder(command, "-q", "-V", "-p",
 				getMMCU(), "-C", arduinoSdk + "hardware/tools/avrdude.conf",
 				"-c", "arduino", "-b", "115200", "-P", "/dev/ttyACM0", "-U",
 				"flash:w:arduino.hex:i");
-		executeCommand(directory, builder);
+		return executeCommand(directory, builder);
 	}
 
 	/**
 	 * Generate arduino.hex file.
 	 */
-	private void generateArduinoHex() {
+	private IStatus generateArduinoHex() {
 		System.out.println("Generate arduino.hex");
 		String command = arduinoSdk + "hardware/tools/avr/bin/avr-objcopy";
 		ProcessBuilder builder = new ProcessBuilder(command, "-j", ".eeprom",
@@ -116,7 +131,7 @@ public class ArduinoBuilder {
 		executeCommand(directory, builder);
 		builder = new ProcessBuilder(command, "-O", "ihex", "-R", ".eeprom",
 				"arduino.elf", "arduino.hex");
-		executeCommand(directory, builder);
+		return executeCommand(directory, builder);
 	}
 
 	/**
@@ -125,7 +140,7 @@ public class ArduinoBuilder {
 	 * @param sketchName
 	 *            Arduino sketch file name
 	 */
-	private void link(String sketchName) {
+	private IStatus link(String sketchName) {
 		System.out.println("Link all");
 		String command = arduinoSdk + "hardware/tools/avr/bin/avr-gcc";
 		ProcessBuilder builder = new ProcessBuilder(command, "-mmcu="
@@ -135,7 +150,7 @@ public class ArduinoBuilder {
 				"wiring_shift.o", "CDC.o", "HardwareSerial.o", "HID.o",
 				"IPAddress.o", "main.o", "new.o", "Print.o", "Stream.o",
 				"Tone.o", "USBCore.o", "WMath.o", "WString.o", "-lc", "-lm");
-		executeCommand(directory, builder);
+		return executeCommand(directory, builder);
 	}
 
 	/**
@@ -144,35 +159,72 @@ public class ArduinoBuilder {
 	 * @param libraryName
 	 *            Library name
 	 */
-	private void compileSpecificLibrary(String libraryName) {
-		compileCPPFile(libraryName, libraryName);
+	private IStatus compileSpecificLibrary(String libraryName) {
+		return compileCPPFile(libraryName, libraryName);
 	}
 
 	/**
 	 * Compile the main Arduino libraries.
 	 */
-	private void compileMainLibraries() {
+	private IStatus compileMainLibraries() {
 		System.out.println("Compile main libraries");
 		String arduinoMainLibraryPath = arduinoSdk
 				+ "hardware/arduino/cores/arduino/";
-		compileCFile(arduinoMainLibraryPath, "WInterrupts");
-		compileCFile(arduinoMainLibraryPath, "wiring_analog");
-		compileCFile(arduinoMainLibraryPath, "wiring");
-		compileCFile(arduinoMainLibraryPath, "wiring_digital");
-		compileCFile(arduinoMainLibraryPath, "wiring_pulse");
-		compileCFile(arduinoMainLibraryPath, "wiring_shift");
-		compileCPPFile(arduinoMainLibraryPath, "CDC");
-		compileCPPFile(arduinoMainLibraryPath, "HardwareSerial");
-		compileCPPFile(arduinoMainLibraryPath, "HID");
-		compileCPPFile(arduinoMainLibraryPath, "IPAddress");
-		compileCPPFile(arduinoMainLibraryPath, "main");
-		compileCPPFile(arduinoMainLibraryPath, "new");
-		compileCPPFile(arduinoMainLibraryPath, "Print");
-		compileCPPFile(arduinoMainLibraryPath, "Stream");
-		compileCPPFile(arduinoMainLibraryPath, "Tone");
-		compileCPPFile(arduinoMainLibraryPath, "USBCore");
-		compileCPPFile(arduinoMainLibraryPath, "WMath");
+		IStatus status = null;
+		status = compileCFile(arduinoMainLibraryPath, "WInterrupts");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCFile(arduinoMainLibraryPath, "wiring_analog");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCFile(arduinoMainLibraryPath, "wiring");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCFile(arduinoMainLibraryPath, "wiring_digital");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCFile(arduinoMainLibraryPath, "wiring_pulse");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCFile(arduinoMainLibraryPath, "wiring_shift");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "CDC");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "HardwareSerial");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "HID");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "IPAddress");
+		
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "main");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "new");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "Print");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "Stream");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "Tone");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "USBCore");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
+		status = compileCPPFile(arduinoMainLibraryPath, "WMath");
+		if(status.getSeverity() != IStatus.OK)
+			return status;
 		compileCPPFile(arduinoMainLibraryPath, "WString");
+		return status;
 	}
 
 	/**
@@ -181,7 +233,7 @@ public class ArduinoBuilder {
 	 * @param filePath
 	 *            Path of the ino file to compile
 	 */
-	private void compileSketch(String fileName) {
+	private IStatus compileSketch(String fileName) {
 		System.out.println("Compile Sketch");
 		String command = arduinoSdk + "hardware/tools/avr/bin/avr-g++";
 		ProcessBuilder builder = new ProcessBuilder(command, "-x", "c++",
@@ -191,7 +243,7 @@ public class ArduinoBuilder {
 						+ arduinoSdk + "hardware/arduino/variants/standard",
 				"-g", "-Os", "-Wall", "-ffunction-sections", "-fdata-sections",
 				"-fno-exceptions", fileName + ".ino", "-o", fileName + ".o");
-		executeCommand(directory, builder);
+		return executeCommand(directory, builder);
 	}
 
 	/**
@@ -200,7 +252,7 @@ public class ArduinoBuilder {
 	 * @param filePath
 	 *            Path of the C file to compile
 	 */
-	private void compileCFile(String filePath, String fileName) {
+	private IStatus compileCFile(String filePath, String fileName) {
 		System.out.println("Compile C file : " + filePath + fileName);
 		String command = arduinoSdk + "hardware/tools/avr/bin/avr-gcc";
 		ProcessBuilder builder = new ProcessBuilder(command, "-c", "-mmcu="
@@ -210,7 +262,7 @@ public class ArduinoBuilder {
 				+ "hardware/arduino/variants/standard", "-g", "-Os", "-Wall",
 				"-ffunction-sections", "-fdata-sections", "-std=gnu99",
 				filePath + fileName + ".c", "-o", fileName + ".o");
-		executeCommand(directory, builder);
+		return executeCommand(directory, builder);
 	}
 
 	/**
@@ -219,7 +271,7 @@ public class ArduinoBuilder {
 	 * @param filePath
 	 *            Path of the CPP file to compile
 	 */
-	private void compileCPPFile(String filePath, String fileName) {
+	private IStatus compileCPPFile(String filePath, String fileName) {
 		System.out.println("Compile CPP file : " + filePath + fileName);
 		String command = arduinoSdk + "hardware/tools/avr/bin/avr-g++";
 		ProcessBuilder builder = new ProcessBuilder(command, "-c", "-mmcu="
@@ -229,7 +281,7 @@ public class ArduinoBuilder {
 				+ "hardware/arduino/variants/standard", "-g", "-Os", "-Wall",
 				"-ffunction-sections", "-fdata-sections", "-fno-exceptions",
 				filePath + fileName + ".cpp", "-o", fileName + ".o");
-		executeCommand(directory, builder);
+		return executeCommand(directory, builder);
 	}
 
 	/**
@@ -240,19 +292,27 @@ public class ArduinoBuilder {
 	 * @param builder
 	 *            Command to execute
 	 */
-	private void executeCommand(File directory, ProcessBuilder builder) {
+	private IStatus executeCommand(File directory, ProcessBuilder builder) {
 		System.out.println(builder.command());
 		builder.directory(directory);
 		try {
 			Process process = builder.start();
 			inheritIO(process.getInputStream(), System.out);
-			inheritIO(process.getErrorStream(), System.err);
+//			inheritIO(process.getErrorStream(), System.err);
 			process.waitFor();
+			if (process.exitValue() > 0) {
+				String error = convertStreamToString(process.getErrorStream());
+				return new Status(IStatus.ERROR,
+						ArduinoBuilderActivator.PLUGIN_ID, error);
+			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			return new Status(IStatus.ERROR, ArduinoBuilderActivator.PLUGIN_ID,
+					e.getMessage(), e);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			return new Status(IStatus.ERROR, ArduinoBuilderActivator.PLUGIN_ID,
+					e.getMessage(), e);
 		}
+		return new Status(IStatus.OK, ArduinoBuilderActivator.PLUGIN_ID, null);
 	}
 
 	/**
@@ -306,5 +366,10 @@ public class ArduinoBuilder {
 				sc.close();
 			}
 		}).start();
+	}
+
+	private static String convertStreamToString(java.io.InputStream is) {
+		java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+		return s.hasNext() ? s.next() : "";
 	}
 }
