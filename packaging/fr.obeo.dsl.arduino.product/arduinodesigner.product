@@ -6,9 +6,9 @@
    <aboutInfo>
       <image path="icons/about.gif"/>
       <text>
-         UML Designer
+         Arduino Designer
 
-Version  4.0.0
+Version  1.0.0
 
 
 Copyright (c) 2005-2013 Obeo. All Rights Reserved.
@@ -33,11 +33,11 @@ Visit http://www.obeo.fr
    <windowImages i16="icons/logo_16.png" i32="icons/logo_32.png" i48="icons/logo_48.png" i64="icons/logo_64.png" i128="icons/logo_128.png"/>
 
    <splash
-      location="org.obeonetwork.dsl.uml2.branding"
+      location="fr.obeo.dsl.arduino.branding"
       startupProgressRect="0,328,458,18"
       startupMessageRect="7,308,458,18"
       startupForegroundColor="000000" />
-   <launcher name="umldesigner">
+   <launcher name="arduinodesigner">
       <linux icon="/icons/logo_64.xpm"/>
       <macosx icon="/icons/Obeo_Designer.icns"/>
       <solaris/>

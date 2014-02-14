@@ -5,7 +5,8 @@ Bundle-SymbolicName: fr.obeo.dsl.arduino.build
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: fr.obeo.dsl.arduino.build.ArduinoBuilderActivator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ com.google.guava
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.obeo.dsl.arduino.build
