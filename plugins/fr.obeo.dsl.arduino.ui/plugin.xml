@@ -40,6 +40,10 @@
             id="fr.obeo.dsl.arduino.commands.upload"
             name="Upload sketch">
       </command>
+      <command
+            id="fr.obeo.dsl.arduino.commands.preferences"
+            name="Preferences">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -77,6 +81,13 @@
                label="Hardware kit"
                style="toggle"
                tooltip="Define new hardware kit modules and platforms">
+         </command>
+         <command
+               commandId="fr.obeo.dsl.arduino.commands.preferences"
+               icon="icons/project.png"
+               label="Preferences"
+               mode="FORCE_TEXT"
+               style="push">
          </command>
       </menuContribution>
             <menuContribution
@@ -218,6 +229,10 @@
                </iterate>
             </with>
          </enabledWhen>
+      </handler>
+      <handler
+            class="fr.obeo.dsl.arduino.commands.PreferencesHandler"
+            commandId="fr.obeo.dsl.arduino.commands.preferences">
       </handler>
    </extension>
 

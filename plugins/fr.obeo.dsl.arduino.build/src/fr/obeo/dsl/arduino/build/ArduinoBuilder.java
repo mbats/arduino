@@ -41,7 +41,7 @@ public class ArduinoBuilder {
 	 * Working directory.
 	 */
 	private final File directory;
-	
+
 	/**
 	 * OS.
 	 */
@@ -59,10 +59,13 @@ public class ArduinoBuilder {
 	 *            Working directory
 	 */
 	public ArduinoBuilder(String arduinoSdk, String boardTag, String directory) {
+		if (!arduinoSdk.endsWith(File.separator)) {
+			arduinoSdk += File.separator;
+		}
 		this.arduinoSdk = arduinoSdk;
 		this.boardTag = boardTag;
 		this.directory = new File(directory);
-			os = System.getProperty("os.name").toLowerCase();
+		os = System.getProperty("os.name").toLowerCase();
 	}
 
 	/**
