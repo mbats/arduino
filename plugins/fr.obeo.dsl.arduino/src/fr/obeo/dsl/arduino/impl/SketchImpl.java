@@ -1,17 +1,14 @@
 /**
+ *  Copyright (c) 2013 Obeo.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Obeo - initial API and implementation
  */
 package fr.obeo.dsl.arduino.impl;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
 import fr.obeo.dsl.arduino.Function;
@@ -19,9 +16,25 @@ import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.Sketch;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Sketch</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Sketch</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -58,7 +71,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 
 	/**
 	 * The cached value of the '{@link #getHardware() <em>Hardware</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getHardware()
 	 * @generated
 	 * @ordered
@@ -66,10 +80,9 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	protected Hardware hardware;
 
 	/**
-	 * The cached value of the '{@link #getInstructions() <em>Instructions</em>}
-	 * ' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
+	 * The cached value of the '{@link #getInstructions() <em>Instructions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInstructions()
 	 * @generated
 	 * @ordered
@@ -87,7 +100,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	protected EList<Function> functions;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected SketchImpl() {
@@ -95,7 +109,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -180,7 +195,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Hardware getHardware() {
@@ -196,7 +212,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Hardware basicGetHardware() {
@@ -204,7 +221,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setHardware(Hardware newHardware) {
@@ -215,7 +233,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<Instruction> getInstructions() {
@@ -238,12 +257,12 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ArduinoPackage.SKETCH__INSTRUCTIONS:
 				return ((InternalEList<?>)getInstructions()).basicRemove(otherEnd, msgs);
@@ -254,7 +273,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -278,7 +298,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -307,7 +328,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -333,7 +355,8 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -387,4 +410,4 @@ public class SketchImpl extends NamedElementImpl implements Sketch {
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-} // SketchImpl
+} //SketchImpl

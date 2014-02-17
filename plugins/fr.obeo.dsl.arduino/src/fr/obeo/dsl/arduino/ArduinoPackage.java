@@ -1,4 +1,12 @@
 /**
+ *  Copyright (c) 2013 Obeo.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Obeo - initial API and implementation
  */
 package fr.obeo.dsl.arduino;
 
@@ -1890,16 +1898,6 @@ public interface ArduinoPackage extends EPackage {
 	int PARAMETER_DEFINITION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.arduino.ParameterType <em>Parameter Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.arduino.ParameterType
-	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterType()
-	 * @generated
-	 */
-	int PARAMETER_TYPE = 40;
-
-	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ParameterImpl <em>Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2048,7 +2046,6 @@ public interface ArduinoPackage extends EPackage {
 	 */
 	int MODULE_KIND = 37;
 
-
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.OperatorKind <em>Operator Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
@@ -2059,7 +2056,6 @@ public interface ArduinoPackage extends EPackage {
 	 */
 	int OPERATOR_KIND = 38;
 
-
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.Library <em>Library</em>}' enum.
 	 * <!-- begin-user-doc -->
@@ -2069,6 +2065,16 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	int LIBRARY = 39;
+
+	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.ParameterType <em>Parameter Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.arduino.ParameterType
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterType()
+	 * @generated
+	 */
+	int PARAMETER_TYPE = 40;
 
 
 	/**
@@ -2580,6 +2586,17 @@ public interface ArduinoPackage extends EPackage {
 	EClass getConnector();
 
 	/**
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getPin <em>Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Pin</em>'.
+	 * @see fr.obeo.dsl.arduino.Connector#getPin()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Pin();
+
+	/**
 	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getModule <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2897,16 +2914,6 @@ public interface ArduinoPackage extends EPackage {
 	EAttribute getParameterDefinition_Name();
 
 	/**
-	 * Returns the meta object for enum '{@link fr.obeo.dsl.arduino.ParameterType <em>Parameter Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Parameter Type</em>'.
-	 * @see fr.obeo.dsl.arduino.ParameterType
-	 * @generated
-	 */
-	EEnum getParameterType();
-
-	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2981,17 +2988,6 @@ public interface ArduinoPackage extends EPackage {
 	EReference getParameterCall_Definition();
 
 	/**
-	 * Returns the meta object for the reference '{@link fr.obeo.dsl.arduino.Connector#getPin <em>Pin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pin</em>'.
-	 * @see fr.obeo.dsl.arduino.Connector#getPin()
-	 * @see #getConnector()
-	 * @generated
-	 */
-	EReference getConnector_Pin();
-
-	/**
 	 * Returns the meta object for enum '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3030,6 +3026,16 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getLibrary();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.obeo.dsl.arduino.ParameterType <em>Parameter Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Parameter Type</em>'.
+	 * @see fr.obeo.dsl.arduino.ParameterType
+	 * @generated
+	 */
+	EEnum getParameterType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3478,6 +3484,14 @@ public interface ArduinoPackage extends EPackage {
 		EClass CONNECTOR = eINSTANCE.getConnector();
 
 		/**
+		 * The meta object literal for the '<em><b>Pin</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__PIN = eINSTANCE.getConnector_Pin();
+
+		/**
 		 * The meta object literal for the '<em><b>Module</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3744,16 +3758,6 @@ public interface ArduinoPackage extends EPackage {
 		EAttribute PARAMETER_DEFINITION__NAME = eINSTANCE.getParameterDefinition_Name();
 
 		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.ParameterType <em>Parameter Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.arduino.ParameterType
-		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterType()
-		 * @generated
-		 */
-		EEnum PARAMETER_TYPE = eINSTANCE.getParameterType();
-
-		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ParameterImpl <em>Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3816,14 +3820,6 @@ public interface ArduinoPackage extends EPackage {
 		EReference PARAMETER_CALL__DEFINITION = eINSTANCE.getParameterCall_Definition();
 
 		/**
-		 * The meta object literal for the '<em><b>Pin</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONNECTOR__PIN = eINSTANCE.getConnector_Pin();
-
-		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.Time <em>Time</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3862,6 +3858,16 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum LIBRARY = eINSTANCE.getLibrary();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.ParameterType <em>Parameter Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.arduino.ParameterType
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getParameterType()
+		 * @generated
+		 */
+		EEnum PARAMETER_TYPE = eINSTANCE.getParameterType();
 
 	}
 

@@ -1,4 +1,12 @@
 /**
+ *  Copyright (c) 2013 Obeo.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Obeo - initial API and implementation
  */
 package fr.obeo.dsl.arduino.impl;
 
@@ -9,7 +17,6 @@ import fr.obeo.dsl.arduino.Pin;
 
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -75,44 +82,6 @@ public class ConnectorImpl extends EObjectImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Module getModule() {
-		if (module != null && module.eIsProxy()) {
-			InternalEObject oldModule = (InternalEObject)module;
-			module = (Module)eResolveProxy(oldModule);
-			if (module != oldModule) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.CONNECTOR__MODULE, oldModule, module));
-			}
-		}
-		return module;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Module basicGetModule() {
-		return module;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModule(Module newModule) {
-		Module oldModule = module;
-		module = newModule;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.CONNECTOR__MODULE, oldModule, module));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Pin getPin() {
 		if (pin != null && pin.eIsProxy()) {
 			InternalEObject oldPin = (InternalEObject)pin;
@@ -144,6 +113,44 @@ public class ConnectorImpl extends EObjectImpl implements Connector {
 		pin = newPin;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.CONNECTOR__PIN, oldPin, pin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Module getModule() {
+		if (module != null && module.eIsProxy()) {
+			InternalEObject oldModule = (InternalEObject)module;
+			module = (Module)eResolveProxy(oldModule);
+			if (module != oldModule) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.CONNECTOR__MODULE, oldModule, module));
+			}
+		}
+		return module;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Module basicGetModule() {
+		return module;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModule(Module newModule) {
+		Module oldModule = module;
+		module = newModule;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.CONNECTOR__MODULE, oldModule, module));
 	}
 
 	/**

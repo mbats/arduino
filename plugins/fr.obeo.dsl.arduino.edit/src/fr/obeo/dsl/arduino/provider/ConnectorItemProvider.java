@@ -1,4 +1,12 @@
 /**
+ *  Copyright (c) 2013 Obeo.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Obeo - initial API and implementation
  */
 package fr.obeo.dsl.arduino.provider;
 
@@ -64,28 +72,6 @@ public class ConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Module feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addModulePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Connector_module_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_module_feature", "_UI_Connector_type"),
-				 ArduinoPackage.Literals.CONNECTOR__MODULE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Pin feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,6 +85,28 @@ public class ConnectorItemProvider
 				 getString("_UI_Connector_pin_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_pin_feature", "_UI_Connector_type"),
 				 ArduinoPackage.Literals.CONNECTOR__PIN,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Module feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModulePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Connector_module_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_module_feature", "_UI_Connector_type"),
+				 ArduinoPackage.Literals.CONNECTOR__MODULE,
 				 true,
 				 false,
 				 true,

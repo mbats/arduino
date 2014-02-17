@@ -1,4 +1,12 @@
 /**
+ *  Copyright (c) 2013 Obeo.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Obeo - initial API and implementation
  */
 package fr.obeo.dsl.arduino;
 
@@ -26,7 +34,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EQUAL(0, "equal", "equal"), /**
+	EQUAL(0, "equal", "equal"),
+
+	/**
 	 * The '<em><b>Minus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,7 +44,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MINUS(0, "minus", "minus"), /**
+	MINUS(0, "minus", "minus"),
+
+	/**
 	 * The '<em><b>Upper</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,7 +54,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UPPER(0, "upper", "upper"), /**
+	UPPER(0, "upper", "upper"),
+
+	/**
 	 * The '<em><b>Lower</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,7 +64,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOWER(0, "lower", "lower"), /**
+	LOWER(0, "lower", "lower"),
+
+	/**
 	 * The '<em><b>Plus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,7 +74,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLUS(0, "plus", "plus"), /**
+	PLUS(0, "plus", "plus"),
+
+	/**
 	 * The '<em><b>Diff</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +84,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIFF(0, "diff", "diff"), /**
+	DIFF(0, "diff", "diff"),
+
+	/**
 	 * The '<em><b>Upper Or Equal</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,7 +94,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UPPER_OR_EQUAL(0, "upperOrEqual", "upperOrEqual"), /**
+	UPPER_OR_EQUAL(0, "upperOrEqual", "upperOrEqual"),
+
+	/**
 	 * The '<em><b>Lower Or Equal</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,7 +104,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOWER_OR_EQUAL(0, "lowerOrEqual", "lowerOrEqual"), /**
+	LOWER_OR_EQUAL(0, "lowerOrEqual", "lowerOrEqual"),
+
+	/**
 	 * The '<em><b>Mul</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,7 +114,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MUL(0, "mul", "mul"), /**
+	MUL(0, "mul", "mul"),
+
+	/**
 	 * The '<em><b>Div</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,7 +124,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIV(0, "div", "div"), /**
+	DIV(0, "div", "div"),
+
+	/**
 	 * The '<em><b>Min</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,7 +134,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MIN(0, "min", "min"), /**
+	MIN(0, "min", "min"),
+
+	/**
 	 * The '<em><b>Max</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,7 +144,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAX(0, "max", "max"), /**
+	MAX(0, "max", "max"),
+
+	/**
 	 * The '<em><b>Pourcent</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,7 +154,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POURCENT(0, "pourcent", "pourcent"), /**
+	POURCENT(0, "pourcent", "pourcent"),
+
+	/**
 	 * The '<em><b>And</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,7 +164,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AND(0, "and", "and"), /**
+	AND(0, "and", "and"),
+
+	/**
 	 * The '<em><b>Or</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,7 +174,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OR(0, "or", "or"), /**
+	OR(0, "or", "or"),
+
+	/**
 	 * The '<em><b>Not</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

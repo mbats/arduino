@@ -1,23 +1,31 @@
 /**
+ *  Copyright (c) 2013 Obeo.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Obeo - initial API and implementation
  */
 package fr.obeo.dsl.arduino;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 import org.eclipse.emf.common.util.Enumerator;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Parameter Type</b></em>'.
+ * A representation of the literals of the enumeration '<em><b>Parameter Type</b></em>',
+ * and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see fr.obeo.dsl.arduino.ArduinoPackage#getParameterType()
  * @model
  * @generated
  */
-public enum ParameterType implements Enumerator
-{
+public enum ParameterType implements Enumerator {
 	/**
 	 * The '<em><b>Delay</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -27,6 +35,7 @@ public enum ParameterType implements Enumerator
 	 * @ordered
 	 */
 	DELAY(0, "Delay", "Delay"),
+
 	/**
 	 * The '<em><b>Level</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -36,6 +45,7 @@ public enum ParameterType implements Enumerator
 	 * @ordered
 	 */
 	LEVEL(0, "Level", "Level"),
+
 	/**
 	 * The '<em><b>Status</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -45,6 +55,7 @@ public enum ParameterType implements Enumerator
 	 * @ordered
 	 */
 	STATUS(0, "Status", "Status"),
+
 	/**
 	 * The '<em><b>Constant</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -54,6 +65,7 @@ public enum ParameterType implements Enumerator
 	 * @ordered
 	 */
 	CONSTANT(0, "Constant", "Constant"),
+
 	/**
 	 * The '<em><b>Sensor</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -63,6 +75,7 @@ public enum ParameterType implements Enumerator
 	 * @ordered
 	 */
 	SENSOR(0, "Sensor", "Sensor");
+
 	/**
 	 * The '<em><b>Delay</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -276,4 +289,5 @@ public enum ParameterType implements Enumerator
 	public String toString() {
 		return literal;
 	}
-}
+	
+} //ParameterType

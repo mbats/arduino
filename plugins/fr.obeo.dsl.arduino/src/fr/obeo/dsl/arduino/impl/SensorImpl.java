@@ -1,4 +1,12 @@
 /**
+ *  Copyright (c) 2013 Obeo.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Obeo - initial API and implementation
  */
 package fr.obeo.dsl.arduino.impl;
 
@@ -7,16 +15,21 @@ import fr.obeo.dsl.arduino.BooleanOperator;
 import fr.obeo.dsl.arduino.MathOperator;
 import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.Sensor;
-
 import fr.obeo.dsl.arduino.Status;
 import fr.obeo.dsl.arduino.Value;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -47,6 +60,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * @ordered
 	 */
 	protected static final String VALUE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,6 +70,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * @ordered
 	 */
 	protected String value = VALUE_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getLeft() <em>Left</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -65,6 +80,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * @ordered
 	 */
 	protected Value left;
+
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -74,6 +90,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * @ordered
 	 */
 	protected Value right;
+
 	/**
 	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -83,6 +100,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * @ordered
 	 */
 	protected static final OperatorKind OPERATOR_EDEFAULT = OperatorKind.EQUAL;
+
 	/**
 	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,6 +110,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * @ordered
 	 */
 	protected OperatorKind operator = OPERATOR_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' reference list.
 	 * <!-- begin-user-doc -->

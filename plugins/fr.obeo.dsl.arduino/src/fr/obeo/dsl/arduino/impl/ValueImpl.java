@@ -1,4 +1,12 @@
 /**
+ *  Copyright (c) 2013 Obeo.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Obeo - initial API and implementation
  */
 package fr.obeo.dsl.arduino.impl;
 
@@ -8,11 +16,11 @@ import fr.obeo.dsl.arduino.ParameterDefinition;
 import fr.obeo.dsl.arduino.Value;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +46,7 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	 * @ordered
 	 */
 	protected ParameterDefinition definition;
+
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -47,6 +56,7 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	 * @ordered
 	 */
 	protected static final String VALUE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

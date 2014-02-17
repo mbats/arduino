@@ -1,19 +1,19 @@
 /**
+ *  Copyright (c) 2013 Obeo.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Obeo - initial API and implementation
  */
 package fr.obeo.dsl.arduino.impl;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import fr.obeo.dsl.arduino.AnalogPin;
 import fr.obeo.dsl.arduino.ArduinoFactory;
 import fr.obeo.dsl.arduino.ArduinoPackage;
 import fr.obeo.dsl.arduino.BooleanOperator;
-import fr.obeo.dsl.arduino.BooleanVariable;
 import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Constant;
 import fr.obeo.dsl.arduino.Control;
@@ -33,8 +33,6 @@ import fr.obeo.dsl.arduino.ModuleInstruction;
 import fr.obeo.dsl.arduino.ModuleKind;
 import fr.obeo.dsl.arduino.NamedElement;
 import fr.obeo.dsl.arduino.NumericalOperator;
-import fr.obeo.dsl.arduino.NumericalVariable;
-import fr.obeo.dsl.arduino.Operator;
 import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.OutputModule;
 import fr.obeo.dsl.arduino.Parameter;
@@ -55,122 +53,150 @@ import fr.obeo.dsl.arduino.Value;
 import fr.obeo.dsl.arduino.Variable;
 import fr.obeo.dsl.arduino.While;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 /**
- * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Package</b>.
+ * <!-- end-user-doc -->
  * @generated
  */
 public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass hardwareEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass platformEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass moduleEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass digitalPinEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass pinEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass analogPinEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass sketchEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass projectEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass instructionEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass statusEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass levelEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass moduleInstructionEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass controlEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass utilitiesEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass ioEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass delayEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass inputModuleEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass outputModuleEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass namedElementEClass = null;
@@ -295,13 +321,15 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	private EClass parameterCallEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EEnum timeEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EEnum moduleKindEEnum = null;
@@ -329,14 +357,14 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
-	 * package package URI value.
-	 * <p>
-	 * Note: the correct way to create the package is via the static factory
-	 * method {@link #init init()}, which also performs initialization of the
-	 * package, or returns the registered package, if one already exists. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+	 * package URI value.
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see fr.obeo.dsl.arduino.ArduinoPackage#eNS_URI
 	 * @see #init()
@@ -347,21 +375,19 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model,
-	 * and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>
-	 * This method is used to initialize {@link ArduinoPackage#eINSTANCE} when
-	 * that field is accessed. Clients should not invoke it directly. Instead,
-	 * they should simply access that field to obtain the package. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <p>This method is used to initialize {@link ArduinoPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -391,7 +417,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getHardware() {
@@ -399,7 +426,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getHardware_Platforms() {
@@ -407,7 +435,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getHardware_Modules() {
@@ -424,7 +453,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getPlatform() {
@@ -432,7 +462,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getPlatform_DigitalPins() {
@@ -440,7 +471,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getPlatform_AnalogPins() {
@@ -457,7 +489,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getModule() {
@@ -465,7 +498,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EAttribute getModule_Kind() {
@@ -500,7 +534,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getDigitalPin() {
@@ -508,7 +543,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getPin() {
@@ -516,7 +552,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EAttribute getPin_Id() {
@@ -524,7 +561,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getAnalogPin() {
@@ -532,7 +570,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getSketch() {
@@ -540,7 +579,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getSketch_Hardware() {
@@ -548,7 +588,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getSketch_Instructions() {
@@ -565,7 +606,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getProject() {
@@ -591,7 +633,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getProject_Modules() {
@@ -599,7 +642,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getProject_Platform() {
@@ -607,7 +651,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getInstruction() {
@@ -615,7 +660,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getInstruction_Previous() {
@@ -623,7 +669,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getInstruction_Next() {
@@ -631,7 +678,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getStatus() {
@@ -639,7 +687,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EAttribute getStatus_Status() {
@@ -656,7 +705,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getLevel() {
@@ -673,7 +723,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getModuleInstruction() {
@@ -681,7 +732,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getModuleInstruction_Module() {
@@ -689,7 +741,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getControl() {
@@ -706,7 +759,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getUtilities() {
@@ -714,7 +768,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getIO() {
@@ -722,7 +777,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getDelay() {
@@ -730,7 +786,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EAttribute getDelay_Unit() {
@@ -738,7 +795,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EAttribute getDelay_Value() {
@@ -746,7 +804,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getInputModule() {
@@ -754,7 +813,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getOutputModule() {
@@ -762,7 +822,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getNamedElement() {
@@ -770,7 +831,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EAttribute getNamedElement_Name() {
@@ -784,6 +846,15 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 */
 	public EClass getConnector() {
 		return connectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConnector_Pin() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1061,15 +1132,6 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getParameterType() {
-		return parameterTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getParameter() {
 		return parameterEClass;
 	}
@@ -1133,20 +1195,13 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConnector_Pin() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getTime() {
 		return timeEEnum;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EEnum getModuleKind() {
@@ -1172,7 +1227,17 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParameterType() {
+		return parameterTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ArduinoFactory getArduinoFactory() {
@@ -1180,7 +1245,8 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -1328,16 +1394,17 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This
-	 * method is guarded to have no affect on any invocation but its first. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -1556,4 +1623,4 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		createResource(eNS_URI);
 	}
 
-} // ArduinoPackageImpl
+} //ArduinoPackageImpl
