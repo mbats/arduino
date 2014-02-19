@@ -147,17 +147,24 @@ public class ArduinoBuilder {
 		System.out.println("Upload arduino.hex");
 		String command = arduinoSdk + "hardware" + File.separator + "tools"
 				+ File.separator;
+		ProcessBuilder builder = null;
 		if (os.contains("win")) {
 			command += "avr" + File.separator + "bin" + File.separator
 					+ "avrdude.exe";
+			builder = new ProcessBuilder(command, "-q", "-V", "-p", getMMCU(),
+					"-C", arduinoSdk + "hardware" + File.separator + "tools"
+							+ File.separator + "avr" + File.separator + "etc"
+							+ File.separator + "avrdude.conf", "-c", "arduino",
+					"-b", "115200", "-P", "COM3", "-U",
+					"flash:w:arduino.hex:i");
 		} else {
 			command += "avrdude";
+			builder = new ProcessBuilder(command, "-q", "-V", "-p", getMMCU(),
+					"-C", arduinoSdk + "hardware" + File.separator + "tools"
+							+ File.separator + "avrdude.conf", "-c", "arduino",
+					"-b", "115200", "-P", "/dev/ttyACM0", "-U",
+					"flash:w:arduino.hex:i");
 		}
-		ProcessBuilder builder = new ProcessBuilder(command, "-q", "-V", "-p",
-				getMMCU(), "-C", arduinoSdk + "hardware" + File.separator
-						+ "tools" + File.separator + "avrdude.conf", "-c",
-				"arduino", "-b", "115200", "-P", "/dev/ttyACM0", "-U",
-				"flash:w:arduino.hex:i");
 		return executeCommand(directory, builder);
 	}
 
