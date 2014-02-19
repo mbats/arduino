@@ -146,9 +146,12 @@ public class ArduinoBuilder {
 	public IStatus upload() {
 		System.out.println("Upload arduino.hex");
 		String command = arduinoSdk + "hardware" + File.separator + "tools"
-				+ File.separator + "avrdude";
+				+ File.separator;
 		if (os.contains("win")) {
-			command += ".exe";
+			command += "avr" + File.separator + "bin" + File.separator
+					+ "avrdude.exe";
+		} else {
+			command += "avrdude";
 		}
 		ProcessBuilder builder = new ProcessBuilder(command, "-q", "-V", "-p",
 				getMMCU(), "-C", arduinoSdk + "hardware" + File.separator
