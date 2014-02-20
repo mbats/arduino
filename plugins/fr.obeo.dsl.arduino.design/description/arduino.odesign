@@ -1241,7 +1241,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Functions">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="SK_Create_Function" label="New" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Function']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="SK_Create_Function" label="New" containerMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Function']" iconPath="/fr.obeo.dsl.arduino.design/icons/Function.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1281,7 +1281,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="SK_Use_Function" label="Use" candidatesExpression="[getSketch().functions/]" message="Select an existing function">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="SK_Use_Function" label="Use" candidatesExpression="[getSketch().functions/]" message="Select an existing function" iconPath="/fr.obeo.dsl.arduino.design/icons/UseFunction.png" windowTitle="Selection an existing function">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -1293,7 +1293,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="SK_Create_Parameter" label="Parameter" edgeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='SK_Link']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="SK_Create_Parameter" label="Parameter" edgeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='SK_Link']" iconPath="/fr.obeo.dsl.arduino.design/icons/Parameter.png">
             <sourceVariable name="source">
               <subVariables xsi:type="tool_1:SelectModelElementVariable" name="paramDef" candidatesExpression="[definition.paramDefs/]" message="Select parameter definition"/>
             </sourceVariable>
@@ -1387,7 +1387,7 @@
         <toolSections name="Controls" reusedTools="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='SK_Create_If'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='Sk_Create_Repeat'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='SK_Create_While'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='SK_Delete_While_and_If'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.2/@ownedTools[name='SK_Edit_Repeat']"/>
         <toolSections name="Variables" reusedTools="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.3/@ownedTools[name='SK_Create_Constant'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.3/@ownedTools[name='SK_Create_Set'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.3/@ownedTools[name='SK_Create_Variable'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.3/@ownedTools[name='SK_Delete_MathOperator'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.3/@ownedTools[name='SK_Delete_Set'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.3/@ownedTools[name='SK_Edit_Constant'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.3/@ownedTools[name='SK_Edit_Variable'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.3/@ownedTools[name='SK_Select_Constant'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.3/@ownedTools[name='SK_Select_Variable']"/>
         <toolSections name="MathOperator" reusedTools="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.4/@ownedTools[name='SK_Create_Equal'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.4/@ownedTools[name='SK_Create_Lower'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.4/@ownedTools[name='SK_Create_LowerOrEqual'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.4/@ownedTools[name='SK_Create_Minus'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.4/@ownedTools[name='SK_Create_Plus'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.4/@ownedTools[name='SK_Create_Upper'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.4/@ownedTools[name='SK_Create_UpperOrEqual']"/>
-        <toolSections name="Functions" reusedTools="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.5/@ownedTools[name='SK_Create_Function'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.5/@ownedTools[name='SK_Edit_Function'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@toolSections.5/@ownedTools[name='SK_Open_Function']">
+        <toolSections name="Functions">
           <ownedTools xsi:type="tool:ToolGroup" name="Parameters">
             <tools xsi:type="tool:NodeCreationDescription" name="FU_Create_Param_Delay" label="Delay Parameter" nodeMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@nodeMappings[name='FU_Parameter_Definition']" iconPath="/fr.obeo.dsl.arduino.design/icons/Delay.png">
               <variable name="container"/>
@@ -1438,7 +1438,7 @@
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Use Parameter" candidatesExpression="feature:paramDefs" message="Select parameter">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Use Parameter" candidatesExpression="feature:paramDefs" message="Select parameter" iconPath="/fr.obeo.dsl.arduino.design/icons/Parameter.png" windowTitle="Select a parameter to referenced">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
