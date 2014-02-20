@@ -40,6 +40,9 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import com.google.common.collect.Iterators;
+import com.google.common.collect.UnmodifiableIterator;
+
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.ModuleInstruction;
 import fr.obeo.dsl.arduino.Project;
@@ -174,16 +177,14 @@ public class ArduinoServices {
 	}
 
 	protected List<String> getLibraries(Sketch sketch) {
-		List<String> libraries = new ArrayList<String>();
-		for (Instruction instruction : sketch.getInstructions()) {
-			if (instruction instanceof ModuleInstruction) {
-				ModuleInstruction modInstruction = (ModuleInstruction) instruction;
-				String library = modInstruction.getModule().getLibrary()
-						.getName();
-
-				if (!libraries.contains(library)) {
-					libraries.add(library);
-				}
+		final List<String> libraries = new ArrayList<String>();
+		UnmodifiableIterator<ModuleInstruction> it = Iterators.filter(
+				sketch.eAllContents(), ModuleInstruction.class);
+		while (it.hasNext()) {
+			ModuleInstruction input = it.next();
+			String library = input.getModule().getLibrary().getName();
+			if (!libraries.contains(library) && !library.equals("none")) {
+				libraries.add(library);
 			}
 		}
 		return libraries;

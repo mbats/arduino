@@ -1,9 +1,10 @@
 #include <Servo.h>
-#include <Servo.h>
+#include <Music.h>
 Servo Microservo1;
 int Infraredsensor = 4;
 
 void setup() {
+ music.init();
  Microservo1.attach(9);
 }
 
@@ -11,9 +12,11 @@ void setup() {
 void loop() {
  if (!digitalRead(Infraredsensor))
  {
-  Microservo1.write(90);
-  delay(400);
+  music.play();
   Microservo1.write(0);
   delay(400);
+  Microservo1.write(90);
+  delay(400);
  }
+ music.pause();
 }

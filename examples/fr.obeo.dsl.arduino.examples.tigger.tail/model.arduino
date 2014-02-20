@@ -4,6 +4,7 @@
     <platforms href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0"/>
     <modules xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.8"/>
     <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.7"/>
+    <modules xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.14"/>
     <connectors>
       <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.9"/>
       <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.7"/>
@@ -12,22 +13,32 @@
       <pin xsi:type="arduino:DigitalPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@digitalPins.4"/>
       <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.8"/>
     </connectors>
+    <connectors>
+      <pin xsi:type="arduino:AnalogPin" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@platform.0/@analogPins.0"/>
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.14"/>
+    </connectors>
   </hardware>
   <sketch name="Sketch" next="//@sketch/@instructions.0" hardware="//@hardware">
-    <instructions xsi:type="arduino:If" next="//@sketch" condition="//@sketch/@instructions.1">
-      <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.0/@instructions.1" level="//@sketch/@instructions.2">
-        <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.7"/>
+    <instructions xsi:type="arduino:If" next="//@sketch/@instructions.2" condition="//@sketch/@instructions.1">
+      <instructions xsi:type="arduino:Status" next="//@sketch/@instructions.0/@instructions.3">
+        <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.14"/>
       </instructions>
-      <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.0/@instructions.2" value="400"/>
-      <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.0/@instructions.3" level="//@sketch/@instructions.3">
-        <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.7"/>
-      </instructions>
+      <instructions xsi:type="arduino:Delay" next="//@sketch/@instructions.0/@instructions.4" value="400"/>
       <instructions xsi:type="arduino:Delay" value="400"/>
+      <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.0/@instructions.1" level="//@sketch/@instructions.3">
+        <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.7"/>
+      </instructions>
+      <instructions xsi:type="arduino:Level" next="//@sketch/@instructions.0/@instructions.2" level="//@sketch/@instructions.4">
+        <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.7"/>
+      </instructions>
     </instructions>
     <instructions xsi:type="arduino:Sensor">
       <module xsi:type="arduino:InputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.8"/>
     </instructions>
-    <instructions xsi:type="arduino:Constant" value="90"/>
+    <instructions xsi:type="arduino:Status" next="//@sketch" status="true">
+      <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.14"/>
+    </instructions>
     <instructions xsi:type="arduino:Constant" value="0"/>
+    <instructions xsi:type="arduino:Constant" value="90"/>
   </sketch>
 </arduino:Project>

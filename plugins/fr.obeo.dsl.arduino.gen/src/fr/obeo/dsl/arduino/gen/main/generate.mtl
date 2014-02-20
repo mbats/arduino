@@ -85,7 +85,7 @@ delay([instruction.value/]);
 [if (instruction.status.toString()='false')]
 	music.play();
 [else]
-	music.stop();
+	music.pause();
 [/if]
 [else]
 digitalWrite([instruction.module.getVariableName()/], (![getStatus(instruction)/]));		

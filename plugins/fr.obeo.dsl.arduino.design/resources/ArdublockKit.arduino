@@ -14,7 +14,7 @@
   <modules xsi:type="arduino:OutputModule" name="Micro servo 2" image="dfrobot/servo.jpg" level="true" library="servo"/>
   <modules xsi:type="arduino:OutputModule" name="Micro servo 3" image="dfrobot/servo.jpg" level="true" library="servo"/>
   <modules xsi:type="arduino:OutputModule" name="Fan" image="fan.jpg"/>
-  <modules xsi:type="arduino:OutputModule" name="Music player" kind="analog" image="music_player" library="music"/>
+  <modules xsi:type="arduino:OutputModule" name="Music player" kind="analog" image="music_player.jpg" library="music"/>
   <platform name="DFRduino UNO R3" image="dfrobot/dfrduino_uno.jpg">
     <digitalPins/>
     <digitalPins id="1"/>
