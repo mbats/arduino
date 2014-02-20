@@ -41,6 +41,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 import fr.obeo.dsl.arduino.Instruction;
+import fr.obeo.dsl.arduino.ModuleInstruction;
 import fr.obeo.dsl.arduino.Project;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.build.ArduinoBuilder;
@@ -134,16 +135,20 @@ public class ArduinoServices {
 					String workingDirectory = genFolder.toString();
 					ArduinoBuilder builder = new ArduinoBuilder(arduinoSdk,
 							boardTag, workingDirectory);
+					List<String> libraries = getLibraries(sketch);
 					final IStatus compileStatus = builder.compile("Sketch",
-							null);
+							libraries);
 					if (compileStatus.getSeverity() != IStatus.OK) {
 						Display.getDefault().syncExec(new Runnable() {
 							public void run() {
-								MessageDialog.openError(dialog.getShell(),
-										"Compilation Fail", "Compilation fail : "
+								MessageDialog.openError(
+										dialog.getShell(),
+										"Compilation Fail",
+										"Compilation fail : "
 												+ compileStatus.getMessage());
 							}
 						});
+						return;
 					}
 
 					monitor.worked(33);
@@ -166,6 +171,22 @@ public class ArduinoServices {
 		} catch (InterruptedException e) {
 			ArduinoUiActivator.log(Status.ERROR, "Upload failed", e);
 		}
+	}
+
+	protected List<String> getLibraries(Sketch sketch) {
+		List<String> libraries = new ArrayList<String>();
+		for (Instruction instruction : sketch.getInstructions()) {
+			if (instruction instanceof ModuleInstruction) {
+				ModuleInstruction modInstruction = (ModuleInstruction) instruction;
+				String library = modInstruction.getModule().getLibrary()
+						.getName();
+
+				if (!libraries.contains(library)) {
+					libraries.add(library);
+				}
+			}
+		}
+		return libraries;
 	}
 
 	private void askUser() {

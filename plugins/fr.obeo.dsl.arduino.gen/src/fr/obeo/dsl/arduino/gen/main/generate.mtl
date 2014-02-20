@@ -13,8 +13,13 @@
 [for (library : Library | sketch.eAllContents("Level").module->select(library<>arduino::Library::none).library->asOrderedSet())]
 #include <[library.toString().toUpperFirst()/].h>
 [/for]
+[for (library : Library | sketch.eAllContents("Status").module->select(library<>arduino::Library::none).library->asOrderedSet())]
+#include <[library.toString().toUpperFirst()/].h>
+[/for]
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
+[if (mod.library<>arduino::Library::music)]
 int [mod.getVariableName()/] = [sketch.getPinId(mod)/];
+[/if]
 [/for]
 [for (mod : Module | sketch.eAllContents("Level").module->select(library<>arduino::Library::none)->asOrderedSet())]
 [mod.library.toString().toUpperFirst()/] [mod.getVariableName()/];
@@ -30,8 +35,13 @@ int [instruction.name/];
 [/for]
 
 void setup() {
+[if (sketch.eAllContents("Status").module.library->select(lib|lib = arduino::Library::music)->asOrderedSet()->size()>=1)]
+ music.init();
+[/if]
 [for (mod : Module | sketch.eAllContents("Status").module->asOrderedSet())]
-  pinMode([mod.getVariableName()/], OUTPUT);  
+[if (mod.library<>arduino::Library::music)]
+  pinMode([mod.getVariableName()/], OUTPUT);
+[/if]
 [/for]
 [for (mod : Module | sketch.eAllContents("Level").module->select(library<>arduino::Library::none)->asOrderedSet())]
  [mod.getVariableName()/].attach([sketch.getPinId(mod)/]);
@@ -71,7 +81,16 @@ delay([instruction.value/]);
 [/template]
 
 [template public generateInstruction(instruction : Status)post (trim())]
-digitalWrite([instruction.module.getVariableName()/], (![getStatus(instruction)/]));
+[if (instruction.module.library=arduino::Library::music)]
+[if (instruction.status.toString()='false')]
+	music.play();
+[else]
+	music.stop();
+[/if]
+[else]
+digitalWrite([instruction.module.getVariableName()/], (![getStatus(instruction)/]));		
+[/if]
+
 [/template]
 
 [template private getStatus(instruction : Status)post (trim())]
