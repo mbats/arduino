@@ -7,9 +7,14 @@
 	<buildSpec>
 	</buildSpec>
 	<natures>
-		<nature>fr.obeo.dsl.viewpoint.nature.modelingproject</nature>
+		<nature>org.eclipse.sirius.nature.modelingproject</nature>
 	</natures>
 	<linkedResources>
+		<link>
+			<name>ArdublockKit.arduino</name>
+			<type>1</type>
+			<location>/home/melanie/Obeo/dev/arduino/git/arduino/plugins/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino</location>
+		</link>
 		<link>
 			<name>images</name>
 			<type>2</type>
