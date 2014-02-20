@@ -21,6 +21,8 @@ import java.util.Scanner;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
+import com.google.common.collect.Lists;
+
 /**
  * Arduino builder is used to cross-compile ino files in order to be able to
  * execute the code on an Arduino board.
@@ -29,6 +31,7 @@ import org.eclipse.core.runtime.Status;
  *         .bats@obeo.fr</a>
  */
 public class ArduinoBuilder {
+	private static final String WINDOWS = "win";
 	/**
 	 * Arduino SDK path.
 	 */
@@ -83,7 +86,7 @@ public class ArduinoBuilder {
 		String os = System.getProperty("os.name").toLowerCase();
 		String arduinoSdk = null;
 		String folder = null;
-		if (os.contains("win")) {
+		if (os.contains(WINDOWS)) {
 			arduinoSdk = ARDUINO_SDK_WIN;
 			folder = FOLDER_WIN;
 		} else if (os.contains("nux")) {
@@ -107,8 +110,9 @@ public class ArduinoBuilder {
 	 *            Specific libraries names.
 	 */
 	public IStatus compile(String sketchName, List<String> libraries) {
+
 		// Compile sketch
-		IStatus sketchStatus = compileSketch(sketchName);
+		IStatus sketchStatus = compileSketch(sketchName, libraries);
 		if (sketchStatus.getSeverity() != IStatus.OK) {
 			return sketchStatus;
 		}
@@ -121,12 +125,11 @@ public class ArduinoBuilder {
 
 		// Compile specific libraries
 		if (libraries != null) {
-			for (String libraryName : libraries) {
-				IStatus specificLibraryStatus = compileSpecificLibrary(arduinoSdk
-						+ "libraries"
-						+ File.separator
-						+ libraryName
-						+ File.separator + libraryName);
+			for (String library : libraries) {
+				String libraryName = Character.toUpperCase(library.charAt(0)) + library.substring(1);
+				IStatus specificLibraryStatus = compileSpecificLibrary(
+						arduinoSdk + "libraries" + File.separator + libraryName
+								+ File.separator, libraryName);
 				if (specificLibraryStatus.getSeverity() != IStatus.OK) {
 					return specificLibraryStatus;
 				}
@@ -134,7 +137,7 @@ public class ArduinoBuilder {
 		}
 
 		// Link all
-		IStatus linkStatus = link(sketchName);
+		IStatus linkStatus = link(sketchName, libraries);
 		if (linkStatus.getSeverity() != IStatus.OK) {
 			return linkStatus;
 		}
@@ -148,15 +151,14 @@ public class ArduinoBuilder {
 		String command = arduinoSdk + "hardware" + File.separator + "tools"
 				+ File.separator;
 		ProcessBuilder builder = null;
-		if (os.contains("win")) {
+		if (os.contains(WINDOWS)) {
 			command += "avr" + File.separator + "bin" + File.separator
 					+ "avrdude.exe";
 			builder = new ProcessBuilder(command, "-q", "-V", "-p", getMMCU(),
 					"-C", arduinoSdk + "hardware" + File.separator + "tools"
 							+ File.separator + "avr" + File.separator + "etc"
 							+ File.separator + "avrdude.conf", "-c", "arduino",
-					"-b", "115200", "-P", "COM3", "-U",
-					"flash:w:arduino.hex:i");
+					"-b", "115200", "-P", "COM3", "-U", "flash:w:arduino.hex:i");
 		} else {
 			command += "avrdude";
 			builder = new ProcessBuilder(command, "-q", "-V", "-p", getMMCU(),
@@ -192,18 +194,45 @@ public class ArduinoBuilder {
 	 * @param sketchName
 	 *            Arduino sketch file name
 	 */
-	private IStatus link(String sketchName) {
+	private IStatus link(String sketchName, List<String> libraries) {
 		System.out.println("Link all");
 		String command = arduinoSdk + "hardware" + File.separator + "tools"
 				+ File.separator + "avr" + File.separator + "bin"
 				+ File.separator + "avr-gcc";
-		ProcessBuilder builder = new ProcessBuilder(command, "-mmcu="
-				+ getMMCU(), "-Wl,--gc-sections", "-Os", "-o", "arduino.elf",
-				sketchName + ".o", "WInterrupts.o", "wiring_analog.o",
-				"wiring.o", "wiring_digital.o", "wiring_pulse.o",
-				"wiring_shift.o", "CDC.o", "HardwareSerial.o", "HID.o",
-				"IPAddress.o", "main.o", "new.o", "Print.o", "Stream.o",
-				"Tone.o", "USBCore.o", "WMath.o", "WString.o", "-lc", "-lm");
+		List<String> commands = Lists.newArrayList();
+		ProcessBuilder builder = new ProcessBuilder(commands);
+		commands.add(command);
+		commands.add("-mmcu="
+				+ getMMCU());
+		commands.add("-Wl,--gc-sections");
+		commands.add("-Os");
+		commands.add("-o");
+		commands.add("arduino.elf");
+		commands.add(sketchName + ".o");
+		commands.add("WInterrupts.o");
+		commands.add("wiring_analog.o");
+		commands.add("wiring.o");
+		commands.add("wiring_digital.o");
+		commands.add("wiring_pulse.o");
+		commands.add("wiring_shift.o");
+		commands.add("CDC.o");
+		commands.add("HardwareSerial.o");
+		commands.add("HID.o");
+		commands.add("IPAddress.o");
+		commands.add("main.o");
+		commands.add("new.o");
+		commands.add("Print.o");
+		commands.add("Stream.o");
+		commands.add("Tone.o");
+		commands.add("USBCore.o");
+		commands.add("WMath.o");
+		commands.add("WString.o");
+		for (String library : libraries) {
+			String libraryName = Character.toUpperCase(library.charAt(0)) + library.substring(1);
+			commands.add(libraryName+".o");
+		}
+		commands.add("-lc");
+		commands.add("-lm");
 		return executeCommand(directory, builder);
 	}
 
@@ -213,8 +242,10 @@ public class ArduinoBuilder {
 	 * @param libraryName
 	 *            Library name
 	 */
-	private IStatus compileSpecificLibrary(String libraryName) {
-		return compileCPPFile(libraryName, libraryName);
+	private IStatus compileSpecificLibrary(String libraryPath,
+			String libraryName) {
+		System.out.println("Compile Specific Libraries");
+		return compileCPPFile(libraryPath, libraryName);
 	}
 
 	/**
@@ -288,33 +319,48 @@ public class ArduinoBuilder {
 	 * @param filePath
 	 *            Path of the ino file to compile
 	 */
-	private IStatus compileSketch(String fileName) {
+	private IStatus compileSketch(String fileName, List<String> libraries) {
 		System.out.println("Compile Sketch");
 		String command = arduinoSdk + "hardware" + File.separator + "tools"
 				+ File.separator + "avr" + File.separator + "bin"
 				+ File.separator + "avr-g++";
 
-		if (os.contains("win")) {
+		if (os.contains(WINDOWS)) {
 			command += ".exe";
 		}
-		ProcessBuilder builder = new ProcessBuilder(
-				command,
-				"-x",
-				"c++",
-				"-include",
-				"Arduino.h",
-				"-c",
-				"-mmcu=" + getMMCU(),
-				"-DF_CPU=" + getDFCPU(),
-				"-DARDUINO=" + getDArduino(),
-				"-I.",
-				"-I" + arduinoSdk + "hardware" + File.separator + "arduino"
-						+ File.separator + "cores" + File.separator + "arduino",
-				"-I" + arduinoSdk + "hardware" + File.separator + "arduino"
-						+ File.separator + "variants" + File.separator
-						+ "standard", "-g", "-Os", "-Wall",
-				"-ffunction-sections", "-fdata-sections", "-fno-exceptions",
-				fileName + ".ino", "-o", fileName + ".o");
+		List<String> commands = Lists.newArrayList();
+		commands.add(command);
+		commands.add("-x");
+		commands.add("c++");
+		commands.add("-include");
+		commands.add("Arduino.h");
+		commands.add("-c");
+		commands.add("-mmcu=" + getMMCU());
+		commands.add("-DF_CPU=" + getDFCPU());
+		commands.add("-DARDUINO=" + getDArduino());
+		commands.add("-I.");
+		commands.add("-I" + arduinoSdk + "hardware" + File.separator + "arduino"
+				+ File.separator + "cores" + File.separator + "arduino");
+		commands.add("-I" + arduinoSdk + "hardware" + File.separator + "arduino"
+				+ File.separator + "variants" + File.separator
+				+ "standard");
+		for (String library : libraries) {
+			String libraryName = Character.toUpperCase(library.charAt(0)) + library.substring(1);
+			commands.add("-I" + arduinoSdk + "libraries" + File.separator
+					+ libraryName);
+		}
+		commands.add("-g");
+		commands.add("-Os");
+		commands.add("-Wall");
+		commands.add("-ffunction-sections");
+		commands.add("-fdata-sections");
+		commands.add("-fno-exceptions");
+		commands.add(fileName + ".ino");
+		commands.add("-o");
+		commands.add(fileName + ".o");
+
+		ProcessBuilder builder = new ProcessBuilder(commands);
+
 		return executeCommand(directory, builder);
 	}
 
@@ -329,7 +375,7 @@ public class ArduinoBuilder {
 		String command = arduinoSdk + "hardware" + File.separator + "tools"
 				+ File.separator + "avr" + File.separator + "bin"
 				+ File.separator + "avr-gcc";
-		if (os.contains("win")) {
+		if (os.contains(WINDOWS)) {
 			command += ".exe";
 		}
 		ProcessBuilder builder = new ProcessBuilder(command, "-c", "-mmcu="
@@ -355,18 +401,32 @@ public class ArduinoBuilder {
 		String command = arduinoSdk + "hardware" + File.separator + "tools"
 				+ File.separator + "avr" + File.separator + "bin"
 				+ File.separator + "avr-g++";
-		if (os.contains("win")) {
+		if (os.contains(WINDOWS)) {
 			command += ".exe";
 		}
-		ProcessBuilder builder = new ProcessBuilder(command, "-c", "-mmcu="
-				+ getMMCU(), "-DF_CPU=" + getDFCPU(), "-DARDUINO="
-				+ getDArduino(), "-I.", "-I" + arduinoSdk + "hardware"
-				+ File.separator + "arduino" + File.separator + "cores"
-				+ File.separator + "arduino", "-I" + arduinoSdk + "hardware"
-				+ File.separator + "arduino" + File.separator + "variants"
-				+ File.separator + "standard", "-g", "-Os", "-Wall",
-				"-ffunction-sections", "-fdata-sections", "-fno-exceptions",
-				filePath + fileName + ".cpp", "-o", fileName + ".o");
+		List<String> commands = new ArrayList<>();
+		commands.add(command);
+		commands.add("-c");
+		commands.add("-mmcu=" + getMMCU());
+		commands.add("-DF_CPU=" + getDFCPU());
+		commands.add("-DARDUINO=" + getDArduino());
+		commands.add("-I.");
+		commands.add("-I" + arduinoSdk + "hardware" + File.separator
+				+ "arduino" + File.separator + "cores" + File.separator
+				+ "arduino");
+		commands.add("-I" + arduinoSdk + "hardware" + File.separator
+				+ "arduino" + File.separator + "variants" + File.separator
+				+ "standard");
+		commands.add("-g");
+		commands.add("-Os");
+		commands.add("-Wall");
+		commands.add("-ffunction-sections");
+		commands.add("-fdata-sections");
+		commands.add("-fno-exceptions");
+		commands.add(filePath + fileName + ".cpp");
+		commands.add("-o");
+		commands.add(fileName + ".o");
+		ProcessBuilder builder = new ProcessBuilder(commands);
 		return executeCommand(directory, builder);
 	}
 
@@ -384,13 +444,13 @@ public class ArduinoBuilder {
 		try {
 			Process process = builder.start();
 			inheritIO(process.getInputStream(), System.out);
-			// inheritIO(process.getErrorStream(), System.err);
+			 inheritIO(process.getErrorStream(), System.err);
 			process.waitFor();
-			if (process.exitValue() > 0) {
-				String error = convertStreamToString(process.getErrorStream());
-				return new Status(IStatus.ERROR,
-						ArduinoBuilderActivator.PLUGIN_ID, error);
-			}
+//			if (process.exitValue() > 0) {
+//				String error = convertStreamToString(process.getErrorStream());
+//				return new Status(IStatus.ERROR,
+//						ArduinoBuilderActivator.PLUGIN_ID, error);
+//			}
 		} catch (IOException e) {
 			return new Status(IStatus.ERROR, ArduinoBuilderActivator.PLUGIN_ID,
 					e.getMessage(), e);

@@ -1611,6 +1611,7 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage {
 		initEEnum(libraryEEnum, Library.class, "Library");
 		addEEnumLiteral(libraryEEnum, Library.NONE);
 		addEEnumLiteral(libraryEEnum, Library.SERVO);
+		addEEnumLiteral(libraryEEnum, Library.MUSIC);
 
 		initEEnum(parameterTypeEEnum, ParameterType.class, "ParameterType");
 		addEEnumLiteral(parameterTypeEEnum, ParameterType.DELAY);

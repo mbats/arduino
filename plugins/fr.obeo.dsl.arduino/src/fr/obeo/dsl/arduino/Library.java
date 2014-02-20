@@ -44,7 +44,15 @@ public enum Library implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SERVO(0, "servo", "servo");
+	SERVO(0, "servo", "servo"), /**
+	 * The '<em><b>Music</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MUSIC_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MUSIC(0, "music", "music");
 
 	/**
 	 * The '<em><b>None</b></em>' literal value.
@@ -77,6 +85,21 @@ public enum Library implements Enumerator {
 	public static final int SERVO_VALUE = 0;
 
 	/**
+	 * The '<em><b>Music</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Music</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MUSIC
+	 * @model name="music"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MUSIC_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Library</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,6 +109,7 @@ public enum Library implements Enumerator {
 		new Library[] {
 			NONE,
 			SERVO,
+			MUSIC,
 		};
 
 	/**

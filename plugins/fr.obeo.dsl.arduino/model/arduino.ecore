@@ -141,6 +141,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="Library">
     <eLiterals name="none"/>
     <eLiterals name="servo"/>
+    <eLiterals name="music"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//Control">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
