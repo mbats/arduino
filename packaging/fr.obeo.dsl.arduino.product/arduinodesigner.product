@@ -42,11 +42,16 @@ Visit http://www.obeo.fr
       <macosx icon="/icons/Obeo_Designer.icns"/>
       <solaris/>
       <win useIco="false">
-         <bmp/>
+         <bmp
+            winSmallHigh="/fr.obeo.dsl.arduino.branding/icons/logo_16.bmp"
+            winSmallLow="/fr.obeo.dsl.arduino.branding/icons/logo_16.bmp"
+            winMediumHigh="/fr.obeo.dsl.arduino.branding/icons/logo_32.bmp"
+            winMediumLow="/fr.obeo.dsl.arduino.branding/icons/logo_32.bmp"
+            winLargeHigh="/fr.obeo.dsl.arduino.branding/icons/logo_48.bmp"
+            winLargeLow="/fr.obeo.dsl.arduino.branding/icons/logo_48.bmp"/>
       </win>
    </launcher>
 
-   <intro introId="org.obeonetwork.dsl.uml2.design.welcome.intro"/>
 
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
