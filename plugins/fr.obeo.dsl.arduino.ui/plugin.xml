@@ -158,6 +158,9 @@
                showTitle="true"
                visible="true">
          </view>
+         <hiddenMenuItem
+               id="org.eclipse.ui.run">
+         </hiddenMenuItem>
       </perspectiveExtension>
    </extension>
    <extension
@@ -168,6 +171,9 @@
             icon="icons/project.png"
             id="fr.obeo.dsl.arduino.perspective"
             name="Arduino">
+         <description>
+            Arduino Designer perspective
+         </description>
       </perspective>
    </extension>
    <extension
@@ -234,6 +240,25 @@
             class="fr.obeo.dsl.arduino.commands.PreferencesHandler"
             commandId="fr.obeo.dsl.arduino.commands.preferences">
       </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.activities">
+      <activity
+            id="fr.obeo.dsl.arduino.ui.activity"
+            name="ArduinoActivity">
+      </activity>
+      <activityPatternBinding
+            activityId="fr.obeo.dsl.arduino.ui.activity"
+            pattern="org.eclipse.ui.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="fr.obeo.dsl.arduino.ui.activity"
+            pattern="org.eclipse.search.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="fr.obeo.dsl.arduino.ui.activity"
+            pattern="org.eclipse.ui.run">
+      </activityPatternBinding>
    </extension>
 
 </plugin>

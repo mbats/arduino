@@ -52,7 +52,6 @@ Visit http://www.obeo.fr
       </win>
    </launcher>
 
-
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</macos>
@@ -126,7 +125,30 @@ The user is not authorized to install or make a technical means to hide within t
    <features>
       <feature id="fr.obeo.dsl.arduino.runtime.feature"/>
       <feature id="org.eclipse.platform"/>
-      <feature id="org.eclipse.epp.mpc"/>
+      <feature id="org.eclipse.e4.rcp"/>
+      <feature id="org.eclipse.gmf.runtime.thirdparty"/>
+      <feature id="org.eclipse.sirius.runtime"/>
+      <feature id="org.eclipse.sirius.runtime.ide.ui.acceleo"/>
+      <feature id="org.eclipse.equinox.p2.core.feature"/>
+      <feature id="org.eclipse.sirius.runtime.acceleo"/>
+      <feature id="org.eclipse.emf.workspace"/>
+      <feature id="org.eclipse.help"/>
+      <feature id="org.eclipse.sirius.runtime.ide.ui"/>
+      <feature id="org.eclipse.emf.ecore"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
+      <feature id="org.eclipse.emf.transaction"/>
+      <feature id="org.eclipse.sirius.runtime.ide.eef"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <feature id="org.eclipse.gmf.runtime.notation"/>
+      <feature id="org.eclipse.gef"/>
+      <feature id="org.eclipse.emf.edit"/>
+      <feature id="org.eclipse.draw2d"/>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.emf.validation"/>
+      <feature id="org.eclipse.gmf"/>
+      <feature id="org.eclipse.emf.common"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature"/>
+      <feature id="org.eclipse.emf.ecore.edit"/>
    </features>
 
    <configurations>

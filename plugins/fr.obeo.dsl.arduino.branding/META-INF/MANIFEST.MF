@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.ui,
  fr.obeo.dsl.arduino.edit,
  fr.obeo.dsl.arduino.editor,
  fr.obeo.dsl.arduino.gen,
- fr.obeo.dsl.arduino.ui
+ fr.obeo.dsl.arduino.ui,
+ org.eclipse.ui.ide.application
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
