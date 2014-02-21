@@ -46,6 +46,10 @@
                 name="startupProgressRect"
                 value="0,328,458,18">
           </property>
+          <property
+                name="applicationCSS"
+                value="platform:/plugin/fr.obeo.dsl.arduino.branding/default.css">
+          </property>
       </product>
    </extension>
 
