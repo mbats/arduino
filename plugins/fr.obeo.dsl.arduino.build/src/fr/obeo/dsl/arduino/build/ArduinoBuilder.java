@@ -446,11 +446,11 @@ public class ArduinoBuilder {
 			inheritIO(process.getInputStream(), System.out);
 			 inheritIO(process.getErrorStream(), System.err);
 			process.waitFor();
-//			if (process.exitValue() > 0) {
-//				String error = convertStreamToString(process.getErrorStream());
-//				return new Status(IStatus.ERROR,
-//						ArduinoBuilderActivator.PLUGIN_ID, error);
-//			}
+			if (process.exitValue() > 0) {
+				String error = convertStreamToString(process.getErrorStream());
+				return new Status(IStatus.ERROR,
+						ArduinoBuilderActivator.PLUGIN_ID, error);
+			}
 		} catch (IOException e) {
 			return new Status(IStatus.ERROR, ArduinoBuilderActivator.PLUGIN_ID,
 					e.getMessage(), e);
