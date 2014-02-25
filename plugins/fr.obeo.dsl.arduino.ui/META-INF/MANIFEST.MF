@@ -13,9 +13,13 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.transaction,
  fr.obeo.dsl.arduino.gen,
  org.eclipse.acceleo.engine,
- org.eclipse.sirius.ui;bundle-version="0.9.0",
+ org.eclipse.sirius.ui,
  fr.obeo.dsl.arduino.build,
- fr.obeo.dsl.arduino.preferences
+ fr.obeo.dsl.arduino.preferences,
+ org.eclipse.ui.ide,
+ org.eclipse.sirius.common,
+ org.eclipse.emf.validation,
+ org.eclipse.sirius.ext.base
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.obeo.dsl.arduino.commands;x-friends:="fr.obeo.dsl.arduino.design",

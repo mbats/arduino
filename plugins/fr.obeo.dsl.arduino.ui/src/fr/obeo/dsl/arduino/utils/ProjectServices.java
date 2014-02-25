@@ -31,7 +31,11 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
+import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperation;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionCreationOperation;
+import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -50,8 +54,20 @@ public class ProjectServices {
 	public static final String ARDUINO_VP = "Arduino";
 	public static final String HARDWARE_KIT_VP = "Hardware Kit";
 
-	public void createProject(IProgressMonitor monitor) {
-		final Session session = service.getSession();
+	public void createProject(IProgressMonitor monitor, IProject project) {
+		try {
+			project.create(monitor);
+			project.open(monitor);
+		} catch (CoreException e) {
+			ArduinoUiActivator.log(Status.ERROR, "Open project failed", e);
+		}
+
+		String modelPath = '/' + project.getName(); //$NON-NLS-1$ 
+		final Session session = createAird(
+				project,
+				URI.createPlatformResourceURI(modelPath
+						+ "/representations.aird", true), monitor);
+
 		final String semanticModelPath = getSemanticModelPath(session);
 		initSemanticModel(session, semanticModelPath, monitor);
 
@@ -59,6 +75,33 @@ public class ProjectServices {
 		enableViewpoints(session, viewpointsToActivate);
 
 		openDashboard(session);
+	}
+
+	private Session createAird(IProject project, URI representationsURI,
+			IProgressMonitor monitor) {
+		final Session session;
+		Option<ModelingProject> modelingProject = ModelingProject
+				.asModelingProject(project);
+		if (modelingProject.some()) {
+			session = modelingProject.get().getSession();
+		} else {
+			Session tempSession = null;
+			SessionCreationOperation sessionCreationOperation = new DefaultLocalSessionCreationOperation(
+					representationsURI, monitor);
+			try {
+				sessionCreationOperation.execute();
+				tempSession = sessionCreationOperation.getCreatedSession();
+			} catch (CoreException e) {
+				ArduinoUiActivator.log(Status.ERROR,
+						"Create representations file failed", e);
+			}
+			if (tempSession != null) {
+				session = tempSession;
+			} else {
+				session = null;
+			}
+		}
+		return session;
 	}
 
 	public void openProject(final String projectPath) {
