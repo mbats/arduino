@@ -126,7 +126,8 @@ public class ArduinoBuilder {
 		// Compile specific libraries
 		if (libraries != null) {
 			for (String library : libraries) {
-				String libraryName = Character.toUpperCase(library.charAt(0)) + library.substring(1);
+				String libraryName = Character.toUpperCase(library.charAt(0))
+						+ library.substring(1);
 				IStatus specificLibraryStatus = compileSpecificLibrary(
 						arduinoSdk + "libraries" + File.separator + libraryName
 								+ File.separator, libraryName);
@@ -202,8 +203,7 @@ public class ArduinoBuilder {
 		List<String> commands = Lists.newArrayList();
 		ProcessBuilder builder = new ProcessBuilder(commands);
 		commands.add(command);
-		commands.add("-mmcu="
-				+ getMMCU());
+		commands.add("-mmcu=" + getMMCU());
 		commands.add("-Wl,--gc-sections");
 		commands.add("-Os");
 		commands.add("-o");
@@ -228,8 +228,9 @@ public class ArduinoBuilder {
 		commands.add("WMath.o");
 		commands.add("WString.o");
 		for (String library : libraries) {
-			String libraryName = Character.toUpperCase(library.charAt(0)) + library.substring(1);
-			commands.add(libraryName+".o");
+			String libraryName = Character.toUpperCase(library.charAt(0))
+					+ library.substring(1);
+			commands.add(libraryName + ".o");
 		}
 		commands.add("-lc");
 		commands.add("-lm");
@@ -339,13 +340,15 @@ public class ArduinoBuilder {
 		commands.add("-DF_CPU=" + getDFCPU());
 		commands.add("-DARDUINO=" + getDArduino());
 		commands.add("-I.");
-		commands.add("-I" + arduinoSdk + "hardware" + File.separator + "arduino"
-				+ File.separator + "cores" + File.separator + "arduino");
-		commands.add("-I" + arduinoSdk + "hardware" + File.separator + "arduino"
-				+ File.separator + "variants" + File.separator
+		commands.add("-I" + arduinoSdk + "hardware" + File.separator
+				+ "arduino" + File.separator + "cores" + File.separator
+				+ "arduino");
+		commands.add("-I" + arduinoSdk + "hardware" + File.separator
+				+ "arduino" + File.separator + "variants" + File.separator
 				+ "standard");
 		for (String library : libraries) {
-			String libraryName = Character.toUpperCase(library.charAt(0)) + library.substring(1);
+			String libraryName = Character.toUpperCase(library.charAt(0))
+					+ library.substring(1);
 			commands.add("-I" + arduinoSdk + "libraries" + File.separator
 					+ libraryName);
 		}
@@ -444,7 +447,7 @@ public class ArduinoBuilder {
 		try {
 			Process process = builder.start();
 			inheritIO(process.getInputStream(), System.out);
-			 inheritIO(process.getErrorStream(), System.err);
+			// inheritIO(process.getErrorStream(), System.err);
 			process.waitFor();
 			if (process.exitValue() > 0) {
 				String error = convertStreamToString(process.getErrorStream());
