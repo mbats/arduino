@@ -18,6 +18,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -41,6 +42,10 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.business.api.session.IEditingSession;
+import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -72,6 +77,8 @@ import org.eclipse.ui.internal.wizards.datatransfer.TarLeveledStructureProvider;
 import org.eclipse.ui.internal.wizards.datatransfer.ZipLeveledStructureProvider;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.eclipse.ui.wizards.datatransfer.ImportOperation;
+
+import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 
 /**
  * The WizardProjectsImportPage is the page that allows the user to import
@@ -1148,20 +1155,29 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IProject project = workspace.getRoot().getProject(projectName);
 
+		
+		for (IEditingSession uiSession : SessionUIManager.INSTANCE.getUISessions()) {
+			uiSession.close(true);
+		}
+		
+		for (Session openedSession : SessionManager.INSTANCE.getSessions()) {
+			openedSession.close(monitor);
+		}
+
 		// TODO Close all project before creating a new one
-		// IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		// for (IProject projectToClose : root.getProjects()) {
-		// try {
-		// if (projectToClose.isOpen()) {
-		// System.out.println("Closing : " + projectToClose.getName());
-		// projectToClose.close(monitor);
-		// projectToClose.delete(false, false, monitor);
-		// }
-		// monitor.worked(25);
-		// } catch (CoreException e) {
-		// ArduinoUiActivator.log(Status.ERROR, "Close project failed", e);
-		// }
-		// }
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		for (IProject projectToClose : root.getProjects()) {
+			try {
+				if (projectToClose.isOpen()) {
+					System.out.println("Closing : " + projectToClose.getName());
+					projectToClose.close(monitor);
+					projectToClose.delete(false, false, monitor);
+				}
+				monitor.worked(25);
+			} catch (CoreException e) {
+				ArduinoUiActivator.log(Status.ERROR, "Close project failed", e);
+			}
+		}
 
 		createdProjects.add(project);
 		if (record.description == null) {
