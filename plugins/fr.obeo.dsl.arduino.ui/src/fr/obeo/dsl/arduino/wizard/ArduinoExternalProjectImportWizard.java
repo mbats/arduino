@@ -4,8 +4,9 @@ import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.business.api.session.SessionManagerListener;
+import org.eclipse.sirius.business.api.session.SessionManagerListener2;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
@@ -83,15 +84,15 @@ public class ArduinoExternalProjectImportWizard extends Wizard implements
 	 * (non-Javadoc) Method declared on IWizard.
 	 */
 	public boolean performFinish() {
-//		 ProjectServices service = new ProjectServices();
-//		 service.closeProjects(new NullProgressMonitor());
+		// ProjectServices service = new ProjectServices();
+		// service.closeProjects(new NullProgressMonitor());
 		boolean created = openProject(mainPage);
 		return true;
 	}
 
 	private boolean openProject(ArduinoWizardProjectsImportPage mainPage) {
 		boolean created = mainPage.createProjects();
-		final SessionManagerListener listener = new SessionManagerListener() {
+		final SessionManagerListener2 listener = new SessionManagerListener2() {
 
 			@Override
 			public void viewpointSelected(Viewpoint selectedSirius) {
@@ -111,9 +112,16 @@ public class ArduinoExternalProjectImportWizard extends Wizard implements
 
 			@Override
 			public void notifyAddSession(Session newSession) {
-				ProjectServices service = new ProjectServices();
-				service.openDashboard(newSession);
-				SessionManager.INSTANCE.removeSessionsListener(this);
+			}
+
+			@Override
+			public void notify(final Session updated, int notification) {
+				if (updated.isOpen() && notification == SessionListener.OPENED) {
+					final ProjectServices service = new ProjectServices();
+					service.openDashboard(updated);
+					SessionManager.INSTANCE.removeSessionsListener(this);
+				}
+
 			}
 		};
 		SessionManager.INSTANCE.addSessionsListener(listener);

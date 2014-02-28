@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -29,6 +30,8 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.gef.EditPartViewer;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IDialogSettings;
@@ -38,12 +41,15 @@ import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.swt.SWT;
@@ -60,6 +66,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
@@ -1149,22 +1156,53 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	 * @throws InterruptedException
 	 */
 	private boolean createExistingProject(final ProjectRecord record,
-			IProgressMonitor monitor) throws InvocationTargetException,
+			final IProgressMonitor monitor) throws InvocationTargetException,
 			InterruptedException {
-		String projectName = record.getProjectName();
+		final String projectName = record.getProjectName();
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IProject project = workspace.getRoot().getProject(projectName);
 
-		
-		for (IEditingSession uiSession : SessionUIManager.INSTANCE.getUISessions()) {
-			uiSession.close(true);
-		}
-		
-		for (Session openedSession : SessionManager.INSTANCE.getSessions()) {
-			openedSession.close(monitor);
+		for (IEditingSession uiSession : SessionUIManager.INSTANCE
+				.getUISessions()) {
+			for (DialectEditor editor : uiSession.getEditors()) {
+				if (editor instanceof DiagramEditor) {
+					final EditPartViewer graphicalViewer = ((DiagramEditor) editor)
+							.getDiagramGraphicalViewer();
+
+					if (graphicalViewer != null) {
+						graphicalViewer.setSelection(new StructuredSelection());
+						Display.getDefault().syncExec(new Runnable() {
+							
+							@Override
+							public void run() {
+								graphicalViewer.flush();
+								
+							}
+						});
+						/*
+						 * We need to spin the ui thread so that the editor has the change to
+						 * update its action enablement before we close and unload everything.
+						 * 
+						 * We just hope to be lucky and to be scheduled after the runnables
+						 * launched by the arrange action in particular.
+						 */						
+						SWTThreadingUtils.waitForAsyncExecsToFinish(Display.getDefault());
+					}
+				} else {
+					DialectUIManager.INSTANCE.setSelection(editor,
+							Collections.EMPTY_LIST);
+				}
+			}
+			SWTThreadingUtils.waitForAsyncExecsToFinish(Display.getDefault());
 		}
 
-		// TODO Close all project before creating a new one
+		SWTThreadingUtils.waitForAsyncExecsToFinish(Display.getDefault());
+		
+//		for (Session openedSession : SessionManager.INSTANCE.getSessions()) {
+//			openedSession.save(monitor);
+//			openedSession.close(monitor);
+//		}
+
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		for (IProject projectToClose : root.getProjects()) {
 			try {
@@ -1202,10 +1240,19 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 			structureProvider.setStrip(record.level);
 			ImportOperation operation = new ImportOperation(
 					project.getFullPath(), structureProvider.getRoot(),
-					structureProvider, this, fileSystemObjects);
+					structureProvider, ArduinoWizardProjectsImportPage.this,
+					fileSystemObjects);
 			operation.setContext(getShell());
-			operation.run(monitor);
-			return true;
+			try {
+				operation.run(monitor);
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 		// import from file system
 		try {
@@ -1217,7 +1264,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 			project.open(IResource.BACKGROUND_REFRESH, new SubProgressMonitor(
 					monitor, 70));
 		} catch (CoreException e) {
-			throw new InvocationTargetException(e);
 		} finally {
 			monitor.done();
 		}

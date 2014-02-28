@@ -11,6 +11,7 @@
 package fr.obeo.dsl.arduino.menus;
 
 import org.eclipse.core.runtime.Status;
+import org.eclipse.sirius.diagram.part.SiriusDiagramEditorPlugin;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -39,6 +40,7 @@ public class ArduinoUiActivator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+//		SiriusDiagramEditorPlugin.getInstance().getPreferenceStore().setValue(org.eclipse.sirius.diagram.tools.api.preferences.SiriusDiagramPreferencesKeys.PREF_OLD_UI.name(), Boolean.TRUE);
 	}
 
 	/*
