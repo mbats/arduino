@@ -1281,7 +1281,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="SK_Use_Function" label="Use" candidatesExpression="[getSketch().functions/]" message="Select an existing function" iconPath="/fr.obeo.dsl.arduino.design/icons/UseFunction.png" windowTitle="Selection an existing function">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="SK_Use_Function" label="Use" precondition="[oclIsTypeOf(arduino::Sketch) or oclIsKindOf(arduino::Control)/]" candidatesExpression="[getSketch().functions/]" message="Select an existing function" iconPath="/fr.obeo.dsl.arduino.design/icons/UseFunction.png" windowTitle="Selection an existing function">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
