@@ -32,6 +32,9 @@ import com.google.common.collect.Lists;
  */
 public class ArduinoBuilder {
 	private static final String WINDOWS = "win";
+
+	private static final String MACOS = "mac os";
+
 	/**
 	 * Arduino SDK path.
 	 */
@@ -62,13 +65,27 @@ public class ArduinoBuilder {
 	 *            Working directory
 	 */
 	public ArduinoBuilder(String arduinoSdk, String boardTag, String directory) {
-		if (!arduinoSdk.endsWith(File.separator)) {
-			arduinoSdk += File.separator;
-		}
-		this.arduinoSdk = arduinoSdk;
 		this.boardTag = boardTag;
 		this.directory = new File(directory);
-		os = System.getProperty("os.name").toLowerCase();
+		this.os = System.getProperty("os.name").toLowerCase();
+		this.arduinoSdk = getCorrectedPath(arduinoSdk, os);
+	}
+
+	private static String getCorrectedPath(String arduinoSdkPath,
+			String currentOS) {
+		String path = arduinoSdkPath;
+		if (currentOS.contains(MACOS) && arduinoSdkPath != null
+				&& !arduinoSdkPath.contains(".app")) {
+			if (path.endsWith(File.separator) && path.length() > 2) {
+				path = path.substring(0, path.length() - 1);
+			}
+			path = path + ".app/Contents/Resources/Java/";
+		}
+
+		if (!path.endsWith(File.separator)) {
+			path += File.separator;
+		}
+		return path;
 	}
 
 	/**
@@ -160,6 +177,15 @@ public class ArduinoBuilder {
 							+ File.separator + "avr" + File.separator + "etc"
 							+ File.separator + "avrdude.conf", "-c", "arduino",
 					"-b", "115200", "-P", "COM3", "-U", "flash:w:arduino.hex:i");
+		} else if (os.contains(MACOS)) {
+			command += "avr" + File.separator + "bin" + File.separator
+					+ "avrdude";
+			builder = new ProcessBuilder(command, "-q", "-V", "-p", getMMCU(),
+					"-C", arduinoSdk + "hardware" + File.separator + "tools"
+							+ File.separator + "avr" + File.separator + "etc"
+							+ File.separator + "avrdude.conf", "-c", "arduino",
+					"-b", "115200", "-P", "/dev/tty.usbmodem1421", "-U",
+					"flash:w:arduino.hex:i");
 		} else {
 			command += "avrdude";
 			builder = new ProcessBuilder(command, "-q", "-V", "-p", getMMCU(),
@@ -471,7 +497,7 @@ public class ArduinoBuilder {
 	 */
 	private String getDArduino() {
 		// TODO Auto-generated method stub
-		return "105";
+		return "106";
 	}
 
 	/**
