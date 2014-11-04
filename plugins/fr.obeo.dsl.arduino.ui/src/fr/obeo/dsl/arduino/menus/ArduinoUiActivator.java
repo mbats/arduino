@@ -11,7 +11,6 @@
 package fr.obeo.dsl.arduino.menus;
 
 import org.eclipse.core.runtime.Status;
-import org.eclipse.sirius.diagram.part.SiriusDiagramEditorPlugin;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 

@@ -6,7 +6,7 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.business.api.session.SessionManagerListener2;
+import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
@@ -92,7 +92,7 @@ public class ArduinoExternalProjectImportWizard extends Wizard implements
 
 	private boolean openProject(ArduinoWizardProjectsImportPage mainPage) {
 		boolean created = mainPage.createProjects();
-		final SessionManagerListener2 listener = new SessionManagerListener2() {
+		final SessionManagerListener listener = new SessionManagerListener() {
 
 			@Override
 			public void viewpointSelected(Viewpoint selectedSirius) {
@@ -100,10 +100,6 @@ public class ArduinoExternalProjectImportWizard extends Wizard implements
 
 			@Override
 			public void viewpointDeselected(Viewpoint deselectedSirius) {
-			}
-
-			@Override
-			public void notifyUpdatedSession(Session updated) {
 			}
 
 			@Override
