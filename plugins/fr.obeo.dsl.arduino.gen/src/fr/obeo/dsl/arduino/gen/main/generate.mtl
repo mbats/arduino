@@ -88,7 +88,7 @@ delay([instruction.value/]);
 	music.pause();
 [/if]
 [else]
-digitalWrite([instruction.module.getVariableName()/], (![getStatus(instruction)/]));		
+digitalWrite([instruction.module.getVariableName()/], [getStatus(instruction)/]);		
 [/if]
 
 [/template]
@@ -107,7 +107,7 @@ LOW
 
 [template public generateInstruction(instruction : Sensor)post (trim())]
 [if (instruction.module.kind=ModuleKind::digital)]
-!digitalRead([instruction.module.getVariableName()/])
+digitalRead([instruction.module.getVariableName()/])
 [else]
 analogRead([instruction.module.getVariableName()/])
 [/if]
