@@ -31,14 +31,22 @@ public class ArduinoPreferencesPage extends FieldEditorPreferencePage implements
 	}
 
 	private void createArduinoSdk(Composite parent) {
-		addField(new StringFieldEditor(ArduinoPreferences.ARDUINO_SDK_ID,
-				"Arduino SDK :", getFieldEditorParent()));
+		StringFieldEditor sdk = new StringFieldEditor(
+				ArduinoPreferences.ARDUINO_SDK_ID, "Arduino SDK :",
+				getFieldEditorParent());
+		addField(sdk);
+
+		StringFieldEditor port = new StringFieldEditor(
+				ArduinoPreferences.ARDUINO_SERIAL_PORT,
+				"Arduino Serial Port :", getFieldEditorParent());
+		addField(port);
 	}
 
 	public void init(IWorkbench workbench) {
 		setPreferenceStore(ArduinoPreferencesPlugin.getDefault()
 				.getPreferenceStore());
-		setDescription("Give the path of the Arduino SDK installed on your computer (i.e /home/user/path/arduino/arduino-1.0.5/)");
+
+		setDescription("Give the path of the Arduino SDK installed on your computer (e.g. /home/user/path/arduino/arduino-1.0.5/) and the serial port of the Arduino linked to your computer (e.g. com3, /dev/ttyACM0, /dev/tty.usbmodem1421, ...).\n");
 	}
 
 	@Override

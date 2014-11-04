@@ -39,6 +39,12 @@ public class ArduinoBuilder {
 	 * Arduino SDK path.
 	 */
 	private final String arduinoSdk;
+
+	/**
+	 * Arduino serial port.
+	 */
+	private final String serialPort;
+
 	/**
 	 * Board tag.
 	 */
@@ -63,28 +69,28 @@ public class ArduinoBuilder {
 	 *            Board tag
 	 * @param directory
 	 *            Working directory
+	 * @param serialPort
+	 *            the name of the Arduino serial port.
 	 */
-	public ArduinoBuilder(String arduinoSdk, String boardTag, String directory) {
+	public ArduinoBuilder(String arduinoSdk, String boardTag, String directory,
+			String serialPort) {
 		this.boardTag = boardTag;
 		this.directory = new File(directory);
 		this.os = System.getProperty("os.name").toLowerCase();
 		this.arduinoSdk = getCorrectedPath(arduinoSdk, os);
+		this.serialPort = serialPort;
 	}
 
 	private static String getCorrectedPath(String arduinoSdkPath,
 			String currentOS) {
 		String path = arduinoSdkPath;
-		if (currentOS.contains(MACOS) && arduinoSdkPath != null
-				&& !arduinoSdkPath.contains(".app")) {
-			if (path.endsWith(File.separator) && path.length() > 2) {
-				path = path.substring(0, path.length() - 1);
-			}
-			path = path + ".app/Contents/Resources/Java/";
-		}
-
 		if (!path.endsWith(File.separator)) {
 			path += File.separator;
 		}
+		if (currentOS.contains(MACOS) && arduinoSdkPath != null
+				&& !arduinoSdkPath.contains(".app")) {
+			path = path + "Arduino.app/Contents/Resources/Java/";
+		}		
 		return path;
 	}
 
@@ -97,21 +103,30 @@ public class ArduinoBuilder {
 		String BOARD_TAG = "uno";
 		String ARDUINO_SDK_LINUX = "/home/melanie/Obeo/dev/arduino/arduino-1.0.5/";
 		String FOLDER_LINUX = "/home/melanie/Obeo/dev/arduino/workspace_sirius/fr.obeo.dsl.arduino.build/test/";
+		String ARDUINO_SDK_MACOSX = "/Users/MpoObeo/Dev/arduino/arduino-1.0.6/Arduino/";
+		String FOLDER_MACOSX = "/Users/MpoObeo/Dev/arduino/workspace_sirius/fr.obeo.dsl.arduino.build/test/";
 		String ARDUINO_SDK_WIN = "C:\\Program Files\\Arduino\\";
 		String FOLDER_WIN = "C:\\Documents and Settings\\toto\\runtime-EclipseApplication\\test\\";
 
 		String os = System.getProperty("os.name").toLowerCase();
 		String arduinoSdk = null;
 		String folder = null;
+		String serialPort = null;
 		if (os.contains(WINDOWS)) {
 			arduinoSdk = ARDUINO_SDK_WIN;
 			folder = FOLDER_WIN;
+			serialPort= "COM3";
 		} else if (os.contains("nux")) {
 			arduinoSdk = ARDUINO_SDK_LINUX;
 			folder = FOLDER_LINUX;
+			serialPort = "/dev/ttyACM0";
+		} else if (os.contains(MACOS)) {
+			arduinoSdk = ARDUINO_SDK_MACOSX;
+			folder = FOLDER_MACOSX;
+			serialPort = "/dev/tty.usbmodem1421";
 		}
 		ArduinoBuilder builder = new ArduinoBuilder(arduinoSdk, BOARD_TAG,
-				folder);
+				folder, serialPort);
 		List<String> libraries = new ArrayList<String>();
 		libraries.add("Servo");
 		IStatus status = builder.compile("Sketch", libraries);
@@ -176,7 +191,7 @@ public class ArduinoBuilder {
 					"-C", arduinoSdk + "hardware" + File.separator + "tools"
 							+ File.separator + "avr" + File.separator + "etc"
 							+ File.separator + "avrdude.conf", "-c", "arduino",
-					"-b", "115200", "-P", "COM3", "-U", "flash:w:arduino.hex:i");
+					"-b", "115200", "-P", serialPort, "-U", "flash:w:arduino.hex:i");
 		} else if (os.contains(MACOS)) {
 			command += "avr" + File.separator + "bin" + File.separator
 					+ "avrdude";
@@ -184,14 +199,14 @@ public class ArduinoBuilder {
 					"-C", arduinoSdk + "hardware" + File.separator + "tools"
 							+ File.separator + "avr" + File.separator + "etc"
 							+ File.separator + "avrdude.conf", "-c", "arduino",
-					"-b", "115200", "-P", "/dev/tty.usbmodem1421", "-U",
+					"-b", "115200", "-P", serialPort, "-U",
 					"flash:w:arduino.hex:i");
 		} else {
 			command += "avrdude";
 			builder = new ProcessBuilder(command, "-q", "-V", "-p", getMMCU(),
 					"-C", arduinoSdk + "hardware" + File.separator + "tools"
 							+ File.separator + "avrdude.conf", "-c", "arduino",
-					"-b", "115200", "-P", "/dev/ttyACM0", "-U",
+					"-b", "115200", "-P", serialPort, "-U",
 					"flash:w:arduino.hex:i");
 		}
 		return executeCommand(directory, builder);

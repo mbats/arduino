@@ -133,11 +133,12 @@ public class ArduinoServices {
 					monitor.subTask("Compile code");
 
 					String arduinoSdk = preferences.getArduinoSdk();
+					String serialPort = preferences.getArduinoSerialPort();
 					String boardTag = sketch.getHardware().getPlatforms()
 							.get(0).getName();
 					String workingDirectory = genFolder.toString();
 					ArduinoBuilder builder = new ArduinoBuilder(arduinoSdk,
-							boardTag, workingDirectory);
+							boardTag, workingDirectory, serialPort);
 					List<String> libraries = getLibraries(sketch);
 					final IStatus compileStatus = builder.compile("Sketch",
 							libraries);
