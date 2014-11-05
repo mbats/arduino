@@ -440,15 +440,15 @@
           </style>
           <conditionnalStyles predicateExpression="[oclIsKindOf(arduino::Sensor)/]">
             <style strokeColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20gray']" lineStyle="dash" sizeComputationExpression="2" endsCentering="Both">
-              <centerLabelStyleDescription>
+              <endLabelStyleDescription labelFormat="italic" labelExpression="service:view.computeLinkLabel()">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </centerLabelStyleDescription>
+              </endLabelStyleDescription>
             </style>
           </conditionnalStyles>
         </edgeMappings>
         <edgeMappings name="SK_LinkSetToVariable" preconditionExpression="[sourceView.eContainer()=targetView.eContainer()/]" sourceMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Set']/@subNodeMappings[name='Equal']" targetMapping="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Variable']" targetFinderExpression="feature:variable">
           <style strokeColor="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='Arduino%20gray']" lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2" routingStyle="tree" endsCentering="Both">
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription labelExpression="[/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>

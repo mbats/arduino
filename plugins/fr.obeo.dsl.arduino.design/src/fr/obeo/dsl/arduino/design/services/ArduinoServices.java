@@ -26,8 +26,11 @@ import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 
@@ -285,6 +288,23 @@ public class ArduinoServices {
 				label += " : on";
 			}
 		}
+		return label;
+	}
+	
+	public String computeLinkLabel(DDiagramElement edgeLink) {
+		String label = "";
+		if (edgeLink instanceof DEdge && ((DEdge) edgeLink).getTargetNode() instanceof DSemanticDecorator) {
+			EObject target = ((DSemanticDecorator)((DEdge)edgeLink).getTargetNode()).getTarget();
+			if (target instanceof Status) {
+				Status status = (Status) target;
+				if (status.isStatus()) {
+					label = "on";
+				} else {
+					label = "off";
+				}
+			}
+		}
+		
 		return label;
 	}
 
