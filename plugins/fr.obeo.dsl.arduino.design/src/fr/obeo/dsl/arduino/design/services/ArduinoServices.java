@@ -290,11 +290,13 @@ public class ArduinoServices {
 		}
 		return label;
 	}
-	
+
 	public String computeLinkLabel(DDiagramElement edgeLink) {
 		String label = "";
-		if (edgeLink instanceof DEdge && ((DEdge) edgeLink).getTargetNode() instanceof DSemanticDecorator) {
-			EObject target = ((DSemanticDecorator)((DEdge)edgeLink).getTargetNode()).getTarget();
+		if (edgeLink instanceof DEdge
+				&& ((DEdge) edgeLink).getTargetNode() instanceof DSemanticDecorator) {
+			EObject target = ((DSemanticDecorator) ((DEdge) edgeLink)
+					.getTargetNode()).getTarget();
 			if (target instanceof Status) {
 				Status status = (Status) target;
 				if (status.isStatus()) {
@@ -304,7 +306,7 @@ public class ArduinoServices {
 				}
 			}
 		}
-		
+
 		return label;
 	}
 
@@ -797,13 +799,13 @@ public class ArduinoServices {
 		return false;
 	}
 
-	
 	public boolean isLastInstructionValid(Function container) {
 		if (getLastInstruction(container) != null) {
 			return true;
 		}
 		return false;
 	}
+
 	public void removeWire(Hardware hardware, Module module) {
 		List<Connector> connectors = getConnectors(hardware);
 		for (Connector connector : connectors) {
@@ -969,10 +971,43 @@ public class ArduinoServices {
 		if (diagram == null) {
 			diagram = (DDiagram) DialectManager.INSTANCE.createRepresentation(
 					diagramName, semantic,
-					getDiagramDescription(session, diagramDescriptionName), session,
-					new NullProgressMonitor());
+					getDiagramDescription(session, diagramDescriptionName),
+					session, new NullProgressMonitor());
 		}
 
 		return diagram;
+	}
+
+	public boolean detectIssueInInstruction(EObject instruction) {
+		boolean issue = false;
+		if (!(instruction instanceof Sensor)
+				&& instruction instanceof Instruction) {
+			Instruction inst = (Instruction) instruction;
+
+			if (inst.eContainer() instanceof Sketch) {
+				issue = inst.getNext() == null;
+			} else if (inst.eContainer() instanceof Control) {
+				Control ctrl = (Control) inst.eContainer();
+				// The generator begin by the first instruction, there should be
+				// no other instruction pointing to it with its next reference.
+				// Control is the container of the instruction, so the list
+				// cannot be empty.
+				issue = inst.getNext() == ctrl.getInstructions().get(0);
+				// We should have only one instruction with next = null;
+				issue = issue || inst.getNext() == null && getPotentialEnds(ctrl).size() > 1;
+			}
+		}
+		return issue;
+
+	}
+
+	private Collection<Instruction> getPotentialEnds(Control ctrl) {
+		Collection<Instruction> ends = Lists.newArrayList();
+		for (Instruction ctrlInst : ctrl.getInstructions()) {
+			if (ctrlInst.getNext() == null) {
+				ends.add(ctrlInst);
+			}
+		}
+		return ends;
 	}
 }
