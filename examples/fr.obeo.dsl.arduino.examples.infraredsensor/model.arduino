@@ -14,7 +14,7 @@
     </connectors>
   </hardware>
   <sketch name="Sketch" next="//@sketch/@instructions.0" hardware="//@hardware">
-    <instructions xsi:type="arduino:Status" next="//@sketch" sensor="//@sketch/@instructions.1">
+    <instructions xsi:type="arduino:Status" next="//@sketch" status="true" sensor="//@sketch/@instructions.1">
       <module xsi:type="arduino:OutputModule" href="../../plugin/fr.obeo.dsl.arduino.design/resources/ArdublockKit.arduino#//@modules.0"/>
     </instructions>
     <instructions xsi:type="arduino:Sensor" status="//@sketch/@instructions.0">
