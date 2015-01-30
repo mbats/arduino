@@ -10,6 +10,7 @@
  */
 package fr.obeo.dsl.arduino.preferences;
 
+import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.widgets.Composite;
@@ -31,7 +32,7 @@ public class ArduinoPreferencesPage extends FieldEditorPreferencePage implements
 	}
 
 	private void createArduinoSdk(Composite parent) {
-		StringFieldEditor sdk = new StringFieldEditor(
+		DirectoryFieldEditor sdk = new DirectoryFieldEditor(
 				ArduinoPreferences.ARDUINO_SDK_ID, "Arduino SDK :",
 				getFieldEditorParent());
 		addField(sdk);

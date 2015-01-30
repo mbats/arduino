@@ -13,28 +13,30 @@ package fr.obeo.dsl.arduino.commands;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.swt.widgets.DirectoryDialog;
-import org.eclipse.ui.PlatformUI;
+import org.eclipse.jface.preference.IPreferenceNode;
+import org.eclipse.jface.preference.IPreferencePage;
+import org.eclipse.jface.preference.PreferenceDialog;
+import org.eclipse.jface.preference.PreferenceManager;
+import org.eclipse.jface.preference.PreferenceNode;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.dialogs.PreferencesUtil;
+import org.eclipse.ui.handlers.HandlerUtil;
 
-import fr.obeo.dsl.arduino.preferences.ArduinoPreferences;
+import fr.obeo.dsl.arduino.preferences.ArduinoPreferencesPage;
 
 public class PreferencesHandler extends AbstractHandler {
-	private ArduinoPreferences preferences = new ArduinoPreferences();
-
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		DirectoryDialog dialog = new DirectoryDialog(PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getShell());
-		String arduinoSdk = preferences.getArduinoSdk();
-		if (arduinoSdk != null && arduinoSdk.length() > 0) {
-			dialog.setText(arduinoSdk);
-		}
-		dialog.setMessage("Select the path of the Arduino SDK installed on your computer");
-		String arduinoSdkValue = dialog.open();
-
-		if (arduinoSdkValue != null && arduinoSdkValue.length() > 0) {
-			preferences.storeArduinoSdk(arduinoSdkValue);
-		}
+		IPreferencePage page = new ArduinoPreferencesPage();
+		PreferenceManager manager = new PreferenceManager();
+		IPreferenceNode node = new PreferenceNode("0", page);
+		manager.addToRoot(node);
+		Shell shell = HandlerUtil.getActiveWorkbenchWindowChecked(event)
+				.getShell();
+		PreferenceDialog pref = PreferencesUtil.createPreferenceDialogOn(shell,
+				page.getDescription(), null, null);
+		if (pref != null)
+			pref.open();
 		return null;
 	}
 }
