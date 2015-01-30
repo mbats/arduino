@@ -56,35 +56,30 @@
             locationURI="menu:fr.obeo.dsl.arduino.menus.commands.project">
          <command
                commandId="fr.obeo.dsl.arduino.commands.newProject"
-               icon="icons/project.png"
                label="New project"
                style="push"
                tooltip="Create a new arduino project">
          </command>
          <command
                commandId="fr.obeo.dsl.arduino.commands.openProject"
-               icon="icons/project.png"
                label="Open project"
                style="push"
                tooltip="Open an existing arduino project">
          </command>
          <command
                commandId="fr.obeo.dsl.arduino.commands.deleteProject"
-               icon="icons/delete.png"
                label="Delete project"
                style="push"
                tooltip="Delete the currently opened project">
          </command>
          <command
                commandId="fr.obeo.dsl.arduino.commands.openHardwareKit"
-               icon="icons/newHardwareKit.png"
                label="Hardware kit"
                style="toggle"
                tooltip="Define new hardware kit modules and platforms">
          </command>
          <command
                commandId="fr.obeo.dsl.arduino.commands.preferences"
-               icon="icons/project.png"
                label="Preferences"
                mode="FORCE_TEXT"
                style="push">
