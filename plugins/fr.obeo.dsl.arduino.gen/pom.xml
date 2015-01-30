@@ -55,7 +55,7 @@ Contributors:
              <root>${project.basedir}</root>
              <entries>
                <entry>
-                 <input>src/fr/obeo/dsl/arduino/gen/main</input>
+                 <input>src</input>
                  <output>target/classes</output>
                </entry>
              </entries>
