@@ -95,21 +95,21 @@ digitalWrite([instruction.module.getVariableName()/], [getStatus(instruction)/])
 
 [template private getStatus(instruction : Status)post (trim())]
 [if (instruction.sensor = null)]
-[if (instruction.status.toString()='false')]
+[if (instruction.status.toString()='true')]
 HIGH
 [else]
 LOW
 [/if]
 [else]
-[if (instruction.status.toString()='false')]!([/if]
+[if (instruction.status.toString()='true')]!([/if]
 [generateInstruction(instruction.sensor)/]
-[if (instruction.status.toString()='false')])[/if]
+[if (instruction.status.toString()='true')])[/if]
 [/if]
 [/template]
 
 [template public generateInstruction(instruction : Sensor)post (trim())]
 [if (instruction.module.kind=ModuleKind::digital)]
-digitalRead([instruction.module.getVariableName()/])
+!digitalRead([instruction.module.getVariableName()/])
 [else]
 analogRead([instruction.module.getVariableName()/])
 [/if]
