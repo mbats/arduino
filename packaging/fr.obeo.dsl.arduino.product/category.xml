@@ -3,7 +3,13 @@
    <description url="http://www.obeo.fr">
       Viewpoint
    </description>
-   <feature  id="fr.obeo.dsl.arduino.runtime.feature" version="0.0.0">
+   <feature id="fr.obeo.dsl.arduino.runtime.feature" version="0.0.0">
+      <category name="Obeo Network"/>
+   </feature>
+   <feature url="features/fr.obeo.dsl.arduino.runtime.product.feature_1.0.0.qualifier.jar" id="fr.obeo.dsl.arduino.runtime.product.feature" version="1.0.0.qualifier">
+      <category name="Obeo Network"/>
+   </feature>
+   <feature url="features/fr.obeo.dsl.arduino.runtime.sdk.feature_1.0.0.qualifier.jar" id="fr.obeo.dsl.arduino.runtime.sdk.feature" version="1.0.0.qualifier">
       <category name="Obeo Network"/>
    </feature>
    <category-def name="Obeo Network" label="Obeo Network">

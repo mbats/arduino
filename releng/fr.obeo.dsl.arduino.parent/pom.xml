@@ -41,6 +41,7 @@ Contributors:
 
     <!-- Build features -->
     <module>${root-path}/packaging/fr.obeo.dsl.arduino.runtime.feature</module>
+    <module>${root-path}/packaging/fr.obeo.dsl.arduino.runtime.product.feature</module>
     <module>${root-path}/packaging/fr.obeo.dsl.arduino.runtime.sdk.feature</module>
 
     <!-- Build update-sites -->

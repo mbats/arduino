@@ -15,12 +15,11 @@ import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.internal.ide.application.IDEApplication;
 
 /**
  * This class controls all aspects of the application's execution
  */
-public class Application extends IDEApplication {
+public class Application implements IApplication {
 
 	/*
 	 * (non-Javadoc)
