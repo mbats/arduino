@@ -281,12 +281,10 @@ public class ArduinoServices {
 
 	public String computeStatusLabel(fr.obeo.dsl.arduino.Status status) {
 		String label = status.getModule().getName();
-		if (!hasSensorStatus(status)) {
-			if (status.isStatus()) {
-				label += " : off";
-			} else {
-				label += " : on";
-			}
+		if (status.isStatus()) {
+			label += " : off";
+		} else {
+			label += " : on";
 		}
 		return label;
 	}
@@ -994,7 +992,8 @@ public class ArduinoServices {
 				// cannot be empty.
 				issue = inst.getNext() == ctrl.getInstructions().get(0);
 				// We should have only one instruction with next = null;
-				issue = issue || inst.getNext() == null && getPotentialEnds(ctrl).size() > 1;
+				issue = issue || inst.getNext() == null
+						&& getPotentialEnds(ctrl).size() > 1;
 			}
 		}
 		return issue;
