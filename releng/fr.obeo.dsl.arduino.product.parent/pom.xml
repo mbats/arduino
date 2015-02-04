@@ -27,14 +27,13 @@ Contributors:
 
   <properties>
     <arduino-site>http://update.obeo.fr/integration/arduino/repository/</arduino-site>
-    <arduino-local-site>file:///home/melanie/Obeo/dev/git/arduino/packaging/fr.obeo.dsl.arduino.update/target/repository/</arduino-local-site>
   </properties>
 
   <repositories>
     <repository>		
       <id>fr.obeo.dsl.arduino.update</id>
       <layout>p2</layout>
-      <url>${arduino-local-site}</url>
+      <url>${arduino-site}</url>
     </repository>
   </repositories>
 
