@@ -254,6 +254,10 @@
             activityId="fr.obeo.dsl.arduino.ui.activity"
             pattern="org.eclipse.ui.run">
       </activityPatternBinding>
+      <activityPatternBinding
+            activityId="fr.obeo.dsl.arduino.ui.activity"
+            pattern="org.eclipse.amalgam.*">
+      </activityPatternBinding>
    </extension>
 
 </plugin>
