@@ -143,7 +143,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </plugins>
 
    <features>
-      <feature id="fr.obeo.dsl.arduino.runtime.product.feature"/>
+      <feature id="fr.obeo.dsl.arduino.runtime.feature"/>
       <feature id="org.eclipse.platform"/>
       <feature id="org.eclipse.epp.mpc"/>
    </features>

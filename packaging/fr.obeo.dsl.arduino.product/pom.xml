@@ -15,9 +15,9 @@ Contributors:
 
   <parent>
     <groupId>fr.obeo.dsl.arduino</groupId>
-    <artifactId>product.parent</artifactId>
+    <artifactId>parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../../releng/fr.obeo.dsl.arduino.product.parent</relativePath>
+    <relativePath>../../releng/fr.obeo.dsl.arduino.parent</relativePath>
   </parent>
 
   <artifactId>fr.obeo.dsl.arduino.product</artifactId>
