@@ -11,6 +11,7 @@
 package fr.obeo.dsl.arduino.menus;
 
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -24,7 +25,7 @@ public class ArduinoUiActivator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static ArduinoUiActivator plugin;
-	
+
 	/**
 	 * The constructor
 	 */
@@ -33,18 +34,25 @@ public class ArduinoUiActivator extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+	 * 
+	 * @see
+	 * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
+	 * )
 	 */
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-//		SiriusDiagramEditorPlugin.getInstance().getPreferenceStore().setValue(org.eclipse.sirius.diagram.tools.api.preferences.SiriusDiagramPreferencesKeys.PREF_OLD_UI.name(), Boolean.TRUE);
+		// SiriusDiagramEditorPlugin.getInstance().getPreferenceStore().setValue(org.eclipse.sirius.diagram.tools.api.preferences.SiriusDiagramPreferencesKeys.PREF_OLD_UI.name(),
+		// Boolean.TRUE);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+	 * 
+	 * @see
+	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
+	 * )
 	 */
 	@Override
 	public void stop(BundleContext context) throws Exception {
@@ -74,5 +82,17 @@ public class ArduinoUiActivator extends AbstractUIPlugin {
 	public static void log(int severity, String message, Throwable exception) {
 		getDefault().getLog().log(
 				new Status(severity, PLUGIN_ID, message, exception));
+	}
+
+	/**
+	 * Returns an image descriptor for the image file at the given plug-in
+	 * relative path
+	 *
+	 * @param path
+	 *            the path
+	 * @return the image descriptor
+	 */
+	public static ImageDescriptor getImageDescriptor(String path) {
+		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
 }

@@ -12,79 +12,17 @@
             name="Open hardware">
       </command>
       <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.OpenHardwareKitHandler"
-            id="fr.obeo.dsl.arduino.commands.openHardwareKit"
-            name="Open hardware kit">
-      </command>
-      <command
             defaultHandler="fr.obeo.dsl.arduino.commands.OpenDashboardHandler"
             id="fr.obeo.dsl.arduino.menus.commands.project"
             name="Open dashboard">
       </command>
       <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.NewProjectHandler"
-            id="fr.obeo.dsl.arduino.commands.newProject"
-            name="New project">
-      </command>
-      <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.DeleteProjectHandler"
-            id="fr.obeo.dsl.arduino.commands.deleteProject"
-            name="Delete project">
-      </command>
-      <command
-            defaultHandler="fr.obeo.dsl.arduino.commands.OpenProjectHandler"
-            id="fr.obeo.dsl.arduino.commands.openProject"
-            name="Open project">
-      </command>
-      <command
             id="fr.obeo.dsl.arduino.commands.upload"
             name="Upload sketch">
-      </command>
-      <command
-            id="fr.obeo.dsl.arduino.commands.preferences"
-            name="Preferences">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
-      <menuContribution
-            allPopups="false"
-            locationURI="toolbar:org.eclipse.ui.main.toolbar">
-      </menuContribution>
-      <menuContribution
-            allPopups="false"
-            locationURI="menu:fr.obeo.dsl.arduino.menus.commands.project">
-         <command
-               commandId="fr.obeo.dsl.arduino.commands.newProject"
-               label="New project"
-               style="push"
-               tooltip="Create a new arduino project">
-         </command>
-         <command
-               commandId="fr.obeo.dsl.arduino.commands.openProject"
-               label="Open project"
-               style="push"
-               tooltip="Open an existing arduino project">
-         </command>
-         <command
-               commandId="fr.obeo.dsl.arduino.commands.deleteProject"
-               label="Delete project"
-               style="push"
-               tooltip="Delete the currently opened project">
-         </command>
-         <command
-               commandId="fr.obeo.dsl.arduino.commands.openHardwareKit"
-               label="Hardware kit"
-               style="toggle"
-               tooltip="Define new hardware kit modules and platforms">
-         </command>
-         <command
-               commandId="fr.obeo.dsl.arduino.commands.preferences"
-               label="Preferences"
-               mode="FORCE_TEXT"
-               style="push">
-         </command>
-      </menuContribution>
             <menuContribution
             allPopups="false"
             locationURI="toolbar:org.eclipse.ui.main.toolbar">
@@ -94,7 +32,7 @@
                   commandId="fr.obeo.dsl.arduino.menus.commands.project"
                   icon="icons/project.png"
                   label="Open dashboard"
-                  style="pulldown"
+                  style="push"
                   tooltip="Open the dashboard">
             </command>
             <command
@@ -156,6 +94,13 @@
          <hiddenMenuItem
                id="org.eclipse.ui.run">
          </hiddenMenuItem>
+         <view
+               closeable="false"
+               id="fr.obeo.dsl.arduino.ui.dashboard"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.editorss">
+         </view>
       </perspectiveExtension>
    </extension>
    <extension
@@ -177,7 +122,7 @@
             class="fr.obeo.dsl.arduino.properties.ArduinoPropertyTester"
             id="fr.obeo.dsl.arduino.properties.arduinoPropertyTester"
             namespace="fr.obeo.dsl.arduino.properties"
-            properties="existHardware,existSketch,validSketch"
+            properties="existHardware,validHardware,validSketch"
             type="java.lang.Object">
       </propertyTester>
    </extension>
@@ -209,7 +154,7 @@
                      ifEmpty="true"
                      operator="and">
                   <test
-                        property="fr.obeo.dsl.arduino.properties.existSketch">
+                        property="fr.obeo.dsl.arduino.properties.validHardware">
                   </test>
                </iterate>
             </with>
@@ -258,6 +203,16 @@
             activityId="fr.obeo.dsl.arduino.ui.activity"
             pattern="org.eclipse.amalgam.*">
       </activityPatternBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="fr.obeo.dsl.arduino.views.DashboardView"
+            icon="icons/project.png"
+            id="fr.obeo.dsl.arduino.ui.dashboard"
+            name="Dashboard"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>

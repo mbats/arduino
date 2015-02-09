@@ -24,7 +24,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -35,11 +34,10 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperation;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionCreationOperation;
-import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
+import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.IEditorPart;
@@ -49,6 +47,9 @@ import org.eclipse.ui.PlatformUI;
 import com.google.common.collect.Maps;
 
 import fr.obeo.dsl.arduino.ArduinoFactory;
+import fr.obeo.dsl.arduino.Hardware;
+import fr.obeo.dsl.arduino.Project;
+import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 
 public class ProjectServices {
@@ -60,6 +61,7 @@ public class ProjectServices {
 		try {
 			project.create(monitor);
 			project.open(monitor);
+			ModelingProjectManager.INSTANCE.convertToModelingProject(project, monitor);
 		} catch (CoreException e) {
 			ArduinoUiActivator.log(Status.ERROR, "Open project failed", e);
 		}
@@ -76,7 +78,7 @@ public class ProjectServices {
 		final String[] viewpointsToActivate = { ARDUINO_VP };
 		enableViewpoints(session, viewpointsToActivate);
 
-		openDashboard(session);
+		openHardware(session);
 	}
 
 	private Session createAird(IProject project, URI representationsURI,
@@ -150,14 +152,15 @@ public class ProjectServices {
 		while (session == null) {
 			session = service.getSession();
 		}
-		openDashboard(session);
+//		openHardware(session);
+		// openDashboard(session);
 	}
 
-	public void openDashboard(final Session session) {
+	public void openHardware(final Session session) {
 		Collection<DRepresentation> representations = DialectManager.INSTANCE
 				.getAllRepresentations(session);
 		for (DRepresentation representation : representations) {
-			if ("Dashboard".equals(representation.getName())) {
+			if ("Hardware".equals(representation.getName())) {
 				DialectUIManager.INSTANCE.openEditor(session, representation,
 						new NullProgressMonitor());
 				return;
@@ -190,11 +193,20 @@ public class ProjectServices {
 								Resource res = new ResourceSetImpl()
 										.createResource(semanticModelURI);
 								// Add the initial model object to the contents.
-								final EObject rootObject = ArduinoFactory.eINSTANCE
+								final Project rootObject = ArduinoFactory.eINSTANCE
 										.createProject();
 
 								if (rootObject != null) {
 									res.getContents().add(rootObject);
+									final Hardware hardware = ArduinoFactory.eINSTANCE
+											.createHardware();
+									hardware.setName("Hardware");
+									rootObject.setHardware(hardware);
+									final Sketch sketch = ArduinoFactory.eINSTANCE
+											.createSketch();
+									sketch.setName("Sketch");
+									sketch.setHardware(hardware);
+									rootObject.setSketch(sketch);
 								}
 								try {
 									res.save(Maps.newHashMap());
@@ -314,7 +326,7 @@ public class ProjectServices {
 		final String[] viewpointsToActivate = { HARDWARE_KIT_VP };
 		enableViewpoints(session, viewpointsToActivate);
 
-		openDashboard(session);
+		// openHardware(session);
 	}
 
 	public void unActivateHardwareKitDefinition(IProgressMonitor monitor) {
@@ -322,6 +334,6 @@ public class ProjectServices {
 		final String[] viewpointsToActivate = { HARDWARE_KIT_VP };
 		disableViewpoints(session, viewpointsToActivate);
 
-		openDashboard(session);
+		// openHardware(session);
 	}
 }

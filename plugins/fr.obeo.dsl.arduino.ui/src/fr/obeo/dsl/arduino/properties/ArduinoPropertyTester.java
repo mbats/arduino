@@ -33,7 +33,7 @@ public class ArduinoPropertyTester extends PropertyTester {
 			return true;
 		}
 
-		if ("existSketch".equals(property) && project.getSketch() != null) {
+		if ("validHardware".equals(property) && service.isValidHardware()) {
 			return true;
 		}
 

@@ -163,7 +163,7 @@
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.arduino.design.services.ArduinoServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Arduino" modelFileExtension="arduino">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Hardware" titleExpression="Hardware" domainClass="arduino.Hardware" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Hardware" titleExpression="Hardware" initialisation="true" showOnStartup="true" domainClass="arduino.Hardware" enablePopupBars="true">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <metamodel href="http://www.eclipse.org/sirius/1.1.0#//diagram"/>
       <defaultLayer name="Default">
@@ -305,101 +305,7 @@
         </customization>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Dashboard" initialisation="true" domainClass="arduino.Project">
-      <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
-      <defaultLayer name="Default">
-        <nodeMappings name="DB_Hardware" semanticCandidatesExpression="var:self" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='DB_Open_Hardware']" synchronizationLock="true" domainClass="arduino.Project">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="1" tooltipExpression="Double click to see hardware" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/hardware.svg">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-          <conditionnalStyles predicateExpression="service:isInvalidHardware">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="1" tooltipExpression="Double click to describe the hardware" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/hardware_invalid.svg">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-        </nodeMappings>
-        <nodeMappings name="DB_Sketch" preconditionExpression="service:isValidHardware" semanticCandidatesExpression="var:self" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='DB_Open_Sketch']" synchronizationLock="true" domainClass="arduino.Project">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="2" tooltipExpression="Double click to see sketch" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/software.svg">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-          <conditionnalStyles predicateExpression="service:isInvalidSketch">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="2" tooltipExpression="Double click to describe the software" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/software_invalid.svg">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-        </nodeMappings>
-        <nodeMappings name="DB_Upload" preconditionExpression="[sketch&lt;>null/]" semanticCandidatesExpression="var:self" doubleClickDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@toolSections.0/@ownedTools[name='DB_Upload']" domainClass="arduino.Project">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="3" tooltipExpression="Upload sketch on hardware" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/upload.svg">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-          <conditionnalStyles predicateExpression="service:isInvalidSketch">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="16" showIcon="false" labelExpression="3" tooltipExpression="The sketch is invalid, double click to open it" sizeComputationExpression="20" workspacePath="/fr.obeo.dsl.arduino.design/images/upload_invalid.svg">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-        </nodeMappings>
-        <toolSections>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="DB_Open_Hardware" forceRefresh="true" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Hardware']">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:target">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[hardware=null/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arduino.Hardware" referenceName="hardware">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Hardware"/>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:hardware">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:openHardwareDiagram"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="DB_Open_Sketch" forceRefresh="true" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Sketch']">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:target">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[sketch=null/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arduino.Sketch" referenceName="sketch" variableName="sketch">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="hardware" valueExpression="[eContainer(arduino::Project).hardware/]"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Sketch"/>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:sketch">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:openSketchDiagram"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="DB_Upload" forceRefresh="true" mappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Upload']">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:isInvalidSketch">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:sketch">
-                    <subModelOperations xsi:type="tool:Navigation" diagramDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']"/>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:isUploadable">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:sketch">
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:upload"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
-      </defaultLayer>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Sketch" titleExpression="Sketch" domainClass="arduino.Sketch" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Sketch" titleExpression="Sketch" initialisation="true" domainClass="arduino.Sketch" enablePopupBars="true">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="SK_Loop" semanticCandidatesExpression="var:self" domainClass="arduino.Sketch">

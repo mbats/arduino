@@ -2,7 +2,6 @@ package fr.obeo.dsl.arduino.wizard;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,9 +10,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipFile;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -45,9 +41,6 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerComparator;
-import org.eclipse.osgi.util.NLS;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
@@ -68,22 +61,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.WizardDataTransferPage;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.internal.ide.StatusUtil;
-import org.eclipse.ui.internal.wizards.datatransfer.ArchiveFileManipulations;
-import org.eclipse.ui.internal.wizards.datatransfer.DataTransferMessages;
 import org.eclipse.ui.internal.wizards.datatransfer.ILeveledImportStructureProvider;
-import org.eclipse.ui.internal.wizards.datatransfer.TarEntry;
-import org.eclipse.ui.internal.wizards.datatransfer.TarException;
-import org.eclipse.ui.internal.wizards.datatransfer.TarFile;
-import org.eclipse.ui.internal.wizards.datatransfer.TarLeveledStructureProvider;
-import org.eclipse.ui.internal.wizards.datatransfer.ZipLeveledStructureProvider;
 import org.eclipse.ui.statushandlers.StatusManager;
-import org.eclipse.ui.wizards.datatransfer.ImportOperation;
 
 import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 
@@ -135,8 +119,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	public class ProjectRecord {
 		File projectSystemFile;
 
-		Object projectArchiveFile;
-
 		String projectName;
 
 		Object parent;
@@ -166,7 +148,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		 *            The number of levels deep in the provider the file is
 		 */
 		ProjectRecord(Object file, Object parent, int level) {
-			this.projectArchiveFile = file;
 			this.parent = parent;
 			this.level = level;
 			setProjectName();
@@ -177,29 +158,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		 */
 		private void setProjectName() {
 			try {
-				if (projectArchiveFile != null) {
-					InputStream stream = structureProvider
-							.getContents(projectArchiveFile);
-
-					// If we can get a description pull the name from there
-					if (stream == null) {
-						if (projectArchiveFile instanceof ZipEntry) {
-							IPath path = new Path(
-									((ZipEntry) projectArchiveFile).getName());
-							projectName = path.segment(path.segmentCount() - 2);
-						} else if (projectArchiveFile instanceof TarEntry) {
-							IPath path = new Path(
-									((TarEntry) projectArchiveFile).getName());
-							projectName = path.segment(path.segmentCount() - 2);
-						}
-					} else {
-						description = IDEWorkbenchPlugin.getPluginWorkspace()
-								.loadProjectDescription(stream);
-						stream.close();
-						projectName = description.getName();
-					}
-
-				}
 
 				// If we don't have the project name try again
 				if (projectName == null) {
@@ -218,8 +176,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 
 				}
 			} catch (CoreException e) {
-				// no good couldn't get the name
-			} catch (IOException e) {
 				// no good couldn't get the name
 			}
 		}
@@ -258,15 +214,7 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		 * @since 3.4
 		 */
 		public String getProjectLabel() {
-			if (description == null)
-				return projectName;
-
-			String path = projectSystemFile == null ? structureProvider
-					.getLabel(parent) : projectSystemFile.getParent();
-
-			return NLS.bind(
-					DataTransferMessages.WizardProjectsImportPage_projectLabel,
-					projectName, path);
+			return projectName;
 		}
 
 		/**
@@ -279,9 +227,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 
 	// dialog store id constants
 	private final static String STORE_DIRECTORIES = "WizardProjectsImportPage.STORE_DIRECTORIES";//$NON-NLS-1$
-	private final static String STORE_ARCHIVES = "WizardProjectsImportPage.STORE_ARCHIVES";//$NON-NLS-1$
-
-	private final static String STORE_ARCHIVE_SELECTED = "WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"; //$NON-NLS-1$
 
 	private Combo directoryPathField;
 
@@ -294,25 +239,11 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	// the wizard was invoked.
 	private static String previouslyBrowsedDirectory = ""; //$NON-NLS-1$
 
-	// Keep track of the archive that we browsed to last time
-	// the wizard was invoked.
-	private static String previouslyBrowsedArchive = ""; //$NON-NLS-1$
-
-	private Button projectFromDirectoryRadio;
-
-	private Button projectFromArchiveRadio;
-
-	private Combo archivePathField;
+	private Label projectFromDirectoryRadio;
 
 	private Button browseDirectoriesButton;
 
-	private Button browseArchivesButton;
-
 	private IProject[] wsProjects;
-
-	// constant from WizardArchiveFileResourceImportPage1
-	private static final String[] FILE_IMPORT_MASK = {
-			"*.jar;*.zip;*.tar;*.tar.gz;*.tgz", "*.*" }; //$NON-NLS-1$ //$NON-NLS-2$
 
 	// The initial path to set
 	private String initialPath;
@@ -322,8 +253,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	// The last time that the file or folder at the selected path was modified
 	// to mimize searches
 	private long lastModified;
-
-	private IStructuredSelection currentSelection;
 
 	/**
 	 * Creates a new project creation wizard page.
@@ -354,10 +283,9 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 			IStructuredSelection currentSelection) {
 		super(pageName);
 		this.initialPath = initialPath;
-		this.currentSelection = currentSelection;
 		setPageComplete(false);
-		setTitle(DataTransferMessages.WizardProjectsImportPage_ImportProjectsTitle);
-		setDescription(DataTransferMessages.WizardProjectsImportPage_ImportProjectsDescription);
+		setTitle("Open project");
+		setDescription("Open an existing project.");
 	}
 
 	/*
@@ -393,7 +321,7 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	private void createProjectsList(Composite workArea) {
 
 		Label title = new Label(workArea, SWT.NONE);
-		title.setText(DataTransferMessages.WizardProjectsImportPage_ProjectsListTitle);
+		title.setText("Projects:");
 
 		Composite listComposite = new Composite(workArea, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -513,9 +441,8 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		projectGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
 		// new project from directory radio button
-		projectFromDirectoryRadio = new Button(projectGroup, SWT.RADIO);
-		projectFromDirectoryRadio
-				.setText(DataTransferMessages.WizardProjectsImportPage_RootSelectTitle);
+		projectFromDirectoryRadio = new Label(projectGroup, SWT.NORMAL);
+		projectFromDirectoryRadio.setText("Select directory:");
 
 		// project location entry combo
 		this.directoryPathField = new Combo(projectGroup, SWT.BORDER);
@@ -528,30 +455,8 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 
 		// browse button
 		browseDirectoriesButton = new Button(projectGroup, SWT.PUSH);
-		browseDirectoriesButton
-				.setText(DataTransferMessages.DataTransfer_browse);
+		browseDirectoriesButton.setText("Browse...");
 		setButtonLayoutData(browseDirectoriesButton);
-
-		// new project from archive radio button
-		projectFromArchiveRadio = new Button(projectGroup, SWT.RADIO);
-		projectFromArchiveRadio
-				.setText(DataTransferMessages.WizardProjectsImportPage_ArchiveSelectTitle);
-
-		// project location entry combo
-		archivePathField = new Combo(projectGroup, SWT.BORDER);
-
-		GridData archivePathData = new GridData(GridData.HORIZONTAL_ALIGN_FILL
-				| GridData.GRAB_HORIZONTAL);
-		archivePathData.widthHint = new PixelConverter(archivePathField)
-				.convertWidthInCharsToPixels(25);
-		archivePathField.setLayoutData(archivePathData); // browse button
-		browseArchivesButton = new Button(projectGroup, SWT.PUSH);
-		browseArchivesButton.setText(DataTransferMessages.DataTransfer_browse);
-		setButtonLayoutData(browseArchivesButton);
-
-		projectFromDirectoryRadio.setSelection(true);
-		archivePathField.setEnabled(false);
-		browseArchivesButton.setEnabled(false);
 
 		browseDirectoriesButton.addSelectionListener(new SelectionAdapter() {
 			/*
@@ -562,20 +467,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 			 */
 			public void widgetSelected(SelectionEvent e) {
 				handleLocationDirectoryButtonPressed();
-			}
-
-		});
-
-		browseArchivesButton.addSelectionListener(new SelectionAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see
-			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse
-			 * .swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				handleLocationArchiveButtonPressed();
 			}
 
 		});
@@ -618,91 +509,13 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 				updateProjectsList(directoryPathField.getText().trim());
 			}
 		});
-
-		archivePathField.addTraverseListener(new TraverseListener() {
-
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see
-			 * org.eclipse.swt.events.TraverseListener#keyTraversed(org.eclipse
-			 * .swt.events.TraverseEvent)
-			 */
-			public void keyTraversed(TraverseEvent e) {
-				if (e.detail == SWT.TRAVERSE_RETURN) {
-					e.doit = false;
-					updateProjectsList(archivePathField.getText().trim());
-				}
-			}
-
-		});
-
-		archivePathField.addFocusListener(new FocusAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see
-			 * org.eclipse.swt.events.FocusListener#focusLost(org.eclipse.swt
-			 * .events.FocusEvent)
-			 */
-			public void focusLost(org.eclipse.swt.events.FocusEvent e) {
-				updateProjectsList(archivePathField.getText().trim());
-			}
-		});
-
-		archivePathField.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				updateProjectsList(archivePathField.getText().trim());
-			}
-		});
-
-		projectFromDirectoryRadio.addSelectionListener(new SelectionAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see
-			 * org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse
-			 * .swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				directoryRadioSelected();
-			}
-		});
-
-		projectFromArchiveRadio.addSelectionListener(new SelectionAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see
-			 * org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse
-			 * .swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				archiveRadioSelected();
-			}
-		});
-	}
-
-	private void archiveRadioSelected() {
-		if (projectFromArchiveRadio.getSelection()) {
-			directoryPathField.setEnabled(false);
-			browseDirectoriesButton.setEnabled(false);
-			archivePathField.setEnabled(true);
-			browseArchivesButton.setEnabled(true);
-			updateProjectsList(archivePathField.getText());
-			archivePathField.setFocus();
-		}
 	}
 
 	private void directoryRadioSelected() {
-		if (projectFromDirectoryRadio.getSelection()) {
-			directoryPathField.setEnabled(true);
-			browseDirectoriesButton.setEnabled(true);
-			archivePathField.setEnabled(false);
-			browseArchivesButton.setEnabled(false);
-			updateProjectsList(directoryPathField.getText());
-			directoryPathField.setFocus();
-		}
+		directoryPathField.setEnabled(true);
+		browseDirectoriesButton.setEnabled(true);
+		updateProjectsList(directoryPathField.getText());
+		directoryPathField.setFocus();
 	}
 
 	/*
@@ -711,11 +524,8 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	 */
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);
-		if (visible && this.projectFromDirectoryRadio.getSelection()) {
+		if (visible) {
 			this.directoryPathField.setFocus();
-		}
-		if (visible && this.projectFromArchiveRadio.getSelection()) {
-			this.archivePathField.setFocus();
 		}
 	}
 
@@ -728,7 +538,7 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	public void updateProjectsList(final String path) {
 		// on an empty path empty selectedProjects
 		if (path == null || path.length() == 0) {
-			setMessage(DataTransferMessages.WizardProjectsImportPage_ImportProjectsDescription);
+			setMessage("Select a directory to search for existing Arduino Designer projects.");
 			selectedProjects = new ProjectRecord[0];
 			projectsList.refresh(true);
 			setPageComplete(selectedProject != null);
@@ -749,8 +559,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 
 		// We can't access the radio button from the inner class so get the
 		// status beforehand
-		final boolean dirSelected = this.projectFromDirectoryRadio
-				.getSelection();
 		try {
 			getContainer().run(true, true, new IRunnableWithProgress() {
 
@@ -763,62 +571,11 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 				 */
 				public void run(IProgressMonitor monitor) {
 
-					monitor.beginTask(
-							DataTransferMessages.WizardProjectsImportPage_SearchingMessage,
-							100);
+					monitor.beginTask("Searching for projects", 100);
 					selectedProjects = new ProjectRecord[0];
 					Collection files = new ArrayList();
 					monitor.worked(10);
-					if (!dirSelected
-							&& ArchiveFileManipulations.isTarFile(path)) {
-						TarFile sourceTarFile = getSpecifiedTarSourceFile(path);
-						if (sourceTarFile == null) {
-							return;
-						}
-
-						structureProvider = new TarLeveledStructureProvider(
-								sourceTarFile);
-						Object child = structureProvider.getRoot();
-
-						if (!collectProjectFilesFromProvider(files, child, 0,
-								monitor)) {
-							return;
-						}
-						Iterator filesIterator = files.iterator();
-						selectedProjects = new ProjectRecord[files.size()];
-						int index = 0;
-						monitor.worked(50);
-						monitor.subTask(DataTransferMessages.WizardProjectsImportPage_ProcessingMessage);
-						while (filesIterator.hasNext()) {
-							selectedProjects[index++] = (ProjectRecord) filesIterator
-									.next();
-						}
-					} else if (!dirSelected
-							&& ArchiveFileManipulations.isZipFile(path)) {
-						ZipFile sourceFile = getSpecifiedZipSourceFile(path);
-						if (sourceFile == null) {
-							return;
-						}
-						structureProvider = new ZipLeveledStructureProvider(
-								sourceFile);
-						Object child = structureProvider.getRoot();
-
-						if (!collectProjectFilesFromProvider(files, child, 0,
-								monitor)) {
-							return;
-						}
-						Iterator filesIterator = files.iterator();
-						selectedProjects = new ProjectRecord[files.size()];
-						int index = 0;
-						monitor.worked(50);
-						monitor.subTask(DataTransferMessages.WizardProjectsImportPage_ProcessingMessage);
-						while (filesIterator.hasNext()) {
-							selectedProjects[index++] = (ProjectRecord) filesIterator
-									.next();
-						}
-					}
-
-					else if (dirSelected && directory.isDirectory()) {
+					if (directory.isDirectory()) {
 
 						if (!collectProjectFilesFromDirectory(files, directory,
 								null, monitor)) {
@@ -828,7 +585,7 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 						selectedProjects = new ProjectRecord[files.size()];
 						int index = 0;
 						monitor.worked(50);
-						monitor.subTask(DataTransferMessages.WizardProjectsImportPage_ProcessingMessage);
+						monitor.subTask("Pocessing results");
 						while (filesIterator.hasNext()) {
 							File file = (File) filesIterator.next();
 							selectedProjects[index] = new ProjectRecord(file);
@@ -858,59 +615,16 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 
 		if (displayWarning) {
 			setMessage(
-					DataTransferMessages.WizardProjectsImportPage_projectsInWorkspace,
+					"Some projects cannot be imported because they already exist in the workspace",
 					WARNING);
 		} else {
-			setMessage(DataTransferMessages.WizardProjectsImportPage_ImportProjectsDescription);
+			setMessage("Select a directory to search for existing Arduino Designer projects.");
 		}
 		setPageComplete(selectedProject != null);
 		if (selectedProjects.length == 0) {
-			setMessage(
-					DataTransferMessages.WizardProjectsImportPage_noProjectsToImport,
+			setMessage("No projects are found, select another directory",
 					WARNING);
 		}
-	}
-
-	/**
-	 * Answer a handle to the zip file currently specified as being the source.
-	 * Return null if this file does not exist or is not of valid format.
-	 */
-	private ZipFile getSpecifiedZipSourceFile(String fileName) {
-		if (fileName.length() == 0) {
-			return null;
-		}
-
-		try {
-			return new ZipFile(fileName);
-		} catch (ZipException e) {
-			displayErrorDialog(DataTransferMessages.ZipImport_badFormat);
-		} catch (IOException e) {
-			displayErrorDialog(DataTransferMessages.ZipImport_couldNotRead);
-		}
-
-		archivePathField.setFocus();
-		return null;
-	}
-
-	/**
-	 * Answer a handle to the zip file currently specified as being the source.
-	 * Return null if this file does not exist or is not of valid format.
-	 */
-	private TarFile getSpecifiedTarSourceFile(String fileName) {
-		if (fileName.length() == 0) {
-			return null;
-		}
-
-		try {
-			return new TarFile(fileName);
-		} catch (TarException e) {
-			displayErrorDialog(DataTransferMessages.TarImport_badFormat);
-		} catch (IOException e) {
-			displayErrorDialog(DataTransferMessages.ZipImport_couldNotRead);
-		}
-
-		archivePathField.setFocus();
-		return null;
 	}
 
 	/**
@@ -930,9 +644,7 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		if (monitor.isCanceled()) {
 			return false;
 		}
-		monitor.subTask(NLS.bind(
-				DataTransferMessages.WizardProjectsImportPage_CheckingMessage,
-				directory.getPath()));
+		monitor.subTask("Checking:" + directory.getPath());
 		File[] contents = directory.listFiles();
 		if (contents == null)
 			return false;
@@ -984,49 +696,13 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	}
 
 	/**
-	 * Collect the list of .project files that are under directory into files.
-	 * 
-	 * @param files
-	 * @param monitor
-	 *            The monitor to report to
-	 * @return boolean <code>true</code> if the operation was completed.
-	 */
-	private boolean collectProjectFilesFromProvider(Collection files,
-			Object entry, int level, IProgressMonitor monitor) {
-
-		if (monitor.isCanceled()) {
-			return false;
-		}
-		monitor.subTask(NLS.bind(
-				DataTransferMessages.WizardProjectsImportPage_CheckingMessage,
-				structureProvider.getLabel(entry)));
-		List children = structureProvider.getChildren(entry);
-		if (children == null) {
-			children = new ArrayList(1);
-		}
-		Iterator childrenEnum = children.iterator();
-		while (childrenEnum.hasNext()) {
-			Object child = childrenEnum.next();
-			if (structureProvider.isFolder(child)) {
-				collectProjectFilesFromProvider(files, child, level + 1,
-						monitor);
-			}
-			String elementLabel = structureProvider.getLabel(child);
-			if (elementLabel.equals(IProjectDescription.DESCRIPTION_FILE_NAME)) {
-				files.add(new ProjectRecord(child, entry, level));
-			}
-		}
-		return true;
-	}
-
-	/**
 	 * The browse button has been selected. Select the location.
 	 */
 	protected void handleLocationDirectoryButtonPressed() {
 
 		DirectoryDialog dialog = new DirectoryDialog(
 				directoryPathField.getShell(), SWT.SHEET);
-		dialog.setMessage(DataTransferMessages.WizardProjectsImportPage_SelectDialogTitle);
+		dialog.setMessage("Select directory of the project to open");
 
 		String dirName = directoryPathField.getText().trim();
 		if (dirName.length() == 0) {
@@ -1049,41 +725,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 			directoryPathField.setText(previouslyBrowsedDirectory);
 			updateProjectsList(selectedDirectory);
 		}
-
-	}
-
-	/**
-	 * The browse button has been selected. Select the location.
-	 */
-	protected void handleLocationArchiveButtonPressed() {
-
-		FileDialog dialog = new FileDialog(archivePathField.getShell(),
-				SWT.SHEET);
-		dialog.setFilterExtensions(FILE_IMPORT_MASK);
-		dialog.setText(DataTransferMessages.WizardProjectsImportPage_SelectArchiveDialogTitle);
-
-		String fileName = archivePathField.getText().trim();
-		if (fileName.length() == 0) {
-			fileName = previouslyBrowsedArchive;
-		}
-
-		if (fileName.length() == 0) {
-			dialog.setFilterPath(IDEWorkbenchPlugin.getPluginWorkspace()
-					.getRoot().getLocation().toOSString());
-		} else {
-			File path = new File(fileName).getParentFile();
-			if (path != null && path.exists()) {
-				dialog.setFilterPath(path.toString());
-			}
-		}
-
-		String selectedArchive = dialog.open();
-		if (selectedArchive != null) {
-			previouslyBrowsedArchive = selectedArchive;
-			archivePathField.setText(previouslyBrowsedArchive);
-			updateProjectsList(selectedArchive);
-		}
-
 	}
 
 	/**
@@ -1121,7 +762,7 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		} catch (InvocationTargetException e) {
 			// one of the steps resulted in a core exception
 			Throwable t = e.getTargetException();
-			String message = DataTransferMessages.WizardExternalProjectImportPage_errorMessage;
+			String message = "Creation Problems";
 			IStatus status;
 			if (t instanceof CoreException) {
 				status = ((CoreException) t).getStatus();
@@ -1132,8 +773,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 			ErrorDialog.openError(getShell(), message, null, status);
 			return false;
 		}
-		ArchiveFileManipulations.closeStructureProvider(structureProvider,
-				getShell());
 
 		return true;
 	}
@@ -1144,8 +783,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	 * Performs clean-up if the user cancels the wizard without doing anything
 	 */
 	public void performCancel() {
-		ArchiveFileManipulations.closeStructureProvider(structureProvider,
-				getShell());
 	}
 
 	/**
@@ -1172,21 +809,24 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 					if (graphicalViewer != null) {
 						graphicalViewer.setSelection(new StructuredSelection());
 						Display.getDefault().syncExec(new Runnable() {
-							
+
 							@Override
 							public void run() {
 								graphicalViewer.flush();
-								
+
 							}
 						});
 						/*
-						 * We need to spin the ui thread so that the editor has the change to
-						 * update its action enablement before we close and unload everything.
+						 * We need to spin the ui thread so that the editor has
+						 * the change to update its action enablement before we
+						 * close and unload everything.
 						 * 
-						 * We just hope to be lucky and to be scheduled after the runnables
-						 * launched by the arrange action in particular.
-						 */						
-						SWTThreadingUtils.waitForAsyncExecsToFinish(Display.getDefault());
+						 * We just hope to be lucky and to be scheduled after
+						 * the runnables launched by the arrange action in
+						 * particular.
+						 */
+						SWTThreadingUtils.waitForAsyncExecsToFinish(Display
+								.getDefault());
 					}
 				} else {
 					DialectUIManager.INSTANCE.setSelection(editor,
@@ -1197,11 +837,11 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		}
 
 		SWTThreadingUtils.waitForAsyncExecsToFinish(Display.getDefault());
-		
-//		for (Session openedSession : SessionManager.INSTANCE.getSessions()) {
-//			openedSession.save(monitor);
-//			openedSession.close(monitor);
-//		}
+
+		// for (Session openedSession : SessionManager.INSTANCE.getSessions()) {
+		// openedSession.save(monitor);
+		// openedSession.close(monitor);
+		// }
 
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		for (IProject projectToClose : root.getProjects()) {
@@ -1233,32 +873,10 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		} else {
 			record.description.setName(projectName);
 		}
-		if (record.projectArchiveFile != null) {
-			// import from archive
-			List fileSystemObjects = structureProvider
-					.getChildren(record.parent);
-			structureProvider.setStrip(record.level);
-			ImportOperation operation = new ImportOperation(
-					project.getFullPath(), structureProvider.getRoot(),
-					structureProvider, ArduinoWizardProjectsImportPage.this,
-					fileSystemObjects);
-			operation.setContext(getShell());
-			try {
-				operation.run(monitor);
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 
-		}
 		// import from file system
 		try {
-			monitor.beginTask(
-					DataTransferMessages.WizardProjectsImportPage_CreateProjectsTask,
-					100);
+			monitor.beginTask("Creating Projects", 100);
 			project.create(record.description, new SubProgressMonitor(monitor,
 					30));
 			project.open(IResource.BACKGROUND_REFRESH, new SubProgressMonitor(
@@ -1269,15 +887,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		}
 
 		return true;
-	}
-
-	/**
-	 * Method used for test suite.
-	 * 
-	 * @return Button the Import from Directory RadioButton
-	 */
-	public Button getProjectFromDirectoryRadio() {
-		return projectFromDirectoryRadio;
 	}
 
 	/**
@@ -1316,9 +925,7 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 	public ProjectRecord[] getProjectRecords() {
 		List projectRecords = new ArrayList();
 		for (int i = 0; i < selectedProjects.length; i++) {
-			if ((isProjectInWorkspacePath(selectedProjects[i].getProjectName()))
-					|| isProjectInWorkspace(selectedProjects[i]
-							.getProjectName())) {
+			if (isProjectInWorkspace(selectedProjects[i].getProjectName())) {
 				selectedProjects[i].hasConflicts = true;
 			}
 			projectRecords.add(selectedProjects[i]);
@@ -1378,7 +985,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		IDialogSettings settings = getDialogSettings();
 		if (settings != null) {
 			restoreFromHistory(settings, STORE_DIRECTORIES, directoryPathField);
-			restoreFromHistory(settings, STORE_ARCHIVES, archivePathField);
 		}
 
 		// Second, check to see if we don't have an initial path,
@@ -1386,16 +992,7 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		// radio selection properly to restore settings
 
 		if (initialPath == null && settings != null) {
-			// radio selection
-			boolean archiveSelected = settings
-					.getBoolean(STORE_ARCHIVE_SELECTED);
-			projectFromDirectoryRadio.setSelection(!archiveSelected);
-			projectFromArchiveRadio.setSelection(archiveSelected);
-			if (archiveSelected) {
-				archiveRadioSelected();
-			} else {
-				directoryRadioSelected();
-			}
+			directoryRadioSelected();
 		}
 		// Third, if we do have an initial path, set the proper
 		// path and radio buttons to the initial value. Move
@@ -1404,19 +1001,11 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		else if (initialPath != null) {
 			boolean dir = new File(initialPath).isDirectory();
 
-			projectFromDirectoryRadio.setSelection(dir);
-			projectFromArchiveRadio.setSelection(!dir);
-
 			if (dir) {
 				directoryPathField.setText(initialPath);
 				directoryPathField.setSelection(new Point(initialPath.length(),
 						initialPath.length()));
 				directoryRadioSelected();
-			} else {
-				archivePathField.setText(initialPath);
-				archivePathField.setSelection(new Point(initialPath.length(),
-						initialPath.length()));
-				archiveRadioSelected();
 			}
 		}
 	}
@@ -1444,10 +1033,6 @@ public class ArduinoWizardProjectsImportPage extends WizardDataTransferPage {
 		if (settings != null) {
 			saveInHistory(settings, STORE_DIRECTORIES,
 					directoryPathField.getText());
-			saveInHistory(settings, STORE_ARCHIVES, archivePathField.getText());
-
-			settings.put(STORE_ARCHIVE_SELECTED,
-					projectFromArchiveRadio.getSelection());
 		}
 	}
 

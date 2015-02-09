@@ -41,9 +41,13 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 import com.google.common.collect.Iterators;
+import com.google.common.collect.Lists;
 import com.google.common.collect.UnmodifiableIterator;
 
+import fr.obeo.dsl.arduino.Connector;
+import fr.obeo.dsl.arduino.Hardware;
 import fr.obeo.dsl.arduino.Instruction;
+import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.ModuleInstruction;
 import fr.obeo.dsl.arduino.Project;
 import fr.obeo.dsl.arduino.Sketch;
@@ -235,5 +239,37 @@ public class ArduinoServices {
 			}
 		}
 		return diagram;
+	}
+
+	public boolean isProjectOpened() {
+		return getWorkspaceProject() != null;
+	}
+
+	public boolean isValidSketch() {
+		Project project = getArduinoProject();
+		if (project == null) {
+			return false;
+		}
+		Sketch sketch = project.getSketch();
+		if (sketch == null) {
+			return false;
+		}
+		return isValidSketch(sketch);
+	}
+
+	public boolean isValidHardware() {
+		Project project = getArduinoProject();
+		return !(project == null || project.getHardware() == null
+				|| project.getHardware().getPlatforms().size() == 0
+				|| project.getHardware().getModules().size() == 0 || getConnectedModules(
+					project.getHardware()).size() == 0);
+	}
+
+	private List<Module> getConnectedModules(Hardware hardware) {
+		List<Module> result = Lists.newArrayList();
+		for (Connector connector : hardware.getConnectors()) {
+			result.add(connector.getModule());
+		}
+		return result;
 	}
 }

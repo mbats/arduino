@@ -13,10 +13,14 @@ package fr.obeo.dsl.arduino.commands;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.handlers.HandlerUtil;
 
+import fr.obeo.dsl.arduino.menus.ArduinoUiActivator;
 import fr.obeo.dsl.arduino.utils.ArduinoServices;
 import fr.obeo.dsl.arduino.utils.ProjectServices;
+import fr.obeo.dsl.arduino.views.DashboardView;
 
 public class OpenDashboardHandler extends AbstractHandler {
 	ArduinoServices service = new ArduinoServices();
@@ -24,13 +28,11 @@ public class OpenDashboardHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		if (service.getWorkspaceProject() == null) {
-			new NewProjectHandler().execute(event);
-		}
-
-		Session session = service.getSession();
-		if (session != null) {
-			projectServices.openDashboard(session);
+		try {
+			HandlerUtil.getActiveWorkbenchWindow(event).getActivePage()
+					.showView(DashboardView.VIEW_ID);
+		} catch (PartInitException e) {
+			ArduinoUiActivator.log(Status.ERROR, "Open dashboard failed", e);
 		}
 		return null;
 	}
