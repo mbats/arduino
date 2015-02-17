@@ -30,28 +30,28 @@
                id="fr.obeo.dsl.arduino.menus.toolbar">
             <command
                   commandId="fr.obeo.dsl.arduino.menus.commands.project"
-                  icon="icons/project.png"
+                  icon="icons/32x32/project.png"
                   label="Open dashboard"
                   style="push"
                   tooltip="Open the dashboard">
             </command>
             <command
                   commandId="fr.obeo.dsl.arduino.commands.openHardware"
-                  icon="icons/newHardware.png"
+                  icon="icons/32x32/hardware.png"
                   label="Open hardware"
                   style="push"
                   tooltip="Open the hardware view">
             </command>
             <command
                   commandId="fr.obeo.dsl.arduino.commands.openSketch"
-                  icon="icons/newSketch.png"
+                  icon="icons/32x32/sketch.png"
                   label="Open sketch"
                   style="push"
                   tooltip="Open the sketch">
             </command>
             <command
                   commandId="fr.obeo.dsl.arduino.commands.upload"
-                  icon="icons/upload.png"
+                  icon="icons/32x32/upload.png"
                   label="Upload sketch"
                   style="push"
                   tooltip="Upload the sketch on the arduino platform">

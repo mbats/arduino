@@ -48,16 +48,16 @@ public class DashboardView extends ViewPart implements IPartListener2,
 	private static final String HARDWARE_MSG = "Open the hardware";
 	private static final String HARDWARE_INVALID_MSG = "The hardware is invalid. You must define a platform and connect at least one module.";
 	public final static String VIEW_ID = "fr.obeo.dsl.arduino.ui.dashboard";
-	private static final String HARDWARE_IMAGE = "icons/hardware.png";
-	private static final String HARDWARE_HOVER_IMAGE = "icons/hardwareHover.png";
-	private static final String HARDWARE_INVALID_IMAGE = "icons/hardwareInvalid.png";
-	private static final String HARDWARE_INVALID_HOVER_IMAGE = "icons/hardwareInvalidHover.png";
-	private static final String SKETCH_IMAGE = "icons/sketch.png";
-	private static final String SKETCH_HOVER_IMAGE = "icons/sketchHover.png";
-	private static final String SKETCH_INVALID_IMAGE = "icons/sketchInvalid.png";
-	private static final String SKETCH_INVALID_HOVER_IMAGE = "icons/sketchInvalidHover.png";
-	private static final String UPLOAD_IMAGE = "icons/upload.png";
-	private static final String UPLOAD_HOVER_IMAGE = "icons/uploadHover.png";
+	private static final String HARDWARE_IMAGE = "icons/128x128/hardware.png";
+	private static final String HARDWARE_HOVER_IMAGE = "icons/128x128/hardwareHover.png";
+	private static final String HARDWARE_INVALID_IMAGE = "icons/128x128/hardwareInvalid.png";
+	private static final String HARDWARE_INVALID_HOVER_IMAGE = "icons/128x128/hardwareInvalidHover.png";
+	private static final String SKETCH_IMAGE = "icons/128x128/sketch.png";
+	private static final String SKETCH_HOVER_IMAGE = "icons/128x128/sketchHover.png";
+	private static final String SKETCH_INVALID_IMAGE = "icons/128x128/sketchInvalid.png";
+	private static final String SKETCH_INVALID_HOVER_IMAGE = "icons/128x128/sketchInvalidHover.png";
+	private static final String UPLOAD_IMAGE = "icons/128x128/upload.png";
+	private static final String UPLOAD_HOVER_IMAGE = "icons/128x128/uploadHover.png";
 	private FormToolkit toolkit;
 	private ScrolledForm form;
 	private List<Image> images = new ArrayList<Image>();
@@ -197,7 +197,7 @@ public class DashboardView extends ViewPart implements IPartListener2,
 
 	private void createPreferencesHyperLink(final Shell shell) {
 		ImageHyperlink preferencesLink = createImageHyperlink(form.getBody(),
-				"icons/preferences.png", "icons/preferencesHover.png",
+				"icons/128x128/preferences.png", "icons/128x128/preferencesHover.png",
 				"Set the preferences (arduino SDK ,serial port...)");
 		preferencesLink.addHyperlinkListener(new HyperlinkAdapter() {
 			public void linkActivated(HyperlinkEvent e) {
@@ -209,7 +209,7 @@ public class DashboardView extends ViewPart implements IPartListener2,
 	private void createOpenProjectHyperLink(final Composite parent,
 			final Shell shell) {
 		ImageHyperlink openProjectLink = createImageHyperlink(form.getBody(),
-				"icons/openProject.png", "icons/openProjectHover.png",
+				"icons/128x128/openProject.png", "icons/128x128/openProjectHover.png",
 				"Open an existing project");
 		openProjectLink.addHyperlinkListener(new HyperlinkAdapter() {
 			public void linkActivated(HyperlinkEvent e) {
@@ -221,7 +221,7 @@ public class DashboardView extends ViewPart implements IPartListener2,
 	private void createNewProjectHyperLink(final Composite parent,
 			final Shell shell) {
 		ImageHyperlink newProjectLink = createImageHyperlink(form.getBody(),
-				"icons/newProject.png", "icons/newProjectHover.png",
+				"icons/128x128/newProject.png", "icons/128x128/newProjectHover.png",
 				"Create a new project");
 		newProjectLink.addHyperlinkListener(new HyperlinkAdapter() {
 			public void linkActivated(HyperlinkEvent e) {
