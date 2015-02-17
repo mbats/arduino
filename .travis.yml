@@ -1,2 +1,17 @@
 language: java
 script: mvn clean package
+jdk: oraclejdk7
+deploy:
+  provider: releases
+  api_key:
+    secure: IQP5qqJ6lZtZYU6814OVyVcVLsTXlNzd4yRBF/KSIzABgJ6jtbgFthAub3nMKWGPXLZZYzGJzChU+mcvXCaOAh3DCcTSPun404oP2ORdYpSoexios+wIqLRz6XordpeMNCPURM2XVcRAR8w+HSGlFtW/rA5GkbnK+L155/K5bRg=
+  file: 
+  - $TRAVIS_BUILD_DIR/packaging/fr.obeo.dsl.arduino.product/target/products/ArduinoDesigner-linux.gtk.x86.zip
+  - $TRAVIS_BUILD_DIR/packaging/fr.obeo.dsl.arduino.product/target/products/ArduinoDesigner-linux.gtk.x86_64.zip
+  - $TRAVIS_BUILD_DIR/packaging/fr.obeo.dsl.arduino.product/target/products/ArduinoDesigner-macosx.cocoa.x86_64.zip
+  - $TRAVIS_BUILD_DIR/packaging/fr.obeo.dsl.arduino.product/target/products/ArduinoDesigner-win32.win32.x86.zip
+  - $TRAVIS_BUILD_DIR/packaging/fr.obeo.dsl.arduino.product/target/products/ArduinoDesigner-win32.win32.x86_64.zip
+  on:
+    repo: mbats/arduino
+    tags: true
+    all_branches: true
