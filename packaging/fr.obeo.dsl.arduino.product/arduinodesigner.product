@@ -55,7 +55,6 @@ Visit http://www.obeo.fr
       </win>
    </launcher>
 
-
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</macos>
@@ -145,7 +144,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
    <features>
       <feature id="fr.obeo.dsl.arduino.runtime.feature"/>
       <feature id="org.eclipse.platform"/>
-      <feature id="org.eclipse.epp.mpc"/>
    </features>
 
    <configurations>
