@@ -2,7 +2,7 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="arduino" version="8.1.0">
   <ownedViewpoints name="Hardware Kit" modelFileExtension="arduino">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Hardware Kit Definition" domainClass="arduino.Project">
-      <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
+      <metamodel href="viewpoint:/../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="HL_InputModule" labelDirectEdit="//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Named%20Element']" domainClass="arduino.InputModule">
           <style xsi:type="style:WorkspaceImageDescription" labelFormat="bold" showIcon="false" sizeComputationExpression="6" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.arduino.design/images/digital_input.svg">
@@ -164,7 +164,7 @@
   </ownedViewpoints>
   <ownedViewpoints name="Arduino" modelFileExtension="arduino">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Hardware" titleExpression="Hardware" initialisation="true" showOnStartup="true" domainClass="arduino.Hardware" enablePopupBars="true">
-      <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
+      <metamodel href="viewpoint:/../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <metamodel href="http://www.eclipse.org/sirius/1.1.0#//diagram"/>
       <defaultLayer name="Default">
         <nodeMappings name="HW_Platform" deletionDescription="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Platform']" semanticCandidatesExpression="feature:platforms" domainClass="arduino.Platform">
@@ -305,6 +305,7 @@
         </customization>
       </defaultLayer>
     </ownedRepresentations>
+
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Sketch" titleExpression="Sketch" initialisation="true" domainClass="arduino.Sketch" enablePopupBars="true">
       <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
@@ -1240,7 +1241,7 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Function" domainClass="arduino.Function" enablePopupBars="true">
-      <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
+      <metamodel href="viewpoint:/../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='SK_Link'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='SK_LinkMathOperatorLeft'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='SK_LinkMathOperatorRight'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='SK_LinkSetToValue'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='SK_LinkSetToVariable'] //@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@edgeMappings[name='SK_LinkWhileToCondition']">
         <nodeMappings name="FU_Parameter_Definition" semanticCandidatesExpression="feature:paramDefs" domainClass="arduino.ParameterDefinition">
           <conditionnalStyles predicateExpression="[type=arduino::ParameterType::Delay/]">

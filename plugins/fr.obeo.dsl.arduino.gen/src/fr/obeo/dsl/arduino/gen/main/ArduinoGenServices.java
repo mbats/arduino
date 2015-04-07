@@ -58,7 +58,7 @@ public class ArduinoGenServices {
 	public String getOperator(OperatorKind operator) {
 		switch (operator) {
 		case AND:
-			return "&";
+			return "&&";
 		case DIFF:
 			return "!=";
 		case DIV:
