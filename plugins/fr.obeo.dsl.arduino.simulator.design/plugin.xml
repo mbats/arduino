@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="fr.obeo.dsl.arduino.simulator.design.Activator"
+               id="fr.obeo.dsl.arduino.simulator.design"
+	       name="simulator">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="*">
+        <actionSet id="org.eclipse.debug.ui.launchActionSet">
+        </actionSet>
+      </perspectiveExtension>
+  </extension>
+  <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+    <launchConfigurationType
+      delegate="fr.obeo.dsl.arduino.simulator.design.launcher.LauncherDelegate"
+      id="fr.obeo.dsl.arduino.simulator.design.launchConfiguration"
+      modes="run, debug"
+      name="Arduino Simulator"
+      sourceLocatorId="fr.obeo.dsl.debug.ide.sourceLocator">
+  </launchConfigurationType>
+</extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="fr.obeo.dsl.arduino.simulator.design.launchConfiguration"
+            icon="icons/launch.png"
+            id="fr.obeo.dsl.arduino.simulator.design.launchConfigurationImage">
+      </launchConfigurationTypeImage>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="fr.obeo.dsl.arduino.simulator.design.launcher.TabGroup"
+            id="fr.obeo.dsl.arduino.simulator.design.launchConfigurationTabGroup"
+            type="fr.obeo.dsl.arduino.simulator.design.launchConfiguration">
+         <launchMode
+               mode="debug"
+               perspective="org.eclipse.debug.ui.DebugPerspective">
+         </launchMode>
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="fr.obeo.dsl.arduino.simulator.design.launcher.LauncherDelegate"
+            description="Arduino Simulator"
+            icon="icons/launch.png"
+            id="fr.obeo.dsl.arduino.simulator.design.shortcut"
+            label="Arduino Simulator"
+            modes="run, debug">
+         <contextualLaunch>
+            <enablement>
+               <count
+                     value="1">
+               </count>
+               <iterate>
+                  <test
+                        property="org.eclipse.debug.ui.matchesPattern"
+                        value="arduino">
+                  </test>
+               </iterate>
+            </enablement>
+         </contextualLaunch>
+         <configurationType
+               id="fr.obeo.dsl.arduino.simulator.design.launchConfiguration">
+         </configurationType>
+      </shortcut>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.debugModelPresentations">
+      <debugModelPresentation
+            class="fr.obeo.dsl.debug.ide.sirius.ui.DSLDebugModelPresentation"
+            id="fr.obeo.dsl.arduino.simulator.design.debugModel">
+      </debugModelPresentation>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="fr.obeo.dsl.arduino.simulator.design.action.DebugAsAction"
+            id="fr.obeo.dsl.arduino.simulator.design.action.DebugAsAction">
+      </javaActions>
+      <javaActions
+            actionClass="fr.obeo.dsl.arduino.simulator.design.action.ToggleBreakpointAction"
+            id="fr.obeo.dsl.arduino.simulator.design.action.ToggleBreakpointAction">
+      </javaActions>
+   </extension>
+</plugin>

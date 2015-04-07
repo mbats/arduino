@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="simulator" version="8.1.0">
+  <ownedViewpoints name="ArduinoSimulator" modelFileExtension="arduino">
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="HardwareSimulator" viewpointURI="viewpoint:/fr.obeo.dsl.arduino.design/Arduino" representationName="Hardware">
+      <layers name="Simulator">
+        <toolSections name="Simulator">
+          <ownedTools xsi:type="tool:PopupMenu" name="Simulator">
+            <menuItemDescription xsi:type="tool:OperationAction" name="Debug">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Debug" icon="/fr.obeo.dsl.arduino.simulator.design/icons/debug_exc.gif" id="fr.obeo.dsl.arduino.simulator.design.action.DebugAsAction"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+        </toolSections>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.isSimulating()/]">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='level%20intencity']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='level%20intencity']"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="1"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+    </ownedRepresentationExtensions>
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="SketchSimulator" viewpointURI="viewpoint:/fr.obeo.dsl.arduino.design/Arduino" representationName="Sketch">
+      <layers name="Simulator">
+        <toolSections name="Simulator">
+          <ownedTools xsi:type="tool:PopupMenu" name="Simulator">
+            <menuItemDescription xsi:type="tool:OperationAction" name="Debug">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Debug" icon="/fr.obeo.dsl.arduino.simulator.design/icons/debug_exc.gif" id="fr.obeo.dsl.arduino.simulator.design.action.DebugAsAction"/>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Toggle breakpoint" icon="/fr.obeo.dsl.arduino.simulator.design/icons/breakpoint.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Toggle Gemoc breakpoint" icon="/fr.obeo.dsl.arduino.simulator.design/icons/breakpoint.gif" id="fr.obeo.dsl.arduino.simulator.design.action.ToggleBreakpointAction"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Enabled breakpoint" position="WEST" decoratorPath="/fr.obeo.dsl.arduino.simulator.design/icons/breakpoint_enabled.gif" preconditionExpression="service:self.hasEnabledBreakpoint">
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']/@borderedNodeMappings[name='HS_AnalogPin']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']/@borderedNodeMappings[name='HS_DigitalPin']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Hardware']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Sketch']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Upload']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Set']/@subNodeMappings[name='Equal']"/>
+            <mappings xsi:type="description_1:ContainerMappingImport" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@containerMappings[name='FU_Function']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@nodeMappings[name='FU_Parameter_Definition']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@containerMappings[name='FU_Function']/@subNodeMappings[name='FU_ParameterCall']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentationExtensions[name='Extended%20Dashboard']/@layers[name='Hardware%20kit']/@nodeMappings[name='Hardware%20kit']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_AnalogPins']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_DigitalPins']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Module']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_NumericalOperator']/@subNodeMappings[name='Operator']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_BooleanOperator']/@subNodeMappings[name='Operator']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_BooleanOperator']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Constant']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Delay']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Function']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_If']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Level']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Loop']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_NumericalOperator']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Repeat']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Sensor']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Set']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Status']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Variable']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_While']"/>
+          </decorationDescriptions>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Disabled breakpoint" position="WEST" decoratorPath="/fr.obeo.dsl.arduino.simulator.design/icons/breakpoint_disabled.gif" preconditionExpression="service:self.hasDisabledBreakpoint">
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']/@borderedNodeMappings[name='HS_AnalogPin']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']/@borderedNodeMappings[name='HS_DigitalPin']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Hardware']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Sketch']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Upload']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Set']/@subNodeMappings[name='Equal']"/>
+            <mappings xsi:type="description_1:ContainerMappingImport" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@containerMappings[name='FU_Function']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@nodeMappings[name='FU_Parameter_Definition']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@containerMappings[name='FU_Function']/@subNodeMappings[name='FU_ParameterCall']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentationExtensions[name='Extended%20Dashboard']/@layers[name='Hardware%20kit']/@nodeMappings[name='Hardware%20kit']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_AnalogPins']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_DigitalPins']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Module']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_NumericalOperator']/@subNodeMappings[name='Operator']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_BooleanOperator']/@subNodeMappings[name='Operator']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_BooleanOperator']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Constant']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Delay']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Function']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_If']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Level']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Loop']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_NumericalOperator']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Repeat']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Sensor']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Set']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Status']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Variable']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_While']"/>
+          </decorationDescriptions>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.isCurrentInstruction">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='current%20instruction']"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="1"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+    </ownedRepresentationExtensions>
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="FunctionSimulator" viewpointURI="viewpoint:/fr.obeo.dsl.arduino.design/Arduino" representationName="Function">
+      <layers name="Simulator">
+        <toolSections name="Simulator">
+          <ownedTools xsi:type="tool:PopupMenu" name="Simulator">
+            <menuItemDescription xsi:type="tool:OperationAction" name="Debug">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Debug" icon="/fr.obeo.dsl.arduino.simulator.design/icons/debug_exc.gif" id="fr.obeo.dsl.arduino.simulator.design.action.DebugAsAction"/>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Toggle breakpoint" icon="/fr.obeo.dsl.arduino.simulator.design/icons/breakpoint.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Toggle Gemoc breakpoint" icon="/fr.obeo.dsl.arduino.simulator.design/icons/breakpoint.gif" id="fr.obeo.dsl.arduino.simulator.design.action.ToggleBreakpointAction"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Enabled breakpoint" position="WEST" decoratorPath="/fr.obeo.dsl.arduino.simulator.design/icons/breakpoint_enabled.gif" preconditionExpression="service:self.hasEnabledBreakpoint">
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']/@borderedNodeMappings[name='HS_AnalogPin']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']/@borderedNodeMappings[name='HS_DigitalPin']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Hardware']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Sketch']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Upload']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Set']/@subNodeMappings[name='Equal']"/>
+            <mappings xsi:type="description_1:ContainerMappingImport" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@containerMappings[name='FU_Function']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@nodeMappings[name='FU_Parameter_Definition']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@containerMappings[name='FU_Function']/@subNodeMappings[name='FU_ParameterCall']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentationExtensions[name='Extended%20Dashboard']/@layers[name='Hardware%20kit']/@nodeMappings[name='Hardware%20kit']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_AnalogPins']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_DigitalPins']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Module']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_NumericalOperator']/@subNodeMappings[name='Operator']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_BooleanOperator']/@subNodeMappings[name='Operator']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_BooleanOperator']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Constant']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Delay']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Function']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_If']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Level']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Loop']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_NumericalOperator']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Repeat']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Sensor']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Set']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Status']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Variable']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_While']"/>
+          </decorationDescriptions>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Disabled breakpoint" position="WEST" decoratorPath="/fr.obeo.dsl.arduino.simulator.design/icons/breakpoint_disabled.gif" preconditionExpression="service:self.hasDisabledBreakpoint">
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']/@borderedNodeMappings[name='HS_AnalogPin']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']/@borderedNodeMappings[name='HS_DigitalPin']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Hardware']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Sketch']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Dashboard']/@defaultLayer/@nodeMappings[name='DB_Upload']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Set']/@subNodeMappings[name='Equal']"/>
+            <mappings xsi:type="description_1:ContainerMappingImport" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@containerMappings[name='FU_Function']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@nodeMappings[name='FU_Parameter_Definition']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Function']/@defaultLayer/@containerMappings[name='FU_Function']/@subNodeMappings[name='FU_ParameterCall']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentationExtensions[name='Extended%20Dashboard']/@layers[name='Hardware%20kit']/@nodeMappings[name='Hardware%20kit']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_AnalogPins']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']/@subNodeMappings[name='HD_DigitalPins']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_InputModule']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@nodeMappings[name='HL_OutputModule']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Hardware%20Kit']/@ownedRepresentations[name='Hardware%20Kit%20Definition']/@defaultLayer/@containerMappings[name='HL_Platform']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Module']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Platform']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_NumericalOperator']/@subNodeMappings[name='Operator']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_BooleanOperator']/@subNodeMappings[name='Operator']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_BooleanOperator']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Constant']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Delay']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Function']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_If']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Level']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Loop']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_NumericalOperator']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Repeat']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Sensor']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_Set']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Status']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@nodeMappings[name='SK_Variable']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Sketch']/@defaultLayer/@containerMappings[name='SK_While']"/>
+          </decorationDescriptions>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.isCurrentInstruction">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='current%20instruction']"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="1"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+    </ownedRepresentationExtensions>
+    <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.arduino.simulator.design.services.SimulatorServices"/>
+  </ownedViewpoints>
+  <userColorsPalettes name="Arduino Palette">
+    <entries xsi:type="description:UserFixedColor" red="0" green="255" blue="64" name="current instruction"/>
+    <entries xsi:type="description:InterpolatedColor" name="level intencity" colorValueComputationExpression="[self.getLevel()/]">
+      <colorSteps associatedValue="0">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+      </colorSteps>
+      <colorSteps associatedValue="1023">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+      </colorSteps>
+    </entries>
+  </userColorsPalettes>
+</description:Group>

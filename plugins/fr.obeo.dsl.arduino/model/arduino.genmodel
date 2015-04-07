@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText=" Copyright (c) 2013 Obeo.&#xA; All rights reserved. This program and the accompanying materials&#xA; are made available under the terms of the Eclipse Public License v1.0&#xA; which accompanies this distribution, and is available at&#xA; http://www.eclipse.org/legal/epl-v10.html&#xA; &#xA;Contributors:&#xA;   Obeo - initial API and implementation"
-    modelDirectory="/fr.obeo.dsl.arduino/src" modelPluginID="fr.obeo.dsl.arduino"
-    modelName="Arduino" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
-    copyrightFields="false">
+    modelDirectory="/fr.obeo.dsl.arduino/src-gen" editDirectory="/fr.obeo.dsl.arduino.edit/src-gen"
+    editorDirectory="/fr.obeo.dsl.arduino.editor/src-gen" modelPluginID="fr.obeo.dsl.arduino"
+    modelName="Arduino" testsDirectory="/fr.obeo.dsl.arduino.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
   <foreignModel>arduino.ecore</foreignModel>
   <genPackages prefix="Arduino" basePackage="fr.obeo.dsl" disposableProviderFactory="true"
       ecorePackage="arduino.ecore#/">
@@ -36,6 +37,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="arduino.ecore#//Library">
       <genEnumLiterals ecoreEnumLiteral="arduino.ecore#//Library/none"/>
       <genEnumLiterals ecoreEnumLiteral="arduino.ecore#//Library/servo"/>
+      <genEnumLiterals ecoreEnumLiteral="arduino.ecore#//Library/music"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="arduino.ecore#//ParameterType">
       <genEnumLiterals ecoreEnumLiteral="arduino.ecore#//ParameterType/Delay"/>

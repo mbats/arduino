@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simulator
+Bundle-SymbolicName: fr.obeo.dsl.arduino.simulator
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: fr.obeo.dsl.arduino;bundle-version="1.0.0",
+ fr.obeo.dsl.debug;bundle-version="1.0.0",
+ fr.obeo.dsl.debug.ide;bundle-version="1.0.0"
+Export-Package: fr.obeo.dsl.arduino.simulator,
+ fr.obeo.dsl.arduino.simulator.debug

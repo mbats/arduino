@@ -36,7 +36,10 @@ Contributors:
     <module>${root-path}/plugins/fr.obeo.dsl.arduino.preferences</module>
     <module>${root-path}/plugins/fr.obeo.dsl.arduino.ui</module>
     <module>${root-path}/plugins/fr.obeo.dsl.arduino.build</module>
-
+<!-- 
+    <module>${root-path}/plugins/fr.obeo.dsl.arduino.simulator</module>
+    <module>${root-path}/plugins/fr.obeo.dsl.arduino.simulator.design</module>
+-->
     <!-- Build test plugins -->
 
     <!-- Build features -->
