@@ -1,11 +1,13 @@
 package fr.obeo.dsl.arduino.simulator.debug;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EObject;
 
+import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Value;
 import fr.obeo.dsl.arduino.Variable;
@@ -86,16 +88,19 @@ public class SimulatorDebugger extends AbstractDSLDebugger {
 			setCurrentInstruction(Thread.currentThread().getName(), instruction);
 		}
 		for (Entry<Variable, Object> entry : nextSuspendVariables.entrySet()) {
-			variable(threadName, "variable", entry.getKey().getName(),
-					entry.getValue());
+			variable(threadName,
+					simulator.getProject().getHardware().getName(), "variable",
+					entry.getKey().getName(), entry.getValue(), true);
 		}
 		if (!nextSuspendVariables.isEmpty()) {
 			lastSuspendVariables = nextSuspendVariables;
 			nextSuspendVariables = new HashMap<Variable, Object>();
 		}
 		for (Entry<Pin, Integer> entry : nextSuspendPins.entrySet()) {
-			variable(threadName, "pin", String.valueOf(entry.getKey().getId()),
-					entry.getValue());
+			variable(threadName,
+					simulator.getProject().getHardware().getName(), "pin",
+					String.valueOf(entry.getKey().getId()), entry.getValue(),
+					true);
 		}
 		if (!nextSuspendPins.isEmpty()) {
 			lastSuspendPins = nextSuspendPins;
@@ -105,7 +110,8 @@ public class SimulatorDebugger extends AbstractDSLDebugger {
 
 	public void variableChanged(Variable variable, Object value) {
 		final Object lastValue = lastSuspendVariables.get(variable);
-		if ((lastValue == null && value != null) || (lastValue != null && !lastValue.equals(value))) {
+		if ((lastValue == null && value != null)
+				|| (lastValue != null && !lastValue.equals(value))) {
 			nextSuspendVariables.put(variable, value);
 		} else {
 			nextSuspendVariables.remove(variable);
@@ -119,6 +125,118 @@ public class SimulatorDebugger extends AbstractDSLDebugger {
 		} else {
 			nextSuspendPins.remove(pin);
 		}
+	}
+
+	public boolean validateVariableValue(String threadName,
+			String variableName, String value) {
+		final boolean res;
+
+		final Pin pin = lookForPin(variableName);
+		if (pin != null) {
+			Integer level = null;
+			try {
+				level = Integer.valueOf(value);
+			} catch (Exception e) {
+				// nothing to do here.
+			}
+			res = level != null;
+		} else {
+			final Variable variable = lookForVariable(variableName);
+			res = getValue(variable, value) != null;
+		}
+
+		return res;
+	}
+
+	public Object getVariableValue(String threadName, String stackName,
+			String variableName, String value) {
+		final Object res;
+
+		final Pin pin = lookForPin(variableName);
+		if (pin != null) {
+			Integer level = Integer.valueOf(value);
+			res = level;
+		} else {
+			final Variable variable = lookForVariable(variableName);
+			final Object valueObject = getValue(variable, value);
+			res = valueObject;
+		}
+
+		return res;
+	}
+
+	public void setVariableValue(String threadName, String stackName,
+			String variableName, Object value) {
+		final Pin pin = lookForPin(variableName);
+		if (pin != null) {
+			simulator.setPinLevel(pin, (Integer) value);
+		} else {
+			final Variable variable = lookForVariable(variableName);
+			simulator.setVariableValue(variable, value);
+		}
+
+	}
+
+	private Pin lookForPin(String variableName) {
+		Pin pin = null;
+
+		for (Connector connector : simulator.getProject().getSketch()
+				.getHardware().getConnectors()) {
+			if (String.valueOf(connector.getPin().getId()).equals(variableName)) {
+				pin = connector.getPin();
+				break;
+			}
+		}
+
+		return pin;
+	}
+
+	private Variable lookForVariable(String variableName) {
+		Variable variable = null;
+
+		final Iterator<EObject> it = simulator.getProject().getSketch()
+				.eAllContents();
+		while (it.hasNext()) {
+			final EObject eObj = it.next();
+			if (eObj instanceof Variable
+					&& ((Variable) eObj).getName().equals(variableName)) {
+				variable = (Variable) eObj;
+				break;
+			}
+		}
+
+		return variable;
+	}
+
+	private Object getValue(Variable variable, String value) {
+		final Object res;
+
+		final Object currentValue = simulator.getVariableValue(variable);
+		if (currentValue instanceof String) {
+			res = value;
+		} else if (currentValue instanceof Integer) {
+			Integer integerValue = null;
+			try {
+				integerValue = Integer.decode(value);
+			} catch (Exception e) {
+				// nothing to do here
+			}
+			res = integerValue;
+		} else if (currentValue instanceof Double) {
+			Double doubleValue = null;
+			try {
+				doubleValue = Double.parseDouble(value);
+			} catch (Exception e) {
+				// nothing to do here
+			}
+			res = doubleValue;
+		} else if (currentValue instanceof Boolean) {
+			res = Boolean.valueOf(value);
+		} else {
+			res = null;
+		}
+
+		return res;
 	}
 
 }
