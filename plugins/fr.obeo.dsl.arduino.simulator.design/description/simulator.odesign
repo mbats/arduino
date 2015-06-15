@@ -2,7 +2,7 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="simulator" version="8.1.0">
   <ownedViewpoints name="ArduinoSimulator" modelFileExtension="arduino">
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="HardwareSimulator" viewpointURI="viewpoint:/fr.obeo.dsl.arduino.design/Arduino" representationName="Hardware">
-      <layers name="Simulator">
+      <layers name="Simulator" activeByDefault="true">
         <toolSections name="Simulator">
           <ownedTools xsi:type="tool:PopupMenu" name="Simulator">
             <menuItemDescription xsi:type="tool:OperationAction" name="Debug">
@@ -23,7 +23,7 @@
       </layers>
     </ownedRepresentationExtensions>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="SketchSimulator" viewpointURI="viewpoint:/fr.obeo.dsl.arduino.design/Arduino" representationName="Sketch">
-      <layers name="Simulator">
+      <layers name="Simulator" activeByDefault="true">
         <toolSections name="Simulator">
           <ownedTools xsi:type="tool:PopupMenu" name="Simulator">
             <menuItemDescription xsi:type="tool:OperationAction" name="Debug">
@@ -115,13 +115,13 @@
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.isCurrentInstruction">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='current%20instruction']"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="1"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="2"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
     </ownedRepresentationExtensions>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="FunctionSimulator" viewpointURI="viewpoint:/fr.obeo.dsl.arduino.design/Arduino" representationName="Function">
-      <layers name="Simulator">
+      <layers name="Simulator" activeByDefault="true">
         <toolSections name="Simulator">
           <ownedTools xsi:type="tool:PopupMenu" name="Simulator">
             <menuItemDescription xsi:type="tool:OperationAction" name="Debug">
@@ -221,7 +221,7 @@
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.arduino.simulator.design.services.SimulatorServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="Arduino Palette">
-    <entries xsi:type="description:UserFixedColor" red="0" green="255" blue="64" name="current instruction"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="0" blue="0" name="current instruction"/>
     <entries xsi:type="description:InterpolatedColor" name="level intencity" colorValueComputationExpression="[self.getLevel()/]">
       <colorSteps associatedValue="0">
         <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

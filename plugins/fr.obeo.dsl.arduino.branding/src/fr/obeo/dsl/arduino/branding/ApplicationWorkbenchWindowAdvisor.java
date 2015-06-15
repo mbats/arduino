@@ -36,6 +36,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setShowCoolBar(true);
 		configurer.setShowStatusLine(false);
 		configurer.setTitle("Arduino Designer"); //$NON-NLS-1$
+		configurer.setShowPerspectiveBar(true);
 	}
 
 	@Override

@@ -38,3 +38,10 @@ location "http://download.eclipse.org/sirius/updates/releases/2.0.3/luna" {
 	org.eclipse.sirius.specifier.ide.ui.feature.group
 	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group
 }
+
+// Simulator
+location "https://ci.inria.fr/gemoc/view/All/job/fr.obeo.dsl.sirius.animation/lastSuccessfulBuild/artifact/fr/obeo/dsl/sirius/animation/releng/fr.obeo.dsl.debug.repository/target/repository/" {
+	fr.obeo.dsl.debug.feature.feature.group lazy
+	fr.obeo.dsl.debug.sirius.ui.feature.feature.group lazy
+	fr.obeo.dsl.debug.ui.feature.feature.group lazy
+}

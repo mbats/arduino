@@ -305,9 +305,8 @@
         </customization>
       </defaultLayer>
     </ownedRepresentations>
-
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Sketch" titleExpression="Sketch" initialisation="true" domainClass="arduino.Sketch" enablePopupBars="true">
-      <metamodel href="../../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
+      <metamodel href="viewpoint:/../fr.obeo.dsl.arduino/model/arduino.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="SK_Loop" semanticCandidatesExpression="var:self" domainClass="arduino.Sketch">
           <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="Loop" hideLabelByDefault="true" workspacePath="/fr.obeo.dsl.arduino.design/images/loop.svg">

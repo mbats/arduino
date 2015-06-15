@@ -39,7 +39,7 @@
             type="fr.obeo.dsl.arduino.simulator.design.launchConfiguration">
          <launchMode
                mode="debug"
-               perspective="org.eclipse.debug.ui.DebugPerspective">
+               perspective="fr.obeo.dsl.arduino.debug.perspective">
          </launchMode>
       </launchConfigurationTabGroup>
    </extension>
@@ -87,5 +87,48 @@
             actionClass="fr.obeo.dsl.arduino.simulator.design.action.ToggleBreakpointAction"
             id="fr.obeo.dsl.arduino.simulator.design.action.ToggleBreakpointAction">
       </javaActions>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?before=additions">
+         <toolbar
+               id="fr.obeo.dsl.arduino.debug.menus.toolbar">
+            <command
+                  commandId="fr.obeo.dsl.arduino.simulator.design.debug"
+                  helpContextId="Launch Debug"
+                  icon="icons/simulator.png"
+                  label="Debug"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="fr.obeo.dsl.arduino.simulator.design.debug"
+            name="Debug">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fr.obeo.dsl.arduino.simulator.design.DebugHandler"
+            commandId="fr.obeo.dsl.arduino.simulator.design.debug">
+         <enabledWhen>
+            <with
+                  variable="activeContexts">
+               <iterate
+                     ifEmpty="true"
+                     operator="and">
+                  <test
+                        property="fr.obeo.dsl.arduino.properties.validSketch">
+                  </test>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
    </extension>
 </plugin>

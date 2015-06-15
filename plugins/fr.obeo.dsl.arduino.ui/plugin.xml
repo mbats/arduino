@@ -101,6 +101,64 @@
                relationship="stack"
                relative="org.eclipse.ui.editorss">
          </view>
+         <hiddenToolBarItem
+               id="org.eclipse.debug.internal.ui.actions.RunDropDownAction">
+         </hiddenToolBarItem>
+         <hiddenToolBarItem
+               id="org.eclipse.debug.internal.ui.actions.DebugDropDownAction">
+         </hiddenToolBarItem>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="fr.obeo.dsl.arduino.debug.perspective">
+         <view
+               closeable="false"
+               id="org.eclipse.debug.ui.DebugView"
+               minimized="false"
+               moveable="false"
+               ratio="0.25f"
+               relationship="top"
+               relative="org.eclipse.ui.editorss"
+               showTitle="true"
+               visible="true">
+         </view>
+         <view
+               closeable="false"
+               id="org.eclipse.debug.ui.VariableView"
+               minimized="false"
+               moveable="false"
+               ratio="0.5f"
+               relationship="right"
+               relative="org.eclipse.debug.ui.DebugView"
+               showTitle="true"
+               visible="true">
+         </view>
+         <view
+               closeable="false"
+               id="org.eclipse.debug.ui.BreakpointView"
+               minimized="false"
+               moveable="false"
+               relationship="stack"
+               relative="org.eclipse.debug.ui.VariableView"
+               showTitle="true">
+         </view>
+         <hiddenToolBarItem
+               id="org.eclipse.debug.internal.ui.actions.RunDropDownAction">
+         </hiddenToolBarItem>
+         <hiddenToolBarItem
+               id="org.eclipse.debug.internal.ui.actions.DebugDropDownAction">
+         </hiddenToolBarItem>
+         <hiddenMenuItem
+               id="org.eclipse.ui.run">
+         </hiddenMenuItem>
+         <hiddenToolBarItem
+               id="org.eclipse.debug.ui.debugActionSet">
+         </hiddenToolBarItem>
+         <hiddenToolBarItem
+               id="org.eclipse.debug.ui.actions.DropToFrame">
+         </hiddenToolBarItem>
+         <hiddenToolBarItem
+               id="org.eclipse.debug.ui.actions.StepInto">
+         </hiddenToolBarItem>
       </perspectiveExtension>
    </extension>
    <extension
@@ -108,11 +166,21 @@
       <perspective
             class="fr.obeo.dsl.arduino.perspective.ArduinoPerspectiveFactory"
             fixed="true"
-            icon="icons/project.png"
+            icon="icons/32x32/project.png"
             id="fr.obeo.dsl.arduino.perspective"
             name="Arduino">
          <description>
             Arduino Designer perspective
+         </description>
+      </perspective>
+      <perspective
+            class="fr.obeo.dsl.arduino.perspective.ArduinoPerspectiveFactory"
+            fixed="true"
+            icon="icons/32x32/simulator.png"
+            id="fr.obeo.dsl.arduino.debug.perspective"
+            name="Simulator">
+         <description>
+            Arduino Designer Debug perspective
          </description>
       </perspective>
    </extension>
