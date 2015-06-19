@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EObject;
 
+import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Variable;
 import fr.obeo.dsl.arduino.util.ArduinoSwitch;
@@ -53,7 +54,9 @@ public class SetupSwitch extends ArduinoSwitch<Void> {
 		Iterator<EObject> it = simulator.getProject().eAllContents();
 		while (it.hasNext()) {
 			EObject eObj = it.next();
-			if (eObj instanceof Variable || eObj instanceof Pin) {
+			System.out.println(eObj);
+			if (eObj instanceof Variable || eObj instanceof Pin
+					|| eObj instanceof Connector) {
 				doSwitch(eObj);
 			}
 		}
@@ -67,8 +70,16 @@ public class SetupSwitch extends ArduinoSwitch<Void> {
 
 	@Override
 	public Void casePin(Pin pin) {
+		System.out.println("Init : " + pin);
 		simulator.setPinLevel(pin, Integer.valueOf(0));
 		return null;
 	}
 	
+	@Override
+	public Void caseConnector(Connector connector) {
+		System.out.println("Init : " + connector.getPin());
+		simulator.setPinLevel(connector.getPin(), Integer.valueOf(0));
+		return null;
+	}
+
 }

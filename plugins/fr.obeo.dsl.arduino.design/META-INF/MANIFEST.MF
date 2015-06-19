@@ -21,4 +21,5 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.google.common.collect
-Export-Package: fr.obeo.dsl.arduino.design
+Export-Package: fr.obeo.dsl.arduino.design,
+ fr.obeo.dsl.arduino.design.services

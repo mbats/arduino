@@ -139,7 +139,7 @@ public class LoopSwitch extends ArduinoSwitch<Object> {
 	public Object caseSensor(Sensor sensor) {
 		final Pin pin = ArduinoUtils.getPin(simulator.getProject(),
 				sensor.getModule());
-		return simulator.getPinLevel(pin);
+		return interpretObjectValueToBoolean(simulator.getPinLevel(pin));
 	}
 
 	@Override
@@ -171,7 +171,7 @@ public class LoopSwitch extends ArduinoSwitch<Object> {
 	@Override
 	public Object caseIf(If _if) {
 		final Instruction first = _if.getInstructions().get(0);
-		if (Boolean.TRUE.equals(_if.getCondition())) {
+		if (Boolean.TRUE.equals(doSwitch(_if.getCondition()))) {
 			Instruction current = first;
 			while (current != null) {
 				doSwitch(current);

@@ -1,15 +1,22 @@
 package fr.obeo.dsl.arduino.simulator.design.services;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.ecore.EObject;
+import org.osgi.framework.Bundle;
 
 import fr.obeo.dsl.arduino.ArduinoUtils;
 import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Module;
 import fr.obeo.dsl.arduino.Pin;
 import fr.obeo.dsl.arduino.Platform;
+import fr.obeo.dsl.arduino.design.services.ArduinoServices;
 import fr.obeo.dsl.arduino.simulator.Simulator;
 import fr.obeo.dsl.arduino.simulator.design.launcher.LauncherDelegate;
 import fr.obeo.dsl.debug.ide.sirius.ui.services.AbstractDSLDebuggerServices;
@@ -124,4 +131,34 @@ public class SimulatorServices extends AbstractDSLDebuggerServices {
 		return 0;
 	}
 
+	public String getSimulatingImage(Module module) {
+		int level = getLevel(module);
+		String imageName = getImageLevel(module, level);
+		Bundle bundle = org.eclipse.core.runtime.Platform
+				.getBundle("fr.obeo.dsl.arduino.simulator.design");
+		URL fileURL = bundle.getEntry("images/" + imageName);
+		File file;
+		try {
+			file = new File(FileLocator.resolve(fileURL).toURI());
+			if (!file.exists()) {
+				ArduinoServices service = new ArduinoServices();
+				return service.getImage(module);
+			}
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return "fr.obeo.dsl.arduino.simulator.design/images/" + imageName;
+	}
+
+	private String getImageLevel(Module module, int level) {
+		String imageName = module.getImage().substring(0,
+				module.getImage().indexOf(".jpg"))
+				+ "_" + level + ".jpg";
+		return imageName;
+	}
 }

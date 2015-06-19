@@ -18,6 +18,9 @@
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='level%20intencity']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Arduino%20Palette']/@entries[name='level%20intencity']"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="1"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="workspacePath" value="service:getSimulatingImage">
+              <appliedOn href="viewpoint:/fr.obeo.dsl.arduino.design/Arduino#//@ownedViewpoints[name='Arduino']/@ownedRepresentations[name='Hardware']/@defaultLayer/@nodeMappings[name='HW_Module']/@style"/>
+            </featureCustomizations>
           </vsmElementCustomizations>
         </customization>
       </layers>
