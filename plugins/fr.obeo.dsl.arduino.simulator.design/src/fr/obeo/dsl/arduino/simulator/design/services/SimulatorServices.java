@@ -136,7 +136,7 @@ public class SimulatorServices extends AbstractDSLDebuggerServices {
 		String imageName = getImageLevel(module, level);
 		Bundle bundle = org.eclipse.core.runtime.Platform
 				.getBundle("fr.obeo.dsl.arduino.simulator.design");
-		URL fileURL = bundle.getEntry("images/" + imageName);
+		URL fileURL = bundle.getEntry("/images/" + imageName);
 		File file;
 		try {
 			file = new File(FileLocator.resolve(fileURL).toURI());
@@ -151,7 +151,6 @@ public class SimulatorServices extends AbstractDSLDebuggerServices {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return "fr.obeo.dsl.arduino.simulator.design/images/" + imageName;
 	}
 
