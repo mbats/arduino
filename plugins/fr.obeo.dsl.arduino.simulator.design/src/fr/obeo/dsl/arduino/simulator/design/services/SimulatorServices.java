@@ -1,13 +1,9 @@
 package fr.obeo.dsl.arduino.simulator.design.services;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.osgi.framework.Bundle;
 
@@ -136,23 +132,12 @@ public class SimulatorServices extends AbstractDSLDebuggerServices {
 		String imageName = getImageLevel(module, level);
 		Bundle bundle = org.eclipse.core.runtime.Platform
 				.getBundle("fr.obeo.dsl.arduino.simulator.design");
-		URL fileURL = bundle.getEntry("images/" + imageName);
-		File file;
-		try {
-			file = new File(FileLocator.resolve(fileURL).toURI());
-			if (!file.exists()) {
-				ArduinoServices service = new ArduinoServices();
-				return service.getImage(module);
-			}
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		URL fileURL = bundle.getEntry("/images/" + imageName);
+		if (fileURL == null) {
+			ArduinoServices service = new ArduinoServices();
+			return service.getImage(module);
 		}
-
-		return "fr.obeo.dsl.arduino.simulator.design/images/" + imageName;
+		return "/fr.obeo.dsl.arduino.simulator.design/images/" + imageName;
 	}
 
 	private String getImageLevel(Module module, int level) {
