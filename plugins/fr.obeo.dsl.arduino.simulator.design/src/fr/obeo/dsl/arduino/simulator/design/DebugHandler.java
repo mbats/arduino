@@ -50,8 +50,8 @@ public class DebugHandler extends AbstractHandler {
 
 		if (file != null) {
 			// try to save dirty editors
-			PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-					.getActivePage().saveAllEditors(true);
+			// PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+			// .getActivePage().saveAllEditors(true);
 
 			try {
 				ILaunchConfiguration[] configurations = getLaunchConfigurations(file);
