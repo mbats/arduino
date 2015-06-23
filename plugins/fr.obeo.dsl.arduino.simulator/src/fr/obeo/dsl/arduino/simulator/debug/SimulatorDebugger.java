@@ -99,8 +99,8 @@ public class SimulatorDebugger extends AbstractDSLDebugger {
 		for (Entry<Pin, Integer> entry : nextSuspendPins.entrySet()) {
 			variable(threadName,
 					simulator.getProject().getHardware().getName(), "pin",
-					String.valueOf(entry.getKey().getId()), entry.getValue(),
-					true);
+					"pin " + String.valueOf(entry.getKey().getId()),
+					entry.getValue(), true);
 		}
 		if (!nextSuspendPins.isEmpty()) {
 			lastSuspendPins = nextSuspendPins;
@@ -179,10 +179,11 @@ public class SimulatorDebugger extends AbstractDSLDebugger {
 
 	private Pin lookForPin(String variableName) {
 		Pin pin = null;
+		String pinNumber = variableName.replace("pin ", "");
 
 		for (Connector connector : simulator.getProject().getSketch()
 				.getHardware().getConnectors()) {
-			if (String.valueOf(connector.getPin().getId()).equals(variableName)) {
+			if (String.valueOf(connector.getPin().getId()).equals(pinNumber)) {
 				pin = connector.getPin();
 				break;
 			}
