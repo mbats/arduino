@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="ArduinoDesigner-luna" sequenceNumber="1434362972">
+<target name="ArduinoDesigner-luna" sequenceNumber="1442243806">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.platform.sdk" version="0.0.0"/>
@@ -38,7 +38,7 @@
       <unit id="fr.obeo.dsl.debug.feature.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.debug.sirius.ui.feature.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.debug.ui.feature.feature.group" version="0.0.0"/>
-      <repository location="https://ci.inria.fr/gemoc/view/All/job/fr.obeo.dsl.sirius.animation/lastSuccessfulBuild/artifact/fr/obeo/dsl/sirius/animation/releng/fr.obeo.dsl.debug.repository/target/repository/"/>
+      <repository location="http://d334h7gqzqnfak.cloudfront.net/simulationmodelanimation/nightly/master/repository/"/>
     </location>
   </locations>
 </target>
