@@ -40,7 +40,7 @@ location "http://download.eclipse.org/sirius/updates/releases/2.0.3/luna" {
 }
 
 // Simulator
-location "http://d334h7gqzqnfak.cloudfront.net/simulationmodelanimation/nightly/master/repository/" {
+location "http://obeo-siriuslab-nightly.s3-website-eu-west-1.amazonaws.com/SiriusAnimator/master/repository/" {
 	fr.obeo.dsl.debug.feature.feature.group lazy
 	fr.obeo.dsl.debug.sirius.ui.feature.feature.group lazy
 	fr.obeo.dsl.debug.ui.feature.feature.group lazy
