@@ -13,6 +13,7 @@ package fr.obeo.dsl.arduino.provider;
 
 import fr.obeo.dsl.arduino.NumericalOperator;
 
+import fr.obeo.dsl.arduino.OperatorKind;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,13 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class NumericalOperatorItemProvider
-	extends MathOperatorItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends MathOperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,7 +79,8 @@ public class NumericalOperatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NumericalOperator)object).getValue();
+		OperatorKind labelValue = ((NumericalOperator)object).getOperator();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NumericalOperator_type") :
 			getString("_UI_NumericalOperator_type") + " " + label;

@@ -188,8 +188,8 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 				return createBooleanOperatorAdapter();
 			}
 			@Override
-			public Adapter caseValue(Value object) {
-				return createValueAdapter();
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
 			}
 			@Override
 			public Adapter caseConstant(Constant object) {
@@ -632,16 +632,16 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Value <em>Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.arduino.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.arduino.Value
+	 * @see fr.obeo.dsl.arduino.Expression
 	 * @generated
 	 */
-	public Adapter createValueAdapter() {
+	public Adapter createExpressionAdapter() {
 		return null;
 	}
 

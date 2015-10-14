@@ -44,6 +44,7 @@ import fr.obeo.dsl.arduino.Connector;
 import fr.obeo.dsl.arduino.Constant;
 import fr.obeo.dsl.arduino.Control;
 import fr.obeo.dsl.arduino.DigitalPin;
+import fr.obeo.dsl.arduino.Expression;
 import fr.obeo.dsl.arduino.Function;
 import fr.obeo.dsl.arduino.FunctionCall;
 import fr.obeo.dsl.arduino.Hardware;
@@ -63,7 +64,6 @@ import fr.obeo.dsl.arduino.Sensor;
 import fr.obeo.dsl.arduino.Set;
 import fr.obeo.dsl.arduino.Sketch;
 import fr.obeo.dsl.arduino.Status;
-import fr.obeo.dsl.arduino.Value;
 import fr.obeo.dsl.arduino.Variable;
 import fr.obeo.dsl.arduino.While;
 
@@ -312,18 +312,18 @@ public class ArduinoServices {
 		String label = level.getModule().getName();
 		if (level.getLevel() != null) {
 			label += "=";
-			Value value = level.getLevel();
+			Expression value = level.getLevel();
 			label += computeLabel(value);
 		}
 		return label;
 	}
 
-	public String computeLabel(Value value) {
+	public String computeLabel(Expression value) {
 		if (value instanceof Variable) {
 			return ((Variable) value).getName();
 		}
 		if (value instanceof Constant) {
-			return value.getValue();
+			return ((Constant) value).getValue();
 		}
 		if (value instanceof Sensor) {
 			return ((Sensor) value).getModule().getName();
@@ -482,27 +482,26 @@ public class ArduinoServices {
 		return null;
 	}
 
-	public Value getValue(Sketch sketch, String value) {
+	public Expression getExpression(Sketch sketch, String expression) {
 		for (Instruction instruction : sketch.getInstructions()) {
-			if (instruction instanceof Value
-					&& value.equals(((Value) instruction).getValue())) {
-				return (Value) instruction;
+			if (instruction instanceof Constant
+					&& expression.equals(((Constant) instruction).getValue())) {
+				return (Constant) instruction;
 			}
 			if (instruction instanceof Variable
-					&& value.equals(((Variable) instruction).getName())) {
-				return (Value) instruction;
+					&& expression.equals(((Variable) instruction).getName())) {
+				return (Expression) instruction;
 			}
 		}
-		if (isInteger(value)) {
+		if (isInteger(expression)) {
 			fr.obeo.dsl.arduino.Constant constant = ArduinoFactory.eINSTANCE
 					.createConstant();
-			constant.setValue(value);
+			constant.setValue(expression);
 			sketch.getInstructions().add(constant);
 			return constant;
 		}
 		Variable var = ArduinoFactory.eINSTANCE.createVariable();
-		var.setName(value);
-		var.setValue("0");
+		var.setName(expression);
 		sketch.getInstructions().add(var);
 		return var;
 	}
@@ -525,54 +524,54 @@ public class ArduinoServices {
 			instruction.setCondition(condition);
 		}
 
-		Value oldLeft = condition.getLeft();
-		Value oldRight = condition.getRight();
+		Expression oldLeft = condition.getLeft();
+		Expression oldRight = condition.getRight();
 
-		condition.setLeft(getValue(sketch, left));
+		condition.setLeft(getExpression(sketch, left));
 		condition.setOperator(getOperator(operator));
-		condition.setRight(getValue(sketch, right));
+		condition.setRight(getExpression(sketch, right));
 
-		deleteUnusedValue(sketch, oldLeft);
-		deleteUnusedValue(sketch, oldRight);
+		deleteUnusedExpression(sketch, oldLeft);
+		deleteUnusedExpression(sketch, oldRight);
 	}
 
 	public void editLabel(Set instruction, Sketch sketch, String variable,
 			String value) {
-		Value oldVariable = instruction.getVariable();
-		Value oldValue = instruction.getValue();
-		instruction.setVariable((Variable) getValue(sketch, variable));
-		instruction.setValue(getValue(sketch, value));
+		Expression oldVariable = instruction.getVariable();
+		Expression oldValue = instruction.getValue();
+		instruction.setVariable((Variable) getExpression(sketch, variable));
+		instruction.setValue(getExpression(sketch, value));
 
 		// Clean unused values
-		deleteUnusedValue(sketch, oldVariable);
-		deleteUnusedValue(sketch, oldValue);
+		deleteUnusedExpression(sketch, oldVariable);
+		deleteUnusedExpression(sketch, oldValue);
 	}
 
-	public void editLabel(Value value, String newValue) {
+	public void editLabel(Expression value, String newValue) {
 
 	}
 
-	public void deleteUnusedValues(Sketch sketch) {
+	public void deleteUnusedExpressions(Sketch sketch) {
 		ImmutableList<Instruction> instructions = ImmutableList.copyOf(sketch
 				.getInstructions());
 		for (Instruction instruction : instructions) {
-			if (instruction instanceof Value) {
-				deleteUnusedValue(sketch, (Value) instruction);
+			if (instruction instanceof Expression) {
+				deleteUnusedExpression(sketch, (Expression) instruction);
 			}
 		}
 	}
 
-	private void deleteUnusedValue(Sketch sketch, Value value) {
-		if (value != null && isNotUsedAnymore(sketch, value)) {
-			EcoreUtil.delete(value);
+	private void deleteUnusedExpression(Sketch sketch, Expression expression) {
+		if (expression != null && isNotUsedAnymore(sketch, expression)) {
+			EcoreUtil.delete(expression);
 		}
 	}
 
-	private boolean isNotUsedAnymore(Sketch sketch, Value value) {
-		ResourceSet resourceSet = value.eResource().getResourceSet();
+	private boolean isNotUsedAnymore(Sketch sketch, Expression expression) {
+		ResourceSet resourceSet = expression.eResource().getResourceSet();
 		ECrossReferenceAdapter adapter = new ECrossReferenceAdapter();
 		resourceSet.eAdapters().add(adapter);
-		Collection<Setting> refs = adapter.getInverseReferences(value, true);
+		Collection<Setting> refs = adapter.getInverseReferences(expression, true);
 		return refs.size() == 1;
 	}
 
@@ -581,8 +580,8 @@ public class ArduinoServices {
 		if (container instanceof Set) {
 			variables.add(((Set) container).getVariable());
 		} else if (container instanceof MathOperator) {
-			Value left = ((MathOperator) container).getLeft();
-			Value right = ((MathOperator) container).getRight();
+			Expression left = ((MathOperator) container).getLeft();
+			Expression right = ((MathOperator) container).getRight();
 			if (left instanceof Variable) {
 				variables.add((Variable) left);
 			}
@@ -596,13 +595,13 @@ public class ArduinoServices {
 	public List<NumericalOperator> getNumericalOperators(EObject container) {
 		List<NumericalOperator> operators = Lists.newArrayList();
 		if (container instanceof Set) {
-			Value value = ((Set) container).getValue();
+			Expression value = ((Set) container).getValue();
 			if (value instanceof NumericalOperator) {
 				operators.add((NumericalOperator) value);
 			}
 		} else if (container instanceof MathOperator) {
-			Value left = ((MathOperator) container).getLeft();
-			Value right = ((MathOperator) container).getRight();
+			Expression left = ((MathOperator) container).getLeft();
+			Expression right = ((MathOperator) container).getRight();
 			if (left instanceof NumericalOperator) {
 				operators.add((NumericalOperator) left);
 			}
@@ -702,13 +701,13 @@ public class ArduinoServices {
 	public List<Constant> getConstants(EObject container) {
 		List<Constant> constants = Lists.newArrayList();
 		if (container instanceof Set) {
-			Value value = ((Set) container).getValue();
+			Expression value = ((Set) container).getValue();
 			if (value instanceof Constant) {
 				constants.add((Constant) value);
 			}
 		} else if (container instanceof MathOperator) {
-			Value left = ((MathOperator) container).getLeft();
-			Value right = ((MathOperator) container).getRight();
+			Expression left = ((MathOperator) container).getLeft();
+			Expression right = ((MathOperator) container).getRight();
 			if (left instanceof Constant) {
 				constants.add((Constant) left);
 			}
@@ -851,12 +850,12 @@ public class ArduinoServices {
 				+ instruction.getModule().getImage();
 	}
 
-	public void updateValue(Level level, String newValue) {
-		newValue = newValue.trim();
+	public void updateExpression(Level level, String newExpression) {
+		newExpression = newExpression.trim();
 		Sketch sketch = getSketch(level);
-		Value value = getValue(sketch, newValue);
+		Expression value = getExpression(sketch, newExpression);
 		level.setLevel(value);
-		deleteUnusedValues(sketch);
+		deleteUnusedExpressions(sketch);
 	}
 
 	public void addVariable(Instruction container, Variable variable) {
@@ -865,7 +864,7 @@ public class ArduinoServices {
 		} else if (container instanceof Set) {
 			((Set) container).setVariable(variable);
 		}
-		deleteUnusedValues(getSketch(variable));
+		deleteUnusedExpressions(getSketch(variable));
 	}
 
 	public void addValue(Instruction container, Constant value) {
@@ -874,12 +873,12 @@ public class ArduinoServices {
 		} else if (container instanceof Set) {
 			((Set) container).setValue(value);
 		}
-		deleteUnusedValues(getSketch(value));
+		deleteUnusedExpressions(getSketch(value));
 	}
 
-	private void addMathOperatorValue(MathOperator container, Value value) {
-		Value left = container.getLeft();
-		Value right = container.getRight();
+	private void addMathOperatorValue(MathOperator container, Expression value) {
+		Expression left = container.getLeft();
+		Expression right = container.getRight();
 
 		if (left == null && right == null) {
 			container.setLeft(value);
@@ -890,30 +889,30 @@ public class ArduinoServices {
 		} else if (left != null && right != null) {
 			container.setLeft(value);
 		}
-		deleteUnusedValues(getSketch(value));
+		deleteUnusedExpressions(getSketch(value));
 	}
 
-	public void updateValue(Instruction container, Value newValue,
-			Value oldValue) {
+	public void updateExpression(Instruction container, Expression newExpression,
+			Expression oldExpression) {
 		if (container instanceof Set) {
-			if (newValue instanceof Variable) {
-				((Set) container).setVariable((Variable) newValue);
+			if (newExpression instanceof Variable) {
+				((Set) container).setVariable((Variable) newExpression);
 			} else {
-				((Set) container).setValue(newValue);
+				((Set) container).setValue(newExpression);
 			}
 		} else if (container instanceof MathOperator) {
-			Value left = ((MathOperator) container).getLeft();
-			Value right = ((MathOperator) container).getRight();
-			if (oldValue.equals(left)) {
-				((MathOperator) container).setLeft(newValue);
-			} else if (oldValue.equals(right)) {
-				((MathOperator) container).setRight(newValue);
+			Expression left = ((MathOperator) container).getLeft();
+			Expression right = ((MathOperator) container).getRight();
+			if (oldExpression.equals(left)) {
+				((MathOperator) container).setLeft(newExpression);
+			} else if (oldExpression.equals(right)) {
+				((MathOperator) container).setRight(newExpression);
 			}
 
 		} else if (container instanceof Level) {
-			((Level) container).setLevel(newValue);
+			((Level) container).setLevel(newExpression);
 		}
-		deleteUnusedValues(getSketch(container));
+		deleteUnusedExpressions(getSketch(container));
 	}
 
 	public void openHardwareDiagram(Hardware hardware) {

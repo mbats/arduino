@@ -28,7 +28,7 @@ package fr.obeo.dsl.arduino;
  * @model
  * @generated
  */
-public interface Status extends ModuleInstruction, Value {
+public interface Status extends ModuleInstruction, Expression {
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->

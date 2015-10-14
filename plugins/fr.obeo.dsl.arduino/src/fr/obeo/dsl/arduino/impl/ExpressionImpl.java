@@ -11,9 +11,9 @@
 package fr.obeo.dsl.arduino.impl;
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.Expression;
 import fr.obeo.dsl.arduino.Parameter;
 import fr.obeo.dsl.arduino.ParameterDefinition;
-import fr.obeo.dsl.arduino.Value;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -24,19 +24,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Value</b></em>'.
+ * An implementation of the model object '<em><b>Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.obeo.dsl.arduino.impl.ValueImpl#getDefinition <em>Definition</em>}</li>
- *   <li>{@link fr.obeo.dsl.arduino.impl.ValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link fr.obeo.dsl.arduino.impl.ExpressionImpl#getDefinition <em>Definition</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ValueImpl extends InstructionImpl implements Value {
+public abstract class ExpressionImpl extends InstructionImpl implements Expression {
 	/**
 	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -48,31 +47,11 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	protected ParameterDefinition definition;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VALUE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String value = VALUE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ValueImpl() {
+	protected ExpressionImpl() {
 		super();
 	}
 
@@ -83,7 +62,7 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ArduinoPackage.Literals.VALUE;
+		return ArduinoPackage.Literals.EXPRESSION;
 	}
 
 	/**
@@ -97,7 +76,7 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 			definition = (ParameterDefinition)eResolveProxy(oldDefinition);
 			if (definition != oldDefinition) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.VALUE__DEFINITION, oldDefinition, definition));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.EXPRESSION__DEFINITION, oldDefinition, definition));
 			}
 		}
 		return definition;
@@ -121,28 +100,7 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 		ParameterDefinition oldDefinition = definition;
 		definition = newDefinition;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.VALUE__DEFINITION, oldDefinition, definition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.VALUE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.EXPRESSION__DEFINITION, oldDefinition, definition));
 	}
 
 	/**
@@ -153,11 +111,9 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ArduinoPackage.VALUE__DEFINITION:
+			case ArduinoPackage.EXPRESSION__DEFINITION:
 				if (resolve) return getDefinition();
 				return basicGetDefinition();
-			case ArduinoPackage.VALUE__VALUE:
-				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,11 +126,8 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ArduinoPackage.VALUE__DEFINITION:
+			case ArduinoPackage.EXPRESSION__DEFINITION:
 				setDefinition((ParameterDefinition)newValue);
-				return;
-			case ArduinoPackage.VALUE__VALUE:
-				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -188,11 +141,8 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.VALUE__DEFINITION:
+			case ArduinoPackage.EXPRESSION__DEFINITION:
 				setDefinition((ParameterDefinition)null);
-				return;
-			case ArduinoPackage.VALUE__VALUE:
-				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -206,10 +156,8 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.VALUE__DEFINITION:
+			case ArduinoPackage.EXPRESSION__DEFINITION:
 				return definition != null;
-			case ArduinoPackage.VALUE__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -223,7 +171,7 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Parameter.class) {
 			switch (derivedFeatureID) {
-				case ArduinoPackage.VALUE__DEFINITION: return ArduinoPackage.PARAMETER__DEFINITION;
+				case ArduinoPackage.EXPRESSION__DEFINITION: return ArduinoPackage.PARAMETER__DEFINITION;
 				default: return -1;
 			}
 		}
@@ -239,27 +187,11 @@ public abstract class ValueImpl extends InstructionImpl implements Value {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Parameter.class) {
 			switch (baseFeatureID) {
-				case ArduinoPackage.PARAMETER__DEFINITION: return ArduinoPackage.VALUE__DEFINITION;
+				case ArduinoPackage.PARAMETER__DEFINITION: return ArduinoPackage.EXPRESSION__DEFINITION;
 				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(')');
-		return result.toString();
-	}
-
-} //ValueImpl
+} //ExpressionImpl

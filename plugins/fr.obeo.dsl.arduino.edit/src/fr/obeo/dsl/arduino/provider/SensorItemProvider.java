@@ -12,6 +12,7 @@ package fr.obeo.dsl.arduino.provider;
 
 
 import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.Sensor;
 
 import java.util.Collection;
@@ -37,13 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class SensorItemProvider
-	extends ModuleInstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ModuleInstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -65,35 +60,12 @@ public class SensorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
 			addLeftPropertyDescriptor(object);
 			addRightPropertyDescriptor(object);
 			addOperatorPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Value_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Value_value_feature", "_UI_Value_type"),
-				 ArduinoPackage.Literals.VALUE__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -203,7 +175,8 @@ public class SensorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Sensor)object).getValue();
+		OperatorKind labelValue = ((Sensor)object).getOperator();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Sensor_type") :
 			getString("_UI_Sensor_type") + " " + label;
@@ -221,7 +194,6 @@ public class SensorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Sensor.class)) {
-			case ArduinoPackage.SENSOR__VALUE:
 			case ArduinoPackage.SENSOR__OPERATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

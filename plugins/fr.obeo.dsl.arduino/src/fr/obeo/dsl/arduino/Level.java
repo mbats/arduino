@@ -37,12 +37,12 @@ public interface Level extends ModuleInstruction {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Level</em>' reference.
-	 * @see #setLevel(Value)
+	 * @see #setLevel(Expression)
 	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getLevel_Level()
 	 * @model required="true"
 	 * @generated
 	 */
-	Value getLevel();
+	Expression getLevel();
 
 	/**
 	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Level#getLevel <em>Level</em>}' reference.
@@ -52,6 +52,6 @@ public interface Level extends ModuleInstruction {
 	 * @see #getLevel()
 	 * @generated
 	 */
-	void setLevel(Value value);
+	void setLevel(Expression value);
 
 } // Level

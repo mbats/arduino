@@ -10,28 +10,24 @@
  */
 package fr.obeo.dsl.arduino.impl;
 
-import fr.obeo.dsl.arduino.ArduinoPackage;
-import fr.obeo.dsl.arduino.BooleanOperator;
-import fr.obeo.dsl.arduino.MathOperator;
-import fr.obeo.dsl.arduino.OperatorKind;
-import fr.obeo.dsl.arduino.Sensor;
-import fr.obeo.dsl.arduino.Status;
-import fr.obeo.dsl.arduino.Value;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.BooleanOperator;
+import fr.obeo.dsl.arduino.Expression;
+import fr.obeo.dsl.arduino.MathOperator;
+import fr.obeo.dsl.arduino.OperatorKind;
+import fr.obeo.dsl.arduino.Sensor;
+import fr.obeo.dsl.arduino.Status;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.obeo.dsl.arduino.impl.SensorImpl#getValue <em>Value</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SensorImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SensorImpl#getRight <em>Right</em>}</li>
  *   <li>{@link fr.obeo.dsl.arduino.impl.SensorImpl#getOperator <em>Operator</em>}</li>
@@ -52,26 +47,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VALUE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String value = VALUE_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getLeft() <em>Left</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,7 +54,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * @generated
 	 * @ordered
 	 */
-	protected Value left;
+	protected Expression left;
 
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' reference.
@@ -89,7 +64,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * @generated
 	 * @ordered
 	 */
-	protected Value right;
+	protected Expression right;
 
 	/**
 	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
@@ -145,31 +120,10 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SENSOR__VALUE, oldValue, value));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Value getLeft() {
+	public Expression getLeft() {
 		if (left != null && left.eIsProxy()) {
 			InternalEObject oldLeft = (InternalEObject)left;
-			left = (Value)eResolveProxy(oldLeft);
+			left = (Expression)eResolveProxy(oldLeft);
 			if (left != oldLeft) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.SENSOR__LEFT, oldLeft, left));
@@ -183,7 +137,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value basicGetLeft() {
+	public Expression basicGetLeft() {
 		return left;
 	}
 
@@ -192,8 +146,8 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLeft(Value newLeft) {
-		Value oldLeft = left;
+	public void setLeft(Expression newLeft) {
+		Expression oldLeft = left;
 		left = newLeft;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SENSOR__LEFT, oldLeft, left));
@@ -204,10 +158,10 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value getRight() {
+	public Expression getRight() {
 		if (right != null && right.eIsProxy()) {
 			InternalEObject oldRight = (InternalEObject)right;
-			right = (Value)eResolveProxy(oldRight);
+			right = (Expression)eResolveProxy(oldRight);
 			if (right != oldRight) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.SENSOR__RIGHT, oldRight, right));
@@ -221,7 +175,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value basicGetRight() {
+	public Expression basicGetRight() {
 		return right;
 	}
 
@@ -230,8 +184,8 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRight(Value newRight) {
-		Value oldRight = right;
+	public void setRight(Expression newRight) {
+		Expression oldRight = right;
 		right = newRight;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SENSOR__RIGHT, oldRight, right));
@@ -307,8 +261,6 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ArduinoPackage.SENSOR__VALUE:
-				return getValue();
 			case ArduinoPackage.SENSOR__LEFT:
 				if (resolve) return getLeft();
 				return basicGetLeft();
@@ -332,14 +284,11 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ArduinoPackage.SENSOR__VALUE:
-				setValue((String)newValue);
-				return;
 			case ArduinoPackage.SENSOR__LEFT:
-				setLeft((Value)newValue);
+				setLeft((Expression)newValue);
 				return;
 			case ArduinoPackage.SENSOR__RIGHT:
-				setRight((Value)newValue);
+				setRight((Expression)newValue);
 				return;
 			case ArduinoPackage.SENSOR__OPERATOR:
 				setOperator((OperatorKind)newValue);
@@ -360,14 +309,11 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.SENSOR__VALUE:
-				setValue(VALUE_EDEFAULT);
-				return;
 			case ArduinoPackage.SENSOR__LEFT:
-				setLeft((Value)null);
+				setLeft((Expression)null);
 				return;
 			case ArduinoPackage.SENSOR__RIGHT:
-				setRight((Value)null);
+				setRight((Expression)null);
 				return;
 			case ArduinoPackage.SENSOR__OPERATOR:
 				setOperator(OPERATOR_EDEFAULT);
@@ -387,8 +333,6 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ArduinoPackage.SENSOR__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case ArduinoPackage.SENSOR__LEFT:
 				return left != null;
 			case ArduinoPackage.SENSOR__RIGHT:
@@ -408,9 +352,8 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Value.class) {
+		if (baseClass == Expression.class) {
 			switch (derivedFeatureID) {
-				case ArduinoPackage.SENSOR__VALUE: return ArduinoPackage.VALUE__VALUE;
 				default: return -1;
 			}
 		}
@@ -437,9 +380,8 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Value.class) {
+		if (baseClass == Expression.class) {
 			switch (baseFeatureID) {
-				case ArduinoPackage.VALUE__VALUE: return ArduinoPackage.SENSOR__VALUE;
 				default: return -1;
 			}
 		}
@@ -469,9 +411,7 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(", operator: ");
+		result.append(" (operator: ");
 		result.append(operator);
 		result.append(')');
 		return result.toString();

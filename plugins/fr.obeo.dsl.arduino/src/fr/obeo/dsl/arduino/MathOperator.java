@@ -29,7 +29,7 @@ package fr.obeo.dsl.arduino;
  * @model abstract="true"
  * @generated
  */
-public interface MathOperator extends Value, Instruction {
+public interface MathOperator extends Expression, Instruction {
 	/**
 	 * Returns the value of the '<em><b>Left</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -39,12 +39,12 @@ public interface MathOperator extends Value, Instruction {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Left</em>' reference.
-	 * @see #setLeft(Value)
+	 * @see #setLeft(Expression)
 	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getMathOperator_Left()
 	 * @model required="true"
 	 * @generated
 	 */
-	Value getLeft();
+	Expression getLeft();
 
 	/**
 	 * Sets the value of the '{@link fr.obeo.dsl.arduino.MathOperator#getLeft <em>Left</em>}' reference.
@@ -54,7 +54,7 @@ public interface MathOperator extends Value, Instruction {
 	 * @see #getLeft()
 	 * @generated
 	 */
-	void setLeft(Value value);
+	void setLeft(Expression value);
 
 	/**
 	 * Returns the value of the '<em><b>Right</b></em>' reference.
@@ -65,12 +65,12 @@ public interface MathOperator extends Value, Instruction {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Right</em>' reference.
-	 * @see #setRight(Value)
+	 * @see #setRight(Expression)
 	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getMathOperator_Right()
 	 * @model
 	 * @generated
 	 */
-	Value getRight();
+	Expression getRight();
 
 	/**
 	 * Sets the value of the '{@link fr.obeo.dsl.arduino.MathOperator#getRight <em>Right</em>}' reference.
@@ -80,7 +80,7 @@ public interface MathOperator extends Value, Instruction {
 	 * @see #getRight()
 	 * @generated
 	 */
-	void setRight(Value value);
+	void setRight(Expression value);
 
 	/**
 	 * Returns the value of the '<em><b>Operator</b></em>' attribute.

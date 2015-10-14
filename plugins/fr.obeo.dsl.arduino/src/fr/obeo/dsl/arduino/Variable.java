@@ -27,7 +27,7 @@ package fr.obeo.dsl.arduino;
  * @model
  * @generated
  */
-public interface Variable extends Value, Instruction {
+public interface Variable extends Expression, Instruction {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
