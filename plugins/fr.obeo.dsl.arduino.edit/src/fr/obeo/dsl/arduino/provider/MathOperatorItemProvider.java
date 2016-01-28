@@ -14,6 +14,7 @@ package fr.obeo.dsl.arduino.provider;
 import fr.obeo.dsl.arduino.ArduinoPackage;
 import fr.obeo.dsl.arduino.MathOperator;
 
+import fr.obeo.dsl.arduino.OperatorKind;
 import java.util.Collection;
 import java.util.List;
 
@@ -37,13 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class MathOperatorItemProvider
-	extends ValueItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ExpressionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -146,7 +141,8 @@ public class MathOperatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MathOperator)object).getValue();
+		OperatorKind labelValue = ((MathOperator)object).getOperator();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_MathOperator_type") :
 			getString("_UI_MathOperator_type") + " " + label;

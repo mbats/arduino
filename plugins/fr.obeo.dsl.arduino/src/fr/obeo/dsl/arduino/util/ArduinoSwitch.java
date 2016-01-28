@@ -139,7 +139,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				Status status = (Status)theEObject;
 				T result = caseStatus(status);
 				if (result == null) result = caseModuleInstruction(status);
-				if (result == null) result = caseValue(status);
+				if (result == null) result = caseExpression(status);
 				if (result == null) result = caseInstruction(status);
 				if (result == null) result = caseParameter(status);
 				if (result == null) result = defaultCase(theEObject);
@@ -235,7 +235,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				if (result == null) result = caseModuleInstruction(sensor);
 				if (result == null) result = caseBooleanOperator(sensor);
 				if (result == null) result = caseMathOperator(sensor);
-				if (result == null) result = caseValue(sensor);
+				if (result == null) result = caseExpression(sensor);
 				if (result == null) result = caseInstruction(sensor);
 				if (result == null) result = caseParameter(sensor);
 				if (result == null) result = defaultCase(theEObject);
@@ -252,7 +252,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 			case ArduinoPackage.MATH_OPERATOR: {
 				MathOperator mathOperator = (MathOperator)theEObject;
 				T result = caseMathOperator(mathOperator);
-				if (result == null) result = caseValue(mathOperator);
+				if (result == null) result = caseExpression(mathOperator);
 				if (result == null) result = caseInstruction(mathOperator);
 				if (result == null) result = caseParameter(mathOperator);
 				if (result == null) result = defaultCase(theEObject);
@@ -261,7 +261,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 			case ArduinoPackage.VARIABLE: {
 				Variable variable = (Variable)theEObject;
 				T result = caseVariable(variable);
-				if (result == null) result = caseValue(variable);
+				if (result == null) result = caseExpression(variable);
 				if (result == null) result = caseInstruction(variable);
 				if (result == null) result = caseParameter(variable);
 				if (result == null) result = defaultCase(theEObject);
@@ -278,7 +278,7 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				NumericalOperator numericalOperator = (NumericalOperator)theEObject;
 				T result = caseNumericalOperator(numericalOperator);
 				if (result == null) result = caseMathOperator(numericalOperator);
-				if (result == null) result = caseValue(numericalOperator);
+				if (result == null) result = caseExpression(numericalOperator);
 				if (result == null) result = caseInstruction(numericalOperator);
 				if (result == null) result = caseParameter(numericalOperator);
 				if (result == null) result = defaultCase(theEObject);
@@ -288,24 +288,24 @@ public class ArduinoSwitch<T> extends Switch<T> {
 				BooleanOperator booleanOperator = (BooleanOperator)theEObject;
 				T result = caseBooleanOperator(booleanOperator);
 				if (result == null) result = caseMathOperator(booleanOperator);
-				if (result == null) result = caseValue(booleanOperator);
+				if (result == null) result = caseExpression(booleanOperator);
 				if (result == null) result = caseInstruction(booleanOperator);
 				if (result == null) result = caseParameter(booleanOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ArduinoPackage.VALUE: {
-				Value value = (Value)theEObject;
-				T result = caseValue(value);
-				if (result == null) result = caseInstruction(value);
-				if (result == null) result = caseParameter(value);
+			case ArduinoPackage.EXPRESSION: {
+				Expression expression = (Expression)theEObject;
+				T result = caseExpression(expression);
+				if (result == null) result = caseInstruction(expression);
+				if (result == null) result = caseParameter(expression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ArduinoPackage.CONSTANT: {
 				Constant constant = (Constant)theEObject;
 				T result = caseConstant(constant);
-				if (result == null) result = caseValue(constant);
+				if (result == null) result = caseExpression(constant);
 				if (result == null) result = caseInstruction(constant);
 				if (result == null) result = caseParameter(constant);
 				if (result == null) result = defaultCase(theEObject);
@@ -776,17 +776,17 @@ public class ArduinoSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseValue(Value object) {
+	public T caseExpression(Expression object) {
 		return null;
 	}
 

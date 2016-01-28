@@ -9,6 +9,6 @@
 	= invoke('fr.obeo.dsl.arduino.gen.main.ArduinoGenServices', 'getOperator(fr.obeo.dsl.arduino.OperatorKind)', Sequence{arg0})
 /]
 
-[query public getValue(arg0 : Value) : String
-	= invoke('fr.obeo.dsl.arduino.gen.main.ArduinoGenServices', 'getValue(fr.obeo.dsl.arduino.Value)', Sequence{arg0})
+[query public getValue(arg0 : Expression) : String
+	= invoke('fr.obeo.dsl.arduino.gen.main.ArduinoGenServices', 'getValue(fr.obeo.dsl.arduino.Expression)', Sequence{arg0})
 /]

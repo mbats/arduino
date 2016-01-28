@@ -10,16 +10,14 @@
  */
 package fr.obeo.dsl.arduino.impl;
 
-import fr.obeo.dsl.arduino.ArduinoPackage;
-import fr.obeo.dsl.arduino.Level;
-import fr.obeo.dsl.arduino.Value;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.Expression;
+import fr.obeo.dsl.arduino.Level;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +41,7 @@ public class LevelImpl extends ModuleInstructionImpl implements Level {
 	 * @generated
 	 * @ordered
 	 */
-	protected Value level;
+	protected Expression level;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,10 +67,10 @@ public class LevelImpl extends ModuleInstructionImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value getLevel() {
+	public Expression getLevel() {
 		if (level != null && level.eIsProxy()) {
 			InternalEObject oldLevel = (InternalEObject)level;
-			level = (Value)eResolveProxy(oldLevel);
+			level = (Expression)eResolveProxy(oldLevel);
 			if (level != oldLevel) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.LEVEL__LEVEL, oldLevel, level));
@@ -86,7 +84,7 @@ public class LevelImpl extends ModuleInstructionImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value basicGetLevel() {
+	public Expression basicGetLevel() {
 		return level;
 	}
 
@@ -95,8 +93,8 @@ public class LevelImpl extends ModuleInstructionImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLevel(Value newLevel) {
-		Value oldLevel = level;
+	public void setLevel(Expression newLevel) {
+		Expression oldLevel = level;
 		level = newLevel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.LEVEL__LEVEL, oldLevel, level));
@@ -126,7 +124,7 @@ public class LevelImpl extends ModuleInstructionImpl implements Level {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ArduinoPackage.LEVEL__LEVEL:
-				setLevel((Value)newValue);
+				setLevel((Expression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -141,7 +139,7 @@ public class LevelImpl extends ModuleInstructionImpl implements Level {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ArduinoPackage.LEVEL__LEVEL:
-				setLevel((Value)null);
+				setLevel((Expression)null);
 				return;
 		}
 		super.eUnset(featureID);

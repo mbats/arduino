@@ -13,13 +13,13 @@ package fr.obeo.dsl.arduino.gen.main;
 import java.util.Iterator;
 
 import fr.obeo.dsl.arduino.Constant;
+import fr.obeo.dsl.arduino.Expression;
 import fr.obeo.dsl.arduino.Instruction;
 import fr.obeo.dsl.arduino.MathOperator;
 import fr.obeo.dsl.arduino.OperatorKind;
 import fr.obeo.dsl.arduino.Repeat;
 import fr.obeo.dsl.arduino.Sensor;
 import fr.obeo.dsl.arduino.Sketch;
-import fr.obeo.dsl.arduino.Value;
 import fr.obeo.dsl.arduino.Variable;
 
 public class ArduinoGenServices {
@@ -37,12 +37,12 @@ public class ArduinoGenServices {
 		return 0;
 	}
 
-	public String getValue(Value value) {
+	public String getValue(Expression value) {
 		if (value instanceof Variable) {
 			return ((Variable) value).getName();
 		}
 		if (value instanceof Constant) {
-			return value.getValue();
+			return ((Constant) value).getValue();
 		}
 		if (value instanceof MathOperator) {
 			return "(" + getValue(((MathOperator) value).getLeft())

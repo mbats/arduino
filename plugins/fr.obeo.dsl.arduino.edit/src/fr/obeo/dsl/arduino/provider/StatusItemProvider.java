@@ -37,13 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class StatusItemProvider
-	extends ModuleInstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ModuleInstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -65,33 +59,10 @@ public class StatusItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 			addSensorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Value_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Value_value_feature", "_UI_Value_type"),
-				 ArduinoPackage.Literals.VALUE__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -157,10 +128,8 @@ public class StatusItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Status)object).getValue();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Status_type") :
-			getString("_UI_Status_type") + " " + label;
+		Status status = (Status)object;
+		return getString("_UI_Status_type") + " " + status.isStatus();
 	}
 
 	/**
@@ -175,7 +144,6 @@ public class StatusItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Status.class)) {
-			case ArduinoPackage.STATUS__VALUE:
 			case ArduinoPackage.STATUS__STATUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

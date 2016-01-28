@@ -64,12 +64,12 @@ public interface Set extends Instruction {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' reference.
-	 * @see #setValue(Value)
+	 * @see #setValue(Expression)
 	 * @see fr.obeo.dsl.arduino.ArduinoPackage#getSet_Value()
 	 * @model required="true"
 	 * @generated
 	 */
-	Value getValue();
+	Expression getValue();
 
 	/**
 	 * Sets the value of the '{@link fr.obeo.dsl.arduino.Set#getValue <em>Value</em>}' reference.
@@ -79,6 +79,6 @@ public interface Set extends Instruction {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(Value value);
+	void setValue(Expression value);
 
 } // Set

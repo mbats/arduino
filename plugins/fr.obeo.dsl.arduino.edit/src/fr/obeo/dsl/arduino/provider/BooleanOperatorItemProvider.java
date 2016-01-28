@@ -13,6 +13,7 @@ package fr.obeo.dsl.arduino.provider;
 
 import fr.obeo.dsl.arduino.BooleanOperator;
 
+import fr.obeo.dsl.arduino.OperatorKind;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,13 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class BooleanOperatorItemProvider
-	extends MathOperatorItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends MathOperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,7 +79,8 @@ public class BooleanOperatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BooleanOperator)object).getValue();
+		OperatorKind labelValue = ((BooleanOperator)object).getOperator();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_BooleanOperator_type") :
 			getString("_UI_BooleanOperator_type") + " " + label;

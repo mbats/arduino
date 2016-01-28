@@ -10,17 +10,15 @@
  */
 package fr.obeo.dsl.arduino.impl;
 
-import fr.obeo.dsl.arduino.ArduinoPackage;
-import fr.obeo.dsl.arduino.Set;
-import fr.obeo.dsl.arduino.Value;
-import fr.obeo.dsl.arduino.Variable;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import fr.obeo.dsl.arduino.ArduinoPackage;
+import fr.obeo.dsl.arduino.Expression;
+import fr.obeo.dsl.arduino.Set;
+import fr.obeo.dsl.arduino.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +53,7 @@ public class SetImpl extends InstructionImpl implements Set {
 	 * @generated
 	 * @ordered
 	 */
-	protected Value value;
+	protected Expression value;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,10 +117,10 @@ public class SetImpl extends InstructionImpl implements Set {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value getValue() {
+	public Expression getValue() {
 		if (value != null && value.eIsProxy()) {
 			InternalEObject oldValue = (InternalEObject)value;
-			value = (Value)eResolveProxy(oldValue);
+			value = (Expression)eResolveProxy(oldValue);
 			if (value != oldValue) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoPackage.SET__VALUE, oldValue, value));
@@ -136,7 +134,7 @@ public class SetImpl extends InstructionImpl implements Set {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value basicGetValue() {
+	public Expression basicGetValue() {
 		return value;
 	}
 
@@ -145,8 +143,8 @@ public class SetImpl extends InstructionImpl implements Set {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Value newValue) {
-		Value oldValue = value;
+	public void setValue(Expression newValue) {
+		Expression oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoPackage.SET__VALUE, oldValue, value));
@@ -182,7 +180,7 @@ public class SetImpl extends InstructionImpl implements Set {
 				setVariable((Variable)newValue);
 				return;
 			case ArduinoPackage.SET__VALUE:
-				setValue((Value)newValue);
+				setValue((Expression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -200,7 +198,7 @@ public class SetImpl extends InstructionImpl implements Set {
 				setVariable((Variable)null);
 				return;
 			case ArduinoPackage.SET__VALUE:
-				setValue((Value)null);
+				setValue((Expression)null);
 				return;
 		}
 		super.eUnset(featureID);

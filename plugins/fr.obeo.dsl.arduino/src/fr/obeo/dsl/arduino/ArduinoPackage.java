@@ -617,22 +617,13 @@ public interface ArduinoPackage extends EPackage {
 	int STATUS__MODULE = MODULE_INSTRUCTION__MODULE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS__VALUE = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATUS__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
+	int STATUS__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Sensor</b></em>' reference.
@@ -641,7 +632,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATUS__SENSOR = MODULE_INSTRUCTION_FEATURE_COUNT + 2;
+	int STATUS__SENSOR = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Status</em>' class.
@@ -650,7 +641,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATUS_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 3;
+	int STATUS_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.LevelImpl <em>Level</em>}' class.
@@ -1176,22 +1167,13 @@ public interface ArduinoPackage extends EPackage {
 	int SENSOR__MODULE = MODULE_INSTRUCTION__MODULE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR__VALUE = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Left</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR__LEFT = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
+	int SENSOR__LEFT = MODULE_INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Right</b></em>' reference.
@@ -1200,7 +1182,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR__RIGHT = MODULE_INSTRUCTION_FEATURE_COUNT + 2;
+	int SENSOR__RIGHT = MODULE_INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -1209,7 +1191,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR__OPERATOR = MODULE_INSTRUCTION_FEATURE_COUNT + 3;
+	int SENSOR__OPERATOR = MODULE_INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference list.
@@ -1218,7 +1200,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 4;
+	int SENSOR__STATUS = MODULE_INSTRUCTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
@@ -1227,7 +1209,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 5;
+	int SENSOR_FEATURE_COUNT = MODULE_INSTRUCTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.WhileImpl <em>While</em>}' class.
@@ -1285,14 +1267,14 @@ public interface ArduinoPackage extends EPackage {
 	int WHILE_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ValueImpl <em>Value</em>}' class.
+	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.ExpressionImpl <em>Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.arduino.impl.ValueImpl
-	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getValue()
+	 * @see fr.obeo.dsl.arduino.impl.ExpressionImpl
+	 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getExpression()
 	 * @generated
 	 */
-	int VALUE = 28;
+	int EXPRESSION = 28;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -1301,7 +1283,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__PREVIOUS = INSTRUCTION__PREVIOUS;
+	int EXPRESSION__PREVIOUS = INSTRUCTION__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -1310,7 +1292,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__NEXT = INSTRUCTION__NEXT;
+	int EXPRESSION__NEXT = INSTRUCTION__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Definition</b></em>' reference.
@@ -1319,25 +1301,16 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__DEFINITION = INSTRUCTION_FEATURE_COUNT + 0;
+	int EXPRESSION__DEFINITION = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__VALUE = INSTRUCTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+	int EXPRESSION_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.MathOperatorImpl <em>Math Operator</em>}' class.
@@ -1356,7 +1329,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATH_OPERATOR__PREVIOUS = VALUE__PREVIOUS;
+	int MATH_OPERATOR__PREVIOUS = EXPRESSION__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -1365,7 +1338,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATH_OPERATOR__NEXT = VALUE__NEXT;
+	int MATH_OPERATOR__NEXT = EXPRESSION__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Definition</b></em>' reference.
@@ -1374,16 +1347,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATH_OPERATOR__DEFINITION = VALUE__DEFINITION;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATH_OPERATOR__VALUE = VALUE__VALUE;
+	int MATH_OPERATOR__DEFINITION = EXPRESSION__DEFINITION;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' reference.
@@ -1392,7 +1356,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATH_OPERATOR__LEFT = VALUE_FEATURE_COUNT + 0;
+	int MATH_OPERATOR__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Right</b></em>' reference.
@@ -1401,7 +1365,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATH_OPERATOR__RIGHT = VALUE_FEATURE_COUNT + 1;
+	int MATH_OPERATOR__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -1410,7 +1374,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATH_OPERATOR__OPERATOR = VALUE_FEATURE_COUNT + 2;
+	int MATH_OPERATOR__OPERATOR = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Math Operator</em>' class.
@@ -1419,7 +1383,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATH_OPERATOR_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
+	int MATH_OPERATOR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.VariableImpl <em>Variable</em>}' class.
@@ -1438,7 +1402,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__PREVIOUS = VALUE__PREVIOUS;
+	int VARIABLE__PREVIOUS = EXPRESSION__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -1447,7 +1411,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__NEXT = VALUE__NEXT;
+	int VARIABLE__NEXT = EXPRESSION__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Definition</b></em>' reference.
@@ -1456,16 +1420,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__DEFINITION = VALUE__DEFINITION;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__VALUE = VALUE__VALUE;
+	int VARIABLE__DEFINITION = EXPRESSION__DEFINITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1474,7 +1429,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__NAME = VALUE_FEATURE_COUNT + 0;
+	int VARIABLE__NAME = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Variable</em>' class.
@@ -1483,7 +1438,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+	int VARIABLE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.SetImpl <em>Set</em>}' class.
@@ -1578,15 +1533,6 @@ public interface ArduinoPackage extends EPackage {
 	int NUMERICAL_OPERATOR__DEFINITION = MATH_OPERATOR__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMERICAL_OPERATOR__VALUE = MATH_OPERATOR__VALUE;
-
-	/**
 	 * The feature id for the '<em><b>Left</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1660,15 +1606,6 @@ public interface ArduinoPackage extends EPackage {
 	int BOOLEAN_OPERATOR__DEFINITION = MATH_OPERATOR__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR__VALUE = MATH_OPERATOR__VALUE;
-
-	/**
 	 * The feature id for the '<em><b>Left</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1721,7 +1658,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT__PREVIOUS = VALUE__PREVIOUS;
+	int CONSTANT__PREVIOUS = EXPRESSION__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -1730,7 +1667,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT__NEXT = VALUE__NEXT;
+	int CONSTANT__NEXT = EXPRESSION__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Definition</b></em>' reference.
@@ -1739,7 +1676,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT__DEFINITION = VALUE__DEFINITION;
+	int CONSTANT__DEFINITION = EXPRESSION__DEFINITION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1748,7 +1685,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT__VALUE = VALUE__VALUE;
+	int CONSTANT__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Constant</em>' class.
@@ -1757,7 +1694,7 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+	int CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.arduino.impl.IfImpl <em>If</em>}' class.
@@ -2787,25 +2724,14 @@ public interface ArduinoPackage extends EPackage {
 	EClass getBooleanOperator();
 
 	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Value <em>Value</em>}'.
+	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Value</em>'.
-	 * @see fr.obeo.dsl.arduino.Value
+	 * @return the meta object for class '<em>Expression</em>'.
+	 * @see fr.obeo.dsl.arduino.Expression
 	 * @generated
 	 */
-	EClass getValue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Value#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see fr.obeo.dsl.arduino.Value#getValue()
-	 * @see #getValue()
-	 * @generated
-	 */
-	EAttribute getValue_Value();
+	EClass getExpression();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.Constant <em>Constant</em>}'.
@@ -2816,6 +2742,17 @@ public interface ArduinoPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConstant();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.arduino.Constant#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see fr.obeo.dsl.arduino.Constant#getValue()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EAttribute getConstant_Value();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.arduino.If <em>If</em>}'.
@@ -3652,22 +3589,14 @@ public interface ArduinoPackage extends EPackage {
 		EClass BOOLEAN_OPERATOR = eINSTANCE.getBooleanOperator();
 
 		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ValueImpl <em>Value</em>}' class.
+		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ExpressionImpl <em>Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.arduino.impl.ValueImpl
-		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getValue()
+		 * @see fr.obeo.dsl.arduino.impl.ExpressionImpl
+		 * @see fr.obeo.dsl.arduino.impl.ArduinoPackageImpl#getExpression()
 		 * @generated
 		 */
-		EClass VALUE = eINSTANCE.getValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE__VALUE = eINSTANCE.getValue_Value();
+		EClass EXPRESSION = eINSTANCE.getExpression();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.ConstantImpl <em>Constant</em>}' class.
@@ -3678,6 +3607,14 @@ public interface ArduinoPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONSTANT = eINSTANCE.getConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT__VALUE = eINSTANCE.getConstant_Value();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.arduino.impl.IfImpl <em>If</em>}' class.
