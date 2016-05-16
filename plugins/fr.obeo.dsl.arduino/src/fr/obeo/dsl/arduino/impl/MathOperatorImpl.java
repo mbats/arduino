@@ -284,7 +284,7 @@ public abstract class MathOperatorImpl extends ValueImpl implements MathOperator
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (operator: ");
+		result.append(" (operator: "); //$NON-NLS-1$
 		result.append(operator);
 		result.append(')');
 		return result.toString();

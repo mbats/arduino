@@ -361,9 +361,9 @@ public class StatusImpl extends ModuleInstructionImpl implements Status {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: ");
+		result.append(" (value: "); //$NON-NLS-1$
 		result.append(value);
-		result.append(", status: ");
+		result.append(", status: "); //$NON-NLS-1$
 		result.append(status);
 		result.append(')');
 		return result.toString();

@@ -33,13 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class InputModuleItemProvider
-	extends ModuleItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ModuleItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -73,7 +67,7 @@ public class InputModuleItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputModule"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputModule")); //$NON-NLS-1$
 	}
 
 	/**
@@ -86,8 +80,8 @@ public class InputModuleItemProvider
 	public String getText(Object object) {
 		String label = ((InputModule)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InputModule_type") :
-			getString("_UI_InputModule_type") + " " + label;
+			getString("_UI_InputModule_type") : //$NON-NLS-1$
+			getString("_UI_InputModule_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

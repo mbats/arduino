@@ -85,8 +85,8 @@ public class ParameterDefinitionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ParameterDefinition_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_type_feature", "_UI_ParameterDefinition_type"),
+				 getString("_UI_ParameterDefinition_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_type_feature", "_UI_ParameterDefinition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.PARAMETER_DEFINITION__TYPE,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class ParameterDefinitionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ParameterDefinition_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_name_feature", "_UI_ParameterDefinition_type"),
+				 getString("_UI_ParameterDefinition_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_name_feature", "_UI_ParameterDefinition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.PARAMETER_DEFINITION__NAME,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class ParameterDefinitionItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterDefinition")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class ParameterDefinitionItemProvider
 	public String getText(Object object) {
 		String label = ((ParameterDefinition)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ParameterDefinition_type") :
-			getString("_UI_ParameterDefinition_type") + " " + label;
+			getString("_UI_ParameterDefinition_type") : //$NON-NLS-1$
+			getString("_UI_ParameterDefinition_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

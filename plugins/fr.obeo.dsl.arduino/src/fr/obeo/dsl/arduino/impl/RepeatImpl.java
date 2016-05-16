@@ -161,7 +161,7 @@ public class RepeatImpl extends ControlImpl implements Repeat {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (iteration: ");
+		result.append(" (iteration: "); //$NON-NLS-1$
 		result.append(iteration);
 		result.append(')');
 		return result.toString();

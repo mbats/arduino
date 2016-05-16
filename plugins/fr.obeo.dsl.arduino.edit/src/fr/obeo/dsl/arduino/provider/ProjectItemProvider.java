@@ -114,7 +114,7 @@ public class ProjectItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Project"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Project")); //$NON-NLS-1$
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class ProjectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Project_type");
+		return getString("_UI_Project_type"); //$NON-NLS-1$
 	}
 
 	/**

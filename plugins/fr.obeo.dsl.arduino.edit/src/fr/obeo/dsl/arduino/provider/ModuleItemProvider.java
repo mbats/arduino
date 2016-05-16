@@ -37,13 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ModuleItemProvider
-	extends NamedElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,8 +78,8 @@ public class ModuleItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Module_kind_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Module_kind_feature", "_UI_Module_type"),
+				 getString("_UI_Module_kind_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Module_kind_feature", "_UI_Module_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.MODULE__KIND,
 				 true,
 				 false,
@@ -106,8 +100,8 @@ public class ModuleItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Module_image_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Module_image_feature", "_UI_Module_type"),
+				 getString("_UI_Module_image_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Module_image_feature", "_UI_Module_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.MODULE__IMAGE,
 				 true,
 				 false,
@@ -128,8 +122,8 @@ public class ModuleItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Module_level_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Module_level_feature", "_UI_Module_type"),
+				 getString("_UI_Module_level_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Module_level_feature", "_UI_Module_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.MODULE__LEVEL,
 				 true,
 				 false,
@@ -150,8 +144,8 @@ public class ModuleItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Module_library_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Module_library_feature", "_UI_Module_type"),
+				 getString("_UI_Module_library_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Module_library_feature", "_UI_Module_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.MODULE__LIBRARY,
 				 true,
 				 false,
@@ -171,8 +165,8 @@ public class ModuleItemProvider
 	public String getText(Object object) {
 		String label = ((Module)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Module_type") :
-			getString("_UI_Module_type") + " " + label;
+			getString("_UI_Module_type") : //$NON-NLS-1$
+			getString("_UI_Module_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

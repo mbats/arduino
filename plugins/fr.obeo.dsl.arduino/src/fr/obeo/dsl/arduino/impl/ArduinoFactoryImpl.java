@@ -91,7 +91,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 			case ArduinoPackage.FUNCTION_CALL: return createFunctionCall();
 			case ArduinoPackage.PARAMETER_CALL: return createParameterCall();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -114,7 +114,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 			case ArduinoPackage.PARAMETER_TYPE:
 				return createParameterTypeFromString(eDataType, initialValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -137,7 +137,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 			case ArduinoPackage.PARAMETER_TYPE:
 				return convertParameterTypeToString(eDataType, instanceValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -398,7 +398,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 */
 	public Time createTimeFromString(EDataType eDataType, String initialValue) {
 		Time result = Time.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -418,7 +418,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 */
 	public ModuleKind createModuleKindFromString(EDataType eDataType, String initialValue) {
 		ModuleKind result = ModuleKind.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -438,7 +438,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 */
 	public OperatorKind createOperatorKindFromString(EDataType eDataType, String initialValue) {
 		OperatorKind result = OperatorKind.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -458,7 +458,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 */
 	public Library createLibraryFromString(EDataType eDataType, String initialValue) {
 		Library result = Library.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -478,7 +478,7 @@ public class ArduinoFactoryImpl extends EFactoryImpl implements ArduinoFactory {
 	 */
 	public ParameterType createParameterTypeFromString(EDataType eDataType, String initialValue) {
 		ParameterType result = ParameterType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 

@@ -39,13 +39,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class HardwareItemProvider
-	extends NamedElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,8 +78,8 @@ public class HardwareItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Hardware_platforms_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Hardware_platforms_feature", "_UI_Hardware_type"),
+				 getString("_UI_Hardware_platforms_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Hardware_platforms_feature", "_UI_Hardware_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.HARDWARE__PLATFORMS,
 				 true,
 				 false,
@@ -106,8 +100,8 @@ public class HardwareItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Hardware_modules_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Hardware_modules_feature", "_UI_Hardware_type"),
+				 getString("_UI_Hardware_modules_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Hardware_modules_feature", "_UI_Hardware_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.HARDWARE__MODULES,
 				 true,
 				 false,
@@ -155,7 +149,7 @@ public class HardwareItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Hardware"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Hardware")); //$NON-NLS-1$
 	}
 
 	/**
@@ -168,8 +162,8 @@ public class HardwareItemProvider
 	public String getText(Object object) {
 		String label = ((Hardware)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Hardware_type") :
-			getString("_UI_Hardware_type") + " " + label;
+			getString("_UI_Hardware_type") : //$NON-NLS-1$
+			getString("_UI_Hardware_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -31,13 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class IOItemProvider
-	extends InstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends InstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -71,7 +65,7 @@ public class IOItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_IO_type");
+		return getString("_UI_IO_type"); //$NON-NLS-1$
 	}
 
 	/**

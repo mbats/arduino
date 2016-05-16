@@ -37,13 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class RepeatItemProvider
-	extends ControlItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ControlItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -81,8 +75,8 @@ public class RepeatItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Repeat_iteration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Repeat_iteration_feature", "_UI_Repeat_type"),
+				 getString("_UI_Repeat_iteration_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Repeat_iteration_feature", "_UI_Repeat_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.REPEAT__ITERATION,
 				 true,
 				 false,
@@ -100,7 +94,7 @@ public class RepeatItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Repeat"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Repeat")); //$NON-NLS-1$
 	}
 
 	/**
@@ -112,7 +106,7 @@ public class RepeatItemProvider
 	@Override
 	public String getText(Object object) {
 		Repeat repeat = (Repeat)object;
-		return getString("_UI_Repeat_type") + " " + repeat.getIteration();
+		return getString("_UI_Repeat_type") + " " + repeat.getIteration(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

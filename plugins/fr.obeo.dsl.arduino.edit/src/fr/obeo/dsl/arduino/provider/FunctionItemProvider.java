@@ -87,8 +87,8 @@ public class FunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Function_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Function_name_feature", "_UI_Function_type"),
+				 getString("_UI_Function_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Function_name_feature", "_UI_Function_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.FUNCTION__NAME,
 				 true,
 				 false,
@@ -137,7 +137,7 @@ public class FunctionItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Function"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Function")); //$NON-NLS-1$
 	}
 
 	/**
@@ -150,8 +150,8 @@ public class FunctionItemProvider
 	public String getText(Object object) {
 		String label = ((Function)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Function_type") :
-			getString("_UI_Function_type") + " " + label;
+			getString("_UI_Function_type") : //$NON-NLS-1$
+			getString("_UI_Function_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

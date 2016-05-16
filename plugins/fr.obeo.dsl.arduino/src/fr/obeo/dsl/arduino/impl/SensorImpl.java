@@ -469,9 +469,9 @@ public class SensorImpl extends ModuleInstructionImpl implements Sensor {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: ");
+		result.append(" (value: "); //$NON-NLS-1$
 		result.append(value);
-		result.append(", operator: ");
+		result.append(", operator: "); //$NON-NLS-1$
 		result.append(operator);
 		result.append(')');
 		return result.toString();

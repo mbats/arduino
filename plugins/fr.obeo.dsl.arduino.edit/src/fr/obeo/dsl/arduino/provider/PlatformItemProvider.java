@@ -40,13 +40,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class PlatformItemProvider
-	extends NamedElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,8 +78,8 @@ public class PlatformItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Platform_image_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Platform_image_feature", "_UI_Platform_type"),
+				 getString("_UI_Platform_image_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Platform_image_feature", "_UI_Platform_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.PLATFORM__IMAGE,
 				 true,
 				 false,
@@ -134,7 +128,7 @@ public class PlatformItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Platform"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Platform")); //$NON-NLS-1$
 	}
 
 	/**
@@ -147,8 +141,8 @@ public class PlatformItemProvider
 	public String getText(Object object) {
 		String label = ((Platform)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Platform_type") :
-			getString("_UI_Platform_type") + " " + label;
+			getString("_UI_Platform_type") : //$NON-NLS-1$
+			getString("_UI_Platform_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

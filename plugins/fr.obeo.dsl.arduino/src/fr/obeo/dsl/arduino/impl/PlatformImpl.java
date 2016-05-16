@@ -257,7 +257,7 @@ public class PlatformImpl extends NamedElementImpl implements Platform {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (image: ");
+		result.append(" (image: "); //$NON-NLS-1$
 		result.append(image);
 		result.append(')');
 		return result.toString();

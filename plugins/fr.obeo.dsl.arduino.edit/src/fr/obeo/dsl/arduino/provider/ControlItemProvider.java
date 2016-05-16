@@ -38,13 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ControlItemProvider
-	extends InstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends InstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -108,7 +102,7 @@ public class ControlItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Control_type");
+		return getString("_UI_Control_type"); //$NON-NLS-1$
 	}
 
 	/**

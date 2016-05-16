@@ -84,8 +84,8 @@ public class PinItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pin_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pin_id_feature", "_UI_Pin_type"),
+				 getString("_UI_Pin_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pin_id_feature", "_UI_Pin_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.PIN__ID,
 				 true,
 				 false,
@@ -104,7 +104,7 @@ public class PinItemProvider
 	@Override
 	public String getText(Object object) {
 		Pin pin = (Pin)object;
-		return getString("_UI_Pin_type") + " " + pin.getId();
+		return getString("_UI_Pin_type") + " " + pin.getId(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

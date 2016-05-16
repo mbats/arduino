@@ -38,13 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DelayItemProvider
-	extends UtilitiesItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends UtilitiesItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -83,8 +77,8 @@ public class DelayItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Delay_unit_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Delay_unit_feature", "_UI_Delay_type"),
+				 getString("_UI_Delay_unit_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delay_unit_feature", "_UI_Delay_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.DELAY__UNIT,
 				 true,
 				 false,
@@ -105,8 +99,8 @@ public class DelayItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Delay_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Delay_value_feature", "_UI_Delay_type"),
+				 getString("_UI_Delay_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delay_value_feature", "_UI_Delay_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.DELAY__VALUE,
 				 true,
 				 false,
@@ -124,7 +118,7 @@ public class DelayItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Delay"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Delay")); //$NON-NLS-1$
 	}
 
 	/**
@@ -138,8 +132,8 @@ public class DelayItemProvider
 		Time labelValue = ((Delay)object).getUnit();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Delay_type") :
-			getString("_UI_Delay_type") + " " + label;
+			getString("_UI_Delay_type") : //$NON-NLS-1$
+			getString("_UI_Delay_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

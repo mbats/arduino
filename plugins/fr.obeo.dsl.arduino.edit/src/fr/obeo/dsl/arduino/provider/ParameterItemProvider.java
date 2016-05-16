@@ -81,8 +81,8 @@ public class ParameterItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_definition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_definition_feature", "_UI_Parameter_type"),
+				 getString("_UI_Parameter_definition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_definition_feature", "_UI_Parameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.PARAMETER__DEFINITION,
 				 true,
 				 false,
@@ -100,7 +100,7 @@ public class ParameterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Parameter_type");
+		return getString("_UI_Parameter_type"); //$NON-NLS-1$
 	}
 
 	/**

@@ -33,13 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class BooleanOperatorItemProvider
-	extends MathOperatorItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends MathOperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -73,7 +67,7 @@ public class BooleanOperatorItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BooleanOperator"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BooleanOperator")); //$NON-NLS-1$
 	}
 
 	/**
@@ -86,8 +80,8 @@ public class BooleanOperatorItemProvider
 	public String getText(Object object) {
 		String label = ((BooleanOperator)object).getValue();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BooleanOperator_type") :
-			getString("_UI_BooleanOperator_type") + " " + label;
+			getString("_UI_BooleanOperator_type") : //$NON-NLS-1$
+			getString("_UI_BooleanOperator_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

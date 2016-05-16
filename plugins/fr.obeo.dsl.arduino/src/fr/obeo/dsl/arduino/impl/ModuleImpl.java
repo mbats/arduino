@@ -319,13 +319,13 @@ public abstract class ModuleImpl extends NamedElementImpl implements Module {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (kind: ");
+		result.append(" (kind: "); //$NON-NLS-1$
 		result.append(kind);
-		result.append(", image: ");
+		result.append(", image: "); //$NON-NLS-1$
 		result.append(image);
-		result.append(", level: ");
+		result.append(", level: "); //$NON-NLS-1$
 		result.append(level);
-		result.append(", library: ");
+		result.append(", library: "); //$NON-NLS-1$
 		result.append(library);
 		result.append(')');
 		return result.toString();
