@@ -82,8 +82,8 @@ public class InstructionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Instruction_previous_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_previous_feature", "_UI_Instruction_type"),
+				 getString("_UI_Instruction_previous_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_previous_feature", "_UI_Instruction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.INSTRUCTION__PREVIOUS,
 				 true,
 				 false,
@@ -104,8 +104,8 @@ public class InstructionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Instruction_next_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_next_feature", "_UI_Instruction_type"),
+				 getString("_UI_Instruction_next_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_next_feature", "_UI_Instruction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.INSTRUCTION__NEXT,
 				 true,
 				 false,
@@ -123,7 +123,7 @@ public class InstructionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Instruction_type");
+		return getString("_UI_Instruction_type"); //$NON-NLS-1$
 	}
 
 	/**

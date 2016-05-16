@@ -33,13 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class DigitalPinItemProvider
-	extends PinItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends PinItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -73,7 +67,7 @@ public class DigitalPinItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DigitalPin"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DigitalPin")); //$NON-NLS-1$
 	}
 
 	/**
@@ -85,7 +79,7 @@ public class DigitalPinItemProvider
 	@Override
 	public String getText(Object object) {
 		DigitalPin digitalPin = (DigitalPin)object;
-		return getString("_UI_DigitalPin_type") + " " + digitalPin.getId();
+		return getString("_UI_DigitalPin_type") + " " + digitalPin.getId(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

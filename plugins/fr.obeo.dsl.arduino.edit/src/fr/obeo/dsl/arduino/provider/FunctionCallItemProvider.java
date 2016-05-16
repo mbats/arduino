@@ -34,13 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class FunctionCallItemProvider
-	extends InstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends InstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,8 +73,8 @@ public class FunctionCallItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FunctionCall_definition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionCall_definition_feature", "_UI_FunctionCall_type"),
+				 getString("_UI_FunctionCall_definition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionCall_definition_feature", "_UI_FunctionCall_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.FUNCTION_CALL__DEFINITION,
 				 true,
 				 false,
@@ -101,8 +95,8 @@ public class FunctionCallItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FunctionCall_parameters_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionCall_parameters_feature", "_UI_FunctionCall_type"),
+				 getString("_UI_FunctionCall_parameters_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionCall_parameters_feature", "_UI_FunctionCall_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.FUNCTION_CALL__PARAMETERS,
 				 true,
 				 false,
@@ -120,7 +114,7 @@ public class FunctionCallItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/FunctionCall"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FunctionCall")); //$NON-NLS-1$
 	}
 
 	/**
@@ -131,7 +125,7 @@ public class FunctionCallItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_FunctionCall_type");
+		return getString("_UI_FunctionCall_type"); //$NON-NLS-1$
 	}
 
 	/**

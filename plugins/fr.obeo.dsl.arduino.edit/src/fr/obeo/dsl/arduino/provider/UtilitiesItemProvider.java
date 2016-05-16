@@ -34,13 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class UtilitiesItemProvider
-	extends InstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends InstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -78,8 +72,8 @@ public class UtilitiesItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_definition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_definition_feature", "_UI_Parameter_type"),
+				 getString("_UI_Parameter_definition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_definition_feature", "_UI_Parameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.PARAMETER__DEFINITION,
 				 true,
 				 false,
@@ -97,7 +91,7 @@ public class UtilitiesItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Utilities_type");
+		return getString("_UI_Utilities_type"); //$NON-NLS-1$
 	}
 
 	/**

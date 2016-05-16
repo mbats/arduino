@@ -34,13 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class LevelItemProvider
-	extends ModuleInstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ModuleInstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -78,8 +72,8 @@ public class LevelItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Level_level_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Level_level_feature", "_UI_Level_type"),
+				 getString("_UI_Level_level_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Level_level_feature", "_UI_Level_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.LEVEL__LEVEL,
 				 true,
 				 false,
@@ -97,7 +91,7 @@ public class LevelItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Level"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Level")); //$NON-NLS-1$
 	}
 
 	/**
@@ -108,7 +102,7 @@ public class LevelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Level_type");
+		return getString("_UI_Level_type"); //$NON-NLS-1$
 	}
 
 	/**

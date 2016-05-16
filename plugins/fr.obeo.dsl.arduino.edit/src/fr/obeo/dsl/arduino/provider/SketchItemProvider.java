@@ -39,13 +39,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class SketchItemProvider
-	extends NamedElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -85,8 +79,8 @@ public class SketchItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Instruction_previous_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_previous_feature", "_UI_Instruction_type"),
+				 getString("_UI_Instruction_previous_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_previous_feature", "_UI_Instruction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.INSTRUCTION__PREVIOUS,
 				 true,
 				 false,
@@ -107,8 +101,8 @@ public class SketchItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Instruction_next_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_next_feature", "_UI_Instruction_type"),
+				 getString("_UI_Instruction_next_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Instruction_next_feature", "_UI_Instruction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.INSTRUCTION__NEXT,
 				 true,
 				 false,
@@ -129,8 +123,8 @@ public class SketchItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sketch_hardware_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sketch_hardware_feature", "_UI_Sketch_type"),
+				 getString("_UI_Sketch_hardware_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sketch_hardware_feature", "_UI_Sketch_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.SKETCH__HARDWARE,
 				 true,
 				 false,
@@ -179,7 +173,7 @@ public class SketchItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Sketch"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Sketch")); //$NON-NLS-1$
 	}
 
 	/**
@@ -192,8 +186,8 @@ public class SketchItemProvider
 	public String getText(Object object) {
 		String label = ((Sketch)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Sketch_type") :
-			getString("_UI_Sketch_type") + " " + label;
+			getString("_UI_Sketch_type") : //$NON-NLS-1$
+			getString("_UI_Sketch_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

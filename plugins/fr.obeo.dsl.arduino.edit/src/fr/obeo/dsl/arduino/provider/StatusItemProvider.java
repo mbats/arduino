@@ -37,13 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class StatusItemProvider
-	extends ModuleInstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ModuleInstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -83,8 +77,8 @@ public class StatusItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Value_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Value_value_feature", "_UI_Value_type"),
+				 getString("_UI_Value_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Value_value_feature", "_UI_Value_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.VALUE__VALUE,
 				 true,
 				 false,
@@ -105,8 +99,8 @@ public class StatusItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Status_status_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Status_status_feature", "_UI_Status_type"),
+				 getString("_UI_Status_status_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Status_status_feature", "_UI_Status_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.STATUS__STATUS,
 				 true,
 				 false,
@@ -127,8 +121,8 @@ public class StatusItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Status_sensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Status_sensor_feature", "_UI_Status_type"),
+				 getString("_UI_Status_sensor_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Status_sensor_feature", "_UI_Status_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.STATUS__SENSOR,
 				 true,
 				 false,
@@ -146,7 +140,7 @@ public class StatusItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Status"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Status")); //$NON-NLS-1$
 	}
 
 	/**
@@ -159,8 +153,8 @@ public class StatusItemProvider
 	public String getText(Object object) {
 		String label = ((Status)object).getValue();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Status_type") :
-			getString("_UI_Status_type") + " " + label;
+			getString("_UI_Status_type") : //$NON-NLS-1$
+			getString("_UI_Status_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

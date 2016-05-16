@@ -84,8 +84,8 @@ public class NamedElementItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NamedElement_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 getString("_UI_NamedElement_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class NamedElementItemProvider
 	public String getText(Object object) {
 		String label = ((NamedElement)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NamedElement_type") :
-			getString("_UI_NamedElement_type") + " " + label;
+			getString("_UI_NamedElement_type") : //$NON-NLS-1$
+			getString("_UI_NamedElement_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -37,13 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class SensorItemProvider
-	extends ModuleInstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ModuleInstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -85,8 +79,8 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Value_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Value_value_feature", "_UI_Value_type"),
+				 getString("_UI_Value_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Value_value_feature", "_UI_Value_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.VALUE__VALUE,
 				 true,
 				 false,
@@ -107,8 +101,8 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MathOperator_left_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MathOperator_left_feature", "_UI_MathOperator_type"),
+				 getString("_UI_MathOperator_left_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_MathOperator_left_feature", "_UI_MathOperator_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.MATH_OPERATOR__LEFT,
 				 true,
 				 false,
@@ -129,8 +123,8 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MathOperator_right_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MathOperator_right_feature", "_UI_MathOperator_type"),
+				 getString("_UI_MathOperator_right_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_MathOperator_right_feature", "_UI_MathOperator_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.MATH_OPERATOR__RIGHT,
 				 true,
 				 false,
@@ -151,8 +145,8 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MathOperator_operator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MathOperator_operator_feature", "_UI_MathOperator_type"),
+				 getString("_UI_MathOperator_operator_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_MathOperator_operator_feature", "_UI_MathOperator_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.MATH_OPERATOR__OPERATOR,
 				 true,
 				 false,
@@ -173,8 +167,8 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sensor_status_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_status_feature", "_UI_Sensor_type"),
+				 getString("_UI_Sensor_status_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_status_feature", "_UI_Sensor_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.SENSOR__STATUS,
 				 true,
 				 false,
@@ -192,7 +186,7 @@ public class SensorItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Sensor"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Sensor")); //$NON-NLS-1$
 	}
 
 	/**
@@ -205,8 +199,8 @@ public class SensorItemProvider
 	public String getText(Object object) {
 		String label = ((Sensor)object).getValue();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Sensor_type") :
-			getString("_UI_Sensor_type") + " " + label;
+			getString("_UI_Sensor_type") : //$NON-NLS-1$
+			getString("_UI_Sensor_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

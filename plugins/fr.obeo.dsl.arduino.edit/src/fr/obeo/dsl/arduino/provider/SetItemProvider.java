@@ -34,13 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class SetItemProvider
-	extends InstructionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends InstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,8 +73,8 @@ public class SetItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Set_variable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Set_variable_feature", "_UI_Set_type"),
+				 getString("_UI_Set_variable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Set_variable_feature", "_UI_Set_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.SET__VARIABLE,
 				 true,
 				 false,
@@ -101,8 +95,8 @@ public class SetItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Set_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Set_value_feature", "_UI_Set_type"),
+				 getString("_UI_Set_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Set_value_feature", "_UI_Set_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.SET__VALUE,
 				 true,
 				 false,
@@ -120,7 +114,7 @@ public class SetItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Set"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Set")); //$NON-NLS-1$
 	}
 
 	/**
@@ -131,7 +125,7 @@ public class SetItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Set_type");
+		return getString("_UI_Set_type"); //$NON-NLS-1$
 	}
 
 	/**

@@ -33,13 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class AnalogPinItemProvider
-	extends PinItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends PinItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -73,7 +67,7 @@ public class AnalogPinItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnalogPin"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnalogPin")); //$NON-NLS-1$
 	}
 
 	/**
@@ -85,7 +79,7 @@ public class AnalogPinItemProvider
 	@Override
 	public String getText(Object object) {
 		AnalogPin analogPin = (AnalogPin)object;
-		return getString("_UI_AnalogPin_type") + " " + analogPin.getId();
+		return getString("_UI_AnalogPin_type") + " " + analogPin.getId(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -33,13 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class ConstantItemProvider
-	extends ValueItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -73,7 +67,7 @@ public class ConstantItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Constant"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Constant")); //$NON-NLS-1$
 	}
 
 	/**
@@ -86,8 +80,8 @@ public class ConstantItemProvider
 	public String getText(Object object) {
 		String label = ((Constant)object).getValue();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Constant_type") :
-			getString("_UI_Constant_type") + " " + label;
+			getString("_UI_Constant_type") : //$NON-NLS-1$
+			getString("_UI_Constant_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

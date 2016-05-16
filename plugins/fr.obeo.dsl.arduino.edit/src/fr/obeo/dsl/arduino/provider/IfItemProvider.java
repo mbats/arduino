@@ -34,13 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class IfItemProvider
-	extends ControlItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ControlItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -78,8 +72,8 @@ public class IfItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_If_condition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_If_condition_feature", "_UI_If_type"),
+				 getString("_UI_If_condition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_If_condition_feature", "_UI_If_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArduinoPackage.Literals.IF__CONDITION,
 				 true,
 				 false,
@@ -97,7 +91,7 @@ public class IfItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/If"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/If")); //$NON-NLS-1$
 	}
 
 	/**
@@ -108,7 +102,7 @@ public class IfItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_If_type");
+		return getString("_UI_If_type"); //$NON-NLS-1$
 	}
 
 	/**
