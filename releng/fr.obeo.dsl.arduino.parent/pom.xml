@@ -48,6 +48,9 @@ Contributors:
 
     <!-- Build products -->
     <module>${root-path}/packaging/fr.obeo.dsl.arduino.product</module>
+
+     <!-- Build target -->
+    <module>${root-path}/releng/fr.obeo.dsl.arduino.tp</module>
   </modules>
 </project>
 
