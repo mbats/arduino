@@ -1,6 +1,6 @@
 language: java
 script: mvn clean package
-jdk: oraclejdk7
+jdk: oraclejdk11
 deploy:
   provider: releases
   api_key:
