@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: fr.obeo.dsl.arduino.provider.ArduinoEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: fr.obeo.dsl.arduino.provider
 Require-Bundle: org.eclipse.core.runtime,
  fr.obeo.dsl.arduino;visibility:=reexport,

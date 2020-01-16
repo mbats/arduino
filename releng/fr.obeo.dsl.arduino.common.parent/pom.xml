@@ -38,15 +38,15 @@ Contributors:
   </licenses>
 
   <properties>
-    <tycho-version>0.19.0</tycho-version>
+    <tycho-version>1.5.1</tycho-version>
     <root-path>../..</root-path>
-    <platform-version-name>luna</platform-version-name>
+    <platform-version-name>201912</platform-version-name>
   </properties>
   
   <pluginRepositories>
      <pluginRepository>
        <id>codehaus.snapshots</id>
-       <url>http://snapshots.repository.codehaus.org/</url>
+       <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
      </pluginRepository>
      <pluginRepository>
        <id>Eclipse - Acceleo Snapshots</id>
@@ -72,18 +72,8 @@ Contributors:
         <artifactId>target-platform-configuration</artifactId>
         <version>${tycho-version}</version>
         <configuration>
-          <resolver>p2</resolver>
+          <extensions>false</extensions>
           <environments>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>win32</os>
-              <ws>win32</ws>
-              <arch>x86</arch>
-            </environment>
             <environment>
               <os>win32</os>
               <ws>win32</ws>
@@ -102,12 +92,19 @@ Contributors:
           </environments>
           <target>
             <artifact>
+              <groupId>fr.obeo.dsl.arduino</groupId>
+              <artifactId>fr.obeo.dsl.arduino.tp</artifactId>
+              <version>1.0.0-SNAPSHOT</version>
+            </artifact>
+          </target>
+          <!--<target>
+            <artifact>
               <groupId>${project.groupId}</groupId>
               <artifactId>${project.artifactId}</artifactId>
               <version>${project.version}</version>
               <classifier>${root-path}/releng/fr.obeo.dsl.arduino.target/arduinodesigner-${platform-version-name}</classifier>
             </artifact>
-          </target>
+          </target>-->
         </configuration>
       </plugin>
     </plugins>
@@ -150,11 +147,11 @@ Contributors:
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
-          <version>2.5</version>
+          <version>3.12.0</version>
           <configuration>
             <sourceEncoding>utf-8</sourceEncoding>
             <minimumTokens>100</minimumTokens>
-            <targetJdk>1.5</targetJdk>
+            <targetJdk>1.11</targetJdk>
             <format>xml</format>
             <failOnViolation>false</failOnViolation>
           </configuration>
@@ -167,7 +164,7 @@ Contributors:
         <plugin>
          <groupId>org.eclipse.acceleo</groupId>
         <artifactId>org.eclipse.acceleo.maven</artifactId>
-        <version>3.5.0-SNAPSHOT</version>
+        <version>3.6.4</version>
          <executions>
            <execution>
              <id>acceleo-compile</id>
@@ -193,7 +190,7 @@ Contributors:
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
-            <version>2.2</version>
+            <version>3.1.0</version>
             <executions>
               <execution>
                 <id>check my sources</id>
@@ -241,7 +238,7 @@ Contributors:
           <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.5.6.201201232323</version>
+            <version>0.8.5</version>
             <executions>
               <execution>
                 <goals>
