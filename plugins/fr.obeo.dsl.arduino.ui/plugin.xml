@@ -69,7 +69,7 @@
             category="fr.obeo.dsl.arduino.category"
             class="fr.obeo.dsl.arduino.wizard.ArduinoProjectWizard"
             finalPerspective="fr.obeo.dsl.arduino.perspective"
-            icon="icons/project.png"
+            icon="icons/32x32/project.png"
             id="fr.obeo.dsl.arduino.wizard"
             name="Arduino Project"
             preferredPerspectives="fr.obeo.dsl.arduino.perspective"
@@ -108,7 +108,7 @@
       <perspective
             class="fr.obeo.dsl.arduino.perspective.ArduinoPerspectiveFactory"
             fixed="true"
-            icon="icons/project.png"
+            icon="icons/32x32/project.png"
             id="fr.obeo.dsl.arduino.perspective"
             name="Arduino">
          <description>
@@ -208,7 +208,7 @@
          point="org.eclipse.ui.views">
       <view
             class="fr.obeo.dsl.arduino.views.DashboardView"
-            icon="icons/project.png"
+            icon="icons/32x32/project.png"
             id="fr.obeo.dsl.arduino.ui.dashboard"
             name="Dashboard"
             restorable="true">

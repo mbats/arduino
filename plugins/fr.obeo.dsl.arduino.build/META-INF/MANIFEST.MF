@@ -7,6 +7,7 @@ Bundle-Activator: fr.obeo.dsl.arduino.build.ArduinoBuilderActivator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  com.google.guava
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.obeo.dsl.arduino.build
+Automatic-Module-Name: fr.obeo.dsl.arduino.build

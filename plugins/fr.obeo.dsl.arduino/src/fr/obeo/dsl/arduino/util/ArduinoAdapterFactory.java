@@ -11,6 +11,7 @@
 package fr.obeo.dsl.arduino.util;
 
 import fr.obeo.dsl.arduino.*;
+import fr.obeo.dsl.arduino.Module;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
