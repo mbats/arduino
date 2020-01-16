@@ -1,0 +1,70 @@
+target "ArduinoDesigner-201912"
+
+with source, requirements
+
+// Eclipse release
+location "http://download.eclipse.org/releases/2019-12/" {
+	org.eclipse.platform.sdk lazy
+	org.eclipse.epp.mpc.feature.group lazy
+	org.eclipse.emf.mapping.ecore.feature.group lazy
+	org.eclipse.emf.edit.feature.group lazy
+	org.eclipse.ui lazy
+	org.eclipse.ui.browser lazy
+	org.eclipse.ui.intro.universal lazy
+	org.eclipse.ui.workbench lazy
+	org.eclipse.ui.ide lazy
+	org.eclipse.ui.views lazy
+	org.eclipse.equinox.common lazy
+	org.eclipse.equinox.app lazy
+	org.eclipse.equinox.compendium.sdk.feature.group lazy
+	org.eclipse.equinox.core.feature.feature.group lazy
+	org.eclipse.equinox.ds lazy
+	org.eclipse.equinox.executable.feature.group lazy
+	org.eclipse.equinox.launcher lazy
+	org.eclipse.equinox.p2.core.feature.feature.group lazy
+	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
+	org.eclipse.equinox.p2.extras.feature.feature.group lazy
+	org.eclipse.equinox.p2.rcp.feature.feature.group lazy
+	org.eclipse.equinox.p2.user.ui.feature.group lazy
+    org.eclipse.equinox.p2.rcp.feature.source.feature.group lazy
+    org.eclipse.equinox.p2.extras.feature.source.feature.group lazy
+    org.eclipse.equinox.p2.ui lazy
+	org.eclipse.equinox.sdk.feature.group lazy
+	org.eclipse.equinox.server.core.feature.group lazy
+	org.eclipse.equinox.server.jetty.feature.group lazy
+	org.eclipse.equinox.server.p2.feature.group lazy
+	org.eclipse.equinox.serverside.sdk.feature.group lazy
+	org.eclipse.equinox.simpleconfigurator lazy
+	org.apache.batik.css lazy
+}
+
+location "https://download.eclipse.org/modeling/amalgam/updates/releases/1.7.0/" {
+	org.eclipse.amalgam.discovery.feature.group lazy
+}
+
+// Orbit
+location "https://download.eclipse.org/tools/orbit/downloads/drops/R20191126223242/repository" {
+	com.google.guava lazy
+	org.hamcrest.core lazy
+	org.hamcrest.library lazy
+	org.apache.log4j lazy
+}
+
+// Acceleo 3.7.9
+location "https://download.eclipse.org/acceleo/updates/releases/3.7/R201911060712" {
+	org.eclipse.acceleo.feature.group lazy
+	org.eclipse.acceleo.runtime.feature.group lazy
+}
+
+// Sirius
+location "https://download.eclipse.org/sirius/updates/releases/6.3.0/2019-06/" {
+	//runtime
+	org.eclipse.sirius.runtime.feature.group lazy
+	org.eclipse.sirius.runtime.acceleo.feature.group lazy
+	//IDE
+	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
+	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
+}

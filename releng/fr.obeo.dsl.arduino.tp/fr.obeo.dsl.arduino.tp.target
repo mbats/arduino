@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
+<target name="ArduinoDesigner-201912" sequenceNumber="1579164951">
+  <locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.platform.sdk" version="0.0.0"/>
+      <unit id="org.eclipse.epp.mpc.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.mapping.ecore.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.edit.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.ui" version="0.0.0"/>
+      <unit id="org.eclipse.ui.browser" version="0.0.0"/>
+      <unit id="org.eclipse.ui.intro.universal" version="0.0.0"/>
+      <unit id="org.eclipse.ui.workbench" version="0.0.0"/>
+      <unit id="org.eclipse.ui.ide" version="0.0.0"/>
+      <unit id="org.eclipse.ui.views" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.common" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.app" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.compendium.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.core.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.ds" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.launcher" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.core.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.discovery.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.extras.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.rcp.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.user.ui.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.rcp.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.extras.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.ui" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.server.core.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.server.jetty.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.server.p2.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.serverside.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.simpleconfigurator" version="0.0.0"/>
+      <unit id="org.apache.batik.css" version="0.0.0"/>
+      <unit id="org.eclipse.swt" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/releases/2019-12/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.amalgam.discovery.feature.group" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/modeling/amalgam/updates/releases/1.7.0/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="com.google.guava" version="0.0.0"/>
+      <unit id="org.hamcrest.core" version="0.0.0"/>
+      <unit id="org.hamcrest.library" version="0.0.0"/>
+      <unit id="org.apache.log4j" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20191126223242/repository"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.acceleo.runtime.feature.group" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/acceleo/updates/releases/3.7/R201911060712"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.sirius.runtime.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/sirius/updates/releases/6.3.0/2019-06/"/>
+    </location>
+  </locations>
+</target>

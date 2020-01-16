@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>fr.obeo.dsl.arduino</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../../releng/fr.obeo.dsl.arduino.parent</relativePath>
+  </parent>
+  <groupId>fr.obeo.dsl.arduino</groupId>
+  <artifactId>fr.obeo.dsl.arduino.tp</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>eclipse-target-definition</packaging>
+
+  <!--<profiles>
+      <profile>
+        <id>create-target</id>
+        <build>
+          <plugins>
+            <plugin>
+              <artifactId>maven-clean-plugin</artifactId>
+            </plugin>
+            <plugin>
+              <groupId>org.eclipse.tycho</groupId>
+              <artifactId>tycho-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+              <groupId>org.eclipse.tycho.extras</groupId>
+              <artifactId>tycho-eclipserun-plugin</artifactId>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-antrun-plugin</artifactId>
+            </plugin>
+          </plugins>
+        </build>
+      </profile>
+  </profiles>-->
+</project>
